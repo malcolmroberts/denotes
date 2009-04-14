@@ -1,0 +1,63 @@
+\textheight 8.5in
+\textwidth 6in
+
+\topmargin 0in
+\oddsidemargin 0in
+\evensidemargin 0in
+
+\usepackage{amsthm}
+
+\def\th@plain{%
+  \thm@headpunct{\rm :}
+  \itshape % body font
+  \hangindent=12pt
+}
+
+\def\th@definition{%
+  \thm@headpunct{\rm :}
+  \normalfont % body font
+  \hangindent=12pt
+  \parskip=5pt
+}
+
+\def\th@example{%
+  \thm@headpunct{}
+  \normalfont % body font
+  \hangindent=12pt
+}
+
+\def\th@remark{%
+  \thm@headfont{\itshape}%
+  \thm@headpunct{\rm :}
+  \normalfont % body font
+  \thm@preskip\topsep \divide\thm@preskip\tw@
+  \thm@postskip\thm@preskip
+  \hangindent=12pt
+}
+
+\ifx\chapter\undefined
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+%\newtheorem{case}{Case}
+\else
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[chapter]
+\fi
+
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{example}
+\newtheorem*{example}{$\bullet$}
+
+\usepackage{mathdef}
+
+

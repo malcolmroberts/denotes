@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, mathrsfs}
+
+\addtolength{\topmargin}{-1in}
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{1.75in}
+
+\newcommand{\Laplace}{\mathscr{L}}
+
+% \pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\Large MATH 201 ET4/ST4\ \ Quiz Solutions}
+\end{center}
+
+\indent References are to Nagle, Saff, and Snider, \emph{Fundamentals of Differential Equations}, 7e. \linebreak
+``(\S x.y)" in front of a problem indicates that the problem is from or based on the material of \linebreak Section x.y.
+Please send me an email at mazowita@math.ualberta.ca if you have any problems with the solutions. 
+Good luck on the exam!
+~\\
+\begin{center}
+{\Large Quiz 1, January 25}
+\end{center}
+
+(\S 2.2/2.3) \textbf{1. Solve the initial value problem}
+$$(x^2 + 1) \frac{dy}{dx} + 4xy = 4x$$ 
+$$y(0) = 0\ \textbf{or}\ 1\ \textbf{(choose one, and circle your choice).}$$
+~\\
+\emph{Solution}:
+Rewrite this equation as
+$$\frac{dy}{dx} + \frac{4x}{x^2+1}y = \frac{4x}{x^2+1}$$
+which is linear with $P(x) = \frac{4x}{x^2+1}$, so let
+$$\mu(x) = \exp \left(\int P(x)dx \right) = \exp \left( \int \frac{4x}{x^2+1} dx \right) = \exp(2 \ln (x^2+1)) = \exp(\ln (x^2+1)^2) = (x^2+1)^2.$$
+(Note that we can omit the absolute value bars around $x^2+1$ since it is always positive.) \\
+Then multiplying through by $\mu(x)$ we obtain
+$$\begin{aligned}
+(x+1)^2 \frac{dy}{dx} + 4x(x^2+1)y &= 4x(x^2+1) \\
+\frac{d}{dx} \left( (x^2+1)y \right) &= 4x^3+4x. \\
+\end{aligned}$$
+Integrating yields
+$$\begin{aligned}
+(x^2+1)^2 y &= x^4 + 2x^2 + C \\
+y &= \frac{x^4 + 2x^2 + C}{(x^2+1)^2}.
+\end{aligned}$$
+Solving the IVP $y(0) = 1$ gives $C = 1$, then the solution is
+$$y = \frac{x^4 + 2x^2 + 1}{(x^2+1)^2} = \frac{(x^2+1)^2}{(x^2+1)^2} \equiv 1.$$ 
+~\\
+It's actually obvious from just looking at the problem that $y \equiv 1$ is a solution to this IVP, so you could just have wrote it down and quoted the result that linear equations have unique solutions to IVPs (Theorem 1 in \S 2.3). \\
+~\\
+This equation is also separable since we may rewrite it as
+$$(x^2+1) \frac{dy}{dx} = 4x(1-y) \qquad\Rightarrow\qquad \frac{1}{1-y} \frac{dy}{dx} = \frac{4x}{x^2+1}$$
+but in dividing by $1-y$ we have destroyed the solution $y \equiv 1$, which is the (unique) solution to the initial value problem $y(0) = 1$, so it is not possible to solve the IVP $y(0) = 1$ by separating this equation.  This is why I let you choose instead the IVP $y(0) = 0$, which has solution
+$$y = 1 - \frac{1}{(x^2+1)^2}.$$
+~\\~\\
+(\S 2.4) \textbf{2. Solve the equation}
+$$(2xy + 3) dx + (x^2 - 1) dy = 0$$
+~\\
+\emph{Solution}: This equation is of the form
+$$M(x,y) dx + N(x,y) dy = 0 \quad\text{with}\quad M(x,y) = 2xy + 3, \quad N(x,y) = x^2 - 1.$$
+$$\frac{\partial M}{\partial y} = 2x = \frac{\partial N}{\partial x}$$
+so this equation is exact.  So let
+$$F(x,y) = \int M(x,y)dx + g(y) = \int (2xy + 3) dx + g(y) = x^2 y + 3x + g(y).$$
+Then set
+$$\frac{\partial F}{\partial y} = x^2 + g^\prime (y) = N(x,y) = x^2 - 1$$
+$$\Rightarrow\quad g^\prime (y) = -1 \qquad\Rightarrow\qquad g(y) = -y.$$
+So the solution is given implicitly by
+$$F(x,y) = x^2 y + 3x - y = C.$$
+(In this case one may in fact give the explicit solution
+$$y = \frac{C - 3x}{x^2 - 1}$$
+by isolating $y$, although this is in general not possible for exact equations.)
+
+\pagebreak
+
+\begin{center}
+{\Large Quiz 2, February 8}
+\end{center}
+(\S 4.2) \textbf{1. Find the general solution of the differential equation}
+$$10, \! 000 \, y^{\prime\prime} - 100, \! 000 \, y^\prime + 250, \! 000 \, y = 0.$$
+~\\
+\emph{Solution}: Dividing through by 10,000 yields
+$$y^{\prime\prime} - 10y^\prime + 25 = 0$$
+which is a second order linear homogeneous equation with auxiliary equation
+$$r^2 - 10r + 25 = (r-5)^2 = 0$$
+which has the double root $r = 5$, so the general solution is
+$$y(t) = c_1 e^{5t} + c_2 t e^{5t}.$$ 
+~\\~\\
+(\S 4.3) \textbf{2. Solve the initial value problem}
+$$y^{\prime\prime} + 4y^\prime + 5y = 0$$
+$$y(\pi) =\ e^{-\pi}, \quad y^\prime (0) = \sqrt{\pi} + 2e^\pi.$$
+~\\
+\emph{Solution}: The auxiliary equation
+$$r^2 + 4r + 5 = 0$$
+has roots $r = -2 \pm i$ so the general solution is
+$$y(t) = c_1 e^{-2t} \cos t + c_2 e^{-2t} \sin t$$
+which has derivative
+$$y^\prime (t) = e^{-2t} (c_2 - 2c_1) \cos t + e^{-2t} (-c_1 - 2c_2) \sin t.$$
+Plugging in $y(\pi) = e^{-\pi}$ gives
+$$y(\pi) = e^{-2\pi} c_1 (-1) + 0 = - c_1 e^{-2\pi} = e^{-\pi} \quad\Rightarrow\quad c_1 = -e^\pi$$ 
+and then $y^\prime(0) = \sqrt{\pi} + 2e^\pi$ gives 
+$$y^\prime (0) = e^0 (c_2 + 2e^\pi) 1 + 0 = c_2 + 2e^\pi = \sqrt{\pi} + 2e^\pi \quad\Rightarrow\quad c_2 = \sqrt{\pi}$$
+so the solution is
+$$y(t) = -e^{\pi-2t} \cos t + \sqrt{\pi} e^{-2t} \sin t.$$ 
+
+\pagebreak
+\noindent
+\mbox{(\S 4.4) \textbf{3. Use the method of undetermined coefficients to find a particular solution of}}
+$$x^{\prime\prime}(t) - 3x^\prime(t) = 27t^2e^{3t}.$$
+~\\
+\emph{Solution}: The associated homogeneous equation has auxiliary equation
+$$r^2 - 3r = r(r-3) = 0$$
+which has roots $r=0$ and $3$ so (see p.193) we look for a particular solution of the form 
+$$x_p(t) = t(A t^2 + B t + C)e^{3t}.$$
+After a tedious calculation we find that
+$$\begin{aligned}
+x_p^\prime (t) &= [3At^3 + (3A+3B)t^2 + (2B+3C)t + C]e^{3t} \\
+x_p^{\prime\prime} (t) &= [9At^3 + (18A + 9B)t^2 + (6A+12B+9C) + (2B+6C)]e^{3t}
+\end{aligned}$$
+and subbing in to the given equation we obtain
+$$x_p^{\prime\prime} (t) - 3x_p^\prime (t) = 0t^3 + 9At^2 + (6A+6B)t + (2B+3C) = 27t^2e^{3t}$$
+so $A=3$, $B = -3$, and $C = 2$.  Therefore a particular solution is
+$$x_p(t) = t^2(3t^2 - 3t + 2)e^{3t} = (3t^4 - 3t^3 + 2t^2)e^{3t}.$$
+\pagebreak
+
+\begin{center}
+{\Large Quiz 3, February 29}
+\end{center}
+(\S 4.6) \textbf{1. Use the method of variation of parameters to find the general solution of}
+$$y^{\prime\prime} - 2 y^\prime + y = t^{-1} e^t.$$
+~\\
+\emph{Solution}: The corresponding homogeneous equation has auxiliary equation
+$$r^2 - 2r + 1 = (r-1)^2$$
+with double root $r = 1$ and hence linearly independent solutions
+$$y_1(t) = e^t \quad\text{and}\quad y_2(t) = te^t \qquad\Rightarrow\qquad y_1^\prime(t) = e^t \quad\text{and}\quad y_2^\prime(t) = (1+t)e^t.$$
+Let $g(t) = t^{-1} e^t$ and calculate
+$$\begin{aligned}
+v_1(t)	&= \int \frac{-g(t)y_2(t)}{y_1(t)y_2^\prime(t) - y_1^\prime(t) y_2(t)} dt = \int \frac{-(t^{-1} e^t) (t e^t)}{e^t(1+t)e^t - e^t te^t}dt 
+		 = \int \frac{-e^{2t}}{e^{2t}} dt = \int -dt = -t \\
+v_2(t) 	&= \int \frac{g(t)y_1(t)}{y_1(t)y_2^\prime(t) - y_1^\prime(t) y_2(t)} dt = \int \frac{(t^{-1} e^t) (e^t)}{e^t(1+t)e^t - e^t te^t}dt 
+		 = \int \frac{t^{-1} e^{2t}}{e^{2t}} dt = \int t^{-1} dt = \ln |t|.
+\end{aligned}$$
+Then the general solution is
+$$y = c_1 y_1(t) + c_2 y_2(t) + v_1(t) y_1(t) + v_2(t) y_2(t) = c_1 e^t + c_2 t e^t - t e^t + \ln |t| \, t e^t.$$
+
+~\\~\\
+(\S 7.2/7.6) \textbf{2. Compute the Laplace transform of the function}
+$f(t) = \begin{cases} e^{2t} + e^{3t} \, , &\ 0 \leq t \leq 4 \\ 1\, ,&\ 4 < t \end{cases}.$
+~\\
+\emph{Solution}:  By the definition of the Laplace transform,
+$$\begin{aligned}
+\Laplace \{f\}(s)	&= \int_0^\infty e^{-st} f(t) dt \\
+					&= \int_0^4 e^{-st} (e^{2t} + e^{3t} ) dt + \int_4^\infty e^{-st} 1 dt \\
+					&= \int_0^4 e^{(2-s)t} dt + \int_0^4 e^{(3-s)t} dt + \int_4^\infty e^{-st} dt \\
+					&= \frac{1}{2-s} e^{(2-s)t} \Big|_0^4 + \frac{1}{3-s} e^{(3-s)t} \Big|_0^4 + \frac{1}{-s} e^{-st} \Big|_4^\infty \\
+					&= \frac{1}{2-s} (e^{4(2-s)} - 1) + \frac{1}{3-s} ( e^{4(3-s)} - 1) - \frac{1}{s}(0 - e^{-4s}) \\
+					&= \frac{1}{2-s} (e^{8-4s} - 1) + \frac{1}{3-s} ( e^{12 - 4s} - 1) + \frac{1}{s}e^{-4s}. \\
+\end{aligned}$$
+% This problem can also be solved using the results of \S 7.6, but we had not covered them at the time of the quiz (at least not in the lab). \\
+~\\~\\
+(\S 7.4) \textbf{3. Find the inverse Laplace transform of}
+$$\frac{s^2 + 9s + 2}{(s-1)(s^2 - 2s - 3)}.$$
+~\\
+\emph{Solution}: This is Example 6 in \S 7.4.
+
+\begin{center}
+{\Large Quiz 4, March 14}
+\end{center}
+(\S 7.5) \textbf{1. Solve the initial value problem}
+$$w^{\prime\prime}(t) - 2w^\prime(t) + 5w(t) = -8e^{\pi-t}$$
+$$w(\pi) = 2, \quad w^\prime(\pi) = 12.$$
+~\\
+\emph{Solution}:
+This is Example 3 in \S 7.5. \\
+~\\~\\~\\
+(\S 7.7) \textbf{2. Solve the integro-differential equation}
+$$y(t) + \int_0^t y(v) (t-v) dv = 1.$$
+~\\
+\emph{Solution}:
+$$\int_0^t y(v) (t-v) dv = \int_0^t (t-v) y(v) dv = t \ast y(t)$$
+so this equation is
+$$y(t) + t \ast y(t) = 1.$$
+Recall that
+$$\Laplace \{f \ast g\} = \Laplace \{f\} \Laplace \{g\}$$
+so the Laplace transform of this equation is
+$$\begin{aligned}
+\Laplace \{y(t)\} + \Laplace \{ t \ast y(t) \} &= \Laplace \{1 \} \\
+\Laplace \{y(t)\} + \Laplace \{ t \} \Laplace \{ y(t) \} &= \Laplace \{1 \} \\
+Y(s) + \frac{1}{s^2} Y(s) &= \frac{1}{s} \\
+\left( 1 + \frac{1}{s^2} \right) Y(s) &= \frac{1}{s} \\
+\frac{s^2 + 1}{s^2} Y(s) &= \frac{1}{s} \\
+Y(s) &= \frac{s^2}{s(s^2+1)} \\
+Y(s) &= \frac{s}{s^2+1}.
+\end{aligned}$$
+Then taking the inverse transform yields
+$$y(t) = \Laplace^{-1} \left\{ \frac{s}{s^2+1} \right\} = \cos t.$$
+
+\newpage
+\begin{center}
+{\Large Quiz 5, March 28}
+\end{center}
+(\S 8.2) \textbf{1. Determine the convergence set of the series}
+$$\sum_{n=0}^\infty \frac{3^n}{n} (x-2)^n.$$
+~\\
+\emph{Solution}:  For this series $a_n = \frac{3^n}{n}$ and $x_0 = 2$, so
+$$L	= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|
+	= \lim_{n \to \infty} \left| \frac{3^{n+1}}{n+1} / \frac{3^n}{n} \right|
+	= \lim_{n \to \infty} \left| \frac{3 \cdot 3^n}{n+1} \times \frac{n}{3^n} \right|
+	= \lim_{n \to \infty} \left| 3 \frac{n}{n+1} \right|
+	= 3 \lim_{n \to \infty} \frac{n}{n+1}
+	= 3$$
+and then
+$$\rho = \frac{1}{L} = \frac{1}{3}.$$
+So the series converges (absolutely) on
+$$(x_0 - \rho, x_0 + \rho) = \left( 2 - \frac{1}{3}, 2 + \frac{1}{3} \right) = \left( \frac{5}{3}, \frac{7}{3} \right).$$
+It remains to check if the series converges at the endpoints of this interval.  At $x = \frac{5}{3}$, we have
+$$\sum_{n=0}^\infty \frac{3^n}{n} \left( \frac{5}{3} - 2 \right)^n = \sum_{n=0}^\infty \frac{3^n}{n} \left( \frac{-1}{3} \right)^n 
+= \sum_{n=0}^\infty \frac{3^n}{n} \times \frac{(-1)^n}{3^n} = \sum_{n=0}^\infty \frac{(-1)^n}{n}$$
+which is the alternating harmonic series which converges (recall that an alternating series converges iff the terms go to 0), 
+and at $x = \frac{7}{3}$ we have
+$$\sum_{n=0}^\infty \frac{3^n}{n} \left( \frac{7}{3} - 2 \right)^n = \sum_{n=0}^\infty \frac{3^n}{n} \left( \frac{1}{3} \right)^n 
+= \sum_{n=0}^\infty \frac{1}{n}$$
+which is the harmonic series which diverges. So the convergence set is
+$$\left[ \frac{5}{3}, \frac{7}{3} \right).$$
+~\\~\\~\\
+\mbox{(\S 8.3) \textbf{2. Find a recurrence relation relating the coefficients of the series solution to}}
+$$2y^{\prime\prime} + xy^\prime +y = 0.$$
+~\\
+\emph{Solution}: 
+This is Example 3 in \S 8.3.
+
+\newpage
+
+\begin{center}
+{\Large Quiz 6, April 11}
+\end{center}
+(\S 8.5) \textbf{1. Find a general solution to the Cauchy-Euler (equidimensional) equation}
+$$(\pi x)^2 y^{\prime\prime} (x) + \pi(\pi-2)xy^\prime (x) + y(x) = 0, \quad x > 0.$$
+~\\
+\emph{Solution}: 
+Rewrite this equation as
+$$\pi^2 x^2 y^{\prime\prime} (x) + (\pi^2 - 2\pi)xy^\prime (x) + y(x) = 0.$$
+We substitute $y = x^r$ to find a solution.  The characteristic equation is
+$$\pi^2 r^2 + (\pi^2 - 2\pi - \pi^2) r + 1 = \pi^2 r^2 - 2 \pi r + 1 = (\pi r - 1)^2 = 0$$
+which has repeated root $r = \frac{1}{\pi}$.  So a general solution is
+$$y(x) = C_1 x^\frac{1}{\pi} + C_2 x^\frac{1}{\pi} \ln x = C_1 \sqrt[\pi]{x} + C_2 \sqrt[\pi]{x} \ln x, \quad x > 0.$$  
+~\\~\\~\\
+(\S 10.3) \textbf{2. Compute the Fourier series of} $f(x) = \begin{cases} 0\, , & \text{ if } -\pi < x < 0 \\ x\, , & \text{ if } \ \ \ \: 0 < x < \pi \end{cases}$. \\
+~\\~\\
+\emph{Solution}: This is Example 3 in \S 10.3.
+
+\end{document}
