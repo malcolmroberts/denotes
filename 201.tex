@@ -8,7 +8,7 @@
 
 
 \newcounter{showsolutions}
-\setcounter{showsolutions}{1}
+\setcounter{showsolutions}{0}
 
 \pagestyle{empty}
 
@@ -16,13 +16,12 @@
 \author{Malcolm Roberts and Samantha Marion}
 
 \begin{document}
-
 \maketitle
 %TODO: make title page
 
 Differential equations (abbreviated DEs) are equations involving functions and 
 their derivatives. For example, 
-\be \label{eg1}
+\be \label{eg1}5
 \dd{y}{x} =y
 \ee
 is a differential equation. In this case, $y$ is a function of the independent 
@@ -59,9 +58,8 @@ help to understand the properties of solutions of more complicated problems.
 
 \newpage
 
-\section{Lab 1: Separable, linear, and exact equations}
+\section{Lab 1: Separable and exact equations ODEs}
 
-FIXME: separate this into two labs
 
 \subsection{Separable equations}
 
@@ -72,7 +70,7 @@ Separable equations are of the form
 These are simple to solve: from equation (\ref{separable}), we can just split
 the derivative and integrate: $ h(y)\, dy = g(x) \, dx$ becomes
 \be 
-  \int h(y) \, dy = \int g(x) \, dx,
+\boxed{  \int h(y) \, dy = \int g(x) \, dx},
 \ee
 and then all we need to do is find the integral and solve for $y$.\\
 
@@ -120,60 +118,7 @@ Putting this into equation (\ref{separableexample}) yields
 \ee
 so we can be sure that we got the correct answer.
 
-\subsection{Linear Equations}
 
-Linear equations have the form
-\be \label{linear}
-  \dd{y}{x} + P(x) y = Q(x).
-\ee
-To solve these equations, we use an \emph{integrating factor}. That is, if
-we define the integrating factor $\mu$ as
-\be 
-  \mu(x) \doteq \exp\[ \int P(x) d x \],
-\ee
-then notice that
-\be 
-  \dd{}{x}\(\mu y \) = \dd{\mu}{x} y + \mu \dd{y}{x} 
-  = \mu P(x) y + \mu \dd{y}{x}.
-\ee
-So if we multiply equation (\ref{linear}) by $\mu$, we get
-\be 
-  \dd{}{x}\(\mu y \) = \mu Q,
-\ee
-which we can now solve by taking the integral of both sides with respect to 
-$x$.
-FIXME: give the general formula, use it in examples.
-\\
-
-\noindent \emph{Example}:
-\label{linearsec}
-Consider the equation
-\be 
-  \dd{y}{x} + \frac{y}{x} = 2 e^x.
-\ee
-We identify $P(x)=1/x$ and $Q(x)=2e^x$. The integrating factor is
-\be 
-  \mu(x) = \mbox{exp}\[\int \frac{1}{x} \, dx \] = e^{\ln x} = x.
-\ee
-Then,
-\be \label{linearex}
-  \dd{}{x} \(x y \) = 2 x e^x
-  \quad \implies \quad
-  x y = \int 2 x e^x \, dx. 
-\ee
-To solve this, we use integration by parts. That is, 
-$\int u \, dv = uv - \int v\,  du$. We choose $u=x$ and $dv = e^x \, dx$, so
-$du = dx$, and $v=e^x$. Thus,
-\be 
-  \int x e^x \,dx = x e^x + \int e^x \,dx = x e^x + e^x.
-\ee
-Solving equation (\ref{linearex}) for $y$ yields
-\be 
-  y = 2 e^x \(1 + \frac{1}{x}\) + \frac{C}{x}.
-\ee
-We can now use the initial conditions to determine the value of $C$.
-
-% TODO: show how they can check this?
 
 \subsection{Exact Equations}
 
@@ -195,7 +140,7 @@ implicitly by $F(x,y)=\text{constant}$.
 Exact equations are straightforward to solve: after a little bit of trickery, 
 we simply integrate. Let 
 \be \label{exactsol}
-  F(x,y) = \int M(x,y) dx + g(y). 
+\boxed{  F(x,y) = \int M(x,y) dx + g(y) }.
 \ee 
 We require that $\pp{}{y}F(x,y)= N(x,y)$, which will allow us to determine 
 $g(y)$. That is,
@@ -211,7 +156,7 @@ This tells us what $g'(y)$ is, so we now know $g(y)$ up to some constant
 $C$. We can put this into equation (\ref{exactsol}), which gives us the
 implicit solution
 \be \label{exactimpl}
-  F(x,y) =C. 
+\boxed{F(x,y) =C }.
 \ee
 In many cases, we can solve for $y$, thus getting an explicit solution 
 $y=f(x)$ so that $F(x,f(x))=C$, but sometimes all we have for a solution
@@ -250,6 +195,123 @@ undetermined constant $C$; in fact, $C$ changed sign between equation
 because $C$ is \emph{undetermined}, so there's not much point nailing it
 down to a value until the very last moment.)
 
+\subsection{Problems}
+
+\begin{enumerate}
+\item
+  % an exact equation
+  Solve the equation
+  \bee
+  (2xy + 3) dx + (x^2 - 1) dy = 0
+  \eee
+
+\item 
+  Solve the logistic map,
+  \bee
+  \dd{y}{x} = y - y^2.
+  \eee
+  as a separable equation.
+
+\item
+  Give the general solution to the differential equation
+  \be
+  \ddt{y} = 1 + \frac{1}{y^2}
+  \ee
+  \hidesolution{
+    This is a separable equation:
+    \bee
+    \frac{dy}{1+\frac{1}{y^2}} = dt 
+    \implies
+    \int dt = \int  \frac{dy}{1+\frac{1}{y^2}} 
+    \eee
+    But, since
+    \bee
+    \frac{1}{1+\frac{1}{y^2}} = \frac{y^2}{y^2+1} = 1 - \frac{1}{1+y^2}
+    \eee
+    so
+    \bee
+    t = \int  \(1 - \frac{1}{1+y^2}\) dy = y + \arctan y + C,
+    \eee
+    which implicitly defines $y(t)$.
+  }
+
+\end{enumerate}
+
+
+\newpage
+\section{Lab 2: Linear Equations and Transformations}
+
+\subsection{Linear Equations}
+
+Linear equations have the form
+\be \label{linear}
+  \dd{y}{x} + P(x) y = Q(x).
+\ee
+To solve these equations, we use an \emph{integrating factor}. That is, if
+we define the integrating factor $\mu$ as
+\be 
+  \mu(x) \doteq \exp\[ \int P(x) d x \],
+\ee
+then notice that
+\be
+  \dd{}{x}\(\mu y \) = \dd{\mu}{x} y + \mu \dd{y}{x} 
+  = \mu P(x) y + \mu \dd{y}{x}.
+\ee
+So if we multiply equation (\eqref{linear}) by $\mu$, we get
+\be 
+  \dd{}{x}\(\mu y \) = \mu Q,
+\ee
+which we can now solve by taking the integral of both sides with respect to 
+$x$. Doing this, we get
+\be
+  d\(\mu y\) = \mu Q dx \qquad \implies \qquad
+  \mu y = \int \mu Q dx + C
+\ee
+which gives the general formula
+\be
+\label{linearf}
+\boxed{y = \frac{\int \mu Q dx + C}{\mu}}.
+\ee
+\\
+
+\noindent \emph{Example}:
+\label{linearsec}
+Consider the equation
+\be 
+  \dd{y}{x} + \frac{y}{x} = 2 e^x.
+\ee
+We identify $P(x)=1/x$ and $Q(x)=2e^x$. The integrating factor is
+\be 
+  \mu(x) = \mbox{exp}\[\int \frac{1}{x} \, dx \] = e^{\ln x} = x.
+\ee
+Then,
+\be \label{linearex}
+  \dd{}{x} \(x y \) = 2 x e^x
+  \quad \implies \quad
+  x y = \int 2 x e^x \, dx. 
+\ee
+From the formula (equation \eqref{linearf}), we have
+\be
+\label{linearexx}
+y = \frac{\int \mu Q dx + C}{\mu} = \frac{\int 2 x e^x \, dx + C}{x}.
+\ee
+To solve this, we use integration by parts. That is, 
+$\int u \, dv = uv - \int v\,  du$. We choose $u=x$ and $dv = e^x \, dx$, so
+$du = dx$, and $v=e^x$. Thus,
+\be 
+  \int x e^x \,dx = x e^x + \int e^x \,dx = x e^x + e^x.
+\ee
+Putting this into equation \eqref{linearexx} yields
+\be 
+  y = 2 e^x \(1 + \frac{1}{x}\) + \frac{C}{x}.
+\ee
+We can now use the initial conditions to determine the value of $C$.
+
+
+% TODO: show how they can check this?
+
+
+
 \subsection{Equations that can be solved via substitution}
 
 Sometimes it is possible to make a substitution to transform a differential 
@@ -268,7 +330,10 @@ We solve this by substituting $v=y/x$, so that
 \quad \implies \quad
 v + x \dd{v}{x} = f(v),
 \ee
-which is separable.\\
+which is can be written as the separable equation
+\be
+\boxed{\dd{v}{x} = \frac{f(v) -v}{x}}.
+\ee
 
 \noindent \emph{Example}:
 \be 
@@ -328,7 +393,10 @@ We solve this by substituting $v=y^{1-n}$, so that
 \quad \implies \quad
 \frac{1}{1-n} \dd{v}{x} + P(x)v = Q(x),
 \ee
-which is a linear equation.\\
+which can be written as the linear equation
+\be
+\boxed{\dd{v}{x} + (1-n)P(x)v = (1-n)Q(x)}.
+\ee
 
 \noindent\emph{Example}:
 \be 
@@ -383,13 +451,50 @@ Solve the initial value problem
 &&\qquad(x^2 + 1) \frac{dy}{dx} + 4xy = 4x \\ \nonumber
 &&y(0) =\ 0\ \text{ or }\ 1\ \mbox{ (choose one, and circle your choice)}
 \eee
-
-\item
-% an exact equation
-Solve the equation
+\hidesolution{Rewrite this equation as
 \bee
-(2xy + 3) dx + (x^2 - 1) dy = 0
+\frac{dy}{dx} + \frac{4x}{x^2+1}y = \frac{4x}{x^2+1}
 \eee
+which is linear with $P(x) = \frac{4x}{x^2+1}$, so let
+\bee
+\mu(x) = \exp \left(\int P(x)dx \right) 
+= \exp \left( \int \frac{4x}{x^2+1} dx \right) = \exp(2 \ln (x^2+1)) 
+= \exp(\ln (x^2+1)^2) = (x^2+1)^2.
+\eee
+(Note that we can omit the absolute value bars around $x^2+1$ since it is 
+always positive.) Then multiplying through by $\mu(x)$ we obtain
+\bee
+(x+1)^2 \frac{dy}{dx} + 4x(x^2+1)y &=& 4x(x^2+1) \\
+\frac{d}{dx} \left( (x^2+1)y \right) &=& 4x^3+4x. \\
+\eee
+Integrating yields
+\bee
+(x^2+1)^2 y &=& x^4 + 2x^2 + C \\
+y &=& \frac{x^4 + 2x^2 + C}{(x^2+1)^2}.
+\eee
+Solving the IVP $y(0) = 1$ gives $C = 1$, then the solution is
+\bee
+y = \frac{x^4 + 2x^2 + 1}{(x^2+1)^2} = \frac{(x^2+1)^2}{(x^2+1)^2} \equiv 1.
+\eee
+It's actually obvious from just looking at the problem that $y \equiv 1$ is a 
+solution to this IVP, so you could just have wrote it down and quoted the 
+result that linear equations have unique solutions to IVPs.
+
+This equation is also separable since we may rewrite it as
+\bee
+(x^2+1) \frac{dy}{dx} 
+= 4x(1-y) \qquad\Rightarrow\qquad \frac{1}{1-y} \frac{dy}{dx} 
+= \frac{4x}{x^2+1}
+\eee
+but in dividing by $1-y$ we have destroyed the solution $y \equiv 1$, which 
+is the (unique) solution to the initial value problem $y(0) = 1$, so it is 
+not possible to solve the IVP $y(0) = 1$ by separating this equation.  This 
+is why I let you choose instead the IVP $y(0) = 0$, which has solution
+\bee
+y = 1 - \frac{1}{(x^2+1)^2}
+\eee
+}
+
 
 \item
  Joe headed out to the bar in his new Thinsulate jacket, but drank 
@@ -402,22 +507,22 @@ both as a separation problem and a linear problem
 \quad
 T(0)=37,\, T_\text{env}=-40,\, r=5 \, \(\text{Thinsulate's r-value}\)
 \eee
-% todo: write solutions
-% TODO: does this work with C rather than K?
+\hidesolution{FIXME: write solution.}
 
 \item 
 Solve the logistic map,
 \bee
 \dd{y}{x} = y - y^2.
 \eee
-as both a separable equation and a Bernoulli equation
-% TODO: write solutions
+as a Bernoulli equation
+\hidesolution{FIXME: write solution.}
 
 \item
 Solve the differential equation
 \bee
 \dd{y}{x} = \frac{x + y}{x}.
 \eee
+\hidesolution{FIXME: write solution. This is a homogeneous equation.}
 % NB: this is a homogeneous equation
 % FIXME: add initial value?
 % TODO: write solutions
@@ -427,7 +532,7 @@ Solve the differential equation
 \bee
 \dd{y}{x} = \frac{y}{x} + x^2y^2.
 \eee
-% NB: this is a Bernoulli equation
+\hidesolution{FIXME: write solution. Bernoulli equation.}
 
 \item
   Equations of the form $\dd{y}{x} = f(ax+by)$ may be transformed into a 
@@ -478,30 +583,9 @@ Solve the differential equation
   \(2y + 2\) dx + \(x +y+2\) dy=0
   \eee
   using this technique.
+  
 
-  \item
-    Give the general solution to the differential equation
-    \be
-    \ddt{y} = 1 + \frac{1}{y^2}
-    \ee
-    \hidesolution{
-      This is a separable equation:
-      \bee
-      \frac{dy}{1+\frac{1}{y^2}} = dt 
-      \implies
-      \int dt = \int  \frac{dy}{1+\frac{1}{y^2}} 
-      \eee
-      But, since
-      \bee
-      \frac{1}{1+\frac{1}{y^2}} = \frac{y^2}{y^2+1} = 1 - \frac{1}{1+y^2}
-      \eee
-      so
-      \bee
-      t = \int  \(1 - \frac{1}{1+y^2}\) dy = y + \arctan y + C,
-      \eee
-      which implicitly defines $y(t)$.
-    }
-
+  
   \item
     Solve the following differential equation:
     \be
@@ -541,7 +625,7 @@ Let $a,b,c$ be real numbers. Second order equations of the form
 a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
 \ee
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to 
-equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
+equation (\eqref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 \newcommand\ycomb{\alpha y_1 + \beta y_2}
 \be 
 && a \ddtwo{\(\ycomb\)}{t} + b \dd{\(\ycomb\)}{t} + c \(\ycomb \)
@@ -580,8 +664,11 @@ us with the \emph{characteristic equation},
 ar^2 + br + c =0,
 \ee
 which allows us to determine $r$ using the quadratic formula. In this way
-we get two solutions, $y_1=e^{r_1 t}$ and $y_2=e^{r_2 t}$, from the two
-solutions $r_1$ and $r_2$ of the characteristic equation.\\
+we get two solutions, 
+\be
+\boxed{y_1=e^{r_1 t}\text{ and }y_2=e^{r_2 t}},
+\ee
+from the two solutions $r_1$ and $r_2$ of the characteristic equation.\\
 
 \noindent\emph{Example}: Solve the second-order homogeneous equation
 \be 
@@ -610,8 +697,8 @@ Since $y'(0)=0$, and $y'(t) = -\alpha e^{-t} + \beta e^t$,
 \be \label{sec2ab2}
 y'(0) = -\alpha + \beta =0.
 \ee
-Combining equations (\ref{sec2ab1}) and (\ref{sec2ab2}), it is easy to see that
-$\alpha = \beta =\half$. The solution is therefore
+Combining equations (\eqref{sec2ab1}) and (\eqref{sec2ab2}), it is easy to see 
+that $\alpha = \beta =\half$. The solution is therefore
 \be 
 y = \frac{e^{-t} + e^t}{2}.
 \ee
@@ -622,7 +709,7 @@ So far, we've seen only problems where the roots of the characteristic
 equation are real. Of course, this isn't always the case, but we can deal with 
 this using \emph{Euler's Formula},
 \be 
-e^{i\theta} = \cos(\theta) + i \sin(\theta).
+\boxed{e^{i\theta} = \cos(\theta) + i \sin(\theta)}.
 \ee
 For example, if we get $r_{1,2}= 4\pm 2i$, then solutions are a linear
 combination of
@@ -637,6 +724,7 @@ An easy way to get all linear combinations is to just set
 \be 
 y_1(t) = e^{4t} \cos(2t), \qquad y_2(t) = e^{4t} \sin(2t).
 \ee
+% FIXME: emphasize this more?
 \\
 
 \noindent\emph{Example}: Give the general solution to
@@ -807,7 +895,7 @@ a y_p'' + b y_p' + cy_p =f(t),
 though it need not match the initial conditions. For instance, if 
 $f(t)=\sin(t)$, guessing that $y_p = A \sin(t) + B \cos(t)$ would probably do
 the trick. We can just substitute $y_p = A \sin(t) + B \cos(t)$ into equation
-(\ref{yp}) in order to find the values of $A$ and $B$ that work. 
+\eqref{yp} in order to find the values of $A$ and $B$ that work. 
 
 Here is a table that will guide you, young jedi:
 \be 
@@ -856,7 +944,7 @@ r^2 -3r +2 = (r-1)(r-2) \quad \implies \quad r_1=1, \, r_2=2,
 \ee
 so the homogeneous solutions are $y_1(t) = e^t, \, y_2=e^{2t}$. Since
 $f(t)=t$ is not a linear combination of $y_1$ and $y_2$, we can just choose
-$y_p = C_1 t + C_0$. Putting this into equation (\ref{undetceg}), we get
+$y_p = C_1 t + C_0$. Putting this into equation \eqref{undetceg}, we get
 \be
 \ddtwo{(C_1 t + C_0)}{t} -3\dd{(C_1 t + C_0)}{t} + 2 \(C_1 t + C_0\) =t
 \quad \implies \quad
@@ -890,7 +978,7 @@ y'(t) &=& -e^t +2e^{2t}  + \frac{1}{2}
 \\
 y''(t) &=& -e^t +4 e^{2t}
 \ee
-Putting these into equation (\ref{undetceg}) yields
+Putting these into equation \eqref{undetceg} yields
 \be
 &&y'' - 3 y' + 2 y
 \\ 
@@ -935,7 +1023,7 @@ $L\(y_{1,p}\)= f(t)$ and $L\(y_{2,p}\) = g(t)$,
 \be
   L\(A y_{1,p} + B y_{2,p} \) = A f(t) + B g(t),
 \ee
-which gives us the particular solution for equation (\ref{super}) without
+which gives us the particular solution for equation \eqref{super} without
 having to do a lot of extra work.
 \\
 
@@ -956,7 +1044,7 @@ this problem up into two smaller problems:
   \ee
   Notice that $t$ is not a multiple of $y_1$ or $y_2$, so, looking at the 
   table, we use $y_{1,p}=at + b$. Plugging this into equation
-  (\ref{supereg1}), we get
+  \eqref{supereg1}, we get
   \be
   - 3\(a\) -4\(at + b\) = t
   \ee
@@ -976,7 +1064,7 @@ this problem up into two smaller problems:
   The situation here is slightly different, since $e^{-t}$ is both part
   of the homogeneous solution, and on the right-hand side. Thus, we need
   to choose $y_{2,p} = ct e^{-t}$. Plugging this into equation 
-  (\ref{supereg2}), we get
+  \eqref{supereg2}, we get
   \be
   \(ct  -2c \)e^{-t} -3 \(-ct +c \)e^{-t} -4 ct  e^{-t} =e^{-t}.
   \ee
@@ -1092,7 +1180,7 @@ y_p
 \right)
 \, dt 
 \\ \nonumber
-&=& y_1 \int \frac{-f y_2}{w } \, dt 
+y_p&=& y_1 \int \frac{-f y_2}{w } \, dt 
 + y_2 \int \frac{f y_1}{w} \, dt  
 \ee
 where 
@@ -1134,7 +1222,7 @@ y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
 = 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
 \ee
 \\
-\noindent\emph{Check}: When we put $y_p$ into equation (\ref{varpareg}), we
+\noindent\emph{Check}: When we put $y_p$ into equation \eqref{varpareg}, we
 get
 \be
 2e^t  -4 e^t + 4 e^t = 2 e^t,
@@ -1192,7 +1280,6 @@ so we got the correct $y_p$.
 
 \newpage
 \section{Laplace Transforms}
-FIXME: move Laplace transforms into this section.
 
 Transformations are a very interesting part of mathematics because they give us
 another perspective from which to look at a problem. If we're lucky with
@@ -2670,7 +2757,8 @@ This does indeed converge to $x$, as can be seen in figure \ref{fourierx}.
     \end{array} \right.
     \ee
     
-  \item FIXME: add question on Gibbs phenomenom (NB: notes are written).
+%  \item FIXME: add question on Gibbs phenomenom (NB: notes are written).
+% Actually, I'm not so sure that Gibbs is a good problem.
 \end{enumerate}
 
 \newpage
