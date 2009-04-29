@@ -21,7 +21,7 @@
 
 Differential equations (abbreviated DEs) are equations involving functions and 
 their derivatives. For example, 
-\be \label{eg1}5
+\be \label{eg1}
 \dd{y}{x} =y
 \ee
 is a differential equation. In this case, $y$ is a function of the independent 
@@ -3133,8 +3133,106 @@ matches both the initial and boundary conditions.
 
 \end{enumerate}
 
-%\newpage
-%\section{Last section thing}
+\newpage
+\section{Tables}
+
+\subsection{Table of Integrals}
+
+\begin{align}\nonumber
+&\int u dv = uv - \int v du
+&
+\\\nonumber
+& \int \cos x dx = -\sin x
+& \int \sin x dx = \cos x
+\\\nonumber
+& \int \tan x dx  = -\ln\abs{\cos x}
+& 
+\\\nonumber
+& \int \sin^2 x dx = \frac{1}{2}x - \frac{1}{4}\sin 2x
+& \int \cos^2 x dx = \frac{1}{2}x + \frac{1}{4}\sin 2x
+\\\nonumber
+& \int \tan^2 x dx  = \tan x - x
+& 
+\\\nonumber
+& \int \sin^n x dx = -\frac{\sin^{n-1}x\cos{x}}{n} 
++ \frac{n-1}{n}\int\sin^{n-2}xdx
+&
+\\\nonumber
+& \int \cos^n x dx = \frac{\cos^{n-1}x\sin x}{n} 
++ \frac{n-1}{n}\int \cos^{n-2}x dx
+&
+\\\nonumber
+& \int \sin ax \sin bx dx = - \frac{\sin(a+b)x}{2(a+b)}
+  + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
+& 
+\\\nonumber
+& \int \cos ax \cos bx dx = \frac{\sin(a+b)x}{2(a+b)}
++ \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
+& 
+\\\nonumber
+& \int \sin ax \cos bx dx = -\frac{\cos(a+b)x}{2(a+b)}
+- \frac{\cos(a-b)x}{2(a-b)},\quad a^2\neq b^2
+& 
+\\\nonumber
+& \int \sec^2 x dx = \tan x
+& \int \csc^2 x dx = -\cot x
+\\\nonumber
+& \int \sec x \tan x  dx = \sec x
+& 
+\\\nonumber
+& \int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin\frac{x}{a}
+& \int \frac{dx}{x\sqrt{x^2-a^2}}= \frac{1}{a}\arccos\frac{a}{x}
+\\\nonumber
+&\int \frac{dx}{a^2+x^2} = \frac{1}{a}\arctan\frac{x}{a},
+& 
+\\\nonumber
+& \int \frac{dx}{a^2-x^2} = \frac{1}{2a}\ln\abs{\frac{x+a}{x-a}},
+& \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\abs{x+\sqrt{x^2+a^2}} 
+\\\nonumber
+& \int \sinh x dx = \cosh x
+& \int \cosh x dx = \sinh x
+\\\nonumber
+& \int e^{ax}\sin nx dx = \frac{e^{ax}\(a \sin nx - n \cos nx \) }{a^2+n^2 }& 
+\\\nonumber
+& \int e^{ax}\cos nx dx = \frac{e^{ax}\(a \cos nx + n \sin nx \) }{a^2+n^2 }
+&
+\end{align}
+
+
+\subsection{Table of Identities}
+
+\begin{align}\nonumber
+& 
+& 
+\\\nonumber
+& 
+& 
+\end{align}
+
+\subsection{Table of Laplace Transforms}
+
+\subsection{Table of Taylor Series}
+\begin{align}\nonumber
+& f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots 
++ \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
+%& 
+%&
+\\\nonumber
+& e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+\qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+\qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+\\\nonumber
+&\tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \frac{17}{315}x^7
++ \frac{62}{2835}x^9 + \dots
+\\\nonumber
+&\arcsin x = x + \frac{x^3}{2 \cdot 3} + \frac{1\cdot 3}{2\cdot 4 \cdot 6}x^5
++ \frac{1\cdot3\cdot5}{2\cdot4\cdot6\cdot8}x^7 + \dots
+\\\nonumber
+&\arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}
+\\\nonumber
+&\frac{1}{1-x} = \sum_{n=0}^\infty x^n
+\qquad \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
+\end{align}
 %FIXME: add some interal tables, trig identities, and whatnot.
 
 \end{document}
