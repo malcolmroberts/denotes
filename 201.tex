@@ -1364,7 +1364,7 @@ $$\begin{aligned}
 
 \begin{enumerate}
   \item 
-    Find the Laplace transform of $f(t) = t^n$ where $n \in \mathbb{N}$.
+    Find the Laplace transform of $f(t) = t^n$ where $n \in \mathbb{N}$, $n>0$.
     \hidesolution{
       \bee
       \mathcal{L}(t^n) 
@@ -1416,48 +1416,6 @@ $$\begin{aligned}
       \mathcal{L}(e^{\alpha t}\cos \beta t)
       &=&\frac{\beta}{(s-\alpha)^2 + \beta^2}.
       \eee
-
-    }
-
-  \item 
-    Find the Laplace transform of 
-    \bee
-    f = 
-    \left\{ \begin{array}{ll}
-      e^t & \mbox{if $t < c$};\\
-      t^2 & \mbox{if $t \geq c$}.
-    \end{array} \right.
-    \eee
-    \hidesolution{
-      \bee
-      \mathcal{L}(f)
-      &=& \int_0^c e^t e^{-st} \, dt + \int_c^\infty t^2 e^{-st} \, dt
-      \eee
-      The first integral is
-      \bee
-      \int_0^c e^t e^{-st} \, dt = \left.\frac{e^{(1-s)t}}{1-s}\right|_0^c
-      =\frac{e^{(1-s)c}-1}{1-s}.
-      \eee
-      The second integral requires two integrations-by-parts:
-      \bee
-      \int_c^\infty t^2 e^{-st} \, dt 
-      &=& \left. t^2 \frac{e^{-st}}{-s}\right|_c^\infty 
-      -2 \int_c^\infty t \frac{e^{-st}}{-s} \, dt
-      \\
-      &=&\frac{c^2}{s} +\frac{2}{s}
-      \[
-      t \left.\frac{e^{-st}}{-s}\right|_c^\infty 
-      - \int_c^\infty \frac{e^{-st}}{-s}\,dt
-      \]
-      \\
-      &=&\frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
-      \eee
-      The Laplace transform of $f$ is then the sum, i.e.,
-      \bee
-      \mathcal{L}(f) = 
-      \frac{e^{(1-s)c}-1}{1-s} 
-      + \frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
-      \eee
     }
 
     \item
@@ -1501,11 +1459,12 @@ $$\begin{aligned}
 	as required.
 	}
 
+      % FIXME: maybe one more transform?
+
 \end{enumerate}
 
 \newpage
 \section{Solving DEs with Laplace Transforms}
-% FIXME: move some material from this chapter to the previous one.
 
 Consider a first-order IVP of the form
 \be
@@ -1538,74 +1497,10 @@ way to deal with this is to use a table of Laplace transforms:
   $e^{ct}f(t) $ & $F(s-c) $ \\
   $f(ct) $ & $\frac{1}{c}F\(\frac{s}{c}\) $ \\
   $\int_0^t f(t-\tau) g(\tau) \,d\tau \doteq f*g$ & $F(s)G(s) $ \\
-  $u_c(t)$ & $\frac{e^{-cs}}{s}$ \\
-  $u_c(t)f(t-c)$ & $e^{-cs}F(s)$ \\
-  $\delta(t)$ & $1$ \\
+%  $u_c(t)$ & $\frac{e^{-cs}}{s}$ \\
+%  $u_c(t)f(t-c)$ & $e^{-cs}F(s)$ \\
+%  $\delta(t)$ & $1$ \\
 \end{tabular}
-\ee
-Here, we have introduced the convolution of two functions, $f$ and $g$, as 
-$f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau$. Also, there are two new functions in 
-the table, namely the step function $u_c(t)$, and the delta function 
-$\delta(t)$. The step function is defined as 
-\be
-u_c(t) = \left\{ \begin{array}{ll}
-         0 & \mbox{if $t < c$};\\
-        1 & \mbox{if $t > c$}.\end{array} \right.
-\ee
-and is useful for describing processes that start at a certain time. The delta
-function is slightly more complicated; it describes processes that happen in an
-instant, like the impact from a hammer. It is (loosely) defined as having
-the following properties:
-\be
-\delta(t) = \left\{ \begin{array}{ll}
-         \infty & \mbox{if $t = 0$};\\
-        0 & \mbox{if $t \neq 0$}.\end{array} \right.
-\ee
-and, for any function $f(t)$,
-\be \label{deltaprop}
-\int_{-\infty}^\infty f(t) \delta(t)\, dt = f(0).
-\ee
-
-\noindent\emph{Example}: Solve the following differential equation using
-Laplace transforms.
-\be
-2y'' + y' + 2y = \delta(t-5), \qquad y'(0)=y(0)=0
-\ee
-\emph{Solution}: Taking the Laplace transform of both sides, we have
-\be \label{exeq1}
-\(2s^2 + s +2\) Y = e^{-5s}.
-\ee
-To see that the Laplace transform of $\delta(t-5)$ is $e^{-5s}$, consider the 
-definition of the Laplace transform:
-\be
-\mathcal{L}(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt
-\ee
-If we let $\tau = t-5$, then this is the same as
-\be
-\int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau
-\ee
-Then we apply equation (\ref{deltaprop}) to see that this is just $e^{-5s}$. 
-
-Going back to equation (\ref{exeq1}), solving for $Y$ and completing the 
-square yields
-\be
-Y = \frac{e^{-5s}}{2} \( \frac{1}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} \).
-\ee
-Finding the inverse transform is the hardest part of this process, but we can
-break it up into smaller steps. We can just pull the $1/2$ out 
-because the Laplace transform is linear and then if we rearrange this, we get
-\be
-Y = \frac{2}{\sqrt{15}}  \, e^{-5s} 
-\frac{\sqrt{\frac{15}{16}}}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} 
-= \frac{2}{\sqrt{15}}  \, e^{-5s} \, 
-\Laplace\[e^\frac{-t}{4}\sin\(\frac{\sqrt{15}}{4}t \) \]
-\ee
-Now we have an exponential term, $e^{-5s}$, times a term that is the Laplace 
-transform of $e^{\alpha t}\sin(\beta t)$ with $\alpha=1/4$ and 
-$\beta=\sqrt{{15}/{16}}$. So we will use the second last row of the Laplace 
-transform table to see that $Y$ is the Laplace transform of
-\be
-y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
 \ee
 
 It is often necessary to use the technique of partial fractions to disentangle 
@@ -1660,8 +1555,12 @@ y(t) = t^2 -t +2 +2 \sin{2t} - 2 \cos{2t}.
 \end{eqnarray*}
 
 
-\subsection{Solving Problems with periodic nonhomogeneous terms}
-FIXME: And maybe DEs with periodic nonhomogeneous terms as well?
+
+
+
+
+\subsection{Laplace Transforms of Periodic Functions}
+FIXME
 
 
 \subsection{Problems}
@@ -1718,7 +1617,148 @@ FIXME: And maybe DEs with periodic nonhomogeneous terms as well?
     \Laplace^{-1}F(s) = \frac{13}{4}e^{-3t}+\frac{15}{8}e^{3t}-\frac{1}{8}e^t
     \eee
   }
+
+
   
+\item
+  FIXME: add more problems!
+
+
+
+\end{enumerate}
+
+\newpage
+\section{Laplace Transforms: Convolutions, Impulses and Delta functions}
+
+\subsection{Convolutions}
+FIXME
+
+Here, we have introduced the convolution of two functions, $f$ and $g$, as 
+$f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau$. 
+
+\subsection{Laplace Transforms of Discontinuous Functions}
+
+The Laplace transform, like the method of variation of parameters, allows us 
+to solve differential equations by integrating. This can be tremendously useful,
+since we can deal with differential equations with functions that are not
+smooth; they need only be integrable.
+
+The stup function, also known as the Heaviside function, is defined as
+\be
+u_c(t) = \left\{ \begin{array}{ll}
+         0 & \mbox{if $t < c$};\\
+        1 & \mbox{if $t > c$}.\end{array} \right.
+\ee
+and is useful for describing processes that start at a certain time. 
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{201/step}
+    \caption{Graph of the step function $u_c(x)$.}
+    \label{step}
+  \end{center}
+\end{figure}
+
+The Laplace transform of the step function is straightforward to calculate. If
+we take $c>0$, then 
+\be
+\Laplace{}\(u_c(t)\) &=& \int_0^\infty u_c(t) e^{-st} dt 
+\\\nonumber
+&=& \int_c^\infty e^{-st} dt
+\\\nonumber
+&=&\frac{e^{-cs}}{s}.
+\ee
+
+The step function often shows up multiplied by other functions, as in the
+following example.
+\workedexample{Solve the differential equation
+\be
+y'=t u_c(t), \qquad y(0)=0
+\ee
+using Laplace transforms
+}{
+Take the Laplace transform of both sides of the differential equation, yielding
+\be
+sY &=& \Laplace{}\(t u_c(t)\) = \int_0^\infty t u_c(t) e^{-st} dt 
+= \int_c^\infty t e^{-st} dt 
+\\\nonumber
+&=& \[t \frac{e^{-st}}{-s}\]_c^\infty - \int_c^\infty \frac{e^{-st}}{-s}dt
+= ce^{-sc} + \frac{e^{-sc}}{s^2}
+\ee
+Thus, 
+\be
+Y = \frac{ce^{-sc}}{s} +\frac{ce^{-sc}}{s}^3.
+\ee
+From the table of  Laplace transforms, we know that 
+$\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$, so 
+\be
+y = cu_c(t) + \frac{c}{2} t^2.
+\ee
+FIXME: add $\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$ to the tables.
+}
+
+
+
+\subsection{The Impulse Function}
+FIXME
+
+and the delta function $\delta(t)$. The delta
+function is slightly more complicated; it describes processes that happen in an
+instant, like the impact from a hammer. It is (loosely) defined as having
+the following properties:
+\be
+\delta(t) = \left\{ \begin{array}{ll}
+         \infty & \mbox{if $t = 0$};\\
+        0 & \mbox{if $t \neq 0$}.\end{array} \right.
+\ee
+and, for any function $f(t)$,
+\be \label{deltaprop}
+\int_{-\infty}^\infty f(t) \delta(t)\, dt = f(0).
+\ee
+
+\noindent\emph{Example}: Solve the following differential equation using
+Laplace transforms.
+\be
+2y'' + y' + 2y = \delta(t-5), \qquad y'(0)=y(0)=0
+\ee
+\emph{Solution}: Taking the Laplace transform of both sides, we have
+\be \label{exeq1}
+\(2s^2 + s +2\) Y = e^{-5s}.
+\ee
+To see that the Laplace transform of $\delta(t-5)$ is $e^{-5s}$, consider the 
+definition of the Laplace transform:
+\be
+\mathcal{L}(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt
+\ee
+If we let $\tau = t-5$, then this is the same as
+\be
+\int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau
+\ee
+Then we apply equation (\ref{deltaprop}) to see that this is just $e^{-5s}$. 
+
+Going back to equation (\ref{exeq1}), solving for $Y$ and completing the 
+square yields
+\be
+Y = \frac{e^{-5s}}{2} \( \frac{1}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} \).
+\ee
+Finding the inverse transform is the hardest part of this process, but we can
+break it up into smaller steps. We can just pull the $1/2$ out 
+because the Laplace transform is linear and then if we rearrange this, we get
+\be
+Y = \frac{2}{\sqrt{15}}  \, e^{-5s} 
+\frac{\sqrt{\frac{15}{16}}}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} 
+= \frac{2}{\sqrt{15}}  \, e^{-5s} \, 
+\Laplace\[e^\frac{-t}{4}\sin\(\frac{\sqrt{15}}{4}t \) \]
+\ee
+Now we have an exponential term, $e^{-5s}$, times a term that is the Laplace 
+transform of $e^{\alpha t}\sin(\beta t)$ with $\alpha=1/4$ and 
+$\beta=\sqrt{{15}/{16}}$. So we will use the second last row of the Laplace 
+transform table to see that $Y$ is the Laplace transform of
+\be
+y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
+\ee
+
+\subsection{Problems}
+\begin{enumerate}
 \item Solve the integro-differential equation
   \bee
   y(t) + \int_0^t y(v) (t-v) dv = 1.
@@ -1751,9 +1791,50 @@ FIXME: And maybe DEs with periodic nonhomogeneous terms as well?
     \eee
   }
 
+  \item 
+    Find the Laplace transform of 
+    \bee
+    f = 
+    \left\{ \begin{array}{ll}
+      e^t & \mbox{if $t < c$};\\
+      t^2 & \mbox{if $t \geq c$}.
+    \end{array} \right.
+    \eee
+    \hidesolution{
+      \bee
+      \mathcal{L}(f)
+      &=& \int_0^c e^t e^{-st} \, dt + \int_c^\infty t^2 e^{-st} \, dt
+      \eee
+      The first integral is
+      \bee
+      \int_0^c e^t e^{-st} \, dt = \left.\frac{e^{(1-s)t}}{1-s}\right|_0^c
+      =\frac{e^{(1-s)c}-1}{1-s}.
+      \eee
+      The second integral requires two integrations-by-parts:
+      \bee
+      \int_c^\infty t^2 e^{-st} \, dt 
+      &=& \left. t^2 \frac{e^{-st}}{-s}\right|_c^\infty 
+      -2 \int_c^\infty t \frac{e^{-st}}{-s} \, dt
+      \\
+      &=&\frac{c^2}{s} +\frac{2}{s}
+      \[
+      t \left.\frac{e^{-st}}{-s}\right|_c^\infty 
+      - \int_c^\infty \frac{e^{-st}}{-s}\,dt
+      \]
+      \\
+      &=&\frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
+      \eee
+      The Laplace transform of $f$ is then the sum, i.e.,
+      \bee
+      \mathcal{L}(f) = 
+      \frac{e^{(1-s)c}-1}{1-s} 
+      + \frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
+      \eee
+    }
+\item
+  FIXME: add more problems!
 
 \end{enumerate}
-
 
 
 \newpage
