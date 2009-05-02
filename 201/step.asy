@@ -29,8 +29,6 @@ labely("$1$",(0,1),W);
 //xtick("$c$",(c,0),N);
 labelx("$c$",(c,0),S);
 
-axes("$x$","$y$",dashed);
-//xaxis("$x$",BottomTop);
-//yaxis("$u_c(x)$",LeftRight);
+axes("$t$","$y$",dashed);
 attach(legend(),point(E),20E);
 

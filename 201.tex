@@ -199,11 +199,17 @@ down to a value until the very last moment.)
 
 \begin{enumerate}
 \item
-  % an exact equation
+  Does $y = \sqrt{3-2\sin x}$ solve the differential equation 
+  \bee
+  y\frac{dy}{dx}=\sin(x)?
+  \eee
+
+\item
   Solve the equation
   \bee
   (2xy + 3) dx + (x^2 - 1) dy = 0
   \eee
+  \hidesolution{This is an exact equation}
 
 \item 
   Solve the logistic map,
@@ -724,7 +730,6 @@ An easy way to get all linear combinations is to just set
 \be 
 y_1(t) = e^{4t} \cos(2t), \qquad y_2(t) = e^{4t} \sin(2t).
 \ee
-% FIXME: emphasize this more?
 \\
 
 \noindent\emph{Example}: Give the general solution to
@@ -1286,9 +1291,9 @@ another perspective from which to look at a problem. If we're lucky with
 our choice of transformation, we can solve the problem.
 
 The Laplace transform of a function $f(t)$, which we denote by either
-$\mathcal{L}(f(t))$ or $F(s)$, is defined as
+$\Laplace(f(t))$ or $F(s)$, is defined as
 \be
-\int_0^\infty e^{-st} f(t) \, dt.
+\boxed{\Laplace(f(t)) =\int_0^\infty e^{-st} f(t) \, dt}.
 \ee
 This is itself a function, though we have changed the independent variable
 from $t$ to $s$. So long as $f$ is sufficiently smooth and doesn't grow too
@@ -1314,16 +1319,20 @@ Well, that was an excellent example, and we all had a lot of fun. The question
 remains, however, ``why is this useful?'' Consider the Laplace transform of 
 the first derivative of $y(t)$:
 \be
-\mathcal{L}(y') &=& \int_0^\infty y'(t) e^{-st} \, dt
-= \left. y(t) e^{-st} \right|_0^\infty - \int_0^\infty y \(-s e^{-st}\) \, dt
-\\ \nonumber
-&=& s \mathcal{L}(y) - y(0)
+\Laplace(y') = \int_0^\infty y'(t) e^{-st} \, dt
+= \left. y(t) e^{-st} \right|_0^\infty - \int_0^\infty y \(-s e^{-st}\) \, dt,
+\ee
+so
+\be
+\boxed{\Laplace(y')= s \mathcal{L}(y) - y(0)}.
 \ee
 That is, the Laplace transform changes derivatives into polynomials in $s$,
 which can be much easier to deal with!
 The Laplace transform of the $n$th derivative of $y$ is
 \be
-\mathcal{L}(y^{(n)}) = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0),
+\boxed{
+\Laplace(y^{(n)}) = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0)
+},
 \ee
 which we will apply to higher-order differential equations.
 
@@ -1335,6 +1344,8 @@ use. These are:
 \item $\mathcal{L}(t^n f(t)) = (-1)^n \frac{d^n}{ds^n} F(s)$. % FIXME: useless?
 \end{enumerate}
 
+
+FIXME: this is in the wrong section. Do different example.
 \noindent\emph{Example}: Compute the Laplace transform of the function
 \be
 f(t) = 
@@ -1473,7 +1484,7 @@ y' + by = f(t), \qquad y(0)=y_0.
 Taking the Laplace transform of the DE and applying the properties of Laplace 
 transforms yields
 \be
-s\mathcal{L}(y) - y(0) + b \mathcal{L}(y) = \mathcal{L}(f).
+s\Laplace (y) - y(0) + b \mathcal{L}(y) = \mathcal{L}(f).
 \ee
 Rearranging for $\mathcal{L}(y)$, we get
 \be
@@ -1631,10 +1642,56 @@ FIXME
 \section{Laplace Transforms: Convolutions, Impulses and Delta functions}
 
 \subsection{Convolutions}
-FIXME
+The Laplace transform is linear, so it deals with linear DEs very well, but not
+all DEs are linear. Indeed, the most aren't.
 
-Here, we have introduced the convolution of two functions, $f$ and $g$, as 
-$f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau$. 
+The Laplace transform is a good tool to deal with the convolution of two
+functions. The convolution is two functions $f$ and $g$ is written $f*g$ and
+is defined as
+\be
+\boxed{f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau}.
+\ee
+It has a particlarly nice Laplace transform. If we write $\Laplace(f)=F$ and
+$\Laplace(g)=G$, then
+\be
+\boxed{\Laplace(f*g)=F(s)G(s)}.
+\ee
+That is, the Laplace transform of a convolution is a product.
+
+\workedexample{
+Solve
+\be
+y'' = g(t), \qquad y(0) = c_0, \qquad y'(0)=c_1
+\ee for $y$ using Laplace transforms.
+}{
+Taking the Laplace transform of both sides, we have
+\be
+s^2Y - sc_0 - c_1 = G(s).
+\ee
+Solving for $Y$ yields
+\be
+Y = \frac{G + sc_0 + c_1}{s^2}= \frac{G}{s^2} + \frac{c_0}{s} + \frac{c_1}{s^2}.
+\ee
+}
+The solution is then the inverse Laplace transform, i.e.\
+\be
+y = \Laplace^{-1}\(G(s)\frac{1}{s^2} + c_0 + c_1 t\)
+= g(t)*t + c_0 + c_1 t. \qed
+\ee
+
+This technique can be extended to the full harmonic oscilator,
+\be
+y'' + by' + cy = g
+\ee
+which then has solution 
+\be
+\boxed{
+y = \Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \).
+}
+\ee
+
+FIXME: add formula for periodic oscilator with general source term.
+
 
 \subsection{Laplace Transforms of Discontinuous Functions}
 
@@ -1645,15 +1702,17 @@ smooth; they need only be integrable.
 
 The stup function, also known as the Heaviside function, is defined as
 \be
+\boxed{
 u_c(t) = \left\{ \begin{array}{ll}
          0 & \mbox{if $t < c$};\\
         1 & \mbox{if $t > c$}.\end{array} \right.
+}
 \ee
 and is useful for describing processes that start at a certain time. 
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics{201/step}
-    \caption{Graph of the step function $u_c(x)$.}
+    \caption{Graph of the step function $u_c(t)$.}
     \label{step}
   \end{center}
 \end{figure}
@@ -1699,20 +1758,21 @@ FIXME: add $\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$ to the tables.
 
 
 \subsection{The Impulse Function}
-FIXME
-
-and the delta function $\delta(t)$. The delta
+The step function describes functions which start suddenly, like turning on
+a switch. The delta, $\d(t)$,
 function is slightly more complicated; it describes processes that happen in an
 instant, like the impact from a hammer. It is (loosely) defined as having
 the following properties:
 \be
+\boxed{
 \delta(t) = \left\{ \begin{array}{ll}
          \infty & \mbox{if $t = 0$};\\
         0 & \mbox{if $t \neq 0$}.\end{array} \right.
+}
 \ee
 and, for any function $f(t)$,
 \be \label{deltaprop}
-\int_{-\infty}^\infty f(t) \delta(t)\, dt = f(0).
+\boxed{\int_{-\infty}^\infty f(t) \delta(t)\, dt = f(0)}.
 \ee
 
 \noindent\emph{Example}: Solve the following differential equation using
@@ -1831,6 +1891,13 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
       + \frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
       \eee
     }
+
+\item
+  Prove that $\Laplace(f*g)=F(s)G(s)$.
+
+\item
+  Solve $y'' = t u_c(t)$ for $y(t)$ using Laplace transforms.
+
 \item
   FIXME: add more problems!
 
@@ -2039,6 +2106,10 @@ work.
       takes students about 40 minutes.
       
     }
+
+  \item
+    FIXME: add more problems
+
 \end{enumerate}
 
 \newpage
@@ -3291,6 +3362,7 @@ matches both the initial and boundary conditions.
 %\end{align}
 
 \subsection{Table of Laplace Transforms}
+FIXME: put many more in this!\\
 \begin{tabular}{ l |  l }
   $f(t)$ & $\mathcal{L}(f) = F(s)$  \\
   \hline
