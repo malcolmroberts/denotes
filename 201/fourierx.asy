@@ -1,5 +1,5 @@
 import graph;
-size(300,IgnoreAspect);
+size(150,IgnoreAspect);
 
 int N=10;
 real f(real x) {

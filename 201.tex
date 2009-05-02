@@ -116,7 +116,7 @@ Putting this into equation (\ref{separableexample}) yields
   \(\sqrt{3 - 2\cos(x)}\) \times \(\frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}\)
   = \sin(x)
 \ee
-so we can be sure that we got the correct answer.
+so we can be sure that we got the correct answer. \qed
 
 
 
@@ -187,7 +187,7 @@ which implies that $g'(y) = y^2$. We integrate this to get
 \ee
 The solution is then given by
 \be \label{exactC2}
-  F(x,y) = xy + \frac{y^3}{3} =C.
+  F(x,y) = xy + \frac{y^3}{3} =C. \qed
 \ee
 (Note that in the above equation we have played fast and loose with the
 undetermined constant $C$; in fact, $C$ changed sign between equation
@@ -212,11 +212,7 @@ down to a value until the very last moment.)
   \hidesolution{This is an exact equation}
 
 \item 
-  Solve the logistic map,
-  \bee
-  \dd{y}{x} = y - y^2.
-  \eee
-  as a separable equation.
+  Solve the logistic map $\dd{y}{x} = y - y^2$ as a separable equation.
 
 \item
   Give the general solution to the differential equation
@@ -309,7 +305,7 @@ $du = dx$, and $v=e^x$. Thus,
 \ee
 Putting this into equation \eqref{linearexx} yields
 \be 
-  y = 2 e^x \(1 + \frac{1}{x}\) + \frac{C}{x}.
+  y = 2 e^x \(1 + \frac{1}{x}\) + \frac{C}{x}. \qed
 \ee
 We can now use the initial conditions to determine the value of $C$.
 
@@ -381,9 +377,9 @@ This would be a good one to check. Note that
 \be 
 \dd{y}{x} = \sqrt{1+\frac{3}{x^2}} - \frac{3/x^2}{\sqrt{1+\frac{3}{x^2}}}
 = \frac{1}{\sqrt{1+\frac{3}{x^2}}}
-= \frac{x}{y},
+= \frac{x}{y}, 
 \ee
-so the solution is correct.
+so the solution is correct. \qed
 
 \subsubsection{Bernoulli Equations}
 Bernoulli equations are differential equations of the form
@@ -416,7 +412,8 @@ Since $n=3$, choose $v=y^{-2}$. Then
 \quad \implies \quad
 \dd{v}{x} + \frac{v}{x} = 2 e^x,
 \ee
-which is a linear equation given as the example from section \ref{linearsec}.
+which is a linear equation given as the example from section \ref{linearsec}. 
+\qed
 
 
 %\subsubsection{Equations with Linear Coefficients}
@@ -706,7 +703,7 @@ y'(0) = -\alpha + \beta =0.
 Combining equations (\eqref{sec2ab1}) and (\eqref{sec2ab2}), it is easy to see 
 that $\alpha = \beta =\half$. The solution is therefore
 \be 
-y = \frac{e^{-t} + e^t}{2}.
+y = \frac{e^{-t} + e^t}{2}. \qed
 \ee
 
 \subsection{Dealing with complex roots}
@@ -756,7 +753,7 @@ y'(0) &=& -\alpha\sin(0) + \beta\cos(0) =\beta =0.
 \ee 
 The solution to the IVP is then
 \be 
-y(t) = \cos(t).
+y(t) = \cos(t). \qed
 \ee
 
 \subsection{Dealing with repeated roots}
@@ -805,7 +802,7 @@ y'(0) = \alpha + \beta =0.
 \ee
 Thus, $\alpha=1$ and $\beta =-1$, so the solution is
 \be 
-y(t) = e^t - te^t.
+y(t) = e^t - te^t. \qed
 \ee
 
 
@@ -991,7 +988,7 @@ Putting these into equation \eqref{undetceg} yields
 -3 \(-e^t +2e^{2t}  + \frac{1}{2} \)
 +2 \(-e^t +e^{2t}  + \frac{t}{2} + \frac{3}{4} \) = t,
 \ee
-as required.
+as required. \qed
 
 \subsection{Superposition Principle}
 Suppose that we know the solution $y_{1,p}$ to
@@ -1094,7 +1091,7 @@ y_p = y_{1,p} + 10 y_{2,p} = \frac{-t}{4} + \frac{3}{16} -2 t e^{-t}.
 The general solution is then
 \be
 y = \alpha y_1 + \beta y_2 + y_p
-= \alpha e^{-t} + \beta e^{4t} -2 t e^{-t} -\frac{t}{4} + \frac{3}{16}.
+= \alpha e^{-t} + \beta e^{4t} -2 t e^{-t} -\frac{t}{4} + \frac{3}{16}. \qed
 \ee
 
 
@@ -1165,28 +1162,30 @@ u_1'y_1 +u_2'y_2 &=&0
 \\ \nonumber
 u_1'y_1' +u_2'y_2' &=&f. 
 \ee
-Using Cramer's rule, it is easy to see that the solution must be
+Using Cramer's rule to solve the linear system, the solution is
 \be
-y_p 
-&=& y_1 \int 
-\(
-\left .
-{\left| \begin{array}{cc}0 & y_2 \\f & y_2' \end{array} \right|} 
-\right/
-{\left| \begin{array}{cc}y_1 & y_2 \\y_1' & y_2' \end{array} \right|} 
-\)
-\, dt 
-+ y_2 \int 
-\left(
-\left.
-{\left| \begin{array}{cc}y_1 & 0 \\y_1' & f \end{array} \right|} 
-\right/
-{\left| \begin{array}{cc}y_1 & y_2 \\y_1' & y_2' \end{array} \right|} 
-\right)
-\, dt 
-\\ \nonumber
-y_p&=& y_1 \int \frac{-f y_2}{w } \, dt 
-+ y_2 \int \frac{f y_1}{w} \, dt  
+%y_p 
+%&=& y_1 \int 
+%\(
+%\left .
+%{\left| \begin{array}{cc}0 & y_2 \\f & y_2' \end{array} \right|} 
+%\right/
+%{\left| \begin{array}{cc}y_1 & y_2 \\y_1' & y_2' \end{array} \right|} 
+%\)
+%\, dt 
+%+ y_2 \int 
+%\left(
+%\left.
+%{\left| \begin{array}{cc}y_1 & 0 \\y_1' & f \end{array} \right|} 
+%\right/
+%{\left| \begin{array}{cc}y_1 & y_2 \\y_1' & y_2' \end{array} \right|} 
+%\right)
+%\, dt 
+%\\ \nonumber
+%y_p&=& y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt  
+\boxed{
+y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt  
+}
 \ee
 where 
 \be
@@ -1222,9 +1221,10 @@ y_1' & y_2' \end{array} \right|
 \ee
 The particular solution is 
 \be
-y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
+y_p &=& e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
 + e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt \,
-= 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
+\\\nonumber
+&=& 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
 \ee
 \\
 \noindent\emph{Check}: When we put $y_p$ into equation \eqref{varpareg}, we
@@ -1232,7 +1232,7 @@ get
 \be
 2e^t  -4 e^t + 4 e^t = 2 e^t,
 \ee
-so we got the correct $y_p$.
+so we got the correct $y_p$. \qed
 
 
 \subsection{Problems}
@@ -1365,8 +1365,8 @@ $$\begin{aligned}
 &= \frac{1}{2-s} (e^{4(2-s)} - 1) + \frac{1}{3-s} ( e^{4(3-s)} - 1) 
 - \frac{1}{s}(0 - e^{-4s}) \\
 &= \frac{1}{2-s} (e^{8-4s} - 1) + \frac{1}{3-s} ( e^{12 - 4s} - 1) 
-+ \frac{1}{s}e^{-4s}. \\
-\end{aligned}$$
++ \frac{1}{s}e^{-4s}. \qed \\
+\end{aligned}$$ 
 % This problem can also be solved using the results of \S 7.6, but we had not 
 %covered them at the time of the quiz (at least not in the lab). \\
 
@@ -1562,7 +1562,7 @@ So we have
 \end{eqnarray*}
 Now use the table of Laplace transforms to get
 \begin{eqnarray*}
-y(t) = t^2 -t +2 +2 \sin{2t} - 2 \cos{2t}.
+y(t) = t^2 -t +2 +2 \sin{2t} - 2 \cos{2t}. \qed
 \end{eqnarray*}
 
 
@@ -1686,11 +1686,9 @@ y'' + by' + cy = g
 which then has solution 
 \be
 \boxed{
-y = \Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \).
-}
+y = \Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \)
+}.
 \ee
-
-FIXME: add formula for periodic oscilator with general source term.
 
 
 \subsection{Laplace Transforms of Discontinuous Functions}
@@ -1750,7 +1748,7 @@ Y = \frac{ce^{-sc}}{s} +\frac{ce^{-sc}}{s}^3.
 From the table of  Laplace transforms, we know that 
 $\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$, so 
 \be
-y = cu_c(t) + \frac{c}{2} t^2.
+y = cu_c(t) + \frac{c}{2} t^2. \qed
 \ee
 FIXME: add $\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$ to the tables.
 }
@@ -1774,6 +1772,15 @@ and, for any function $f(t)$,
 \be \label{deltaprop}
 \boxed{\int_{-\infty}^\infty f(t) \delta(t)\, dt = f(0)}.
 \ee
+Approximations to the delta function are shown in figure~\ref{deltafig}.
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{201/delta}
+    \caption{Approximations to $\d(x)$.}
+    \label{deltafig}
+  \end{center}
+\end{figure}
+
 
 \noindent\emph{Example}: Solve the following differential equation using
 Laplace transforms.
@@ -1815,6 +1822,7 @@ $\beta=\sqrt{{15}/{16}}$. So we will use the second last row of the Laplace
 transform table to see that $Y$ is the Laplace transform of
 \be
 y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
+\qed
 \ee
 
 \subsection{Problems}
@@ -2033,7 +2041,7 @@ which is easily solved for $X$ and $Y$ to give
   \end{array} \),
 \eee
 which brings us to equations (\ref{sysY}) and (\ref{sysX}) with a lot less 
-work.
+work. \qed
 
 \subsection{Problems}
 
@@ -2205,7 +2213,7 @@ of the derivatives, which can greatly simplify things.\\
   \ee
   That is, for any $x\in \mathbb{R}$, $n+1$ will eventually to be greater. 
   Thus, the limit is zero, and the series converges for all
-  $x \in (-\infty,\infty) =\mathbb{R}$.
+  $x \in (-\infty,\infty) =\mathbb{R}$. \qed
 }
 
 In the above example, the series converged everywhere. This isn't always
@@ -2213,6 +2221,7 @@ the case - often, a series solution to a differential equation is only
 valid in some neighbourhood of the initial conditions, and the series
 becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of 
 convergence.
+
 \workedexample{
   Find the radius of convergence for the Taylor series for $f=\arctan(x)$ 
   about $x=0$.
@@ -2234,6 +2243,7 @@ convergence.
   \ee
   which converges by the alternating series test. Similarly, the series 
   converges if $z=-1$. Thus, the interval of convergence is $\[-1,1\]$.
+  \qed
 }
 
 Now that we can calculate Taylor series and know when they are valid, we
@@ -2335,7 +2345,7 @@ recursively.\\
     \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
     0 & \mbox{if $n$ is odd}.
   \end{array} \right.
-  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}.
+  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. \qed
  \ee
  You may recall from previous classes that this is just the Taylor series
  for $\cos t$.
@@ -2660,7 +2670,7 @@ be determined by matching powers as per the previous section.
   of the first kind of order $\a$,
   \be
   J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
-  \(\frac{t}{2}\)^{2n-\a}.
+  \(\frac{t}{2}\)^{2n-\a}. \qed
   \ee
 }
 
@@ -2873,7 +2883,7 @@ b_n &=& \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx
 The Fourier series for $f(x)=x$ is then
 \be
 \label{Fourierx}
-x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx).
+x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx). \qed
 \ee
 This does indeed converge to $x$, as can be seen in figure \ref{fourierx}.
 \begin{figure}[htbp]
@@ -2890,16 +2900,16 @@ This does indeed converge to $x$, as can be seen in figure \ref{fourierx}.
 \subsection{Problems}
 
 \begin{enumerate}
-  \item What are the Fourier sine and cosine series for
+  \item 
+    What are the Fourier sine and cosine series for
     $y=\sin x$?
     \hidesolution{
       Students should make use of the orthogonality property for $\sin nx$ and
       $\sin mx$, $n \neq m$.
     }
-  \item What is the Fourier series for $f(x)$ if
-    \be
-    f(x) = \d(x-1)?
-    \ee
+  \item 
+    What is the Fourier series for $ f(x) = \d(x-1)$?
+
   \item What is the Fourier series in $x$ for $f(x,t)$ if
     \be
     f(x,t) = 
@@ -3132,7 +3142,7 @@ matches both the initial and boundary conditions.
   y(x,t) = 1+x+
   \sum_{n=1}^\infty \frac{4(\(-1)^n-1\)}{n^3\pi} e^{-\b n^2 t}\sin(nx).
   \ee
-  as can be seen in figure \ref{heat3}.
+  as can be seen in figure \ref{heat3}. \qed
   \begin{figure}[htbp]
     \begin{center}
       \includegraphics{201/heat3}
@@ -3208,7 +3218,7 @@ matches both the initial and boundary conditions.
   -2 \frac{e^\pi-1}{\pi} \frac{(-1)^{n+1}}{n}- \frac{2\((-1^n)-1\)}{n\pi}\)
     e^{-n^2t} \sin(nx),
   \ee
-  as can be seen in figure \ref{heat2}.
+  as can be seen in figure \ref{heat2}. \qed
   \begin{figure}[htbp]
     \begin{center}
       \includegraphics{201/heat2}

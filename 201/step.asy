@@ -1,5 +1,5 @@
 import graph;
-size(300,200);
+size(150,100);
 
 real c=3/8;
 real f(real x) {
