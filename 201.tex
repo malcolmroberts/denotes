@@ -1492,32 +1492,12 @@ Rearranging for $\mathcal{L}(y)$, we get
 \ee
 Then in order to determine $y$, we need to invert the Laplace transform.
 Since the inverse Laplace transform is kind of complicated, the easiest
-way to deal with this is to use a table of Laplace transforms:
-\be 
-\begin{tabular}{ l |  l }
-  $f(t)$ & $\mathcal{L}(f) = F(s)$  \\
-  \hline
-  $e^{\alpha t}$ & $\frac{1}{s-\alpha} $ \\ 
-  $\sin(\beta t)$ & $\frac{\beta}{s^2 + \beta^2} $ \\
-  $\cos(\beta t)$ & $\frac{s}{s^2 + \beta^2} $ \\
-  $\sinh(\beta t)$ & $\frac{\beta}{s^2 - \beta^2} $ \\
-  $\cosh(\beta t)$ & $\frac{s}{s^2 - \beta^2} $ \\
-  $e^{\alpha t}\sin(\beta t)$ & $\frac{\beta}{(s-\alpha)^2 + \beta^2} $ \\
-  $e^{\alpha t}\cos(\beta t)$ & $\frac{s-\alpha}{(s-\alpha)^2 + \beta^2} $ \\
-  $t^n$ & $\frac{n!}{s^{n+1}}$ \\ 
-  $e^{ct}f(t) $ & $F(s-c) $ \\
-  $f(ct) $ & $\frac{1}{c}F\(\frac{s}{c}\) $ \\
-  $\int_0^t f(t-\tau) g(\tau) \,d\tau \doteq f*g$ & $F(s)G(s) $ \\
-%  $u_c(t)$ & $\frac{e^{-cs}}{s}$ \\
-%  $u_c(t)f(t-c)$ & $e^{-cs}F(s)$ \\
-%  $\delta(t)$ & $1$ \\
-\end{tabular}
-\ee
+way to deal with this is to use a table of Laplace transforms found in
+section \ref{tableolap}.
 
 It is often necessary to use the technique of partial fractions to disentangle 
 the Laplace transform of the solution so we can take the inverse transform. 
-Here's an example of how it works in an IVP:\\
-
+Here's an example of how it works in an initial value problem:\\
 \noindent\emph{Example}:
 Solve the following differential equation using Laplace transforms
 \begin{equation*}
@@ -1567,11 +1547,48 @@ y(t) = t^2 -t +2 +2 \sin{2t} - 2 \cos{2t}. \qed
 
 
 
-
-
-
 \subsection{Laplace Transforms of Periodic Functions}
-FIXME
+
+Periodic functions behave particularly nicely under Laplace transforms. Suppose
+the function $f(t)$ is periodic with period $T$. That is, for all $t$,
+\be
+f(t+T)=f(t).
+\ee
+The Laplace transform of $f$ is
+\be
+\Laplace\{f\} &=& \int_0^\infty f(t) e^{-st} dt
+\\\nonumber
+&=&\int_0^T f(t) e^{-st} dt + \int_T^{2T} f(t) e^{-st} dt + \dots +
+\int_{nT}^{(n+1)T} f(t) e^{-st} dt + \dots
+\\\nonumber
+&=& \int_0^T f(\t) e^{-s\t} d\t + e^{-sT}\int_0^{T} f(\t) e^{-s\t} d\t + \dots +
+e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
+\\\nonumber
+&=& \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\int_0^T f(\t) e^{-s\t}d\t.
+\ee
+Now, this is the geometric series $\sum_{n=0}^\infty r^n = 1/(1-r)$ with 
+$r=e^{-sT}$, so
+\be\label{lapper}
+\boxed{\Laplace\{f\} =\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}}.
+\ee
+
+\workedexample{Find the Laplace transform of a saw wave with period $T=1$,
+\be
+f(t) = \left\{ \begin{array}{ll}
+         t & \mbox{if $t \in (0,1)$};\\
+        f(t-N) & \mbox{if $t \in (N,N+1)$ for $N\in \N$}.\end{array} \right.
+\ee
+}{
+From equation \eqref{lapper}, we have
+\be
+\Laplace\{f\}
+= \frac{\int_0^1 t e^{-st}dt}{1-e^{-sT}}
+= \frac{\[t \frac{e^{-st}}{-s}\]_0^1 -\int_0^1 \frac{e^{-st}}{-s} dt}{1-e^{-s}}
+%= \frac{\frac{e^{-s}}{s} - \frac{e^{-s}}{s^2} + \frac{1}{s^2} }{1-e^{-s}}
+= \frac{se^{-s} - e^{-s} +1}{s^2\(1-e^{-s} \)}.
+\qed
+\ee
+}
 
 
 \subsection{Problems}
@@ -1750,7 +1767,6 @@ $\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$, so
 \be
 y = cu_c(t) + \frac{c}{2} t^2. \qed
 \ee
-FIXME: add $\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$ to the tables.
 }
 
 
@@ -2919,8 +2935,6 @@ This does indeed converge to $x$, as can be seen in figure \ref{fourierx}.
     \end{array} \right.
     \ee
     
-%  \item FIXME: add question on Gibbs phenomenom (NB: notes are written).
-% Actually, I'm not so sure that Gibbs is a good problem.
 \end{enumerate}
 
 \newpage
@@ -3360,18 +3374,8 @@ matches both the initial and boundary conditions.
 &
 \end{align}
 
-
-% FIXME: do we need this section?
-%\subsection{Table of Identities}
-%\begin{align}\nonumber
-%& 
-%& 
-%\\\nonumber
-%& 
-%& 
-%\end{align}
-
 \subsection{Table of Laplace Transforms}
+\label{tableolap}
 FIXME: put many more in this!\\
 \begin{tabular}{ l |  l }
   $f(t)$ & $\mathcal{L}(f) = F(s)$  \\
@@ -3390,6 +3394,8 @@ FIXME: put many more in this!\\
   $u_c(t)$ & $\frac{e^{-cs}}{s}$ \\
   $u_c(t)f(t-c)$ & $e^{-cs}F(s)$ \\
   $\delta(t)$ & $1$ \\
+  $f(t-c)(u_c(t)$ & $e^{-cs}F(s)$ \\
+  $f(t)$ with $f(t+T)=f(t)$ & $\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}$\\
 \end{tabular}
 
 %\begin{tabular}{ l| l|| l| l }
