@@ -1990,7 +1990,7 @@ sX - 3X +2Y = \frac{1}{s^2+1}\\
 \eee
 We can solve the second equation for X:
 \bee
-X = \frac{1}{4}\(\frac{s}{s^2+1} + \frac{s+1}{4}Y\)
+X = \frac{1}{4}\(\frac{s}{s^2+1} + (s+1)Y\)
 \eee
 Put this into the first equation, so
 \bee
@@ -2004,7 +2004,7 @@ Y &=& -\frac{(s-4)(s+1)}{(s^2+1)(s^2-2s+5)} \\ \nonumber
 &=& \frac{11s +7}{10(s^2+1)} + \frac{-11s + 5}{10(s^2-2s+5)}  \\ \nonumber
 &=& \frac{11s}{10(s^2+1)} + \frac{7}{10(s^2+1)} + 
 \frac{-11}{10}\frac{s-1}{(s-1)^2 + 2^2} 
-+  \frac{3}{10}\frac2{(s-1)^2 + 2^2}
+-  \frac{3}{10}\frac2{(s-1)^2 + 2^2}
 \ee
 by partial fractions and completing the square in the last two terms. We are 
 now in a position to use an inverse Laplace transform to get $y(t)$:
@@ -2012,16 +2012,16 @@ now in a position to use an inverse Laplace transform to get $y(t)$:
 y(t) = \frac{7}{10} \sin t + \frac{11}{10} \cos t 
 - \frac{11}{10}e^{t}\cos 2t - \frac{3}{10}e^{t}\sin 2t
 \eee
-It now remains to solve for $x(t)$. We use equation the solution for $X$
+It now remains to solve for $x(t)$. We use the solution for $X$
 and the Laplace transform of $y$. This is to say
 \be
 \label{sysX}
-X &=& \frac{1}{4}\(\frac{s}{s^2+1} + \frac{s+1}{4}Y\)\\ \nonumber
+X &=& \frac{1}{4}\(\frac{s}{s^2+1} + (s+1)Y\)\\ \nonumber
  &=& \frac{-1 + 7s}{10(s^2+1)} + \frac{-7s + 15}{10(s^2-2s+5)} \\ \nonumber
  &=& \frac{7s}{10(s^2+1)} + \frac{-1}{10(s^2+1)} + \frac{-7}{10}
 \frac{s-1} {(s-1)^2 + 2^2} +  \frac{2}{5}\frac{2}{(s-1)^2 + 2^2}
 \ee
-So we can now use and inverse Laplace transform to get $x(t)$.
+So we can now use an inverse Laplace transform to get $x(t)$.
 \bee
 x(t) = \frac{-1}{10} \sin t + \frac{7}{10} \cos t - \frac{7}{10}e^{t}\cos 2t
 + \frac{2}{5}e^{t}\sin 2t
@@ -2040,7 +2040,7 @@ Alternatively, we could have solved this as a linear system, since
 =
 \( \begin{array}{l}
     \frac{1}{s^2+1}\\
-    \frac{1}{s^2+1}
+    \frac{s}{s^2+1}
   \end{array} \)
 \eee
 which is easily solved for $X$ and $Y$ to give
@@ -2050,7 +2050,7 @@ which is easily solved for $X$ and $Y$ to give
     Y
   \end{array} \)
 =
-\frac{1}{s^2+1}\frac{1}{s^2-2s+5}
+\frac{1}{s^2+1} \cdot \frac{1}{s^2-2s+5}
 \( \begin{array}{l}
     3s+1\\
     s^2 -3s -4
@@ -2071,6 +2071,9 @@ work. \qed
     \end{array} 
     \eee
     \hidesolution{
+      Note: For the quiz, computing just $z(t)$ should be sufficient, since this
+      takes students about 40 minutes.\\
+
       The Laplace transform gives us
       \bee
       sX &=& Z \\
@@ -2126,9 +2129,7 @@ work. \qed
       -\frac{1}{\sqrt{3}}\sin \frac{\sqrt{3}}{2}t 
       \).
       \eee
-      For the quiz, computing just $z(t)$ should be sufficient, since this
-      takes students about 40 minutes.
-      
+    
     }
 
   \item
@@ -2139,8 +2140,8 @@ work. \qed
 \newpage
 \section{Series Solutions to DEs}
 
-A smooth function $f(t)$ can be approximated near a point $t=a$ by looking at 
-its derivatives. In fact, if $f$ is smooth enough, its value for at any
+A smooth function, $f(t)$, can be approximated near a point, $t=a$, by looking at 
+its derivatives. In fact, if $f$ is smooth enough, its value at any
 given $t$ can be entirely determined by its behaviour at $t=a$.
 
 The most basic approximation that we can make is that the function stays 
@@ -2159,20 +2160,20 @@ $f''(a)$, which gives us
 \be
 f(t) \approx f_2(t) = f(a) + f'(a) (t-a) + \frac{f''(a)}{2}\(t-a\)^2,
 \ee
-and so on. This is called a \emph{Taylor Polynomial Approximation} (of simply a
+and so on. This is called a \emph{Taylor Polynomial Approximation} (or simply a
 Taylor polynomial). It's easy to deal with both analytically and numerically,
 and it can be used to get at least a basic understanding of just about any IVP.
 
 The $n$th degree Taylor polynomial is
 \be
-f_n(t) &=& f(a) + f'(a)(t-a) + f''(a)(t-a)^2 + \dots 
+f_n(t) &=& f(a) + f'(a)(t-a) + \frac{f''(a)}{2}(t-a)^2 + \dots 
 + \frac{f^{(n)}(a)}{n!} (t-a)^n
 \\ \nonumber
 &=& \sum_{i=0}^n \frac{f^{(i)}(a)}{i!}(t-a)^i,
 \ee
 and it exists for any function $f$ whose first $n$ derivatives are smooth for
 $t\in [a,t]$. 
-Let $R_n(t) = f(t) -f_n(t)$ denote the error. Then, Taylor's theorem states
+Let $R_n(t) = f(t) -f_n(t)$ denote the error associated with the $n$th Taylor polynomial. Then, Taylor's theorem states
 that there exists a number $\xi \in [a,t]$ where
 \be
 R_n(t) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(t-a)^{n+1}.
@@ -2181,13 +2182,13 @@ So long as $\lim_{n\rightarrow \infty} R_n(t) =0$, $f_n$ will be a better and
 better approximation as $n$ increases.
 
 
-The Taylor series is the limit of $f_n$ as $n\rightarrow\infty$, which is
+The Taylor series of $f$ is the limit of $f_n$ as $n\rightarrow\infty$, which is
 \be
 \sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i.
 \ee
 The Taylor series for $f$ exists as long as every derivative of $f$ is
-continuous (i.e.\ $f$ is \emph{analytic}, and is equal to $f$ if their 
-difference is zero, i.e.\ $\lim_{n\rightarrow \infty} R_n(t) =0$. Since these 
+continuous (i.e.\ $f$ is \emph{analytic}), and is equal to $f$ if their 
+difference is zero, (i.e.\ $\lim_{n\rightarrow \infty} R_n(t) =0$). Since these 
 things are equal, we can use this to solve equations! Of course, we need to 
 make sure that these series converge in order for our solution to make sense.
 What's more, if $f$ is analytic, then the derivative of the sum is the sum
@@ -2210,16 +2211,16 @@ of the derivatives, which can greatly simplify things.\\
   $B=\sum_{n=0}^\infty b_n$ be two series, our test are:
   \begin{enumerate}
   \item The comparison test: if 
-    $\lim_{\rightarrow \infty} a_n/b_n \in (0,\infty)$, then $A$ converges 
-    $\iff$ $B$ converges.
-  \item The ratio test: if $\lim_{n\rightarrow\infty}\abs{a_{n+1}/a_n}=c < 1$,
+    $\lim_{n \rightarrow \infty} \frac{a_n}{b_n} \in (0,\infty)$, then $A$ converges 
+    if and only if $B$ converges.
+  \item The ratio test: if $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$,
     then $A$ converges.
   \item The root test: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
     then $A$ converges.
   \item The integral test: if there is a function $f$ with $f(n)=a_n$, then
-    $A$ converges $\iff$ $\int_0^\infty f(t) dt$ is finite.
-  \item The alternating series test: if $a_n$ alternates sign, then $A$ 
-    converges so long as $\lim_{n\rightarrow\infty}a_n=0$.
+    $A$ converges if and only if $\int_0^\infty f(t) dt$ is finite.
+  \item The alternating series test: if $a_n = (-1)^n c_n$, then $A$ 
+    converges so long as $\lim_{n\rightarrow\infty}c_n=0$ and each $c_n$ is smaller than $c_{n-1}$.
   \end{enumerate}
   Let's try the ratio test. That is, fix $x$ and look at
   \be
@@ -2227,7 +2228,7 @@ of the derivatives, which can greatly simplify things.\\
   = \lim_{n\rightarrow\infty}\frac{x^{n+1}/(n+1)!}{x^n/n!}
   =\lim_{n\rightarrow\infty}\frac{x}{n+1} =0 < 1.
   \ee
-  That is, for any $x\in \mathbb{R}$, $n+1$ will eventually to be greater. 
+  That is, for any $x\in \mathbb{R}$, $n+1$ will eventually be greater than $x$. 
   Thus, the limit is zero, and the series converges for all
   $x \in (-\infty,\infty) =\mathbb{R}$. \qed
 }
@@ -2236,13 +2237,14 @@ In the above example, the series converged everywhere. This isn't always
 the case - often, a series solution to a differential equation is only
 valid in some neighbourhood of the initial conditions, and the series
 becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of 
-convergence.
+convergence.\\
 
 \workedexample{
   Find the radius of convergence for the Taylor series for $f=\arctan(x)$ 
   about $x=0$.
-}{
-  The Taylor series for $\arctan$ is
+}\\
+{
+  The Taylor series for $\arctan(z)$ is
   \be
   \sum_{n=0}^\infty \frac{(-1)^n z^{2n+1}}{2n+1}
   \ee
@@ -2251,7 +2253,7 @@ convergence.
   \abs{\frac{a_{n+1}}{a_n}} = \frac{z^{2(n+1)+1}/(2(n+1)+1)}{z^{2n+1}/(2n+1)}
   = \frac{z^2}{(2n+3)/(2n+1)}\rightarrow z^2
   \ee
-  Clearly, this limit is only less than one of $\abs{z}<1$. We still need to 
+  Clearly, this limit is only less than one if $\abs{z}<1$. We still need to 
   check the case when $\abs{z}=1$. This is pretty easy to do, since if $z=1$,
   the series is just
   \be
@@ -2264,7 +2266,7 @@ convergence.
 
 Now that we can calculate Taylor series and know when they are valid, we
 can use them to calculate solutions to differential equations. To simplify
-matters, consider we will restrict ourselves to initial value problem
+matters, we will restrict ourselves to initial value problems
 which begin at $t=0$, so that $a=0$ in all the above formulae. Now, we can
 express the solution $y(t)$ as a Taylor series,
 \be
@@ -2274,12 +2276,12 @@ We assume that this solution is analytic, so we can take the derivative of the
 series term-by-term. That is,
 \be
 \dd{y}{t} = \dd{}{t}\sum_{n=0}^\infty a_n t^n 
-= \sum_{n=0}^\infty \dd{(a_n t^n)}{t} = \sum_{n=0}^\infty a_n n t^n
-= \sum_{n=1}^\infty a_n n t^n
+= \sum_{n=0}^\infty \dd{(a_n t^n)}{t} = \sum_{n=0}^\infty a_n n t^{n-1}
+= \sum_{n=1}^\infty a_n n t^{n-1}
 \ee
 
 
-(the last equality is because the $n=0 \implies a_n n t^n=0$, so we can ignore
+(the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we can ignore
 the term with $n=0$). Since we know
 that $a_0=y(0)$, and $y(0)$ is given by the initial conditions, we can solve
 for the rest of the $a_n$ recursively.\\
@@ -2288,7 +2290,8 @@ for the rest of the $a_n$ recursively.\\
 y'(t) = t^2 +t, \qquad y(0)=1
 \ee
 using a Taylor series for $y$.
-}{
+}\\
+{
   Let 
   \be
   y =\sum_{n=0}^\infty a_n t^n.
@@ -2301,13 +2304,13 @@ using a Taylor series for $y$.
   \be
   2 a_2 t = t, \qquad 3 a_3 t^2 = t^2
   \ee
-  and $a_n n t^n =0$ for all $n \geq 4$. Thus, $a_1 =0$, $a_2=\half$, and 
-  $a_3 = 1/3$. The solution is then
+  and $a_n n t^n =0$ for $n=1$ and all $n \geq 4$. Thus, $a_1 =0$, $a_2=\half$, and 
+  $a_3 = \frac{1}{3}$. The solution is then
   \be
   y(t) = 1 +\frac{t^2}{2} +\frac{t^3}{3}.
   \ee
 }
-It was easy to isolate all of the $a_n$s in the previous example, since $y'$
+It was easy to isolate all of the $a_n$'s in the previous example, since $y'$
 appeared alone in the IVP. It's usually necessary to solve for $a_n$ 
 recursively.\\
 \workedexample{
@@ -2316,7 +2319,8 @@ recursively.\\
   y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
   \ee
   using a Taylor series for $y$.
-}{
+}\\
+{
   Again, let $y=\sum_{n=0}^\infty a_n t^n$. Then
   \be
   y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}.
@@ -2334,6 +2338,8 @@ recursively.\\
   This makes it much easier to solve \eqref{serieseg}, since we now have
   \be
   \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m =  -\sum_{n=0}^\infty a_n t^n
+  \ee
+  \be
   \implies \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
   \ee
   In order for this to hold for all $t$ in a neighbourhood of $t=0$, it must
@@ -2343,7 +2349,7 @@ recursively.\\
   a_{n+2}(n+2)(n+1) +a_n =0.
   \ee
   From the initial conditions, we have $a_0=1$ and $a_1=0$. We can solve
-  for $a_2$ by setting $n=0$ in \eqref{seriesrec}, which yields
+  for $a_2$ by setting $n=0$ in equation \eqref{seriesrec}, which yields
   \be
   a_2 \times 2 \times 1 = -1, \implies a_2=-\half.
   \ee
@@ -2476,44 +2482,45 @@ recursively.\\
       This is just $y(x)=\arctan x$.
     }
 
-  \item
-    The pendulum is often approximated as a harmonic oscillator. The full 
-    system is nonlinear in $y$, since
-    \be
-    y''=-\sin y,
-    \ee
-    which reduces to the usual case, $y''=-y$, for small $y$. A slightly
-    better approximation would be to approximate $\sin$ to higher order, as in
-    \be
-    \label{pend3}
-    y''=-y + \frac{y^3}{3!}.
-    \ee
-    Provide a third-order Taylor polynomial approximation to the solution of 
-    \eqref{pend3}. 
-
-    If we take \eqref{pend3} and multiply it by $y'$, we can get the energy
-    equation for the system, namely
-    \be
-    y' y'' = \ddt{y'^2/2} 
-    = \ddt{}\int^{y(t)}\(-\hat{y} + \frac{\hat{y}^3}{3!}\) d\hat{y}.
-    \ee
-    Thus, the energy of the system, $E=\frac{y'^2}{2} 
-    + \int^{y(t)}\(\hat{y} - \frac{\hat{y}^3}{3!}\) d\hat{y}$, is conserved, 
-    since
-    \be
-    \ddt{}\(\frac{y'^2}{2} 
-    + \int^{y(t)}\(\hat{y} - \frac{\hat{y}^3}{3!}\) d\hat{y}\) =0.
-    \ee
-    Based on the conservation of energy, what do you expect to happen at large
-    $y$? Why might $y''=-y$ be a better approximation at large $y$ than
-    $y''=-y + {y^3}/{3!}$ is?
-    \hidesolution{
-      FIXME: work out the approximation
-      
-      The reason that the third-order approximation breaks down is that 
-      the energy goes to $-\infty$ for large $\abs{y}$, so the solution will
-      grow unboundedly.
-    }
+%too complicated--needs help
+% \item
+%    The pendulum is often approximated as a harmonic oscillator. The full 
+%    system is nonlinear in $y$, since
+%    \be
+%    y''=-\sin y,
+%    \ee
+%    which reduces to the usual case, $y''=-y$, for small $y$. A slightly
+%    better approximation would be to approximate $\sin$ to higher order, as in
+%    \be
+%    \label{pend3}
+%    y''=-y + \frac{y^3}{3!}.
+%    \ee
+%    Provide a third-order Taylor polynomial approximation to the solution of 
+%    \eqref{pend3}. 
+%
+%    If we take \eqref{pend3} and multiply it by $y'$, we can get the energy
+%    equation for the system, namely
+%    \be
+%    y' y'' = \ddt{y'^2/2} 
+%    = \ddt{}\int^{y(t)}\(-\hat{y} + \frac{\hat{y}^3}{3!}\) d\hat{y}.
+%    \ee
+%    Thus, the energy of the system, $E=\frac{y'^2}{2} 
+%    + \int^{y(t)}\(\hat{y} - \frac{\hat{y}^3}{3!}\) d\hat{y}$, is conserved, 
+%    since
+%    \be
+%    \ddt{}\(\frac{y'^2}{2} 
+%    + \int^{y(t)}\(\hat{y} - \frac{\hat{y}^3}{3!}\) d\hat{y}\) =0.
+%    \ee
+%    Based on the conservation of energy, what do you expect to happen at large
+%    $y$? Why might $y''=-y$ be a better approximation at large $y$ than
+%    $y''=-y + {y^3}/{3!}$ is?
+%    \hidesolution{
+%      FIXME: work out the approximation
+%      
+%      The reason that the third-order approximation breaks down is that 
+%      the energy goes to $-\infty$ for large $\abs{y}$, so the solution will
+%      grow unboundedly.
+%    }
     
   \item
     Give a recursion formula for $a_n$ if 
