@@ -1946,12 +1946,30 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
 
 \item
   Prove that $\Laplace(f*g)=F(s)G(s)$.
+  \hidesolution{TODO: write solution.}
 
 \item
-  Solve $y'' = t u_c(t)$ for $y(t)$ using Laplace transforms.
+  Solve $y'' = t u_c(t)$, $y(0)=y'(0)=0$, for $y(t)$ using Laplace transforms.
+  \hidesolution{
+    Note that $tu_c(t) = (t-c)u_c(t) +cu_c(t)$. Then,
+    \bee
+    s^2 Y = \frac{e^{-cs}}{s^2} + \frac{e^{-cs}}{s},
+    \implies Y =  \frac{e^{-cs}}{s^4} + \frac{e^{-cs}}{s^3}
+    \eee
+    so
+    \bee
+    y = u_c(t) \(\frac{t^3}{3!} + \frac{t^2}{2!}\).
+    \eee
+  }
 
 \item
-  FIXME: add more problems!
+  Solve the IVP
+  \bee
+  y'' + y = M\d(t-1), \qquad y'(0)=y(0)=0.
+  \eee
+  \hidesolution{
+  TODO: write solution.  
+  }
 
 \end{enumerate}
 
