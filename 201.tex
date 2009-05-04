@@ -1,11 +1,5 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath, amsfonts, amsthm, amssymb, math, ifthen, ode}
-%\addtolength{\topmargin}{-1in}
-%\addtolength{\oddsidemargin}{-0.5in}
-%\addtolength{\evensidemargin}{-0.5in}
-%\addtolength{\textwidth}{1in}
-%\addtolength{\textheight}{1in}
-
 
 \newcounter{showsolutions}
 \setcounter{showsolutions}{0}
@@ -27,23 +21,23 @@ their derivatives. For example,
 is a differential equation. In this case, $y$ is a function of the independent 
 variable $x$, and we would like to determine $y$. The solution to this
 equation is
-\be
+\bee
 y = Ce^x,
-\ee
+\eee
 with $C$ an arbitrary constant, since $y'=\dd{}{x}Ce^x=Ce^x=y$. That is, if we 
 plug $y=Ce^x$ into equation (\ref{eg1}), both sides match. If we modify this
 a little bit, say letting $y=Ce^x +x$, then the left hand side doesn't
 match the right:
-\be
+\bee
 \dd{y}{x} = \dd{}{x}(Ce^x +x) = Ce^x + 1 = y +1 \neq y,
-\ee
+\eee
 so it isn't a solution to equation (\ref{eg1}).
 
 An initial value problem (abbreviated as IVP) is a differential equation 
 combined with one or more initial conditions. For example
-\be
+\bee
 \dd{y}{x}=y, \qquad y(0)=1.
-\ee
+\eee
 The differential equation is solved by $y=Ce^x$, for any value of $C$. However,
 the only way to satisfy $y(0)=Ce^0=1$ is to set $C=1$. That is, the solution
 to the initial value problem is $y=e^x$, since it satisfies both the 
@@ -69,9 +63,9 @@ Separable equations are of the form
 \ee
 These are simple to solve: from equation (\ref{separable}), we can just split
 the derivative and integrate: $ h(y)\, dy = g(x) \, dx$ becomes
-\be 
+\bee
 \boxed{  \int h(y) \, dy = \int g(x) \, dx},
-\ee
+\eee
 and then all we need to do is find the integral and solve for $y$.\\
 
 \noindent\emph{Example}: Consider the equation
@@ -79,43 +73,43 @@ and then all we need to do is find the integral and solve for $y$.\\
   y \dd{y}{x} = \sin(x)
 \ee
 with initial condition $ y(0) = 1$. Separating and integrating yields
-\be 
+\bee
   \int y \, dy = \int \sin(x) \, dx
   \qquad \implies \qquad 
   \frac{y^2}{2} = -\cos(x) + C
-\ee
+\eee
 where $C$ is a constant that will be determined by the initial conditions.
 Let us now solve for $y$.
-\be 
+\bee
   y(x) = \pm \sqrt{2 C -2 \cos(x)}.
-\ee
+\eee
 Notice that we have two different solutions! We can use the initial condition
 $y(0)=1$ to eliminate one. Since 
-\be 
+\bee
   y(0) = \pm  \sqrt{2 C - 2 \cos(0) } = \pm \sqrt{2C-2} =1,
-\ee
+\eee
 and $1$ is positive, we must choose the positive root.
 Thus, 
-\be  
+\bee 
 \(C-1\)^2 =1/2
 \quad \implies \quad
 C=3/2
 \quad \implies \quad
 y(x) = \sqrt{3 - 2\cos(x)}.
-\ee
+\eee
 
 It's a good idea to check that the solution that you got is correct. This is
 pretty easy; just plug the solution into the original equation. From
 the above example, $y(x) = 2 \sqrt{\frac{3}{2} - \cos(x)}$, so
-\be  
+\bee 
   \dd{y}{x} = \frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}.
-\ee
+\eee
 Putting this into equation (\ref{separableexample}) yields
-\be 
+\bee
   y \dd{y}{x}=
   \(\sqrt{3 - 2\cos(x)}\) \times \(\frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}\)
   = \sin(x)
-\ee
+\eee
 so we can be sure that we got the correct answer. \qed
 
 
@@ -125,8 +119,8 @@ so we can be sure that we got the correct answer. \qed
 \begin{definition}\emph{Exact equations.}
 Homogeneous first-order differential equations can be written in the form
 $M(x,y) dx + N(x,y)dy=0.$ If 
-\be 
-  \pp{M(x,y)}{y} =   \pp{N(x,y)}{x}
+\be
+  \boxed{\pp{M(x,y)}{y} =   \pp{N(x,y)}{x}}
 \ee
 then the equation is called \emph{exact}.
 \end{definition}
@@ -144,14 +138,14 @@ we simply integrate. Let
 \ee 
 We require that $\pp{}{y}F(x,y)= N(x,y)$, which will allow us to determine 
 $g(y)$. That is,
-\be 
+\bee
   \pp{F(x,y)}{y} 
   &=& \pp{}{y}\(\int M(x,y) dx + g(y)\)
   \\
   &=& \int \pp{M(x,y)}{y} dx + \pp{g(y)}{y}
   \\
   &=& N(x,y) + g'(y).
-\ee
+\eee
 This tells us what $g'(y)$ is, so we now know $g(y)$ up to some constant
 $C$. We can put this into equation (\ref{exactsol}), which gives us the
 implicit solution
@@ -163,24 +157,24 @@ $y=f(x)$ so that $F(x,f(x))=C$, but sometimes all we have for a solution
 is something in the form of equation (\ref{exactimpl}).\\
 
 \noindent\emph{Example}: Solve 
-\be 
+\bee
   y\, dx + \(y^2 + x \) dy =0
-\ee
+\eee
 Using the notation above, we have $M(x,y)=y$, and $N(x,y)=y^2 +x$.
 This equation is exact, since 
-\be  
+\bee 
   \dd{}{y}y = 1 = \dd{\(y^2 +x\)}{x}.
-\ee
+\eee
 So write
-\be 
+\bee
   F(x,y) 
   = \int y dx + g(y)
   = xy + g(y).
-\ee
+\eee
 We now need to set $\pp{}{y} F = N$, so
-\be 
+\bee
   \pp{}{y}\[xy + g(y)\] = y^2 +x 
-\ee
+\eee
 which implies that $g'(y) = y^2$. We integrate this to get 
 \be \label{exactC1}
   g(y) = \frac{y^3}{3} + C. 
@@ -216,9 +210,9 @@ down to a value until the very last moment.)
 
 \item
   Give the general solution to the differential equation
-  \be
+  \bee
   \ddt{y} = 1 + \frac{1}{y^2}
-  \ee
+  \eee
   \hidesolution{
     This is a separable equation:
     \bee
@@ -247,28 +241,28 @@ down to a value until the very last moment.)
 
 Linear equations have the form
 \be \label{linear}
-  \dd{y}{x} + P(x) y = Q(x).
+\boxed{\dd{y}{x} + P(x) y = Q(x)}.
 \ee
 To solve these equations, we use an \emph{integrating factor}. That is, if
 we define the integrating factor $\mu$ as
-\be 
-  \mu(x) \doteq \exp\[ \int P(x) d x \],
+\be
+\boxed{\mu(x) \doteq \exp\[ \int P(x) d x \]},
 \ee
 then notice that
-\be
+\bee
   \dd{}{x}\(\mu y \) = \dd{\mu}{x} y + \mu \dd{y}{x} 
   = \mu P(x) y + \mu \dd{y}{x}.
-\ee
+\eee
 So if we multiply equation \eqref{linear} by $\mu$, we get
-\be 
+\bee
   \dd{}{x}\(\mu y \) = \mu Q,
-\ee
+\eee
 which we can now solve by taking the integral of both sides with respect to 
 $x$. Doing this, we get
-\be
+\bee
   d\(\mu y\) = \mu Q dx \qquad \implies \qquad
   \mu y = \int \mu Q dx + C
-\ee
+\eee
 which gives the general formula
 \be
 \label{linearf}
@@ -279,13 +273,13 @@ which gives the general formula
 \noindent \emph{Example}:
 \label{linearsec}
 Consider the equation
-\be 
+\bee
   \dd{y}{x} + \frac{y}{x} = 2 e^x.
-\ee
+\eee
 We identify $P(x)=1/x$ and $Q(x)=2e^x$. The integrating factor is
-\be 
+\bee
   \mu(x) = \mbox{exp}\[\int \frac{1}{x} \, dx \] = e^{\ln x} = x.
-\ee
+\eee
 Then,
 \be \label{linearex}
   \dd{}{x} \(x y \) = 2 x e^x
@@ -300,13 +294,13 @@ y = \frac{\int \mu Q dx + C}{\mu} = \frac{\int 2 x e^x \, dx + C}{x}.
 To solve this, we use integration by parts. That is, 
 $\int u \, dv = uv - \int v\,  du$. We choose $u=x$ and $dv = e^x \, dx$, so
 $du = dx$, and $v=e^x$. Thus,
-\be 
+\bee
   \int x e^x \,dx = x e^x + \int e^x \,dx = x e^x + e^x.
-\ee
+\eee
 Putting this into equation \eqref{linearexx} yields
-\be 
+\bee
   y = 2 e^x \(1 + \frac{1}{x}\) + \frac{C}{x}. \qed
-\ee
+\eee
 We can now use the initial conditions to determine the value of $C$.
 
 
@@ -324,94 +318,94 @@ other techniques.
 
 \subsubsection{Homogeneous Equations}
 \be 
-\dd{y}{x} = f\(\frac{y}{x}\).
+\boxed{\dd{y}{x} = f\(\frac{y}{x}\)}.
 \ee
 We solve this by substituting $v=y/x$, so that
-\be 
+\bee
 \dd{y}{x} = v + x \dd{v}{x},
 \quad \implies \quad
 v + x \dd{v}{x} = f(v),
-\ee
+\eee
 which can be written as the separable equation
-\be
+\bee
 \boxed{\dd{v}{x} = \frac{f(v) -v}{x}}.
-\ee
+\eee
 
 \noindent \emph{Example}:
-\be 
+\bee
 \dd{y}{x} = \frac{x}{y}, \mbox{ with } y(1) = 2.
-\ee
+\eee
 This is homogeneous, so let $v=y/x$, and then $f(v) = \frac{1}{v}$, so
-\be 
+\bee
 v + x \dd{v}{x} = \frac{1}{v} 
 \quad \implies \quad
 \frac{1}{\frac{1}{v} -v} dv = \frac{1}{x}dx.
-\ee
+\eee
 Integrating both sides gives
-\be 
+\bee
 \int \frac{v}{1-v^2}dv = \int \frac{1}{x} dx
 \quad \implies \quad
 -\frac{1}{2} \int \frac{1}{u}du = \ln x+ \ln C
-\ee
+\eee
 where we have used the substitution $u = 1-v^2$. Thus,
-\be 
+\bee
 \ln\(1-v^2 \) = \ln \frac{C}{x^2}
-\ee
+\eee
 which implies that 
-\be 
+\bee
 v = \pm \sqrt{1 - \frac{C}{x^2}} 
 \quad \implies \quad 
 y = \pm x \sqrt{1 - \frac{C}{x^2}}.
-\ee
+\eee
 The initial condition is $y(1)=2$, so we choose the positive root, and
 find $C$ by setting $x=1$, $y=2$, i.e.\
-\be 
+\bee
 2 = 1 \times \sqrt{1-C} 
 \quad \implies \quad 
 C=-3
 \quad \implies \quad 
 y = x \sqrt{1 + \frac{3}{x^2}}.
-\ee
+\eee
 
 This would be a good one to check. Note that 
-\be 
+\bee
 \dd{y}{x} = \sqrt{1+\frac{3}{x^2}} - \frac{3/x^2}{\sqrt{1+\frac{3}{x^2}}}
 = \frac{1}{\sqrt{1+\frac{3}{x^2}}}
 = \frac{x}{y}, 
-\ee
+\eee
 so the solution is correct. \qed
 
 \subsubsection{Bernoulli Equations}
 Bernoulli equations are differential equations of the form
-\be 
+\bee
 \dd{y}{x} + P(x) y = Q(x)y^n
-\ee
+\eee
 where $n$ can be an integer or a rational number. Note that if
 $n=0$ or $n=1$, then this is just a linear equation.
 
 We solve this by substituting $v=y^{1-n}$, so that
-\be 
+\bee
 \dd{v}{x} = \(1-n\)y^{-n}\dd{y}{x}
 \quad \implies \quad
 \frac{1}{1-n} \dd{v}{x} + P(x)v = Q(x),
-\ee
+\eee
 which can be written as the linear equation
 \be
 \boxed{\dd{v}{x} + (1-n)P(x)v = (1-n)Q(x)}.
 \ee
 
 \noindent\emph{Example}:
-\be 
+\bee
 \dd{y}{x} -\half \frac{y}{x} = -e^x y^3
-\ee
+\eee
 Since $n=3$, choose $v=y^{-2}$. Then
-\be 
+\bee
 \dd{v}{x} = -2 y^{-3} \dd{y}{x} 
 \quad \implies \quad
 \dd{v}{x} = -2 y^{-3}\( \half \frac{y}{x}  - e^x y^3\)
 \quad \implies \quad
 \dd{v}{x} + \frac{v}{x} = 2 e^x,
-\ee
+\eee
 which is the linear equation given as the example from section \ref{linearsec}. 
 \qed
 
@@ -591,9 +585,9 @@ Solve the differential equation
   
   \item
     Solve the following differential equation:
-    \be
+    \bee
     \dd{y}{x} = \frac{y}{x} + x^2 y^2
-    \ee
+    \eee
     \hidesolution{
       This is a Bernoulli equation with $n=2$, so set $v=y^{1-n}=y^{-1}$. Then,
       \bee
@@ -630,14 +624,14 @@ a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to 
 equation (\eqref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 \newcommand\ycomb{\alpha y_1 + \beta y_2}
-\be 
+\bee
 && a \ddtwo{\(\ycomb\)}{t} + b \dd{\(\ycomb\)}{t} + c \(\ycomb \)
 \\  \nonumber
 &&= \alpha\(a \ddtwo{y_1}{t} + b \dd{y_1}{t} + cy_1 \)
 +\beta\(a \ddtwo{y_2}{t} + b \dd{y_2}{t} + cy_2 \)
 \\ \nonumber
 &&= \alpha \(0\) +\beta \(0\) =0,
-\ee
+\eee
 In other words, $\ycomb$, which is a linear combination of $y_1$ and $y_2$, is 
 also a solution to equation (\ref{sec2hom}). Being able to use this linearity 
 is a powerful tool that we can use to solve this very important type of 
@@ -648,113 +642,113 @@ fully determine the solution. This is expressed in the following theorem:
 \begin{theorem}
   Let $b$, $c$, $Y_0$, and $Y_1 \in \mathbb{R}$.
   Then, the initial value problem
-  \be
+  \bee
   y'' + by' + cy =0, \qquad y(0)=Y_0, \quad y'(0)=Y_1
-  \ee
+  \eee
   has a unique solution.
 \end{theorem}
 
 \subsection{Homogeneous Linear Equations}
 The behaviour of these systems is basically exponential. To see this,
 set $y=e^{rt}$. Then, putting this into equation (\ref{sec2hom}), we get
-\be 
+\bee
 a r^2 e^{rt} + b r e^{rt} + ce^{rt}
 = e^{rt} \( ar^2 + br + c\) =0.
-\ee
+\eee
 Since $e^{rt}$ is never zero, there is no harm in dividing by it. This leaves
 us with the \emph{characteristic equation},
-\be 
+\bee
 ar^2 + br + c =0,
-\ee
+\eee
 which allows us to determine $r$ using the quadratic formula. In this way
 we get two solutions, 
-\be
+\bee
 \boxed{y_1=e^{r_1 t}\text{ and }y_2=e^{r_2 t}},
-\ee
+\eee
 from the two solutions $r_1$ and $r_2$ of the characteristic equation.\\
 
 \noindent\emph{Example}: Solve the second-order homogeneous equation
-\be 
+\bee
 \ddtwo{y}{t} - y =0,
-\ee
+\eee
 with initial conditions $y(0) =1, \, y'(0) =0.$\\
 \noindent\emph{Solution}: 
 Setting $y=e^{rt}$, this becomes
-\be 
+\bee 
 e^{rt} \(r^2 -1 \) = e^{rt} \(r-1\)\(r+1\) =0,
-\ee
+\eee
 so $r_1=-1$, and $r_2=1$. Thus,
-\be 
+\bee 
 y_1(t) = e^{-t}, \qquad y_2(t) =e^t.
-\ee
+\eee
 The solution $y$ is therefore a linear combination of $y_1$ and $y_2$. That is,
-\be 
+\bee 
 y(t) = \alpha y_1(t) + \beta y_2(t) = \alpha e^{-t} + \beta e^t,
-\ee
+\eee
 for some constants $\alpha$ and $\beta$ that are determined by the initial
 conditions. Since $y(0)=1$,
-\be \label{sec2ab1}
+\bee \label{sec2ab1}
 y(0) = \alpha +\beta =1.
-\ee
+\eee
 Since $y'(0)=0$, and $y'(t) = -\alpha e^{-t} + \beta e^t$,
 \be \label{sec2ab2}
 y'(0) = -\alpha + \beta =0.
 \ee
 Combining equations (\eqref{sec2ab1}) and (\eqref{sec2ab2}), it is easy to see 
 that $\alpha = \beta =\half$. The solution is therefore
-\be 
+\bee 
 y = \frac{e^{-t} + e^t}{2}. \qed
-\ee
+\eee
 
 \subsection{Dealing with complex roots}
 %Text section 4.3
 So far, we've seen only problems where the roots of the characteristic 
 equation are real. Of course, this isn't always the case, but we can deal with 
 this using \emph{Euler's Formula},
-\be 
+\bee 
 \boxed{e^{i\theta} = \cos(\theta) + i \sin(\theta)}.
-\ee
+\eee
 For example, if we get $r_{1,2}= 4\pm 2i$, then solutions are a linear
 combination of
-\be 
+\bee
 e^{(4+2i)t}=e^{4t}e^{i2t}=e^{4t} \(\cos(2t) + i \sin(2t)\)
-\ee
+\eee
 and
-\be 
+\bee
 e^{(4-2i)t}=e^{4t}e^{-i2t}=e^{4t} \(\cos(2t) - i \sin(2t)\).
-\ee
+\eee
 An easy way to get all linear combinations is to just set
-\be 
+\bee
 y_1(t) = e^{4t} \cos(2t), \qquad y_2(t) = e^{4t} \sin(2t).
-\ee
+\eee
 \\
 
 \noindent\emph{Example}: Give the general solution to
-\be 
+\bee
 \ddtwo{y}{t} + 1 =0
-\ee
+\eee
 with initial conditions $y(0) =1, \, y'(0) =0.$\\
 \noindent\emph{Solution}:
 The characteristic equation is
-\be 
+\bee
 r^2 +1 =0 \quad \implies \quad r = \pm i.
-\ee
+\eee
 The solution is then a linear combination of
-\be 
+\bee
 y_1(t) = e^{0t}\cos(t) = \cos(t), \qquad
 y_2(t) = e^{0t}\sin(t) = \sin(t)
-\ee
+\eee
 Setting $y(t)=\alpha \cos(t) + \beta \sin(t)$, we can input the initial
 conditions to get
-\be 
+\bee
 y(0) &=& \alpha\cos(0) + \beta\sin(0) = \alpha =1,
 \\
 y'(0) &=& -\alpha\sin(0) + \beta\cos(0) =\beta =0.
-\ee 
+\eee
 The solution to the IVP is then
-\be 
+\bee
 y(t) = \cos(t). \qed
-\ee
+\eee
 
 \subsection{Dealing with repeated roots}
 In the above section, we were lucky, since we had two independent roots.
@@ -765,45 +759,45 @@ solutions. How do we get this? Well, just multiply one solution by $t$.
 
 For example, suppose that we solved the characteristic equation and got 
 $r_1=r_2=r$. We still get one solution out of this, namely
-\be 
+\bee
 y_1(t) =e^{rt}.
-\ee
+\eee
 To get the second solution, just take
-\be 
+\bee
 y_2(t) = t y_1(t) = t e^{rt}.
-\ee
+\eee
 This works since $\ddtwo{t}{t}=0$, so the extra $t$ in $y_2$ is eventually
 killed, and everything cancels out nicely.
 \\
 
 \noindent\emph{Example}: Give the general solution to
-\be 
+\bee
 \ddtwo{y}{t} - 2 \dd{y}{t}+1 =0
-\ee
+\eee
 with initial conditions $y(0) =1, \, y'(0) =0.$\\
 \noindent\emph{Solution}:
 The characteristic equation for this problem is
-\be 
+\bee
 r^2 - 2r +1 = (r-1)(r-1) =0,
-\ee
+\eee
 which has the double root $r_1=r_2=1$. Thus, set 
 $y_1(t) = e^t$ and $y_2=t e^t$, so
-\be 
+\bee
 y = \alpha e^t + \beta t e^t
-\ee
+\eee
 Now,
-\be 
+\bee
 y(0) = \alpha = 1.
-\ee
+\eee
 For the second condition, calculate that 
 $y'(t) = \alpha e^t + \beta e^t + \beta te^t$. Thus
-\be 
+\bee
 y'(0) = \alpha + \beta =0.
-\ee
+\eee
 Thus, $\alpha=1$ and $\beta =-1$, so the solution is
-\be 
+\bee
 y(t) = e^t - te^t. \qed
-\ee
+\eee
 
 
 \subsection{Problems}
@@ -878,9 +872,9 @@ y(t) = e^t - te^t. \qed
 % Text section  4.4
 The next step is to add a function to the right-hand side of equation 
 (\ref{sec2hom}), so that we get
-\be 
+\bee
 a y'' + b y' + cy =f(t).
-\ee
+\eee
 Then what we have is a \emph{non-homogeneous equation} and we say that equation 
 $a y'' + b y' + cy =0$ is the corresponding homogeneous equation.
 
@@ -899,24 +893,24 @@ $f(t)=\sin(t)$, guessing that $y_p = A \sin(t) + B \cos(t)$ would probably do
 the trick. We can just substitute $y_p = A \sin(t) + B \cos(t)$ into equation
 \eqref{yp} in order to find the values of $A$ and $B$ that work. 
 
-Here is a table that will guide you, young jedi:
-\be 
-\begin{tabular}{ l |  l }
-  $f(t)$ & $y_p$  \\
-  \hline	
-  $ke^{at}$ & $Ce^{at}$  \\
-  $kt^n$ & $C_n t^n + C_{n-1}t^{n-1} + \dots + C_1 t + C_0 $  \\
-  $k \cos(at)$ or $k \sin(at)$ & $K \cos(at) + M\sin(at)$ \\
-  $kt^n e^{at}$ & $e^{at}\(C_n t^n + C_{n-1}t^{n-1} + \dots + C_1 t + C_0\)$ \\
-  $k t^n \cos(at)$ or $k t^n \sin(at)$ & 
-  $\(C_nt^n + \dots +C_0 \)\cos(at) + \(D_nt^n + \dots + D_0 \)\sin(at)$ \\
-  $ke^{at} \cos(bt)$ or $ke^{at} \sin(bt)$ & 
-  $e^{at}\(K \cos(at) + M\sin(at)\)$ \\
-  $k t^n e^{at }\cos(bt)$ or $k t^n e^{at} \sin(bt)$ & 
-  $\(C_nt^n + \dots +C_0 \)e^{at}\cos(bt) 
-  + \(D_nt^n + \dots + D_0 \)e^{bt}\sin(bt)$ \\
-\end{tabular}
-\ee
+%Here is a table that will guide you, young jedi:
+%\bee
+%\begin{tabular}{ l |  l }
+%  $f(t)$ & $y_p$  \\
+%  \hline	
+%  $ke^{at}$ & $Ce^{at}$  \\
+%  $kt^n$ & $C_n t^n + C_{n-1}t^{n-1} + \dots + C_1 t + C_0 $  \\
+%  $k \cos(at)$ or $k \sin(at)$ & $K \cos(at) + M\sin(at)$ \\
+%  $kt^n e^{at}$ & $e^{at}\(C_n t^n + C_{n-1}t^{n-1} + \dots + C_1 t + C_0\)$ \\
+%  $k t^n \cos(at)$ or $k t^n \sin(at)$ & 
+%  $\(C_nt^n + \dots +C_0 \)\cos(at) + \(D_nt^n + \dots + D_0 \)\sin(at)$ \\
+%  $ke^{at} \cos(bt)$ or $ke^{at} \sin(bt)$ & 
+%  $e^{at}\(K \cos(at) + M\sin(at)\)$ \\
+%  $k t^n e^{at }\cos(bt)$ or $k t^n e^{at} \sin(bt)$ & 
+%  $\(C_nt^n + \dots +C_0 \)e^{at}\cos(bt) 
+%  + \(D_nt^n + \dots + D_0 \)e^{bt}\sin(bt)$ \\
+%\end{tabular}
+%\ee
 Finally, if your guess ends up being a polynomial times a linear 
 combination of the solutions to the corresponding homogeneous equation (known 
 as $y_1$ and $y_2$ in previous lab), then multiply your 
@@ -1345,29 +1339,23 @@ use. These are:
 \item $\mathcal{L}(t^n f(t)) = (-1)^n \frac{d^n}{ds^n} F(s)$.
 \end{enumerate}
 
-
-FIXME: this is in the wrong section. Do different example.
 \noindent\emph{Example}: Compute the Laplace transform of the function
-\be
-f(t) = 
-\begin{cases}
-  e^{2t}+e^{3t}\, , &\ 0\leq t\leq 4 
-  \\ 1\, , &\ 4 < t 
-\end{cases}.
-\ee
+\bee
+f(t) = e^{2t} + e^{3t}.
+\eee
 ~\\
 \emph{Solution}:  By the definition of the Laplace transform,
-$$\begin{aligned}
-\Laplace \{f\}(s)&= \int_0^\infty e^{-st} f(t) dt \\
-&= \int_0^4 e^{-st} (e^{2t} + e^{3t} ) dt + \int_4^\infty e^{-st} 1 dt \\
-&= \int_0^4 e^{(2-s)t} dt + \int_0^4 e^{(3-s)t} dt + \int_4^\infty e^{-st} dt\\
-&= \frac{1}{2-s} e^{(2-s)t} \Big|_0^4 
-+ \frac{1}{3-s} e^{(3-s)t} \Big|_0^4 + \frac{1}{-s} e^{-st} \Big|_4^\infty \\
-&= \frac{1}{2-s} (e^{4(2-s)} - 1) + \frac{1}{3-s} ( e^{4(3-s)} - 1) 
-- \frac{1}{s}(0 - e^{-4s}) \\
-&= \frac{1}{2-s} (e^{8-4s} - 1) + \frac{1}{3-s} ( e^{12 - 4s} - 1) 
-+ \frac{1}{s}e^{-4s}. \qed \\
-\end{aligned}$$ 
+\bee
+\Laplace \{f\}(s)&=& \int_0^\infty e^{-st} f(t) dt \\
+&=& \int_0^\infty \(e^{2t} + e^{3t}\) e^{-st} dt
+\\
+&=& \int_0^\infty e^{2t} e^{-st} dt + \int_0^\infty e^{3t} e^{-st} dt
+\\
+&=& \left.\frac{e^{(2-s)t}}{2-s}\right|_0^\infty 
++  \left.\frac{e^{(3-s)t}}{3-s}\right|_0^\infty
+\\
+&=& \frac{1}{s-2} + \frac{1}{s-3}. \qed
+\eee
 % This problem can also be solved using the results of \S 7.6, but we had not 
 %covered them at the time of the quiz (at least not in the lab). \\
 
@@ -1477,18 +1465,18 @@ $$\begin{aligned}
 \section{Solving DEs with Laplace Transforms}
 
 Consider a first-order IVP of the form
-\be
+\bee
 y' + by = f(t), \qquad y(0)=y_0.
-\ee
+\eee
 Taking the Laplace transform of the DE and applying the properties of Laplace 
 transforms yields
-\be
-s\Laplace (y) - y(0) + b \mathcal{L}(y) = \mathcal{L}(f).
-\ee
-Rearranging for $\mathcal{L}(y)$, we get
-\be
-\mathcal{L}(y) =\frac{\mathcal{L}(f) + y_0}{s+b}.
-\ee
+\bee
+s\Laplace (y) - y(0) + b \Laplace(y) = \Laplace(f).
+\eee
+Rearranging for $\Laplace(y)$, we get
+\bee
+\Laplace(y) =\frac{\Laplace(f) + y_0}{s+b}.
+\eee
 Then in order to determine $y$, we need to invert the Laplace transform.
 Since the inverse Laplace transform is kind of complicated, the easiest
 way to deal with this is to use the table of Laplace transforms found in
@@ -1550,9 +1538,9 @@ y(t) = t^2 -t +2 +2 \sin{2t} - 2 \cos{2t}. \qed
 
 Periodic functions behave particularly nicely under Laplace transforms. Suppose
 the function $f(t)$ is periodic with period $T$. That is, for all $t$,
-\be
+\bee
 f(t+T)=f(t).
-\ee
+\eee
 The Laplace transform of $f$ is
 \bee
 \Laplace\{f\} &=& \int_0^\infty f(t) e^{-st} dt
@@ -1567,28 +1555,28 @@ e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
 \\
 &=& \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\int_0^T f(\t) e^{-s\t}d\t.
 \eee
-Now, the first factor is just the geometric series $\sum_{n=0}^\infty r^n = 1/(1-r)$ with
-$r=e^{-sT}$, so
+Now, the first factor is just the geometric series 
+$\sum_{n=0}^\infty r^n = 1/(1-r)$ with $r=e^{-sT}$, so
 \be\label{lapper}
 \boxed{\Laplace\{f\} =\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}}.
 \ee
 
 \workedexample{Find the Laplace transform of a saw wave with period $T=1$,
-\be
+\bee
 f(t) = \left\{ \begin{array}{ll}
          t & \mbox{if $t \in (0,1)$};\\
         f(t-N) & \mbox{if $t \in (N,N+1)$ for $N\in \N$}.\end{array} \right.
-\ee
+\eee
 }{
 From equation \eqref{lapper}, we have
-\be
+\bee
 \Laplace\{f\}
 = \frac{\int_0^1 t e^{-st}dt}{1-e^{-sT}}
 = \frac{\[t \frac{e^{-st}}{-s}\]_0^1 -\int_0^1 \frac{e^{-st}}{-s} dt}{1-e^{-s}}
 %= \frac{\frac{e^{-s}}{s} - \frac{e^{-s}}{s^2} + \frac{1}{s^2} }{1-e^{-s}}
 = \frac{se^{-s} - e^{-s} +1}{s^2\(1-e^{-s} \)}.
 \qed
-\ee
+\eee
 }
 
 
@@ -1598,12 +1586,14 @@ From equation \eqref{lapper}, we have
 
 \item
   Find $\Laplace^{-1}F(s)$ if
-  $$
+  \bee
   F(s) = \frac{5s^2+s-3}{(s+3)(s^2-2s-3)}
-  $$
+  \eee
   \hidesolution{
     We first factor the denominator:
-    $$ (s+3)(s^2-2s-3) = (s+3)(s-3)(s+1). $$
+    \bee
+    (s+3)(s^2-2s-3) = (s+3)(s-3)(s+1).
+    \eee
     Then using partial fractions we write down the equation
     \begin{eqnarray*}
       F(s) &=& \frac{5s^2+s-3}{(s+3)(s-3)(s+1)} \\
@@ -1704,34 +1694,36 @@ $\Laplace(g)=G$, then
 \be
 \boxed{\Laplace(f*g)=F(s)G(s)}.
 \ee
-That is, the Laplace transform of a convolution is a product the product of their Laplace transforms.
+That is, the Laplace transform of a convolution is a product the product of 
+their Laplace transforms.
 
 \workedexample{
 Solve
-\be
+\bee
 y'' = g(t), \qquad y(0) = c_0, \qquad y'(0)=c_1
-\ee for $y$ using Laplace transforms.
+\eee
+ for $y$ using Laplace transforms.
 }\\
 {
 Taking the Laplace transform of both sides, we have
-\be
+\bee
 s^2Y - sc_0 - c_1 = G(s).
-\ee
+\eee
 Solving for $Y$ yields
-\be
+\bee
 Y = \frac{G + sc_0 + c_1}{s^2}= \frac{G}{s^2} + \frac{c_0}{s} + \frac{c_1}{s^2}.
-\ee
+\eee
 }
 The solution is then the inverse Laplace transform, i.e.\
-\be
+\bee
 y = \Laplace^{-1}\(G(s)\frac{1}{s^2} + c_0 + c_1 t\)
 = g(t)*t + c_0 + c_1 t. \qed
-\ee
+\eee
 
 This technique can be extended to the full harmonic oscillator,
-\be
+\bee
 y'' + by' + cy = g
-\ee
+\eee
 which then has solution 
 \be
 \boxed{
@@ -1766,40 +1758,40 @@ and is useful for describing processes that start at a certain time.
 
 The Laplace transform of the step function is straightforward to calculate. If
 we take $c>0$, then 
-\be
+\bee
 \Laplace{}\(u_c(t)\) &=& \int_0^\infty u_c(t) e^{-st} dt 
 \\\nonumber
 &=& \int_c^\infty e^{-st} dt
 \\\nonumber
 &=&\frac{e^{-cs}}{s}.
-\ee
+\eee
 
 The step function often shows up multiplied by other functions, as in the
 following example.
 \workedexample{Solve the differential equation
-\be
+\bee
 y'=t u_c(t), \qquad y(0)=0
-\ee
+\eee
 using Laplace transforms
 }\\
 {
 Take the Laplace transform of both sides of the differential equation, yielding
-\be
+\bee
 sY &=& \Laplace{}\(t u_c(t)\) = \int_0^\infty t u_c(t) e^{-st} dt 
 = \int_c^\infty t e^{-st} dt 
 \\\nonumber
 &=& \[t \frac{e^{-st}}{-s}\]_c^\infty - \int_c^\infty \frac{e^{-st}}{-s}dt
 = \frac{-ce^{-sc}}{s} + \frac{e^{-sc}}{s^2}
-\ee
+\eee
 Thus, 
-\be
+\bee
 Y = \frac{ce^{-sc}}{s} +\frac{ce^{-sc}}{s^3}.
-\ee
+\eee
 From the table of  Laplace transforms, we know that 
 $\Laplace{}\(f(t-c)u_c(t)\)=e^{-cs}F(s)$, so 
-\be
+\bee
 y = -c(t-c)u_c(t) + \frac{1}{2} (t-c)^2 u_c(t). \qed %FIXME: check
-\ee
+\eee
 }
 
 
@@ -1832,9 +1824,9 @@ Approximations to the delta function are shown in figure~\ref{deltafig}.
 
 \noindent\emph{Example}: Solve the following differential equation using
 Laplace transforms.
-\be
+\bee
 2y'' + y' + 2y = \delta(t-5), \qquad y'(0)=y(0)=0
-\ee
+\eee
 \emph{Solution}: Taking the Laplace transform of both sides, we have
 \be \label{exeq1}
 \(2s^2 + s +2\) Y = e^{-5s}.
@@ -1845,33 +1837,33 @@ definition of the Laplace transform:
 \mathcal{L}(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt
 \ee
 If we let $\tau = t-5$, then this is the same as
-\be
+\bee
 \int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau
-\ee
+\eee
 Then we apply equation (\ref{deltaprop}) to see that this is just $e^{-5s}$. 
 
 Going back to equation (\ref{exeq1}), solving for $Y$ and completing the 
 square yields
-\be
+\bee
 Y = \frac{e^{-5s}}{2} \( \frac{1}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} \).
-\ee
+\eee
 Finding the inverse transform is the hardest part of this process, but we can
 break it up into smaller steps. We can just pull the $1/2$ out 
 because the Laplace transform is linear and then if we rearrange this, we get
-\be
+\bee
 Y = \frac{2}{\sqrt{15}}  \, e^{-5s} 
 \frac{\sqrt{\frac{15}{16}}}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} 
 = \frac{2}{\sqrt{15}}  \, e^{-5s} \, 
 \Laplace\[e^\frac{-t}{4}\sin\(\frac{\sqrt{15}}{4}t \) \]
-\ee
+\eee
 Now we have an exponential term, $e^{-5s}$, times a term that is the Laplace 
 transform of $e^{\alpha t}\sin(\beta t)$ with $\alpha=1/4$ and 
 $\beta=\sqrt{{15}/{16}}$. So we will use the second last row of the Laplace 
 transform table to see that $Y$ is the Laplace transform of
-\be
+\bee
 y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
 \qed
-\ee
+\eee
 
 \subsection{Problems}
 \begin{enumerate}
@@ -2216,7 +2208,7 @@ work. \qed
     }
 
     \item
-      Solve the sytem of differential equations 
+      Solve the system of differential equations 
       \bee
       x'+y=0,\qquad x(0)=1
       \\
@@ -2251,36 +2243,35 @@ given $t$ can be entirely determined by its behaviour at $t=a$.
 The most basic approximation that we can make is that the function stays 
 constant. For example, a good guess for the temperature in ten minutes would
 be what the temperature is now. That is, we approximate $f$ as
-\be
+\bee
 f(t) \approx f_0(t) = f(a).
-\ee
+\eee
 Now, it may be that the sun is shining, so we expect it to heat up. Then our 
 next approximation is to account for this using $f'(a)$, i.e.\
-\be
+\bee
 f(t) \approx f_1(t) = f(a) + f'(a) (t-a).
-\ee
+\eee
 As the sun sets, the rate of heating changes, so we need to add a term with
 $f''(a)$, which gives us
-\be
+\bee
 f(t) \approx f_2(t) = f(a) + f'(a) (t-a) + \frac{f''(a)}{2}\(t-a\)^2,
-\ee
+\eee
 and so on. This is called a \emph{Taylor Polynomial Approximation} (or simply a
 Taylor polynomial). It's easy to deal with both analytically and numerically,
 and it can be used to get at least a basic understanding of just about any IVP.
 
 The $n$th degree Taylor polynomial is
 \be
-f_n(t) &=& f(a) + f'(a)(t-a) + \frac{f''(a)}{2}(t-a)^2 + \dots 
-+ \frac{f^{(n)}(a)}{n!} (t-a)^n
-\\ \nonumber
-&=& \sum_{i=0}^n \frac{f^{(i)}(a)}{i!}(t-a)^i,
+\boxed{f_n(t) = f(a) + f'(a)(t-a) + \dots + \frac{f^{(n)}(a)}{n!} (t-a)^n
+= \sum_{i=0}^n \frac{f^{(i)}(a)}{i!}(t-a)^i},
 \ee
 and it exists for any function $f$ whose first $n$ derivatives are smooth for
 $t\in [a,t]$. 
-Let $R_n(t) = f(t) -f_n(t)$ denote the error associated with the $n$th Taylor polynomial. Then, Taylor's theorem states
-that there exists a number $\xi \in [a,t]$ where
+Let $R_n(t) = f(t) -f_n(t)$ denote the error associated with the $n$th Taylor 
+polynomial. Then, Taylor's theorem states that there exists a number 
+$\xi \in [a,t]$ where
 \be
-R_n(t) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(t-a)^{n+1}.
+\boxed{R_n(t) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(t-a)^{n+1}}.
 \ee
 So long as $\lim_{n\rightarrow \infty} R_n(t) =0$, $f_n$ will be a better and
 better approximation as $n$ increases.
@@ -2288,7 +2279,7 @@ better approximation as $n$ increases.
 
 The Taylor series of $f$ is the limit of $f_n$ as $n\rightarrow\infty$, which is
 \be
-\sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i.
+\boxed{\sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i}.
 \ee
 The Taylor series for $f$ exists as long as every derivative of $f$ is
 continuous (i.e.\ $f$ is \emph{analytic}), and is equal to $f$ if their 
@@ -2303,37 +2294,38 @@ of the derivatives, which can greatly simplify things.\\
   convergence.
 }{
   First, we need to find the derivatives of $e^x$. This is easy, since 
-  \be
+  \bee
   f^{(n)}(x) = \frac{d^n}{dx^n}e^x = e^x.
-  \ee
+  \eee
   Thus, $f^{(n)}(0)=e^0=1$, so the Taylor series is given by
-  \be
+  \bee
   \sum_{n=0}^\infty \frac{1}{n!} x^n.
-  \ee
+  \eee
   For what values of $x$ will this series converge? To determine this, we'll 
   have to use a convergence test. Letting $A=\sum_{n=0}^\infty a_n$ 
   $B=\sum_{n=0}^\infty b_n$ be two series, our test are:
   \begin{enumerate}
   \item The comparison test: if 
-    $\lim_{n \rightarrow \infty} \frac{a_n}{b_n} \in (0,\infty)$, then $A$ converges 
-    if and only if $B$ converges.
-  \item The ratio test: if $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$,
-    then $A$ converges.
+    $\lim_{n \rightarrow \infty} \frac{a_n}{b_n} \in (0,\infty)$, then $A$ 
+    converges if and only if $B$ converges.
+  \item The ratio test: if 
+    $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then $A$ converges.
   \item The root test: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
     then $A$ converges.
   \item The integral test: if there is a function $f$ with $f(n)=a_n$, then
     $A$ converges if and only if $\int_0^\infty f(t) dt$ is finite.
   \item The alternating series test: if $a_n = (-1)^n c_n$, then $A$ 
-    converges so long as $\lim_{n\rightarrow\infty}c_n=0$ and each $c_n$ is smaller than $c_{n-1}$.
+    converges so long as $\lim_{n\rightarrow\infty}c_n=0$ and each $c_n$ is 
+    smaller than $c_{n-1}$.
   \end{enumerate}
   Let's try the ratio test. That is, fix $x$ and look at
-  \be
+  \bee
   \lim_{n\rightarrow\infty} \frac{a_{n+1}}{a_n} 
   = \lim_{n\rightarrow\infty}\frac{x^{n+1}/(n+1)!}{x^n/n!}
   =\lim_{n\rightarrow\infty}\frac{x}{n+1} =0 < 1.
-  \ee
-  That is, for any $x\in \mathbb{R}$, $n+1$ will eventually be greater than $x$. 
-  Thus, the limit is zero, and the series converges for all
+  \eee
+  That is, for any $x\in \mathbb{R}$, $n+1$ will eventually be greater than 
+  $x$.  Thus, the limit is zero, and the series converges for all
   $x \in (-\infty,\infty) =\mathbb{R}$. \qed
 }
 
@@ -2349,20 +2341,20 @@ convergence.\\
 }\\
 {
   The Taylor series for $\arctan(z)$ is
-  \be
+  \bee
   \sum_{n=0}^\infty \frac{(-1)^n z^{2n+1}}{2n+1}
-  \ee
+  \eee
   Using the ratio test again, we look at
-  \be
+  \bee
   \abs{\frac{a_{n+1}}{a_n}} = \frac{z^{2(n+1)+1}/(2(n+1)+1)}{z^{2n+1}/(2n+1)}
   = \frac{z^2}{(2n+3)/(2n+1)}\rightarrow z^2
-  \ee
+  \eee
   Clearly, this limit is only less than one if $\abs{z}<1$. We still need to 
   check the case when $\abs{z}=1$. This is pretty easy to do, since if $z=1$,
   the series is just
-  \be
+  \bee
   \sum_{n=0}^\infty \frac{(-1)^n}{2n+1},
-  \ee
+  \eee
   which converges by the alternating series test. Similarly, the series 
   converges if $z=-1$. Thus, the interval of convergence is $\[-1,1\]$.
   \qed
@@ -2373,79 +2365,80 @@ can use them to calculate solutions to differential equations. To simplify
 matters, we will restrict ourselves to initial value problems
 which begin at $t=0$, so that $a=0$ in all the above formulae. Now, we can
 express the solution $y(t)$ as a Taylor series,
-\be
+\bee
 y = \sum_{n=0}^\infty a_n t^n .
-\ee
+\eee
 We assume that this solution is analytic, so we can take the derivative of the
 series term-by-term. That is,
-\be
+\bee
 \dd{y}{t} = \dd{}{t}\sum_{n=0}^\infty a_n t^n 
 = \sum_{n=0}^\infty \dd{(a_n t^n)}{t} = \sum_{n=0}^\infty a_n n t^{n-1}
 = \sum_{n=1}^\infty a_n n t^{n-1}
-\ee
+\eee
 
 
-(the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we can ignore
-the term with $n=0$). Since we know
-that $a_0=y(0)$, and $y(0)$ is given by the initial conditions, we can solve
-for the rest of the $a_n$ recursively.\\
+(the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we 
+can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is 
+given by the initial conditions, we can solve for the rest of the $a_n$ 
+recursively.\\
 \workedexample{Determine the solution to the IVP 
-\be
+\bee
 y'(t) = t^2 +t, \qquad y(0)=1
-\ee
+\eee
 using a Taylor series for $y$.
 }\\
 {
   Let 
-  \be
+  \bee
   y =\sum_{n=0}^\infty a_n t^n.
-  \ee
+  \eee
   Then, $a_0=y(0)=1$, and
-  \be
+  \bee
   y'(t) = \sum_{n=1}^\infty a_n n  t^{n-1} = t^2 +t.
-  \ee
+  \eee
   Matching like powers of $t$, we have
-  \be
+  \bee
   2 a_2 t = t, \qquad 3 a_3 t^2 = t^2
-  \ee
-  and $a_n n t^n =0$ for $n=1$ and all $n \geq 4$. Thus, $a_1 =0$, $a_2=\half$, and 
-  $a_3 = \frac{1}{3}$. The solution is then
-  \be
+  \eee
+  and $a_n n t^n =0$ for $n=1$ and all $n \geq 4$. Thus, $a_1 =0$, $a_2=\half$, 
+  and $a_3 = \frac{1}{3}$. The solution is then
+  \bee
   y(t) = 1 +\frac{t^2}{2} +\frac{t^3}{3}.
-  \ee
+  \eee
 }
 It was easy to isolate all of the $a_n$'s in the previous example, since $y'$
 appeared alone in the IVP. It's usually necessary to solve for $a_n$ 
 recursively.\\
 \workedexample{
   Solve the IVP
-  \be
+  \bee
   y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
-  \ee
+  \eee
   using a Taylor series for $y$.
 }\\
 {
   Again, let $y=\sum_{n=0}^\infty a_n t^n$. Then
-  \be
+  \bee
   y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}.
-  \ee  The differential equation is then
+  \eee
+  The differential equation is then
   \be
   \label{serieseg}
   \sum_{n=2}^\infty a_n n (n-1)t^{n-2} = -\sum_{n=0}^\infty a_n t^n
   \ee
   If we set $m=n-2$, then we can shift the summation index on the LHS to start 
   at zero. That is,
-  \be
+  \bee
   y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2} 
   = \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m.
-  \ee
+  \eee
   This makes it much easier to solve \eqref{serieseg}, since we now have
-  \be
+  \bee
   \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m =  -\sum_{n=0}^\infty a_n t^n
-  \ee
-  \be
+  \eee
+  \bee
   \implies \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
-  \ee
+  \eee
   In order for this to hold for all $t$ in a neighbourhood of $t=0$, it must
   be that 
   \be
@@ -2454,25 +2447,25 @@ recursively.\\
   \ee
   From the initial conditions, we have $a_0=1$ and $a_1=0$. We can solve
   for $a_2$ by setting $n=0$ in equation \eqref{seriesrec}, which yields
-  \be
+  \bee
   a_2 \times 2 \times 1 = -1, \implies a_2=-\half.
-  \ee
+  \eee
   If we have $n$ even, then $n=2p$, and
-  \be
+  \bee
   a_{2p} = -\frac{a_{2p-2}}{2p(2p-1)} = \frac{a_{2p-4}}{2p(2p-1)(2p-3)(2p-4)}
   = \dots 
   = \frac{(-1)^p a_0}{(2p)!} =\frac{(-1)^p}{(2p)!}
-  \ee
+  \eee
   It's easy to see that $a_3=0$, and, in fact, $a_n=0$ if $n$ is odd. Since
   we now know the values for all the $a_n$, we can write the solution:
-  \be
+  \bee
   y(t) = \sum_{n=0}^\infty t^n
   \left\{\begin{array}{ll}
     \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
     0 & \mbox{if $n$ is odd}.
   \end{array} \right.
   = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. \qed
- \ee
+ \eee
  You may recall from previous classes that this is just the Taylor series
  for $\cos t$.
 }
@@ -2483,9 +2476,9 @@ recursively.\\
 \subsection{Problems}
 \begin{enumerate}
 \item Determine the convergence set of the series
-  \be
+  \bee
   \sum_{n=0}^\infty \frac{3^n}{n} (x-2)^n.
-  \ee
+  \eee
   \hidesolution{
     For this series $a_n = \frac{3^n}{n}$ and $x_0 = 2$, so
     \bee
@@ -2531,9 +2524,9 @@ recursively.\\
   \item
     Determine the first four non-zero terms of the Taylor series of the 
     solution to the Chebyshev equation,
-    \be
+    \bee
     (1-x^2)y'' - xy' +p^2 y=0
-    \ee
+    \eee
     with initial conditions $y(0)=a_0$, $y'(0)=a_1$.
     \hidesolution{
       TODO: write the solution
@@ -2541,9 +2534,9 @@ recursively.\\
     
   \item
     Determine the fourth degree Taylor polynomial for the solution to 
-    \be
+    \bee
     (y')^2 + y = e^x, \qquad y(0)=0.
-    \ee
+    \eee
     \hidesolution{
       The first four terms of $y'$ are $a_1 + 2 a_2 x +3 a_3 x^2 + 4 a_4 x^3$.
       The first four terms of $y'^2$ are therefore
@@ -2577,9 +2570,9 @@ recursively.\\
 
   \item
     Solve
-    \be
+    \bee
     y' = \frac{1}{1+x^2}, \qquad y(0)=0
-    \ee
+    \eee
     using a Taylor series. Do not leave your solution as an infinite series,
     but equate it to a known function.
     \hidesolution{
@@ -2628,29 +2621,29 @@ recursively.\\
     
   \item
     Give a recursion formula for $a_n$ if 
-    \be
+    \bee
     a_{3n+1} = \frac{a_1}{(3n+1)\times (3n) \times (3n-2) \dots 
       6 \times 4 \times \times 3}.
-    \ee
+    \eee
 
   \item
     Given the recursion relationship
-    \be
+    \bee
     a_n = \frac{-2}{n^2}a_{n-1},
-    \ee
+    \eee
     find $a_n$ explicitly.
 
   \item
     Given the recursion relationship
-    \be
+    \bee
     a_{n+4} = \frac{-k^2}{(n+4)(n+3)} a_{n-1},
-    \ee
+    \eee
     with $k$ a constant, find $a_n$ explicitly.
 
   \item Solve the differential equation
-    \be
+    \bee
     y'' - 2 x y' + \l y=0,
-    \ee
+    \eee
     with $\l$ a constant, using a Taylor series about $x=0$. For what values
     of $\l$ is the solution a polynomial?
 
@@ -2659,7 +2652,8 @@ recursively.\\
 
 \newpage
 \section{Series Solutions to DEs at Regular Singular Points}
-Let $p(t), q(t)$ be analytic functions (ie, they admit power series representations). Then differential equations of the form
+Let $p(t), q(t)$ be analytic functions (ie, they admit power series 
+representations). Then differential equations of the form
 \be
 \label{singode}
 y'' + p(t)y' + q(t)y=0
@@ -2670,7 +2664,7 @@ by modifying the series expansion. The easiest case is when the singular
 point is a regular singular point.
 
 The point $t=0$ is a \emph{singular point} if either 
-$lim_{t \rightarrow 0}p(t)=\infty$ or  $lim_{t \rightarrow 0}q(t)=\infty$.
+$\lim_{t \rightarrow 0}p(t)=\infty$ or  $lim_{t \rightarrow 0}q(t)=\infty$.
 
 The point $t=0$ is a \emph{regular singular point} of \eqref{singode} if
 the two limits $\lim_{t\rightarrow 0} t p(t) =p_0$ 
@@ -2678,38 +2672,45 @@ and $\lim_{t\rightarrow 0} t^2 q(t) =q_0$
 exist and are finite. Series solutions at regular singular points are of the
 form
 \be
-y(t) = \sum_{n=0}^\infty a_n t^{n+r}.
+\boxed{y(t) = \sum_{n=0}^\infty a_n t^{n+r}}.
 \ee
 For some $r\in\mathbb{C}$ such that $a_0 \neq 0$. 
 
 Since we now have one more variable for which to solve (i.e.\ $r$ in addition
 to $a_0, a_1,\dots$), we require one more equation in order to determine the
-solution uniquely. Then if we take the first and second derivative of $y(t) = \sum_{n=0}^\infty a_n t^{n+r}$ and put them into the left-hand side of equation \eqref{singode}, we can see that the 
+solution uniquely. Then if we take the first and second derivative of 
+$y(t) = \sum_{n=0}^\infty a_n t^{n+r}$ and put them into the left-hand side of 
+equation \eqref{singode}, we can see that the 
 leading-order (which is to say the $t^{r-2}$) coefficient is 
-\be
+\bee
 a_0 r(r-1)t^{r-2} + a_0 \frac{p_0}{t} r t^{r-1} + a_0 \frac{q_0}{t^2} t^r 
-\ee
-In order to satisfy equation \eqref{singode}, this coefficient must equal $0$. We can multiply by $t^2$ and since $a_0 \neq 0$, we see that
+\eee
+In order to satisfy equation \eqref{singode}, this coefficient must equal $0$. 
+We can multiply by $t^2$ and since $a_0 \neq 0$, we see that
 \be
-\implies r(r-1) + p_0 r  + q_0=0.
+\boxed{\implies r(r-1) + p_0 r  + q_0=0}.
 \ee
-This is called the \emph{indicial equation}. It's a quadratic so it has two solutions, $r=r_1,r_2$.
+This is called the \emph{indicial equation}. It's a quadratic so it has two 
+solutions, $r=r_1,r_2$.
 
 If we have two distinct roots with $Re(r_1) > Re(r_2)$, we're fine, and we 
 have two linearly independent solutions
 \be
-y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1} \quad\mbox{  and  }\quad
-y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}.
+\boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
+\quad\mbox{  and  }\quad
+\boxed{y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}}.
 \ee
 If $r_1=r_2$, then our solutions are
 \be
-y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}  \quad\mbox{  and  }\quad
-y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}.
+\boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
+\quad\mbox{  and  }\quad
+\boxed{y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}}.
 \ee
 If $r_1-r_2$ is an integer, then we have yet another possibility, i.e.\ that
 \be
-y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}  \quad\mbox{  and  }\quad
-y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1},
+\boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
+\quad\mbox{  and  }\quad
+\boxed{y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}},
 \ee
 for some constant $C\in\mathbb{R}$.
 
@@ -2725,41 +2726,41 @@ be determined by matching powers as per the previous section.
 }{
   We can divide Bessel's equation by $t^2$ to get it in the form of 
   \eqref{singode}, that is
-  \be
+  \bee
   y''  + \frac{1}{t}y' + \(1-\frac{\alpha^2}{t^2}\)y=0,
-  \ee
+  \eee
   which is clearly singular. We can identify $p=1/t$, and 
   $q=1-\frac{\alpha^2}{t^2}$. Then,
-  \be
+  \bee
   p_0 = \lim_{t\rightarrow 0} t p(t) =1, \quad \text{and}\quad
   q_0 = \lim_{t\rightarrow 0} t^2 q(t) =-\alpha^2.
-  \ee
+  \eee
   The indicial equation is then 
   $r(r-1) +r -\alpha^2 =0 \implies r_{1,2} = \pm \alpha$.  Thus,
-  \be
+  \bee
   y_1\phantom{''} &=& \sum_{n=0}^\infty a_n t^{n+\alpha} \\
   y_1'\phantom{'}  &=& \sum_{n=0}^\infty a_n (n+\alpha)t^{n+\alpha-1}, \\
   y_1'' &=& \sum_{n=0}^\infty a_n (n+\alpha)(n+\alpha-1)t^{n+\alpha-2}.
-  \ee
+  \eee
   Putting this into \eqref{bessel}, we have
-  \be
+  \bee
   \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha} 
   + \sum_{n=0}^\infty a_n t^{n+2+\alpha}=0.
-  \ee
+  \eee
   Changing the index of the second sum, we have
-  \be
+  \bee
   \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha} 
   + \sum_{n=2}^\infty a_{n-2} t^{n+\alpha}=0.
-  \ee
+  \eee
   The $a_0$ and $a_1$ terms are determined by initial conditions. For 
   $n\geq 2$, the terms must cancel, so we have
-  \be
+  \bee
   a_n\[\(n+\a\)^2 - \a^2\]t^{n+\alpha}  + a_{n-2} t^{n+\alpha}=0
-  \ee
+  \eee
   which implies that
-  \be
+  \bee
   a_n = \frac{-a_{n-2}}{\(n+\a\)^2 - \a^2} =  \frac{-a_{n-2}}{n(n+ 2\a)}.
-  \ee
+  \eee
   Associating $y_1$ with $a_0=1$ and $a_1=0$, we can set $n=2m$, so the
   recursion relationship is
   \be
@@ -2776,15 +2777,17 @@ be determined by matching powers as per the previous section.
   \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.
   \ee
   \qed
-We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would get the standard form of Bessel's function of the first kind of order $\a$,
-  \be
+We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would 
+get the standard form of Bessel's function of the first kind of order $\a$,
+  \bee
   J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
   \(\frac{t}{2}\)^{2n-\a}.
-  \ee
-Where $\G(x)$ is called the Gamma function and it is just an extension of the factorial function. So in particular, when $\alpha=0$, we get
-  \be
+  \eee
+Where $\G(x)$ is called the Gamma function and it is just an extension of the 
+factorial function. So in particular, when $\alpha=0$, we get
+  \bee
   J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
-  \ee
+  \eee
 % Too messy and complicated- fixed above
 %  Now, we can simplify this slightly, by using the gamma function. The
 %  Gamma function,
@@ -2807,7 +2810,8 @@ Where $\G(x)$ is called the Gamma function and it is just an extension of the fa
 %  \frac{(-1)^m}{2^{2m}m! \G(m+\a+1)/\G(\a+1)} t^{m+\alpha}.
 %  \ee
 %  
-%  Setting $a_0=1/(2^\a\G(\a+1))$, we have the standard form of Bessel's function
+%  Setting $a_0=1/(2^\a\G(\a+1))$, we have the standard form of Bessel's 
+%  function
 %  of the first kind of order $\a$,
 %  \be
 %  J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
@@ -2822,9 +2826,9 @@ Where $\G(x)$ is called the Gamma function and it is just an extension of the fa
 \begin{enumerate}
   
   \item Find a general solution to the Cauchy-Euler (equidimensional) equation,
-    \be
+    \bee
     (\pi x)^2 y'' (x) + \pi(\pi-2)xy' (x) + y(x) = 0, \quad x > 0.
-    \ee
+    \eee
     \hidesolution{
       Rewrite this equation as
       \bee
@@ -2850,9 +2854,9 @@ Where $\G(x)$ is called the Gamma function and it is just an extension of the fa
 
   \item Find the first solution (i.e.\ $y_1$ in the above notation) to the
     differential equation
-    \be
+    \bee
     x^2 y'' - xy' + (1-x)y=0
-    \ee
+    \eee
     \hidesolution{
       We have $p=-1/x$ and $q=(1-x)/x^2 = 1/x^2-1/x$. Then
       \bee
@@ -2892,9 +2896,9 @@ Where $\G(x)$ is called the Gamma function and it is just an extension of the fa
 Let $y(x,t)$ be the temperature of a one-dimensional rod with thermal 
 conductivity $k$. The equation that describes the evolution of $y$ is 
 called the heat equation:
-\be
+\bee
 \pp{y}{t} =  k\pptwo{y}{x}.
-\ee
+\eee
 This is an important example of a partial differential equation (PDE), in which
 the derivatives with respect to one variable are related to derivatives with
 respect to another variable, in this case $\partial/\partial t$ and  
@@ -2911,40 +2915,38 @@ As in the previous section, we use a series solution for $y$ and expand around
 be functions of time, and, instead of using $x^n$, we let $X_n(x)$ be a more
 general function of $x$. That is, we let
 \be
-y = \sum_{n=0}^\infty T_n(t) X_n(x).
+\boxed{y = \sum_{n=0}^\infty T_n(t) X_n(x)}.
 \ee
 As you will see in the next lab, we can choose the functions $X_n$ in a way
-that makes the PDE solvable. For now, let's consider the case where the $X_n$ are
-either $\sin$ or $\cos$, i.e.\ when $y$ is a Fourier sine or cosine series.
+that makes the PDE solvable. For now, let's consider the case where the $X_n$ 
+are either $\sin$ or $\cos$, i.e.\ when $y$ is a Fourier sine or cosine series.
 
 \subsection{Fourier Cosine and Sine Series}
 Consider functions that are periodic with period $2T$.
 If we set $X_n =\cos(n \pi x/T)$, we have the \emph{Fourier cosine series} for 
 $f(x)$,
-\be
+\bee
 \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\(\frac{n \pi x}{T}\)
-\ee
+\eee
 (note the annoying $1/2$ on the first term). Setting $X_n=\sin(n \pi x/T)$, 
 we get the \emph{Fourier sine series} for $f(x)$,
-\be
+\bee
 \sum_{n=1}^\infty b_n \sin\(\frac{n \pi x}{T}\)
-\ee
+\eee
 The coefficients $a_n$ and $b_n$ are determined by integration, with
-\be
-\label{fouriercoeff}
+\be\label{fouriercoeff}
 a_n = \frac{1}{T} \int_{-T}^T f(x) \cos\(\frac{n \pi x}{T}\) \, dx, 
 \qquad \text{and} \qquad
 b_n = \frac{1}{T} \int_{-T}^T f(x) \sin\(\frac{n \pi x}{T}\) \, dx.
 \ee
 More generally, the \emph{Fourier series} for $f(x)$ is the sum of these, i.e.\
-\be
+\bee
 \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(\frac{n \pi x}{T}\)
 + b_n \sin\(\frac{n \pi x}{T}\) \]
-\ee
+\eee
 Often, we just look at functions that have period $2\pi$, which makes for the
 simpler formulae,
-\be
-\label{nicefourier}
+\be\label{nicefourier}
 &&\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(nx\)
 + b_n \sin\(nx\) \] ;
 \\ \nonumber
@@ -2964,14 +2966,14 @@ If $\int_{-\infty}^\infty \abs{f(x)} dx$ exists, then
 \lim_{z\rightarrow \pm \infty}\int_{-\infty}^\infty f(x) e^{izx} dx =0
 \ee
 which implies that
-\be
+\bee
 \lim_{n\rightarrow \infty} a_n =0 \qquad \text{and} \qquad 
 \lim_{n\rightarrow \infty} b_n =0,
-\ee
+\eee
 and 
-\be
+\bee
 f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \]
-\ee
+\eee
 %FIXME: should the limits of integration be $(-\pi,\pi)$ for the series (as 
 %opposed to the transform)? Also, uniqueness?
 \end{theorem}
@@ -2982,21 +2984,22 @@ of waves with different amplitudes. That is, we transform from ``$x$-space'' to
 \texttt{MP3} format is just a modified cosine-series. Fourier series (and
 Fourier transforms, which are not covered in this course) lie at the heart of
 signal analysis. In terms of solving PDEs, we make use of the fact that 
-\be
+\bee
 \ddtwo{}{x}\sin(nx) = -n^2 \sin(nx),
-\ee
+\eee
 (i.e.\ that $\sin$ is an Eigenfunction of $\ddtwo{}{x}$) to turn differential
 equations into algebraic equations. But more on that later; first, let's just
 find the Fourier series for a normal function.
 
 \workedexample{
 Find the Fourier series of 
-\be
+\bee
 f(x) = x
-\ee
+\eee
 }{
-To find the Fourier series, we just need to determine $a_n$ and $b_n$ using \eqref{nicefourier}. The coefficients for the cosine series are
-\be
+To find the Fourier series, we just need to determine $a_n$ and $b_n$ using 
+equation~\eqref{nicefourier}. The coefficients for the cosine series are
+\bee
 a_n &=& \frac{1}{\pi}\int_{-\pi}^\pi x \cos(nx)\, dx 
 \\\nonumber
 &=& \frac{1}{\pi}\[ \left.x \frac{\sin(nx)}{n} \right|_{-\pi}^{\pi}
@@ -3004,12 +3007,12 @@ a_n &=& \frac{1}{\pi}\int_{-\pi}^\pi x \cos(nx)\, dx
 \\\nonumber
 &=& \frac{1}{\pi}
 \[0 - \frac{1}{n^2}\left. \cos(nx) \right|_{-\pi}^{\phantom{-}\pi} \] =0.
-\ee
+\eee
 This could have been expected, since $f(x)=x$ is an odd function, and $\cos(nx)$
 is even, and the integration domain is symmetric. Notice, then, that the
 cosine series of a function is equal to the even part of the function. Now,
 for the sine series, we have
-\be
+\bee
 b_n &=& \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx 
 \\\nonumber
 &=& \frac{1}{\pi} \[ \left.\frac{-x\cos(nx)}{n}\right|_{-\pi}^\pi 
@@ -3020,13 +3023,14 @@ b_n &=& \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx
 &=& \frac{1}{\pi}\[\frac{-2\pi}{n}\cos(n \pi)\]
 \\\nonumber
 &=&\frac{-2 (-1)^n}{n} = (-1)^{n+1}\frac{2}{n}.
-\ee
+\eee
 The Fourier series for $f(x)=x$ is then
 \be
 \label{Fourierx}
 x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx). \qed
 \ee
-This does indeed converge to $f(x)=x$ around $x=0$, as can be seen in figure \ref{fourierx}.
+This does indeed converge to $f(x)=x$ around $x=0$, as can be seen in 
+figure~\ref{fourierx}.
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics{201/fourierx}
@@ -3072,9 +3076,9 @@ Let us now return to the heat equation,
 \pp{y}{t} = \beta \frac{\partial^2y}{\partial x^2},
 \ee
 and add some \emph{initial conditions}
-\be
+\bee
 y(x,0)=f(x)
-\ee
+\eee
 and \emph{boundary conditions}
 \be
 \label{homdibc}
@@ -3087,31 +3091,29 @@ remains the same, so our base temperature is arbitrary.) The
 rod starts with the temperature at position $x$ given by $f(x)$.
 
 We'll solve this using separation of variables:
-\be
-\label{heatF}
+\be\label{heatF}
 y = \sum_{n=0}^\infty T_n(t) X_n(x),
 \ee
 where we have taken $X_n(x)$ to be orthogonal\footnote{That is, if $n\neq m$, 
 then $\int_0^\pi X_n(x) X_m(x) dx =0.$ This is the case with elements of 
 $\{\cos(nx),\sin(nx),n=0,1,\dots \}$.}.
 Putting equation \eqref{heatF} into equation \eqref{heateq}, we get
-\be
-\label{heats}
+\be\label{heats}
 \sum_{n=0}^\infty \ddt{T_n(t)}X_n(x)
 =\beta\sum_{n=0}^\infty T_n(t)\ddtwo{X_n(x)}{x}
 \ee
 Now, since the $X_n$'s are orthogonal, this actually holds term-by-term. That 
 is, for each $n$, we have
-\be
+\bee
 T_n'(t)X_n(x) = \beta  T_n(t)X_n''(x) 
 \quad \implies \quad
 \frac{1}{\beta}\frac{T_n'(t)}{T_n(t)}= \frac{X_n''(x)}{X_n(x)}.
-\ee
+\eee
 Now, the LHS is independent of $x$, so the RHS must also be independent of $x$.
 Since the RHS is also clearly independent of $t$, it must be constant. That is,
-\be
+\bee
 \frac{1}{\beta}\frac{T_n'(t)}{T_n(t)}= \frac{X_n''(x)}{X_n(x)} = K_n,
-\ee
+\eee
 where $K_n$ can only depend on $n$. 
 
 This gives us an ODE for $X_n$,
@@ -3129,14 +3131,14 @@ the boundary conditions must be satisfied for each $n$. The cases are:
   \item $K_n = 0$. In this case, we get $X_n(x)=Ax +B$. Again, the boundary 
     conditions imply that $A=B=0$, so $X_n=0$ in this case.
   \item $K_n =-k_n^2 < 0$. This gives us periodic behaviour,
-    \be
+    \bee
     X_n(x)=C_1\cos(k_nx) + C_2\sin(k_nx).
-    \ee
+    \eee
     We require that $X_n(0)=C_1=0$, so we can remove all the cosines. The
     other boundary condition gives us
-    \be
+    \bee
     X_n(\pi)=C_2\sin(k_n\pi)=0,
-    \ee
+    \eee
     which implies that either $C_2=0$ or $k_n$ is an integer. Since this is
     our last chance to have $X_n$ not be zero everywhere, we can't have $C_2=0$,
     so we set $k_n$ to be an integer. In particular, set $k_n=n$.
@@ -3145,40 +3147,40 @@ Thus, $K_n=-n^2$, and $X_n= \sin(nx)$. Much simpler!
 
 We now have enough information to start determining $T_n$. We know that 
 $K_n=-n^2$, so $T_n$ obeys the equation
-\be
+\bee
 T_n' = \beta K_n T_n = - \beta n^2 T_n 
 \qquad \implies \qquad 
 T_n = T_n(0) e^{-\beta n^2 t}.
-\ee
+\eee
 
 Putting this together, our solution (so far) is
-\be
+\bee
 y(x,t) = \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx).
-\ee
+\eee
 To get this, we have used the original equation and the boundary conditions. 
 We still have to determine the values of $T_n(0)$, for which we will use the
 initial conditions, $y(x,0)=f(x)$. That is,
-\be
+\bee
 y(x,0)=f(x) =  \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx)
 = \sum_{n=0}^\infty T_n(0) \sin(nx).
-\ee
+\eee
 In other words, this is just a sine-series for $f(x)$! However, instead of
 integrating over $(-\pi,\pi)$, we only know $f(x)$ for $x\in(0,\pi)$. We can
 solve this problem by extending $f(x)$ as an odd function by setting 
 $f(-x)=-f(x)$, so the coefficients are given by
-\be
+\bee
 T_n(0)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)dx
 =\frac{2}{\pi}\int_0^\pi f(x)\sin(nx)dx,
-\ee
+\eee
 since the integrand is even.
 
 The solution to the heat equation is then
-\be
+\bee
 y(x,t)=\frac{2}{\pi}
 \sum_{n=1}^\infty \[\int_0^\pi f(x)\sin(nx)\,dx\]
 e^{-kn^2t}
 \sin(nx), 
-\ee
+\eee
 
 \workedexample{
   The initial temperature in a rod of length $\pi$ is given by
@@ -3187,23 +3189,23 @@ e^{-kn^2t}
   y(x,0)=2\sin(x)+\sin(5x),
   \ee
   and the temperature at the ends of the rod is kept at zero. Assuming that
-  \be
+  \bee
   \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
-  \ee
+  \eee
   find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
   }\\
 {
   The boundary conditions match those given in equation \eqref{homdibc}, so
   the above analysis shows that we can express $y$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
-  \be
+  \bee
   y(x,t)=\sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
-  \ee
+  \eee
   The initial conditions are that $y(x,0)=2\sin(x)+\sin(5x)$, so $T_1(0)=2$,
   $T_5(0)=1$, and all others are zero. We can then write the solution as
-  \be
+  \bee
   y(x,t) = 2 e^{-\b t} \sin(x) + e^{-25 \b t} \sin(5x).
-  \ee
+  \eee
 %FIXME: Is this enough explanation?
  This result is shown for various times in figure \ref{heat1} for $\b=1$.
   \begin{figure}[htbp]
@@ -3221,21 +3223,21 @@ e^{-kn^2t}
 \subsection{Non-homogeneous constant boundary conditions}
 
 Suppose that the boundary conditions were instead
-\be
+\bee
 y(0,t)=A, \qquad y(\pi,t)=B.
-\ee
+\eee
 Notice that these conditions match the case $K_n=0$ with
-\be
+\bee
 y(x,t)=\frac{B-A}{\pi}x+A.
-\ee
+\eee
 This obeys the heat equation, since 
-\be
+\bee
 \frac{\partial^2}{\partial x^2}(mx+b)=0= \pp{}{t}(mx+b),
-\ee
+\eee
 and is independent of $t$, i.e.\ it is a steady state solution. Then, setting
-\be
+\bee
 g(x) = f(x) - \(A+ \frac{B-A}{\pi}x\),
-\ee
+\eee
 \be
 \label{diribc}
 y(x,t)=A + \frac{B-A}{\pi}x +
@@ -3246,44 +3248,46 @@ matches both the initial and boundary conditions.
 
 \workedexample{
   Solve the initial boundary problem
-  \be
+  \bee
   \label{heat3ic}
   \pp{y}{t} = \b \pptwo{y}{x}, \qquad y(0)=1, \quad y(\pi)=1+\pi, 
   \quad y(x,0)=f(x)=x^2 +x +1
-  \ee
+  \eee
   for $y(x,t)$.
 
 }{
   The steady-state solution is $x+1$. Let
-  \be
+  \bee
   g(x) = f(x) -(x+1) = x^2
-  \ee
+  \eee
   Then,
-  \be
+  \bee
   y(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
-  \ee
+  \eee
   And in order to satisfy $y(x,0)=1+x+x^2$, we have
-  \be
+  \bee
   x^2 = \sum_{n=1}^\infty T_n(0) \sin(nx).
-  \ee
+  \eee
   The coefficients are given by the formula
-  \be
+  \bee
   T_n(0) &=& \frac{2}{\pi} \int_0^\pi x^2 \sin(nx) \, dx
   \\\nonumber
   &=& \frac{2}{\pi}\[\left.x^2 \frac{-\cos(nx)}{n} \right|_0^\pi 
   + \frac{2}{n}\int_0^\pi x \cos(nx)dx\] 
   \\\nonumber
-  &=& \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)+2(\left.\frac{x \sin(nx)}{n} \right|_0^\pi
+  &=& \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)+2(\left.\frac{x \sin(nx)}{n} 
+  \right|_0^\pi
   - \frac{1}{n}\int_0^\pi\sin(nx)dx)  \] 
   \\\nonumber
   &=& \frac{-2\pi}{n}\cos(n\pi)-\frac{4}{n^3\pi} \left.-\cos(nx) \right|_0^\pi 
   = \frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}
-  \ee
+  \eee
   The solution is therefore
-  \be
+  \bee
   y(x,t) = 1+x+
-  \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\] e^{-\b n^2 t}\sin(nx).
-  \ee
+  \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\] 
+  e^{-\b n^2 t}\sin(nx).
+  \eee
 % Useless figure
 %  as can be seen in figure \ref{heat3}. \qed
 %  \begin{figure}[htbp]
@@ -3340,7 +3344,8 @@ matches both the initial and boundary conditions.
 %  1 = \sum_{n=1}^\infty \frac{2\((-1^n)-1\)}{n\pi} \sin(nx).
 %  \ee
 %  
-%  Noting that the Fourier series is a linear, so we can add the series together:
+%  Noting that the Fourier series is a linear, so we can add the series 
+%  together:
 %  \be
 %  e^x - 1- \frac{e^\pi}{\pi}x
 %  &=& \sum_{n=1}^\infty \frac{2}{\pi}n\frac{1 - (-1)^ne^\pi}{n^2+1} \sin(nx)
@@ -3384,14 +3389,14 @@ matches both the initial and boundary conditions.
     An inanimate carbon rod of length $\pi$ is hit with a ``laser'', 
     transferring an amount of heat $H$ to a point at its centre. That is, the
     initial temperature distribution along its length is given by
-    \be
+    \bee
     y(x,0)=H\delta\(x-\frac{\pi}{2}\).
-    \ee
+    \eee
     If the ends of the rod are kept at constant temperature $0$, and the 
     temperature in the rod obeys the relationship
-    \be
+    \bee
     \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
-    \ee
+    \eee
     find $y(x,t)$ for all $t\geq 0$.
     \hidesolution{
       Following the above procedure,
@@ -3429,10 +3434,10 @@ matches both the initial and boundary conditions.
     \eqref{Eigenfunction} must be $\{\sin(nx),n=1,2,\dots\}$ in this case. 
     If the boundary conditions were instead \emph{Dirichlet boundary conditions}
     such as
-    \be
+    \bee
     \left.\pp{y(x,t)}{x}\right|_{x=0}=0, \qquad
         \left.\pp{y(x,t)}{x}\right|_{x=\pi}=0,
-    \ee
+    \eee
     what are the Eigenfunctions?
 
 
