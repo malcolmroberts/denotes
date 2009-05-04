@@ -259,7 +259,7 @@ then notice that
   \dd{}{x}\(\mu y \) = \dd{\mu}{x} y + \mu \dd{y}{x} 
   = \mu P(x) y + \mu \dd{y}{x}.
 \ee
-So if we multiply equation (\eqref{linear}) by $\mu$, we get
+So if we multiply equation \eqref{linear} by $\mu$, we get
 \be 
   \dd{}{x}\(\mu y \) = \mu Q,
 \ee
@@ -332,7 +332,7 @@ We solve this by substituting $v=y/x$, so that
 \quad \implies \quad
 v + x \dd{v}{x} = f(v),
 \ee
-which is can be written as the separable equation
+which can be written as the separable equation
 \be
 \boxed{\dd{v}{x} = \frac{f(v) -v}{x}}.
 \ee
@@ -412,7 +412,7 @@ Since $n=3$, choose $v=y^{-2}$. Then
 \quad \implies \quad
 \dd{v}{x} + \frac{v}{x} = 2 e^x,
 \ee
-which is a linear equation given as the example from section \ref{linearsec}. 
+which is the linear equation given as the example from section \ref{linearsec}. 
 \qed
 
 
@@ -1491,7 +1491,7 @@ Rearranging for $\mathcal{L}(y)$, we get
 \ee
 Then in order to determine $y$, we need to invert the Laplace transform.
 Since the inverse Laplace transform is kind of complicated, the easiest
-way to deal with this is to use a table of Laplace transforms found in
+way to deal with this is to use the table of Laplace transforms found in
 section \ref{tableolap}.
 
 It is often necessary to use the technique of partial fractions to disentangle 
@@ -1554,18 +1554,20 @@ the function $f(t)$ is periodic with period $T$. That is, for all $t$,
 f(t+T)=f(t).
 \ee
 The Laplace transform of $f$ is
-\be
+\bee
 \Laplace\{f\} &=& \int_0^\infty f(t) e^{-st} dt
-\\\nonumber
+\\
 &=&\int_0^T f(t) e^{-st} dt + \int_T^{2T} f(t) e^{-st} dt + \dots +
 \int_{nT}^{(n+1)T} f(t) e^{-st} dt + \dots
-\\\nonumber
+\eee
+Then we perform the change of variables $\tau = t-nT$ to see that this is just
+\bee
 &=& \int_0^T f(\t) e^{-s\t} d\t + e^{-sT}\int_0^{T} f(\t) e^{-s\t} d\t + \dots +
 e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
-\\\nonumber
+\\
 &=& \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\int_0^T f(\t) e^{-s\t}d\t.
-\ee
-Now, this is the geometric series $\sum_{n=0}^\infty r^n = 1/(1-r)$ with 
+\eee
+Now, the first factor is just the geometric series $\sum_{n=0}^\infty r^n = 1/(1-r)$ with
 $r=e^{-sT}$, so
 \be\label{lapper}
 \boxed{\Laplace\{f\} =\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}}.
@@ -1689,27 +1691,28 @@ From equation \eqref{lapper}, we have
 
 \subsection{Convolutions}
 The Laplace transform is linear, so it deals with linear DEs very well, but not
-all DEs are linear. Indeed, the most aren't.
+all DEs are linear. In fact, the most aren't.
 
-The Laplace transform is a good tool to deal with the convolution of two
-functions. The convolution is two functions $f$ and $g$ is written $f*g$ and
+The Laplace transform is also a good tool to deal with the convolution of two
+functions. The convolution of two functions $f$ and $g$ is written $f*g$ and
 is defined as
 \be
 \boxed{f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau}.
 \ee
-It has a particlarly nice Laplace transform. If we write $\Laplace(f)=F$ and
+It has a particularly nice Laplace transform. If we write $\Laplace(f)=F$ and
 $\Laplace(g)=G$, then
 \be
 \boxed{\Laplace(f*g)=F(s)G(s)}.
 \ee
-That is, the Laplace transform of a convolution is a product.
+That is, the Laplace transform of a convolution is a product the product of their Laplace transforms.
 
 \workedexample{
 Solve
 \be
 y'' = g(t), \qquad y(0) = c_0, \qquad y'(0)=c_1
 \ee for $y$ using Laplace transforms.
-}{
+}\\
+{
 Taking the Laplace transform of both sides, we have
 \be
 s^2Y - sc_0 - c_1 = G(s).
@@ -1725,7 +1728,7 @@ y = \Laplace^{-1}\(G(s)\frac{1}{s^2} + c_0 + c_1 t\)
 = g(t)*t + c_0 + c_1 t. \qed
 \ee
 
-This technique can be extended to the full harmonic oscilator,
+This technique can be extended to the full harmonic oscillator,
 \be
 y'' + by' + cy = g
 \ee
@@ -1744,7 +1747,7 @@ to solve differential equations by integrating. This can be tremendously useful,
 since we can deal with differential equations with functions that are not
 smooth; they need only be integrable.
 
-The stup function, also known as the Heaviside function, is defined as
+The step function, also known as the Heaviside function, is defined as
 \be
 \boxed{
 u_c(t) = \left\{ \begin{array}{ll}
@@ -1778,34 +1781,34 @@ following example.
 y'=t u_c(t), \qquad y(0)=0
 \ee
 using Laplace transforms
-}{
+}\\
+{
 Take the Laplace transform of both sides of the differential equation, yielding
 \be
 sY &=& \Laplace{}\(t u_c(t)\) = \int_0^\infty t u_c(t) e^{-st} dt 
 = \int_c^\infty t e^{-st} dt 
 \\\nonumber
 &=& \[t \frac{e^{-st}}{-s}\]_c^\infty - \int_c^\infty \frac{e^{-st}}{-s}dt
-= ce^{-sc} + \frac{e^{-sc}}{s^2}
+= \frac{-ce^{-sc}}{s} + \frac{e^{-sc}}{s^2}
 \ee
 Thus, 
 \be
-Y = \frac{ce^{-sc}}{s} +\frac{ce^{-sc}}{s}^3.
+Y = \frac{ce^{-sc}}{s} +\frac{ce^{-sc}}{s^3}.
 \ee
 From the table of  Laplace transforms, we know that 
-$\Laplace{}\(f(t-c)(u_c(t)\)=e^{-cs}F(s)$, so 
+$\Laplace{}\(f(t-c)u_c(t)\)=e^{-cs}F(s)$, so 
 \be
-y = cu_c(t) + \frac{c}{2} t^2. \qed
+y = -c(t-c)u_c(t) + \frac{1}{2} (t-c)^2 u_c(t). \qed %FIXME: check
 \ee
 }
 
 
 
 \subsection{The Impulse Function}
-The step function describes functions which start suddenly, like turning on
-a switch. The delta, $\d(t)$,
-function is slightly more complicated; it describes processes that happen in an
-instant, like the impact from a hammer. It is (loosely) defined as having
-the following properties:
+While the step function describes functions which start suddenly (like turning 
+on a switch), the delta function, $\d(t)$, is slightly more complicated. It 
+describes processes that happen in an instant, like the impact from a hammer. 
+It is (loosely) defined as having the following properties:
 \be
 \boxed{
 \delta(t) = \left\{ \begin{array}{ll}
