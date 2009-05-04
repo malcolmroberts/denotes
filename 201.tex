@@ -2555,7 +2555,7 @@ recursively.\\
 
 \newpage
 \section{Series Solutions to DEs at Regular Singular Points}
-Differential equations of the form
+Let $p(t), q(t)$ be analytic functions (ie, they admit power series representations). Then differential equations of the form
 \be
 \label{singode}
 y'' + p(t)y' + q(t)y=0
@@ -2576,17 +2576,20 @@ form
 \be
 y(t) = \sum_{n=0}^\infty a_n t^{n+r}.
 \ee
-For some $r\in\mathbb{C}$. 
+For some $r\in\mathbb{C}$ such that $a_0 \neq 0$. 
 
 Since we now have one more variable for which to solve (i.e.\ $r$ in addition
 to $a_0, a_1,\dots$), we require one more equation in order to determine the
-solution uniquely. Then, putting $y=t^r$ into \eqref{singode}, we the 
-leading-order (which is to say the $t^{r-2}$) equation is 
+solution uniquely. Then if we take the first and second derivative of $y(t) = \sum_{n=0}^\infty a_n t^{n+r}$ and put them into the left-hand side of equation \eqref{singode}, we can see that the 
+leading-order (which is to say the $t^{r-2}$) coefficient is 
 \be
-r(r-1)t^{r-2} + \frac{p_0}{t} r t^{r-1} + \frac{q_0}{t^2} t^r=0 
-\implies r(r-1) + p_0 r  + q_0=0,
+a_0 r(r-1)t^{r-2} + a_0 \frac{p_0}{t} r t^{r-1} + a_0 \frac{q_0}{t^2} t^r 
 \ee
-which is the \emph{indical equation}. From this we get $r=r_1, r_2$.
+In order to satisfy equation \eqref{singode}, this coefficient must equal $0$. We can multiply by $t^2$ and since $a_0 \neq 0$, we see that
+\be
+\implies r(r-1) + p_0 r  + q_0=0.
+\ee
+This is called the \emph{indicial equation}. It's a quadratic so it has two solutions, $r=r_1,r_2$.
 
 If we have two distinct roots with $Re(r_1) > Re(r_2)$, we're fine, and we 
 have two linearly independent solutions
@@ -2627,7 +2630,7 @@ be determined by matching powers as per the previous section.
   p_0 = \lim_{t\rightarrow 0} t p(t) =1, \quad \text{and}\quad
   q_0 = \lim_{t\rightarrow 0} t^2 q(t) =-\alpha^2.
   \ee
-  The indical equation is then 
+  The indicial equation is then 
   $r(r-1) +r -\alpha^2 =0 \implies r_{1,2} = \pm \alpha$.  Thus,
   \be
   y_1\phantom{''} &=& \sum_{n=0}^\infty a_n t^{n+\alpha} \\
@@ -2636,18 +2639,18 @@ be determined by matching powers as per the previous section.
   \ee
   Putting this into \eqref{bessel}, we have
   \be
-  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^n 
-  + \sum_{n=0}^\infty a_n t^{n+2}=0.
+  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha} 
+  + \sum_{n=0}^\infty a_n t^{n+2+\alpha}=0.
   \ee
   Changing the index of the second sum, we have
   \be
-  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^n 
-  + \sum_{n=2}^\infty a_{n-2} t^n=0.
+  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha} 
+  + \sum_{n=2}^\infty a_{n-2} t^{n+\alpha}=0.
   \ee
   The $a_0$ and $a_1$ terms are determined by initial conditions. For 
   $n\geq 2$, the terms must cancel, so we have
   \be
-  a_n\[\(n+\a\)^2 - \a^2\]t^n  + a_{n-2} t^n=0
+  a_n\[\(n+\a\)^2 - \a^2\]t^{n+\alpha}  + a_{n-2} t^{n+\alpha}=0
   \ee
   which implies that
   \be
@@ -2668,33 +2671,44 @@ be determined by matching powers as per the previous section.
   y_1 = \sum_{m=0}^\infty 
   \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.
   \ee
-  Now, we can simplify this slightly, by using the gamma function. The
-  Gamma function,
-  \be
-  \G(x) = \int_0^\infty t^{x-1} e^{-t} \, dt,
-  \ee
-  is a generalization of the factorial. The key step is that
-  \be
-  \G(x+1) = x \G(x),
-  \ee
-  which can be derived using integration by parts. If $x$ is an integer, this 
-  gives us $\G(x+1)=x!$, since $\G(0)=1$. If we set $x=m+\a+1$, then
-  \be
-  \G(m+\a+1) &=& (m+\a) \G(m+\a) = (m+\a)(m+\a-1)\G(m+\a-1) = \dots \\\nonumber
-  &=& (m+\a)(m+\a-1) \dots (2+\a)(1+\a)\G(\a+1).
-  \ee
-  We can then write \eqref{bessel1} as
-  \be
-  y_1 = \sum_{m=0}^\infty 
-  \frac{(-1)^m}{2^{2m}m! \G(m+\a+1)/\G(\a+1)} t^{m+\alpha}.
-  \ee
-  
-  Setting $a_0=1/(2^\a\G(\a+1))$, we have the standard form of Bessel's function
-  of the first kind of order $\a$,
+  \qed
+We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would get the standard form of Bessel's function of the first kind of order $\a$,
   \be
   J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
-  \(\frac{t}{2}\)^{2n-\a}. \qed
+  \(\frac{t}{2}\)^{2n-\a}.
   \ee
+Where $\G(x)$ is called the Gamma function and it is just an extension of the factorial function. So in particular, when $\alpha=0$, we get
+  \be
+  J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
+  \ee
+% Too messy and complicated- fixed above
+%  Now, we can simplify this slightly, by using the gamma function. The
+%  Gamma function,
+%  \be
+%  \G(x) = \int_0^\infty t^{x-1} e^{-t} \, dt,
+%  \ee
+%  is a generalization of the factorial. The key step is that
+%  \be
+%  \G(x+1) = x \G(x),
+%  \ee
+%  which can be derived using integration by parts. If $x$ is an integer, this 
+%  gives us $\G(x+1)=x!$, since $\G(0)=1$. If we set $x=m+\a+1$, then
+%  \be
+%  \G(m+\a+1) &=& (m+\a) \G(m+\a) = (m+\a)(m+\a-1)\G(m+\a-1) = \dots \\\nonumber
+%  &=& (m+\a)(m+\a-1) \dots (2+\a)(1+\a)\G(\a+1).
+%  \ee
+%  We can then write \eqref{bessel1} as
+%  \be
+%  y_1 = \sum_{m=0}^\infty 
+%  \frac{(-1)^m}{2^{2m}m! \G(m+\a+1)/\G(\a+1)} t^{m+\alpha}.
+%  \ee
+%  
+%  Setting $a_0=1/(2^\a\G(\a+1))$, we have the standard form of Bessel's function
+%  of the first kind of order $\a$,
+%  \be
+%  J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
+%  \(\frac{t}{2}\)^{2n-\a}. \qed
+%  \ee
 }
 
 
@@ -2712,7 +2726,7 @@ be determined by matching powers as per the previous section.
       \bee
       \pi^2 x^2 y'' (x) + (\pi^2 - 2\pi)xy' (x) + y(x) = 0.
       \eee
-      We substitute $y = x^r$ to find a solution. The indical equation is
+      We substitute $y = x^r$ to find a solution. The indicial equation is
       \bee
       \pi^2 r^2 + (\pi^2 - 2\pi - \pi^2) r + 1 = \pi^2 r^2 - 2 \pi r + 1 
       = (\pi r - 1)^2 = 0
@@ -2741,7 +2755,7 @@ be determined by matching powers as per the previous section.
       p_0 = \lim_{x\rightarrow 0^+} x p(x)=-1, \qquad
       q_0 = \lim_{x\rightarrow 0^+} x^2 q(x)=1.
       \eee
-      The indical equation is 
+      The indicial equation is 
       \bee
       r(r-1)-r+1=0 \implies r_1=r_2=1
       \eee
@@ -2796,7 +2810,7 @@ general function of $x$. That is, we let
 y = \sum_{n=0}^\infty T_n(t) X_n(x).
 \ee
 As you will see in the next lab, we can choose the functions $X_n$ in a way
-that makes the PDE solvable. For now, we let's consider the case where $X_n$ are
+that makes the PDE solvable. For now, let's consider the case where the $X_n$ are
 either $\sin$ or $\cos$, i.e.\ when $y$ is a Fourier sine or cosine series.
 
 \subsection{Fourier Cosine and Sine Series}
@@ -2824,13 +2838,14 @@ More generally, the \emph{Fourier series} for $f(x)$ is the sum of these, i.e.\
 + b_n \sin\(\frac{n \pi x}{T}\) \]
 \ee
 Often, we just look at functions that have period $2\pi$, which makes for the
-simpler formula,
+simpler formulae,
 \be
+\label{nicefourier}
 &&\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(nx\)
-+ b_n \sin\(nx\) \]
-\\
++ b_n \sin\(nx\) \] ;
+\\ \nonumber
 &&a_n = \frac{1}{\pi} \int_{-\pi}^\pi f(x) \cos\(n x\) \, dx, 
-\\
+\\ \nonumber
 &&b_n = \frac{1}{\pi} \int_{-\pi}^\pi f(x) \sin\(n x\) \, dx,
 \ee
 which we will refer to as ``the'' Fourier series, unless otherwise stated.
@@ -2866,7 +2881,7 @@ signal analysis. In terms of solving PDEs, we make use of the fact that
 \be
 \ddtwo{}{x}\sin(nx) = -n^2 \sin(nx),
 \ee
-i.e.\ that $\sin$ is an Eigenfunction of $\ddtwo{}{x}$, to turn differential
+(i.e.\ that $\sin$ is an Eigenfunction of $\ddtwo{}{x}$) to turn differential
 equations into algebraic equations. But more on that later; first, let's just
 find the Fourier series for a normal function.
 
@@ -2876,8 +2891,7 @@ Find the Fourier series of
 f(x) = x
 \ee
 }{
-To find the Fourier series, we just need to determine $a_n$ and $b_n$ using
-equation \eqref{fouriercoeff}. The coefficients for the cosine series are
+To find the Fourier series, we just need to determine $a_n$ and $b_n$ using \eqref{nicefourier}. The coefficients for the cosine series are
 \be
 a_n &=& \frac{1}{\pi}\int_{-\pi}^\pi x \cos(nx)\, dx 
 \\\nonumber
@@ -2894,12 +2908,12 @@ for the sine series, we have
 \be
 b_n &=& \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx 
 \\\nonumber
-&=& \frac{1}{\pi} \[ \left.\frac{-\cos(nx)}{n}\right|_{-\pi}^\pi 
+&=& \frac{1}{\pi} \[ \left.\frac{-x\cos(nx)}{n}\right|_{-\pi}^\pi 
                     - \int_{-\pi}^\pi \frac{-\cos(nx)}{n}\, dx  \] 
 \\\nonumber
-&=& \frac{1}{\pi}\[\frac{-\cos(-\pi n)}{n} - \frac{-\cos(n\pi)}{n} -0 \]
+&=& \frac{1}{\pi}\[\frac{-\pi\cos(\pi n)}{n} - \frac{-\pi\cos(-n\pi)}{n} -0 \]
 \\\nonumber
-&=& \frac{1}{\pi}\[x\times\frac{-2}{n}\cos(n \pi)\]
+&=& \frac{1}{\pi}\[\frac{-2\pi}{n}\cos(n \pi)\]
 \\\nonumber
 &=&\frac{-2 (-1)^n}{n} = (-1)^{n+1}\frac{2}{n}.
 \ee
@@ -2908,7 +2922,7 @@ The Fourier series for $f(x)=x$ is then
 \label{Fourierx}
 x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx). \qed
 \ee
-This does indeed converge to $x$, as can be seen in figure \ref{fourierx}.
+This does indeed converge to $f(x)=x$ around $x=0$, as can be seen in figure \ref{fourierx}.
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics{201/fourierx}
@@ -2963,7 +2977,7 @@ and \emph{boundary conditions}
 y(0,t)=0, \qquad y(\pi,t)=0.
 \ee
 Physically, this corresponds to modelling the temperature on a rod of length
-$2\pi$ in contact at both endswith a heat sink with temperature $0$ (note
+$2\pi$ in contact at both ends with a heat sink with temperature $0$ (note
 that this is not necessarily absolute zero: if we take $y=y+C$, the equation
 remains the same, so our base temperature is arbitrary.) The
 rod starts with the temperature at position $x$ given by $f(x)$.
@@ -2974,7 +2988,7 @@ We'll solve this using separation of variables:
 y = \sum_{n=0}^\infty T_n(t) X_n(x),
 \ee
 where we have taken $X_n(x)$ to be orthogonal\footnote{That is, if $n\neq m$, 
-then $\int_0^\pi X_n(x) X_m(x) dx =0.$ This is the case with, elements of 
+then $\int_0^\pi X_n(x) X_m(x) dx =0.$ This is the case with elements of 
 $\{\cos(nx),\sin(nx),n=0,1,\dots \}$.}.
 Putting equation \eqref{heatF} into equation \eqref{heateq}, we get
 \be
@@ -2982,7 +2996,7 @@ Putting equation \eqref{heatF} into equation \eqref{heateq}, we get
 \sum_{n=0}^\infty \ddt{T_n(t)}X_n(x)
 =\beta\sum_{n=0}^\infty T_n(t)\ddtwo{X_n(x)}{x}
 \ee
-Now, since the $X_n$s are orthogonal, this actually holds term-by-term. That 
+Now, since the $X_n$'s are orthogonal, this actually holds term-by-term. That 
 is, for each $n$, we have
 \be
 T_n'(t)X_n(x) = \beta  T_n(t)X_n''(x) 
@@ -3015,7 +3029,7 @@ the boundary conditions must be satisfied for each $n$. The cases are:
     X_n(x)=C_1\cos(k_nx) + C_2\sin(k_nx).
     \ee
     We require that $X_n(0)=C_1=0$, so we can remove all the cosines. The
-    other boundary conditions gives us
+    other boundary condition gives us
     \be
     X_n(\pi)=C_2\sin(k_n\pi)=0,
     \ee
@@ -3046,7 +3060,7 @@ y(x,0)=f(x) =  \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx)
 \ee
 In other words, this is just a sine-series for $f(x)$! However, instead of
 integrating over $(-\pi,\pi)$, we only know $f(x)$ for $x\in(0,\pi)$. We can
-solve this problem by extending $f(x)$ as an odd functions by setting 
+solve this problem by extending $f(x)$ as an odd function by setting 
 $f(-x)=-f(x)$, so the coefficients are given by
 \be
 T_n(0)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)dx
@@ -3073,7 +3087,8 @@ e^{-kn^2t}
   \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
   \ee
   find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
-  }{
+  }\\
+{
   The boundary conditions match those given in equation \eqref{homdibc}, so
   the above analysis shows that we can express $y$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
@@ -3085,7 +3100,8 @@ e^{-kn^2t}
   \be
   y(x,t) = 2 e^{-\b t} \sin(x) + e^{-25 \b t} \sin(5x).
   \ee
-  This result is shown for various times in figure \ref{heat1} for $\b=1$.
+%FIXME: Needs a better explanation of the figure. Why is it interesting? 
+ This result is shown for various times in figure \ref{heat1} for $\b=1$.
   \begin{figure}[htbp]
     \begin{center}
       \includegraphics{201/heat1}
@@ -3103,7 +3119,7 @@ Suppose that the boundary conditions were instead
 \be
 y(0,t)=A, \qquad y(\pi,t)=B.
 \ee
-Notice that these conditions match the the case $K_n=0$ with
+Notice that these conditions match the case $K_n=0$ with
 \be
 y(x,t)=\frac{B-A}{\pi}x+A.
 \ee
@@ -3139,9 +3155,9 @@ matches both the initial and boundary conditions.
   \ee
   Then,
   \be
-  y(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx)
+  y(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
   \ee
-  with
+  And in order to satisfy $y(x,0)=1+x+x^2$, we have
   \be
   x^2 = \sum_{n=1}^\infty T_n(0) \sin(nx).
   \ee
@@ -3152,103 +3168,104 @@ matches both the initial and boundary conditions.
   &=& \frac{2}{\pi}\[\left.x^2 \frac{-\cos(nx)}{n} \right|_0^\pi 
   + \frac{2}{n}\int_0^\pi x \cos(nx)dx\] 
   \\\nonumber
-  &=& \frac{4}{n\pi}\[\left.\frac{s \sin(nx)}{n} \right|_0^\pi
-  - \frac{1}{n}\int_0^\pi\sin(nx)dx  \] 
+  &=& \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)+2(\left.\frac{x \sin(nx)}{n} \right|_0^\pi
+  - \frac{1}{n}\int_0^\pi\sin(nx)dx)  \] 
   \\\nonumber
-  &=& \frac{4}{n^3\pi} \left.\cos(nx) \right|_0^\pi 
-  = \frac{4(\(-1)^n-1\)}{n^3\pi}
+  &=& \frac{-2\pi}{n}\cos(n\pi)-\frac{4}{n^3\pi} \left.-\cos(nx) \right|_0^\pi 
+  = \frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}
   \ee
   The solution is therefore
   \be
   y(x,t) = 1+x+
-  \sum_{n=1}^\infty \frac{4(\(-1)^n-1\)}{n^3\pi} e^{-\b n^2 t}\sin(nx).
+  \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\] e^{-\b n^2 t}\sin(nx).
   \ee
-  as can be seen in figure \ref{heat3}. \qed
-  \begin{figure}[htbp]
-    \begin{center}
-      \includegraphics{201/heat3}
-      \caption{The temperature at different times for the system given in 
-        \eqref{heat3ic}.}
-      \label{heat3}
-    \end{center}
-  \end{figure}
+% Useless figure
+%  as can be seen in figure \ref{heat3}. \qed
+%  \begin{figure}[htbp]
+%    \begin{center}
+%      \includegraphics{201/heat3}
+%      \caption{The temperature at different times for the system given in 
+%        \eqref{heat3ic}.}
+%      \label{heat3}
+%    \end{center}
+%  \end{figure}
 
 }
-
-\subsection{A more complicated example}
-
-\workedexample{
-  The heat in a rod obey the equation
-  \be
-  \pp{y}{t}=\pptwo{y}{x}.
-  \ee
-  Given the boundary conditions 
-  \be
-  \label{heat2ic}
-  y(0,t)=1 \qquad y(\pi,t)=e^\pi
-  \ee
-  and the and the initial condition $y(x,0)=e^x$, find $y(x,t)$.\\
-}{
-  The solution is given by
-  \be
-  y(x,t)&=&1 + \frac{e^\pi-1}{\pi}x +
-  \sum_{n=1}^\infty T_n(0) e^{-n^2t} \sin(nx),
-  \\ 
-  T_n(0)&=&\frac{2}{\pi}\int_{0}^\pi g(x)\sin(nx)dx,
-  \\ 
-  g(x)&=&e^x - 1 - \frac{e^\pi-1}{\pi}x.
-  \ee
-  From equation \eqref{Fourierx}, we have
-  \be
-  x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx)
-  \ee
-  To find the Fourier sine-series for $e^x$, we must compute
-  \be
-  a_n = \frac{2}{\pi}\int_0^\pi e^x \sin(nx) \, dx 
-  = \frac{2}{\pi}\left.\frac{e^x\(\sin(nu) - n \cos(nu)\)}{n^2+1}\right|_0^\pi
-  = \frac{2}{\pi}\frac{n(1 - (-1)^ne^\pi)}{n^2+1}
-  \ee
-  Also, the Fourier series for $1$ over $x\in(-\pi,\pi)$ has coefficients
-  \be
-  \frac{2}{\pi}\int_0^\pi \sin(nx) = \frac{2}{n\pi}\left.\cos(nx) \right|_0^\pi
-  = \frac{2\((-1^n)-1\)}{n\pi},
-  \ee
-  so, over $x\in(0,\pi)$,
-  \be
-  1 = \sum_{n=1}^\infty \frac{2\((-1^n)-1\)}{n\pi} \sin(nx).
-  \ee
-  
-  Noting that the Fourier series is a linear, so we can add the series together:
-  \be
-  e^x - 1- \frac{e^\pi}{\pi}x
-  &=& \sum_{n=1}^\infty \frac{2}{\pi}n\frac{1 - (-1)^ne^\pi}{n^2+1} \sin(nx)
-  - \frac{e^\pi-1}{\pi} 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx)
-  \\ \nonumber
-  &&-\sum_{n=1}^\infty \frac{2\((-1^n)-1\)}{n\pi} \sin(nx)
-  \\ \nonumber
-  &=&\sum_{n=1}^\infty \(\frac{2}{\pi}\frac{n(1 - (-1)^ne^\pi)}{n^2+1} 
-  -\frac{e^\pi-1}{\pi}2 \frac{(-1)^{n+1}}{n}- \frac{2\((-1^n)-1\)}{n\pi}\)
-  \sin(nx).
-  \ee
-  Now, this is all a bit messy, but we do end up with the solution
-  \be
-  y(x,t) = 1 &+& \frac{e^\pi-1}{\pi}x
-  \\ \nonumber
-  &+& 
-  \sum_{n=1}^\infty \(\frac{2}{\pi}\frac{n(1 - (-1)^ne^\pi)}{n^2+1} 
-  -2 \frac{e^\pi-1}{\pi} \frac{(-1)^{n+1}}{n}- \frac{2\((-1^n)-1\)}{n\pi}\)
-    e^{-n^2t} \sin(nx),
-  \ee
-  as can be seen in figure \ref{heat2}. \qed
-  \begin{figure}[htbp]
-    \begin{center}
-      \includegraphics{201/heat2}
-      \caption{The temperature at different times with initial conditions
-        given in \eqref{heat2ic}.}
-      \label{heat2}
-    \end{center}
-  \end{figure}
-}
+% This lab is too long!
+%\subsection{A more complicated example}
+%
+%\workedexample{
+%  The heat in a rod obey the equation
+%  \be
+%  \pp{y}{t}=\pptwo{y}{x}.
+%  \ee
+%  Given the boundary conditions 
+%  \be
+%  \label{heat2ic}
+%  y(0,t)=1 \qquad y(\pi,t)=e^\pi
+%  \ee
+%  and the and the initial condition $y(x,0)=e^x$, find $y(x,t)$.\\
+%}{
+%  The solution is given by
+%  \be
+%  y(x,t)&=&1 + \frac{e^\pi-1}{\pi}x +
+%  \sum_{n=1}^\infty T_n(0) e^{-n^2t} \sin(nx),
+%  \\ 
+%  T_n(0)&=&\frac{2}{\pi}\int_{0}^\pi g(x)\sin(nx)dx,
+%  \\ 
+%  g(x)&=&e^x - 1 - \frac{e^\pi-1}{\pi}x.
+%  \ee
+%  From equation \eqref{Fourierx}, we have
+%  \be
+%  x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx)
+%  \ee
+%  To find the Fourier sine-series for $e^x$, we must compute
+%  \be
+%  a_n = \frac{2}{\pi}\int_0^\pi e^x \sin(nx) \, dx 
+%  = \frac{2}{\pi}\left.\frac{e^x\(\sin(nu) - n \cos(nu)\)}{n^2+1}\right|_0^\pi
+%  = \frac{2}{\pi}\frac{n(1 - (-1)^ne^\pi)}{n^2+1}
+%  \ee
+%  Also, the Fourier series for $1$ over $x\in(-\pi,\pi)$ has coefficients
+%  \be
+%  \frac{2}{\pi}\int_0^\pi \sin(nx) = \frac{2}{n\pi}\left.\cos(nx) \right|_0^\pi
+%  = \frac{2\((-1^n)-1\)}{n\pi},
+%  \ee
+%  so, over $x\in(0,\pi)$,
+%  \be
+%  1 = \sum_{n=1}^\infty \frac{2\((-1^n)-1\)}{n\pi} \sin(nx).
+%  \ee
+%  
+%  Noting that the Fourier series is a linear, so we can add the series together:
+%  \be
+%  e^x - 1- \frac{e^\pi}{\pi}x
+%  &=& \sum_{n=1}^\infty \frac{2}{\pi}n\frac{1 - (-1)^ne^\pi}{n^2+1} \sin(nx)
+%  - \frac{e^\pi-1}{\pi} 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx)
+%  \\ \nonumber
+%  &&-\sum_{n=1}^\infty \frac{2\((-1^n)-1\)}{n\pi} \sin(nx)
+%  \\ \nonumber
+%  &=&\sum_{n=1}^\infty \(\frac{2}{\pi}\frac{n(1 - (-1)^ne^\pi)}{n^2+1} 
+%  -\frac{e^\pi-1}{\pi}2 \frac{(-1)^{n+1}}{n}- \frac{2\((-1^n)-1\)}{n\pi}\)
+%  \sin(nx).
+%  \ee
+%  Now, this is all a bit messy, but we do end up with the solution
+%  \be
+%  y(x,t) = 1 &+& \frac{e^\pi-1}{\pi}x
+%  \\ \nonumber
+%  &+& 
+%  \sum_{n=1}^\infty \(\frac{2}{\pi}\frac{n(1 - (-1)^ne^\pi)}{n^2+1} 
+%  -2 \frac{e^\pi-1}{\pi} \frac{(-1)^{n+1}}{n}- \frac{2\((-1^n)-1\)}{n\pi}\)
+%    e^{-n^2t} \sin(nx),
+%  \ee
+%  as can be seen in figure \ref{heat2}. \qed
+%  \begin{figure}[htbp]
+%    \begin{center}
+%      \includegraphics{201/heat2}
+%      \caption{The temperature at different times with initial conditions
+%        given in \eqref{heat2ic}.}
+%      \label{heat2}
+%    \end{center}
+%  \end{figure}
+%}
 
 
 
