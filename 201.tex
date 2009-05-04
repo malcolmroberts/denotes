@@ -1638,9 +1638,48 @@ From equation \eqref{lapper}, we have
   }
 
 \item
-  FIXME: add more problems!
+  Solve the following IVP:
+  \bee
+  y'' + y = e^t, \qquad y(0)=0, \qquad y'(0)=1.
+  \eee
+  \hidesolution{
+    The Laplace transform of the system is
+    \bee
+    s^2Y -s + Y = \frac{1}{s-1}, 
+    \implies Y = \frac{1}{s-1}\frac{1}{s^2+1} + \frac{s}{s^2+1}
+    = \frac{\half}{s-1} + \frac{-\half s -\half}{s^2+1}
+    \eee
+    which has inverse transform
+    \bee
+    y = -\half \cos t - \half \sin t + \half e^t. \qed
+    \eee
+  }
 
+\item
+  Find the Laplace transform of the square wave with period $T=2$,
+  \bee
+  f(t) = \left\{ \begin{array}{ll}
+    -1 & \mbox{if $t \in(0,1)$};\\
+    \phantom{-}1 & \mbox{if $t \in (1,2)$}.\end{array} \right.
+  \eee
+  \hidesolution{TODO: add solution.}
 
+\item
+  Solve the following IVP:
+  \bee
+  y' + 2y = e^{-2t}, \qquad y(0)=0.
+  \eee
+  \hidesolution{
+    The DE has Laplace transform
+    \bee
+    sY + 2Y = \frac{1}{s+2} \implies Y = \frac{1}{(s+2)^2},
+    \eee
+    which has inverse transform
+    \bee
+    y = t e^{-2t}.
+    \eee
+  }
+  
 
 \end{enumerate}
 
@@ -3398,7 +3437,7 @@ matches both the initial and boundary conditions.
   $f'(t)$ & $sF(s) -f(0)$\\
   $f''(t)$ & $s^2F(s) -sf(0) - f'(0)$\\
   $f^{(n)}(t)$ & $s^nF(s) -s^{n-1}f(0)-\dots - f^{(n-1)}(0)$\\
-  %
+  $t$ & $\frac{1}{s}$ \\ 
   $t^n$ & $\frac{n!}{s^{n+1}}$ \\ 
   $e^{\a t}$ & $\frac{1}{s-\a} $ \\ 
   $e^{\a t}f(t) $ & $F(s-\a) $ \\
