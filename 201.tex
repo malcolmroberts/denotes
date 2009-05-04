@@ -510,7 +510,7 @@ both as a separation problem and a linear problem
 \quad
 T(0)=37,\, T_\text{env}=-40,\, r=5 \, \(\text{Thinsulate's r-value}\)
 \eee
-\hidesolution{FIXME: write solution.}
+\hidesolution{TODO: write solution.}
 
 \item 
 Solve the logistic map,
@@ -518,16 +518,16 @@ Solve the logistic map,
 \dd{y}{x} = y - y^2.
 \eee
 as a Bernoulli equation
-\hidesolution{FIXME: write solution.}
+\hidesolution{TODO: write solution.}
 
 \item
 Solve the differential equation
 \bee
 \dd{y}{x} = \frac{x + y}{x}.
 \eee
-\hidesolution{FIXME: write solution. This is a homogeneous equation.}
+\hidesolution{TODO: write solution. This is a homogeneous equation.}
 % NB: this is a homogeneous equation
-% FIXME: add initial value?
+% TODO: add initial value?
 % TODO: write solutions
 
 \item
@@ -535,7 +535,7 @@ Solve the differential equation
 \bee
 \dd{y}{x} = \frac{y}{x} + x^2y^2.
 \eee
-\hidesolution{FIXME: write solution. Bernoulli equation.}
+\hidesolution{TODO: write solution. Bernoulli equation.}
 
 \item
   Equations of the form $\dd{y}{x} = f(ax+by)$ may be transformed into a 
@@ -1336,12 +1336,13 @@ The Laplace transform of the $n$th derivative of $y$ is
 \ee
 which we will apply to higher-order differential equations.
 
+%FIXME: should these just be moved to the table?
 The Laplace transform has some important properties, of which we will make 
 use. These are:
 \begin{enumerate}
 \item the Laplace transform is linear,
 \item $\mathcal{L}(e^{at} f(t)) = F(s-a)$,
-\item $\mathcal{L}(t^n f(t)) = (-1)^n \frac{d^n}{ds^n} F(s)$. % FIXME: useless?
+\item $\mathcal{L}(t^n f(t)) = (-1)^n \frac{d^n}{ds^n} F(s)$.
 \end{enumerate}
 
 
@@ -2173,12 +2174,68 @@ work. \qed
       +e^\frac{-t}{2}\(
       \frac{1}{3}\cos \frac{\sqrt{3}}{2}t 
       -\frac{1}{\sqrt{3}}\sin \frac{\sqrt{3}}{2}t 
-      \).
+      \).\qed
       \eee
-    
     }
 
   \item
+    Solve the following system of differential equations
+    \bee
+    x' -y = e^t, \qquad x(0)=1.
+    \\
+    y' + x = e^t, \qquad y(0)=0.
+    \eee
+    \hidesolution{
+      The transform gives us
+      \bee
+      sX -1 -Y = \frac{1}{s-1}
+      \\
+      sY + X = \frac{1}{s-1}
+      \eee
+      so
+      \bee
+      s^2 Y  + Y = \frac{-1}{s-1} -1 + \frac{s}{s-1}
+      =- \frac{1}{s-1} -1 + \frac{s-1}{s-1} - \frac{1}{s-1}
+      = \frac{-2}{s-1}.
+      \eee
+      Thus,
+      \bee
+      Y = \frac{-2}{3} \(-\frac{s+1}{s^2+1} + \frac{1}{s-1} \)
+      \eee
+      so
+      \bee
+      y = \frac{2}{3}\sin t + \frac{2}{3}\cos t - \frac{2}{3}e^t
+      \text{ and } x = e^t-y' 
+      = -\frac{2}{3}\cos t + \frac{2}{3} \sin t + \frac{5}{3}e^t
+      .\qed
+      \eee
+
+    }
+
+    \item
+      Solve the sytem of differential equations 
+      \bee
+      x'+y=0,\qquad x(0)=1
+      \\
+      y' = 2 \cosh(2t),\qquad y(0)=1
+      \eee
+      \hidesolution{
+      The second DE has transform
+      \bee
+      sY -1 = 6 \frac{s}{s^2-4} \implies Y =  6 \frac{1}{s^2-4} + \frac{1}{s}
+      \eee
+      so
+      \bee
+      y = \sinh(t) +1
+      \eee
+      and 
+      \bee
+      x = \int \sinh(t) +1 dt = \cosh t +t +C
+      \eee
+      with $C=0$ matching the initial condition. \qed
+      }
+    \item
+
     FIXME: add more problems
 
 \end{enumerate}
@@ -2186,8 +2243,8 @@ work. \qed
 \newpage
 \section{Series Solutions to DEs}
 
-A smooth function, $f(t)$, can be approximated near a point, $t=a$, by looking at 
-its derivatives. In fact, if $f$ is smooth enough, its value at any
+A smooth function, $f(t)$, can be approximated near a point, $t=a$, by looking 
+at its derivatives. In fact, if $f$ is smooth enough, its value at any
 given $t$ can be entirely determined by its behaviour at $t=a$.
 
 The most basic approximation that we can make is that the function stays 
@@ -2478,7 +2535,7 @@ recursively.\\
     \ee
     with initial conditions $y(0)=a_0$, $y'(0)=a_1$.
     \hidesolution{
-      FIXME: write the solution
+      TODO: write the solution
     }
     
   \item
@@ -2561,7 +2618,7 @@ recursively.\\
 %    $y$? Why might $y''=-y$ be a better approximation at large $y$ than
 %    $y''=-y + {y^3}/{3!}$ is?
 %    \hidesolution{
-%      FIXME: work out the approximation
+%      TODO: work out the approximation
 %      
 %      The reason that the third-order approximation breaks down is that 
 %      the energy goes to $-\infty$ for large $\abs{y}$, so the solution will
@@ -2787,7 +2844,7 @@ Where $\G(x)$ is called the Gamma function and it is just an extension of the fa
   \item Find the solution to Bessel's equation corresponding to $r=-\a$, 
     assuming that $2\a$ is not an integer.
     \hidesolution{
-      FIXME: add solution
+      TODO: add solution
     }
 
   \item Find the first solution (i.e.\ $y_1$ in the above notation) to the
@@ -2978,7 +3035,7 @@ This does indeed converge to $f(x)=x$ around $x=0$, as can be seen in figure \re
 \end{figure}
 }
 
-%FIXME: something about orthogonality? More examples?
+%TODO: something about orthogonality? More examples?
 
 \subsection{Problems}
 
