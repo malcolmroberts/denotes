@@ -1476,7 +1476,7 @@ Rearranging for $\Laplace(y)$, we get
 \bee
 \Laplace(y) =\frac{\Laplace(f) + y_0}{s+b}.
 \eee
-Ee need to invert the Laplace transform in order to determin $y$.
+We need to invert the Laplace transform in order to determine $y$.
 Since the inverse Laplace transform is kind of complicated, the easiest
 way to deal with this is to use the table of Laplace transforms found in
 section \ref{tableolap}.
@@ -1679,12 +1679,11 @@ From equation \eqref{lapper}, we have
 \section{Laplace Transforms: Convolutions, Impulses and Delta functions}
 
 \subsection{Convolutions}
-The Laplace transform is linear, so it deals with linear DEs very well, but not
+The Laplace transform is linear, so it deals with linear DEs very well. But not
 all DEs are linear. In fact, the most aren't.
 
-The Laplace transform is also a good tool to deal with the convolution of two
-functions. The convolution of two functions $f$ and $g$ is written $f*g$ and
-is defined as
+The Laplace transform is a good tool when the nonlinear term is a convolution.
+The convolution of two functions $f$ and $g$ is written $f*g$ and is defined as
 \be
 \boxed{f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau}.
 \ee
@@ -1766,13 +1765,13 @@ we take $c>0$, then
 \eee
 
 The step function often shows up multiplied by other functions, as in the
-following example.
+following example.\\
 \workedexample{Solve the differential equation
 \bee
 y'=t u_c(t), \qquad y(0)=0
 \eee
-using Laplace transforms
-}\\
+using Laplace transforms.\\
+}
 {
 Take the Laplace transform of both sides of the differential equation, yielding
 \bee
@@ -1833,11 +1832,11 @@ Laplace transforms.
 To see that the Laplace transform of $\delta(t-5)$ is $e^{-5s}$, consider the 
 definition of the Laplace transform:
 \be
-\mathcal{L}(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt
+\mathcal{L}(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt.
 \ee
 If we let $\tau = t-5$, then this is the same as
 \bee
-\int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau
+\int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau .
 \eee
 Then we apply equation (\ref{deltaprop}) to see that this is just $e^{-5s}$. 
 
@@ -1857,7 +1856,7 @@ Y = \frac{2}{\sqrt{15}}  \, e^{-5s}
 \eee
 Now we have an exponential term, $e^{-5s}$, times a term that is the Laplace 
 transform of $e^{\alpha t}\sin(\beta t)$ with $\alpha=1/4$ and 
-$\beta=\sqrt{{15}/{16}}$. So we will use the second last row of the Laplace 
+$\beta=\sqrt{{15}/{16}}$. So we will use the Laplace 
 transform table to see that $Y$ is the Laplace transform of
 \bee
 y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
@@ -1992,7 +1991,7 @@ derivative of one of the equations, but let's use Laplace transforms:
 \noindent\emph{Solution}: The Laplace transform of the original system is
 \bee
 sX &=& -Y \\
-sY-1 &=& X.
+sY-1 &=&\phantom{-}X.
 \eee
 Solving for $Y$ yields
 \be
@@ -2011,7 +2010,8 @@ x(t) = -\sin t
 Systems of differential equations model situations where there are two or 
 more quantities being evolved, such as heat and reaction rate, or predator and
 prey populations. While they are obviously of great use, they can get 
-quite complicated as the number of variables increases.\\
+quite complicated as the number of variables increases (and are greatly 
+simplified by writing them in terms of matrices).\\
 
 
 \noindent\emph{Example}: Solve the following system of differential equations:
@@ -2235,7 +2235,7 @@ work. \qed
 \newpage
 \section{Series Solutions to DEs}
 
-A smooth function, $f(t)$, can be approximated near a point, $t=a$, by looking 
+A smooth function $f(t)$ can be approximated near a point $t=a$ by looking 
 at its derivatives. In fact, if $f$ is smooth enough, its value at any
 given $t$ can be entirely determined by its behaviour at $t=a$.
 
@@ -2282,8 +2282,8 @@ The Taylor series of $f$ is the limit of $f_n$ as $n\rightarrow\infty$, which is
 \ee
 The Taylor series for $f$ exists as long as every derivative of $f$ is
 continuous (i.e.\ $f$ is \emph{analytic}), and is equal to $f$ if their 
-difference is zero, (i.e.\ $\lim_{n\rightarrow \infty} R_n(t) =0$). Since these 
-things are equal, we can use this to solve equations! Of course, we need to 
+difference is zero (i.e.\ $\lim_{n\rightarrow \infty} R_n(t) =0$). Since these 
+things are equal, we can use this to solve equations. Of course, we need to 
 make sure that these series converge in order for our solution to make sense.
 What's more, if $f$ is analytic, then the derivative of the sum is the sum
 of the derivatives, which can greatly simplify things.\\
@@ -2305,10 +2305,11 @@ of the derivatives, which can greatly simplify things.\\
   $B=\sum_{n=0}^\infty b_n$ be two series, our test are:
   \begin{enumerate}
   \item The comparison test: if 
-    $\lim_{n \rightarrow \infty} \frac{a_n}{b_n} \in (0,\infty)$, then $A$ 
+    $\lim_{n \rightarrow \infty} \abs{a_n/b_n} \in (0,\infty)$, then $A$ 
     converges if and only if $B$ converges.
   \item The ratio test: if 
-    $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then $A$ converges.
+    $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then $A$ 
+    converges.
   \item The root test: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
     then $A$ converges.
   \item The integral test: if there is a function $f$ with $f(n)=a_n$, then
@@ -2329,15 +2330,15 @@ of the derivatives, which can greatly simplify things.\\
 }
 
 In the above example, the series converged everywhere. This isn't always
-the case - often, a series solution to a differential equation is only
+the case: often, a series solution to a differential equation is only
 valid in some neighbourhood of the initial conditions, and the series
 becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of 
 convergence.\\
 
 \workedexample{
   Find the radius of convergence for the Taylor series for $f=\arctan(x)$ 
-  about $x=0$.
-}\\
+  about $x=0$.\\
+}
 {
   The Taylor series for $\arctan(z)$ is
   \bee
@@ -2374,8 +2375,6 @@ series term-by-term. That is,
 = \sum_{n=0}^\infty \dd{(a_n t^n)}{t} = \sum_{n=0}^\infty a_n n t^{n-1}
 = \sum_{n=1}^\infty a_n n t^{n-1}
 \eee
-
-
 (the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we 
 can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is 
 given by the initial conditions, we can solve for the rest of the $a_n$ 
@@ -2384,8 +2383,8 @@ recursively.\\
 \bee
 y'(t) = t^2 +t, \qquad y(0)=1
 \eee
-using a Taylor series for $y$.
-}\\
+using a Taylor series for $y$.\\
+}
 {
   Let 
   \bee
@@ -2413,8 +2412,8 @@ recursively.\\
   \bee
   y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
   \eee
-  using a Taylor series for $y$.
-}\\
+  using a Taylor series for $y$.\\
+}
 {
   Again, let $y=\sum_{n=0}^\infty a_n t^n$. Then
   \bee
@@ -2434,8 +2433,8 @@ recursively.\\
   This makes it much easier to solve \eqref{serieseg}, since we now have
   \bee
   \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m =  -\sum_{n=0}^\infty a_n t^n
-  \eee
-  \bee
+%  \eee
+%  \bee
   \implies \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
   \eee
   In order for this to hold for all $t$ in a neighbourhood of $t=0$, it must
@@ -2651,13 +2650,14 @@ recursively.\\
 
 \newpage
 \section{Series Solutions to DEs at Regular Singular Points}
-Let $p(t), q(t)$ be analytic functions (ie, they admit power series 
-representations). Then differential equations of the form
+%Let $p(t), q(t)$ be analytic functions (ie, they admit power series 
+%representations). 
+Differential equations of the form
 \be
 \label{singode}
 y'' + p(t)y' + q(t)y=0
 \ee
-behave poorly at $t=0$, and don't admit solutions of the form
+can behave poorly at $t=0$, and may not admit solutions of the form
 $y(t) =\sum_{n=0}^\infty a_n t^n$. However, we can still solve these problem
 by modifying the series expansion. The easiest case is when the singular
 point is a regular singular point.
@@ -2671,9 +2671,9 @@ and $\lim_{t\rightarrow 0} t^2 q(t) =q_0$
 exist and are finite. Series solutions at regular singular points are of the
 form
 \be
-\boxed{y(t) = \sum_{n=0}^\infty a_n t^{n+r}}.
+\boxed{y(t) = \sum_{n=0}^\infty a_n t^{n+r}},
 \ee
-For some $r\in\mathbb{C}$ such that $a_0 \neq 0$. 
+for some $r\in\mathbb{C}$ such that $a_0 \neq 0$. 
 
 Since we now have one more variable for which to solve (i.e.\ $r$ in addition
 to $a_0, a_1,\dots$), we require one more equation in order to determine the
@@ -2684,7 +2684,7 @@ leading-order (which is to say the $t^{r-2}$) coefficient is
 \bee
 a_0 r(r-1)t^{r-2} + a_0 \frac{p_0}{t} r t^{r-1} + a_0 \frac{q_0}{t^2} t^r 
 \eee
-In order to satisfy equation \eqref{singode}, this coefficient must equal $0$. 
+In order to satisfy equation \eqref{singode}, this equation must equal $0$. 
 We can multiply by $t^2$ and since $a_0 \neq 0$, we see that
 \be
 \boxed{\implies r(r-1) + p_0 r  + q_0=0}.
@@ -2773,16 +2773,15 @@ be determined by matching powers as per the previous section.
   \be
   \label{bessel1}
   y_1 = \sum_{m=0}^\infty 
-  \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.
+  \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.  \qed
   \ee
-  \qed
 We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would 
 get the standard form of Bessel's function of the first kind of order $\a$,
   \bee
   J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
   \(\frac{t}{2}\)^{2n-\a}.
   \eee
-Where $\G(x)$ is called the Gamma function and it is just an extension of the 
+Here $\G(x)$ is called the Gamma function and it is just an extension of the 
 factorial function. So in particular, when $\alpha=0$, we get
   \bee
   J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
@@ -2918,7 +2917,7 @@ general function of $x$. That is, we let
 \ee
 As you will see in the next lab, we can choose the functions $X_n$ in a way
 that makes the PDE solvable. For now, let's consider the case where the $X_n$ 
-are either $\sin$ or $\cos$, i.e.\ when $y$ is a Fourier sine or cosine series.
+are either sine or cosine, i.e.\ when $y$ is a Fourier sine or cosine series.
 
 \subsection{Fourier Cosine and Sine Series}
 Consider functions that are periodic with period $2T$.
@@ -2934,14 +2933,14 @@ we get the \emph{Fourier sine series} for $f(x)$,
 \eee
 The coefficients $a_n$ and $b_n$ are determined by integration, with
 \be\label{fouriercoeff}
-a_n = \frac{1}{T} \int_{-T}^T f(x) \cos\(\frac{n \pi x}{T}\) \, dx, 
-\qquad \text{and} \qquad
-b_n = \frac{1}{T} \int_{-T}^T f(x) \sin\(\frac{n \pi x}{T}\) \, dx.
+\boxed{a_n = \frac{1}{T} \int_{-T}^T f(x) \cos\(\frac{n \pi x}{T}\) \, dx}, 
+\quad \text{and} \quad
+\boxed{b_n = \frac{1}{T} \int_{-T}^T f(x) \sin\(\frac{n \pi x}{T}\) \, dx}.
 \ee
 More generally, the \emph{Fourier series} for $f(x)$ is the sum of these, i.e.\
 \bee
-\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(\frac{n \pi x}{T}\)
-+ b_n \sin\(\frac{n \pi x}{T}\) \]
+\boxed{\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(\frac{n \pi x}{T}\)
++ b_n \sin\(\frac{n \pi x}{T}\) \]}.
 \eee
 Often, we just look at functions that have period $2\pi$, which makes for the
 simpler formulae,
@@ -2971,7 +2970,7 @@ which implies that
 \eee
 and 
 \bee
-f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \]
+f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \].
 \eee
 %FIXME: should the limits of integration be $(-\pi,\pi)$ for the series (as 
 %opposed to the transform)? Also, uniqueness?
@@ -2980,14 +2979,15 @@ f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \]
 The Fourier series is the expression of a function as the sum an infinite series
 of waves with different amplitudes. That is, we transform from ``$x$-space'' to
 ``frequency-space'', which can be incredibly useful. For example, the 
-\texttt{MP3} format is just a modified cosine-series. Fourier series (and
-Fourier transforms, which are not covered in this course) lie at the heart of
-signal analysis. In terms of solving PDEs, we make use of the fact that 
+\texttt{Ogg Vorbis} audio format is just a modified cosine-series. Fourier 
+series (and Fourier transforms, which are not covered in this course) lie at 
+the heart of signal analysis. In terms of solving PDEs, we make use of the 
+fact that 
 \bee
 \ddtwo{}{x}\sin(nx) = -n^2 \sin(nx),
 \eee
-(i.e.\ that $\sin$ is an Eigenfunction of $\ddtwo{}{x}$) to turn differential
-equations into algebraic equations. But more on that later; first, let's just
+(i.e.\ that sine is an Eigenfunction of $\ddtwo{}{x}$) to turn differential
+equations into algebraic equations. But more on that later. First, let's just
 find the Fourier series for a normal function.
 
 \workedexample{
@@ -3076,7 +3076,7 @@ Let us now return to the heat equation,
 \ee
 and add some \emph{initial conditions}
 \bee
-y(x,0)=f(x)
+y(x,0)=f(x),
 \eee
 and \emph{boundary conditions}
 \be
@@ -3174,12 +3174,13 @@ T_n(0)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)dx
 since the integrand is even.
 
 The solution to the heat equation is then
-\bee
+\be
+\boxed{
 y(x,t)=\frac{2}{\pi}
 \sum_{n=1}^\infty \[\int_0^\pi f(x)\sin(nx)\,dx\]
 e^{-kn^2t}
-\sin(nx), 
-\eee
+\sin(nx)}.
+\ee
 
 \workedexample{
   The initial temperature in a rod of length $\pi$ is given by
