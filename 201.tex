@@ -559,7 +559,7 @@ Solve the differential equation
 \item
   Equations of the form
   \bee
-  \(a_1 x + b_1 y + c_1\)dx +2 \(a_2 x + b_2 y + c_2\)dy =0
+  \(a_1 x + b_1 y + c_1\)dx +\(a_2 x + b_2 y + c_2\)dy =0
   \eee
   can be transformed into homogeneous equations by using the substitution
   $x=u+h$ and $y=v+k$, with $h$ and $k$ constants which obey the relationship
@@ -1779,7 +1779,7 @@ sY &=& \Laplace{}\(t u_c(t)\) = \int_0^\infty t u_c(t) e^{-st} dt
 \eee
 Thus, 
 \bee
-Y = \frac{ce^{-sc}}{s} +\frac{ce^{-sc}}{s^3}.
+Y = \frac{ce^{-sc}}{s} +\frac{e^{-sc}}{s^3}.
 \eee
 From the table of  Laplace transforms, we know that 
 $\Laplace{}\(f(t-c)u_c(t)\)=e^{-cs}F(s)$, so 
