@@ -4,7 +4,7 @@
 %\usepackage{asymptote}
 
 \newcounter{showsolutions}
-\setcounter{showsolutions}{0}
+\setcounter{showsolutions}{1}
 
 \pagestyle{empty}
 
@@ -1093,7 +1093,7 @@ y = \alpha y_1 + \beta y_2 + y_p
   y'' - y = \cos(t)
   \eee
   with initial conditions $y(0)=0$ and $y'(0)=1$.
-%  y_p = at \cos t + bt \sin t = \frac{t\sin(t)}{2}.
+%  y_p = a \cos t + b \sin t 
 
 \item 
   Solve the IVP
@@ -1101,6 +1101,7 @@ y = \alpha y_1 + \beta y_2 + y_p
   y'' + y = \cos(t)
   \eee
   with initial conditions $y(0)=0$ and $y'(0)=1$.
+%  y_p = at \cos t + bt \sin t = \frac{t\sin(t)}{2}.
 
 \item 
   Solve the IVP
@@ -1140,8 +1141,14 @@ y'' + by' +cy = f(t)
 with homogeneous solutions $\{y_1(t), y_2(t)\}$, we are going to look for
 a particular solution of the form $y_p=u_1(t) y_1(t) + u_2(t) y_2(t)$. This
 means that $y_p' = \(u_1' y_1 + u_2' y_2\) + \(u_1 y_1' + u_2 y_2'\)$, which
-we can simplify by setting
+we can simplify by setting\footnote{If you work out the details, it's easy
+to see that equation~\eqref{voprandom} makes the system much easier to solve
+because it reduces the order of the system for $u_1$ and $u_2$. The addition
+of equation~\ref{voprandom} gives us two equations to solve for two unknowns. 
+The authors still find this trick a little unmotivated, but rest assured that
+it does work.}
 \be
+\label{voprandom}
 u_1'y_1 +u_2'y_2 =0. 
 \ee
 Substituting this into the original differential equation produces the linear
@@ -1339,7 +1346,7 @@ which we will apply to higher-order differential equations.
 f(t) = e^{2t} + e^{3t}.
 \eee
 ~\\
-\emph{Solution}:  By the definition of the Laplace transform,
+\emph{Solution 1}:  By the definition of the Laplace transform,
 \bee
 \Laplace \{f\}(s)&=& \int_0^\infty e^{-st} f(t) dt \\
 &=& \int_0^\infty \(e^{2t} + e^{3t}\) e^{-st} dt
@@ -1351,8 +1358,17 @@ f(t) = e^{2t} + e^{3t}.
 \\
 &=& \frac{1}{s-2} + \frac{1}{s-3}. \qed
 \eee
-% This problem can also be solved using the results of \S 7.6, but we had not 
-%covered them at the time of the quiz (at least not in the lab). \\
+Alternatively, we can solve this using the table of Laplace transforms:
+~\\
+\emph{Solution 2}:  The Laplace transform is linear, so
+\bee
+\Laplace\{e^{2t} + e^{3t}\}
+&=& \Laplace\{e^{2t}\} + \Laplace\{e^{3t}\}
+= \frac{1}{s-2} + \frac{1}{s-3}. \qed
+\eee
+Of course, you should know how to use both techniques. 
+
+
 
 
 \section{Problems}
@@ -2655,7 +2671,8 @@ y'' + p(t)y' + q(t)y=0
 can behave poorly at $t=0$, and may not admit solutions of the form
 $y(t) =\sum_{n=0}^\infty a_n t^n$. However, we can still solve these problem
 by modifying the series expansion. The easiest case is when the singular
-point is a regular singular point.
+point is a regular singular point, for which we use \emph{the method of 
+Froebenius}.
 
 The point $t=0$ is a \emph{singular point} if either 
 $\lim_{t \rightarrow 0}p(t)=\infty$ or  $lim_{t \rightarrow 0}q(t)=\infty$.
