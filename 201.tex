@@ -1,0 +1,219 @@
+%%
+%% 201.tex - lab manual for math 201
+%%
+%% authors: Malcolm Roberts, Samantha Marion
+%%
+\documentclass{article}
+\usepackage{ualab}
+
+%% see solutions?
+%\showsolutionstrue  % yes
+\showsolutionsfalse % no
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% title page
+%%
+\pagestyle{empty}
+\pagenumbering{roman}
+
+\mktitle{Math 201}{Differential Equations for Engineers}{an
+  \emph{unofficial} lab manual}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% disclaimer and copyright page
+%%
+\newpage\
+\pagestyle{empty}
+\vspace{5in}
+
+This manual was prepared for \emph{Graduates at Alberta Methematics
+  Etc.} (GAME) by Malcolm Roberts and Samantha Marion, with
+contributions from others.  \vspace{0.5in}
+
+This manual is \emph{not} officially endorsed by the University of
+Alberta or the Department of Mathematical and Statistical Sciences at
+the University of Alberta.
+\vspace{0.5in}
+
+\emph{Use at your own risk.  Errors and omissions are expected.}
+\vspace{0.5in}
+
+Copyright 2009, Graduates at Alberta Mathematics Etc.  All rights
+reserved.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% introduction
+%%
+\pagestyle{plain}
+\pagenumbering{arabic}
+\newpage
+
+\section*{Introduction}
+
+This manual is meant to provide Math 201 students with short recipes
+outlining how many (but not all) problems in Math 201 are solved.  The
+recipes are demonstrated by example, and supplementary problems are
+provided.
+
+\section*{Checking your solution}
+
+As in many other branches of mathematics, it is always a good idea to
+check your solution.  For differential equations, this means plugging
+your solution into the original equation, simplifying both sides, and
+making sure the simplified equation is satisfied.
+
+We will do this a few times throughout this manual, but, the reader
+should always try to do this themselves.
+
+This becomes easier with practise, and will help your understanding of
+what's going on!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% separable equations
+%%
+\newpage
+
+\section{Separable equations}
+
+Separable equations are differential equations of the form
+\begin{equation} \label{eq:separable}
+  h(y) \dd{y}{x} = g(x).
+\end{equation}
+They are called \emph{separable} because it is possible to move
+everything that depends on $x$ to one side of the equation, and
+everything to do with $y$ to the other.
+
+To solve separable equations:
+\begin{enumerate*}
+\item \emph{separate}: move everything to do with $x$ to the left, and
+  everything to do with $y$ to the right;
+\item \emph{integrate}: integrate both sides;
+\item \emph{apply conditions}: apply any extra conditions, if
+  supplied;
+\item \emph{isolate}: solve the result for $y$ (if possible);
+\item \emph{check}: check the solution for consistency.
+\end{enumerate*}
+
+The order of the \emph{apply conditions} and \emph{isolate} steps is
+not strict.  That is, you may isolate $y$ first and subsequently apply
+any conditions if you prefer.
+
+\begin{heads}
+  When integrating, make sure to add a \emph{constant of integration}
+  immediately after performing the integration.
+\end{heads}
+
+\begin{example}
+  Consider the equation
+  \begin{equation}  \label{eq:ex:separable}
+    y \dd{y}{x} = \sin(x)
+  \end{equation}
+  with initial condition $y(0) = 1$.
+\end{example}
+
+\begin{solution}
+  \solstep{Separate}
+
+  First, we \emph{separate} by
+  multiplying both sides by $dx$ to obtain
+  \begin{equation*}
+    y \;dx = \sin(x) \;dx.
+  \end{equation*}
+
+  \solstep{Integrate}
+
+  Next, we \emph{integrate} to obtain
+  \begin{equation*}
+    \int y \, dy = \int \sin(x) \, dx
+    \quad \text{ and hence } \quad
+    \frac{y^2}{2} = -\cos(x) + C
+  \end{equation*}
+  where $C$ is an integration constant that will be determined by the
+  initial conditions.
+
+  \solstep{Apply conditions}
+
+  Next, we \emph{apply the initial condition}.  The initial condition
+  that was given is $y(0) = 1$, which means that ``when $x$ is 0, $y$
+  should be 1''.  Therefore, subsituting $x=0$ and $y=1$ into our
+  solution, we obtain
+  \begin{equation*}
+    \frac{1^2}{2} = -\cos(0) + C
+    \quad \text{ and hence } \quad
+    \frac{1}{2} = -1 + C.
+  \end{equation*}
+  Therefore, we have determined that $C = 3/2$.
+
+  \solstep{Isolate}
+
+  Finally, we \emph{isolate} for $y$ to obtain
+  \begin{equation} \label{eq:ex:separable:solution}
+    y(x) = \sqrt{3 - 2\cos(x)}.
+  \end{equation}
+  We have chosen the positive root in order to satisfy the initial
+  condition.
+
+  \solstep{Check}
+
+  It's a good idea to check that the solution you obtained is correct.
+  This is pretty easy; just plug the solution into the original
+  equation.  The solution is given in
+  \eqref{eq:ex:separable:solution}, and therefore
+  \begin{equation*}
+    \dd{y}{x} = \frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}.
+  \end{equation*}
+  Putting this into equation \eqref{eq:ex:separable} and simplifying
+  each side, we obtain
+  \begin{gather*}
+    y \dd{y}{x} = \sin(x) \\
+    \bigl(\sqrt{3 - 2\cos(x)}\bigr) \cdot
+    \biggl(\frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}\biggr) = \sin(x) \\
+    \sin(x) = \sin(x),
+  \end{gather*}
+  which is certainly true.  We have verified that the solution we
+  obtained is correct.
+\end{solution}
+
+\subsection{Problems}
+
+\begin{enumerate}
+\item Determine if $y(x) = \sqrt{3-2\sin x}$ solves the differential
+  equation
+  \begin{equation*}
+    y\frac{dy}{dx}=\sin(x).
+  \end{equation*}
+
+\item Find the general solution of the ``logistic map'', which is
+  \begin{equation*}
+    \dd{y}{x} = y - y^2.
+  \end{equation*}
+
+\item Find the general solution of the differential equation
+  \begin{equation*}
+    \ddt{y} = 1 + \frac{1}{y^2}.
+  \end{equation*}
+
+  \hidesolution{
+    \begin{solution}
+      This is a separable equation.  Separating and integrating, we obtain
+      \begin{equation*}
+        \frac{dy}{1+\frac{1}{y^2}} = dt
+        \implies \int dt = \int \frac{dy}{1+\frac{1}{y^2}}.
+      \end{equation*}
+      But, since
+      \begin{equation*}
+        \frac{1}{1+\frac{1}{y^2}} = \frac{y^2}{y^2+1} = 1 - \frac{1}{1+y^2}
+      \end{equation*}
+      we obtain
+      \begin{equation*}
+        t = \int \biggl[1 - \frac{1}{1+y^2}\biggr] dy = y + \arctan y + C
+      \end{equation*}
+      which implicitly defines $y(t)$.
+    \end{solution}
+  }
+
+\end{enumerate}
+
+\end{document}

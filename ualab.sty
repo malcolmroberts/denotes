@@ -1,0 +1,110 @@
+%%
+%% ualab.sty - definitions and defaults for lab manuals
+%%
+%%
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage[margin=1in,letterpaper,dvips]{geometry}
+\usepackage{graphicx}
+
+%%
+%% paragraph layout
+%%
+
+\setlength{\parskip}{3ex plus 1ex minus 1ex}
+\setlength{\parindent}{0pt}
+
+\numberwithin{equation}{section}
+
+\newenvironment{enumerate*}{%
+  \vspace{-\parskip}
+  \begin{enumerate}
+    \setlength{\itemsep}{2pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}}
+  {\end{enumerate}}
+
+\newcommand{\solstep}[1]{\hspace{-0.15in} \emph{\textbf{#1}}}
+
+%%
+%% absolute value, derivatives etc
+%%
+
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pptwo}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dd}[2]{\frac{d #1}{d #2}}
+\newcommand{\ddtwo}[2]{\frac{d^2 #1}{d #2^2}}
+\newcommand{\Laplace}[0]{\mathcal{L}}
+
+\newcommand{\ddt}[1]{\dd{#1}{t}}
+\newcommand{\ppt}[1]{\pp{#1}{t}}
+
+%%
+%% mktitle
+%%
+
+\newcommand{\mktitle}[3]{\begin{center}
+    \textsf{\LARGE #1}\\
+    \vspace{0.2in}
+    \textsf{\LARGE #2}
+    \vspace{2in}
+
+    \textsf{\Huge #3}
+    \vspace{2.5in}
+
+    \textsf{\Large by GAME (Graduates at Alberta Mathematics Etc.)}
+  \end{center}}
+
+%%
+%% example environment
+%%
+
+\newcounter{examplecounter}[section]
+
+\newenvironment{example}%
+{%
+  \stepcounter{examplecounter}
+  \bigskip
+  \begin{framed}
+    {\bf Example \arabic{section}.\arabic{examplecounter}: }
+}{%
+  \end{framed}
+}
+
+\newenvironment{solution}%
+{%
+  {\bf Solution} \vspace{-\parskip}
+  \begin{list}{}%
+  {\setlength{\leftmargin}{0.25in}
+  \setlength{\rightmargin}{0.25in}}
+  \item[]%
+}{%
+  \qed
+  \end{list}
+}
+
+%%
+%% hide solutions environment
+%%
+
+\newif\ifshowsolutions
+
+\newcommand{\hidesolution}[1]{%
+  \ifshowsolutions%
+    #1
+  \else%
+    {}%
+  \fi%
+}
+
+%%
+%% heads up! environment
+%%
+
+\newenvironment{heads}{%
+  \textbf{Heads up! }}{}
+
