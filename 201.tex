@@ -3,7 +3,7 @@
 %%
 %% authors: Malcolm Roberts, Samantha Marion
 %%
-\documentclass{article}
+\documentclass{book}
 \usepackage{ualab}
 
 %% see solutions?
@@ -25,7 +25,6 @@
 %% disclaimer and copyright page
 %%
 \newpage\
-\pagestyle{empty}
 \vspace{5in}
 
 This manual was prepared for \emph{Graduates at Alberta Methematics
@@ -43,12 +42,15 @@ the University of Alberta.
 Copyright 2009, Graduates at Alberta Mathematics Etc.  All rights
 reserved.
 
+\newpage
+\tableofcontents
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% introduction
 %%
+\newpage
 \pagestyle{plain}
 \pagenumbering{arabic}
-\newpage
 
 \section*{Introduction}
 
@@ -57,6 +59,9 @@ outlining how many (but not all) problems in Math 201 are solved.  The
 recipes are demonstrated by example, and supplementary problems are
 provided.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% checking your solution
+%%
 \section*{Checking your solution}
 
 As in many other branches of mathematics, it is always a good idea to
@@ -70,11 +75,43 @@ should always try to do this themselves.
 This becomes easier with practise, and will help your understanding of
 what's going on!
 
+\begin{example*}
+  Determine if $y(x) = \sqrt{3-2\sin x}$ is a solution to the
+  differential equation
+  \begin{equation*}
+    y \dd{y}{x} = \sin(x).
+  \end{equation*}
+\end{example*}
+
+\begin{solution}
+  First, we consider the LHS of the DE.  Subsituting the proposed
+  solution into the LHS, we obtain
+  \begin{align*}
+    y \dd{y}{x} &= \sqrt{3-2\sin x}\ \frac{d}{dx} \sqrt{3-2\sin x} \\
+                &= \sqrt{3-2\sin x}\ \frac{-\cos x}{\sqrt{3-2\sin x}} \\
+                &= - \cos x.
+  \end{align*}
+  Next, we consider the RHS of the DE.  The RHS is $\sin(x)$.
+
+  The LHS and RHS do not match ($-\cos x \neq \sin x$), and therefore
+  the proposed solution is \emph{not} a solution to the DE.
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% first order
+%%
+\newpage
+\chapter{First order DEs}
+
+% XXX: intro and quick note about how first order DEs may fit into
+% more than one category
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% separable equations
 %%
 \newpage
-
 \section{Separable equations}
 
 Separable equations are differential equations of the form
@@ -85,15 +122,15 @@ They are called \emph{separable} because it is possible to move
 everything that depends on $x$ to one side of the equation, and
 everything to do with $y$ to the other.
 
-To solve separable equations:
+To find the general solution to separable equations:
 \begin{enumerate*}
-\item \emph{separate}: move everything to do with $x$ to the left, and
-  everything to do with $y$ to the right;
-\item \emph{integrate}: integrate both sides;
-\item \emph{apply conditions}: apply any extra conditions, if
-  supplied;
-\item \emph{isolate}: solve the result for $y$ (if possible);
-\item \emph{check}: check the solution for consistency.
+\item \emph{Separate}: move everything to do with $x$ to the left, and
+  everything to do with $y$ to the right.
+\item \emph{Integrate}: integrate both sides.
+\item \emph{Apply conditions}: apply any extra conditions, if
+  supplied.
+\item \emph{Isolate}: solve the result for $y$ (if possible).
+\item \emph{Check}: check the solution for consistency.
 \end{enumerate*}
 
 The order of the \emph{apply conditions} and \emph{isolate} steps is
@@ -105,26 +142,26 @@ any conditions if you prefer.
   immediately after performing the integration.
 \end{heads}
 
-\begin{example}
-  Consider the equation
+\newpage
+\begin{easyexample}
+  Find the solution to the differential equation
   \begin{equation}  \label{eq:ex:separable}
     y \dd{y}{x} = \sin(x)
   \end{equation}
   with initial condition $y(0) = 1$.
-\end{example}
+\end{easyexample}
 
 \begin{solution}
   \solstep{Separate}
 
-  First, we \emph{separate} by
-  multiplying both sides by $dx$ to obtain
+  First, we separate by multiplying both sides by $dx$ to obtain
   \begin{equation*}
     y \;dx = \sin(x) \;dx.
   \end{equation*}
 
   \solstep{Integrate}
 
-  Next, we \emph{integrate} to obtain
+  Next, we integrate to obtain
   \begin{equation*}
     \int y \, dy = \int \sin(x) \, dx
     \quad \text{ and hence } \quad
@@ -135,8 +172,8 @@ any conditions if you prefer.
 
   \solstep{Apply conditions}
 
-  Next, we \emph{apply the initial condition}.  The initial condition
-  that was given is $y(0) = 1$, which means that ``when $x$ is 0, $y$
+  Next, we apply the initial condition.  The initial condition that
+  was given is $y(0) = 1$, which means that ``when $x$ is 0, $y$
   should be 1''.  Therefore, subsituting $x=0$ and $y=1$ into our
   solution, we obtain
   \begin{equation*}
@@ -148,7 +185,7 @@ any conditions if you prefer.
 
   \solstep{Isolate}
 
-  Finally, we \emph{isolate} for $y$ to obtain
+  Finally, we isolate $y$ to obtain
   \begin{equation} \label{eq:ex:separable:solution}
     y(x) = \sqrt{3 - 2\cos(x)}.
   \end{equation}
@@ -176,44 +213,508 @@ any conditions if you prefer.
   obtained is correct.
 \end{solution}
 
-\subsection{Problems}
+\begin{example}
+  Find the general solution to
+  \begin{equation*}
+    x \dd{y}{x} - y = 2 x^2 y.
+  \end{equation*}
+\end{example}
 
+\begin{solution}
+  \solstep{Separate}
+
+  Multiplying by $dx$ and rearranging, we obtain
+  \begin{equation*}
+    x dy = (2 x^2 y + y) dx.
+  \end{equation*}
+  Dividing by $x y$, we obtain
+  \begin{equation*}
+    \frac{dy}{y} = \left(2 x + \frac{1}{x}\right) dx.
+  \end{equation*}
+
+  \solstep{Integrate}
+
+  Integrating both sides, we obtain
+  \begin{equation*}
+    \ln |y| = x^2 + \ln|x| + C.
+  \end{equation*}
+  This is an implicit solution to the DE.
+
+  \solstep{Isolate}
+
+  The logarithms can be removed from the implicit solution by
+  combining the logarithms according to
+  \begin{gather*}
+    \ln|y| - \ln|x| = x^2 + C \\
+    \ln\left| \frac{y}{x} \right| = x^2 + C
+  \end{gather*}
+  and subsequently exponentiating both sides to obtain
+  \begin{equation*}
+    \frac{y}{x} = \pm e^{x^2 + C}.
+  \end{equation*}
+  Finally, multiplying by $x$ and letting $A = e^C$ (or $-e^C$), we
+  obtain the general solution
+  \begin{equation*}
+    y(x) = A x e^{x^2}
+  \end{equation*}
+  where the sign of $A$ depends on the initial condition (which wasn't
+  supplied for this DE).
+\end{solution}
+
+\begin{heads}
+  You might wonder where the absolute value signs came from and where
+  they went.  As to where they came from, recall that for $x>0$ or
+  $x<0$ the derivative of $\ln|x| = \frac{1}{x}$ and hence $\int 1/x
+  \;dx = \ln|x|$.  As to where they went, strictly speaking we
+  obtained two solutions, which were
+  \begin{equation*}
+    y(x) = x e^{x^2 + C} \quad \text{ and } \quad y(x) = -x e^{x^2 + C}.
+  \end{equation*}
+  Howeever, both of these are described by
+  \begin{equation*}
+    y(x) = A x e^{x^2}
+  \end{equation*}
+  by allowing $A$ to be positive or negative, depending on the initial
+  condition.
+\end{heads}
+
+% \subsection{Problems}
+
+% \begin{enumerate}
+
+% \item Find the general solution of the ``logistic map'', which is
+%   \begin{equation*}
+%     \dd{y}{x} = y - y^2.
+%   \end{equation*}
+
+% \item Find the general solution of the differential equation
+%   \begin{equation*}
+%     \ddt{y} = 1 + \frac{1}{y^2}.
+%   \end{equation*}
+
+%   \hidesolution{
+%     \begin{solution}
+%       This is a separable equation.  Separating and integrating, we obtain
+%       \begin{equation*}
+%         \frac{dy}{1+\frac{1}{y^2}} = dt
+%         \implies \int dt = \int \frac{dy}{1+\frac{1}{y^2}}.
+%       \end{equation*}
+%       But, since
+%       \begin{equation*}
+%         \frac{1}{1+\frac{1}{y^2}} = \frac{y^2}{y^2+1} = 1 - \frac{1}{1+y^2}
+%       \end{equation*}
+%       we obtain
+%       \begin{equation*}
+%         t = \int \biggl[1 - \frac{1}{1+y^2}\biggr] dy = y + \arctan y + C
+%       \end{equation*}
+%       which implicitly defines $y(t)$.
+%     \end{solution}
+%   }
+
+% \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% linear equations
+%%
+\newpage
+\section{Linear equations}
+
+First order linear equations are differential equations of the form
+\begin{equation}
+  \label{eq:linear}
+  \dd{y}{x} + P(x) y = Q(x)
+\end{equation}
+
+To find the solution to linear equations:
+\begin{enumerate*}
+\item \emph{Find the integrating factor}: compute the integrating
+  factor $\mu(x)$, which is defined as
+  \begin{equation*}
+    \mu(x) \doteq \exp \left( \int P(x) \;dx \right).
+  \end{equation*}
+\item \emph{Multiply by $\mu(x)$}: multiply both sides by $\mu(x)$.
+\item \emph{Re-write}: re-write the LHS as one derivative, ie
+  \begin{equation*}
+    \mu(x) \dd{y}{x} + \mu(x) P(x) y \quad \text{ can be re-written as } \quad \dd{}{x} \bigl( \mu(x) y \bigr).
+  \end{equation*}
+\item \emph{Integrate}: integrate both sides.
+\item \emph{Apply conditions}: apply any extra conditions, if supplied.
+\item \emph{Isolate}: solve the result for $y$ (if possible).
+\item \emph{Check}: check the solution for consistency.
+\end{enumerate*}
+
+This recipe may be shortened by memorising the form of the solution,
+which is
+\begin{equation*}
+  y(x) = \frac{1}{\mu(x)} \left[ \int \mu(x) Q(x) \;dx + C \right].
+\end{equation*}
+
+\begin{heads}
+  When solving a particular problem, be careful to incorporate the
+  sign of $P(x)$ when identifying $P(x)$.
+\end{heads}
+
+\begin{heads}
+  When computing the integrating factor, it isn't necessary to add a
+  constant of integration to $\int P(x)\; dx$, as it would eventually
+  divide out.
+\end{heads}
+
+\begin{heads}
+  You can save yourself a lot of work if you simplify the integrating
+  factor as much as you can.  Knowing the various properties of $e^x$
+  and $\ln x$ is \emph{very} helpful.
+\end{heads}
+
+\newpage
+\begin{easyexample}
+  Find the solution to the initial value problem
+  \begin{equation*}
+    (x^2 + 1) \dd{y}{x} + 4xy = 4x, \quad y(0) = 1.
+  \end{equation*}
+\end{easyexample}
+
+\begin{solution}
+  Before we begin, we re-write the DE in order to make it linear.
+  Dividing by $x^2 + 1$, we obtain
+  \begin{equation*}
+    \dd{y}{x} + \frac{4x}{x^2 + 1} y = \frac{4x}{x^2 + 1}.
+  \end{equation*}
+
+  \solstep{Find the integrating factor}
+
+  First, we find the integrating factor, which is
+  \begin{align*}
+    \mu(x) &= \exp\left[ \int P(x) \;dx \right] \\
+           &= \exp\left[ \int \frac{4x}{x^2 + 1} \;dx \right] \\
+           &= \exp\left[ 2 \ln (x^2 + 1) \right] \\
+           &= \exp\left[ \ln (x^2 + 1)^2 \right] \\
+           &= (x^2 + 1)^2.
+  \end{align*}
+
+  \solstep{Multiply by $\mu(x)$}
+
+  Next, we multiply by $\mu(x)$ to obtain
+  \begin{equation*}
+    (x^2 + 1)^2 \dd{y}{x} + 4x (x^2 + 1)  y = 4x (x^2 + 1).
+  \end{equation*}
+
+  \solstep{Re-write}
+
+  Next, we re-write the LHS as one derivative to obtain
+  \begin{equation*}
+    \dd{}{x} \left( (x^2 + 1)^2 y \right) = 4x (x^2 + 1).
+  \end{equation*}
+
+  \begin{heads}
+    This can \emph{always} be done, and is why the integrating factor
+    was defined in the way that it was.
+  \end{heads}
+
+  \solstep{Integrate}
+
+  Next, we integrate both sides to obtain
+  \begin{gather*}
+    \int \dd{}{x} \left( (x^2 + 1)^2 y \right) \;dx = \int 4x (x^2 + 1) \; dx
+    (x^2 + 1)^2 y = (x^2 + 1)^2 + C.
+  \end{gather*}
+
+  \solstep{Apply conditions}
+
+  Next, we apply the initial condition, which was $y(0) = 1$.
+  Therefore, subsituting $x=0$ and $y=1$ into our solution, we obtain
+  \begin{equation*}
+    1 = 1 + C \quad \text{ and hence } \quad C = -1.
+  \end{equation*}
+
+  \solstep{Isolate}
+
+  Finally, we isolate $y$ to obtain
+  \begin{equation*}
+    y(x) = 1 - (x^2 + 1)^{-2}.
+  \end{equation*}
+\end{solution}
+
+% XXX: add a challenging example
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% exact equations
+%%
+\newpage
+\section{Exact equations}
+
+Homogeneous first-order differential equations can be written in the form
+\begin{equation}
+  \label{eq:exact}
+  M(x,y) dx + N(x,y) dy = 0.
+\end{equation}
+If
+\begin{equation*}
+  \pp{M(x,y)}{y} = \pp{N(x,y)}{x}
+\end{equation*}
+then the equation is called \emph{exact}.
+
+To find the solution to exact equations:
+\begin{enumerate*}
+\item \emph{Check for exactness}: compute the ``cross partials''
+  \begin{equation*}
+    \pp{M}{y} \quad \text{ and } \quad \pp{N}{x}
+  \end{equation*}
+  and make sure they match.  Note that $M$ is the thing that
+  multiplies $dx$ in \eqref{eq:exact}, and we take its partial
+  derivative with respect to $y$ (and similarly for $N$).
+\item \emph{Find $F(x,y)$}:
+  \begin{enumerate*}
+  \item \emph{anti-differentiate}: anti-differentiate the two equations
+    \begin{equation*}
+      \pp{F}{x} = M \quad \text{ and } \quad \pp{F}{y} = N;
+    \end{equation*}
+  \item \emph{match terms}: match terms to determine $F(x,y)$.
+  \end{enumerate*}
+\item \emph{Write implicit solution}: the solution of the original DE is implicity given by
+  \begin{equation*}
+    F(x,y) = C.
+  \end{equation*}
+\item \emph{Apply conditions}: apply any extra conditions, if supplied.
+\item \emph{Isolate}: solve the result for $y$ (if possible).
+\item \emph{Check}: check the solution for consistency.
+\end{enumerate*}
+
+\begin{heads}
+  It isn't necessary to add integration constants in the
+  \emph{anti-differentiate} step, as these are taken care of in the
+  \emph{write implicit solution} step.
+\end{heads}
+
+\newpage
+\begin{easyexample}
+  Find the general solution to
+  \begin{equation*}
+    y \;dx + \bigl( y^2 + x \bigr) \;dy = 0.
+  \end{equation*}
+\end{easyexample}
+
+\begin{solution}
+  \solstep{Check for exactness}
+
+  First, we check to make sure the DE is exact.  We identify $M(x,y) =
+  y$ and $N(x,y) = y^2 + x$ and take their cross-partials to obtain
+  \begin{equation*}
+    \pp{M}{y} = 1 \quad \text{ and } \quad \pp{N}{x} = 1.
+  \end{equation*}
+  Since the cross-partials match, the equation is exact.
+
+  \solstep{Find $F(x,y)$}
+
+  Next, we find $F(x,y)$ by anti-differentiating the two equations
+  \begin{equation*}
+    \pp{F}{x} = M \quad \text{ and } \quad \pp{F}{y} = N.
+  \end{equation*}
+  We obtain
+  \begin{align*}
+    \pp{F}{x} = y \quad \text{ implies that } \quad F(x,y) &= xy + g(y) \\
+    \pp{F}{y} = y^2 + x \quad \text{ implies that } \quad F(x,y) &= \frac{1}{3} y^3 + xy + h(x).
+  \end{align*}
+  Therefore, matching terms in the two versions of $F(x,y)$ above, we
+  conclude that
+  \begin{equation*}
+    F(x,y) = \frac{1}{3} y^3 + xy.
+  \end{equation*}
+
+  \solstep{Write implicit solution}
+
+  Next, we write the (implicit) solution as $F(x,y) = C$ to obtain
+  \begin{equation*}
+    \frac{1}{3} y^3 + xy = C.
+  \end{equation*}
+
+  We weren't given any conditions, and we can't isolate $y$, so this
+  is our final solution.
+\end{solution}
+
+% XXX: add a challenging example
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% transformations
+%%
+\newpage
+\section{Transformations}
+
+Not all first order differential equations are separable, linear, or
+exact.  However, sometimes it is possible to make a substitution to
+transform a differential equation into something that we already know
+how to solve.  This can be a very powerful technique.  Unfortunately,
+each type of equation needs its own particular substitution.
+
+The types of equations that can be solved using transformations, and
+that you will cover in class, are summarised in the table below.  We
+will go through the details of each substitution in subsequent
+subsections.
+
+\begin{center}
+  \begin{tabular}{cc}
+    Form of DE & Substitution \\ \midrule \hspace{2in} & \hspace{2in} \\
+    $\dd{y}{x} = f\left( \frac{y}{x} \right)$
+      & $v = \frac{y}{x}$ \\ \ \\
+    $\dd{y}{x} + P(x) y = Q(x)y^n$
+      & $v = y^{1-n}$ \\ \ \\
+    $\bigl(a_1 x + b_1 y + c_1\bigr)dx +2 \bigl(a_2 x + b_2 y + c_2\bigr)dy = 0$
+      & $x = u+h, \quad y = v+k$ \\ \ \\
+    $\dd{y}{x} = f(ax+by)$
+      & $v = ax + by$
+  \end{tabular}
+\end{center}
+
+To solve a differential equation using a substitution, we
+\begin{enumerate*}
+\item Determine the form of the DE.
+\item Substitute.
+\item Compute $\dd{y}{x}$ in terms of $\dd{v}{x}$.
+\item Re-write the DE in terms of $v$ and $x$ (no $y$'s should remain).
+\item Solve the resulting DE.
+\end{enumerate*}
+
+\newpage
+\subsection{(Homogeneous) equations of the form $y' = f(y/x)$}
+
+Equations of form
+\begin{equation}
+  \label{eq:homogeneous}
+  \dd{y}{x} = f\left(\frac{y}{x}\right)
+\end{equation}
+are transformed into separable equations by using the subsitution
+\begin{equation}
+  \label{eq:homogeneous_subsitution}
+  v = \frac{y}{x}.
+\end{equation}
+Isolating $y$ in \eqref{eq:homogeneous_subsitution} and
+differentiating, we obtain
+\begin{equation}
+  \label{eq:homogeneous_differential}
+  \dd{y}{x} = \dd{}{x} \bigl( x v \bigr) = v + x \dd{v}{x}.
+\end{equation}
+
+\begin{easyexample}
+  Find the general solution to:
+  \begin{equation*}
+    \dd{y}{x} = \frac{x}{y}, \quad y(1) = 2.
+  \end{equation*}
+\end{easyexample}
+
+\begin{solution}
+  XXX
+\end{solution}
+
+\newpage
+\subsection{(Bernoulli) equations of the form $y' + P(x) y = Q(x) y^n$}
+
+% XXX: finish this
+
+$v = y^{1-n}$
+
+% XXX: add an easy example
+
+\newpage
+\subsection{Equations of the form $\bigl(a_1 x + b_1 y + c_1\bigr)dx +2 \bigl(a_2 x + b_2 y + c_2\bigr)dy = 0$}
+
+% XXX: finish this
+
+$x = u+h, \quad y = v+k$
+
+% XXX: add an easy example
+
+\newpage
+\subsection{Equations of the form $y' = f(ax+by)$}
+
+% XXX: finish this
+
+$v = ax + by$
+
+% XXX: add an easy example
+
+\newpage
+\subsection{More examples}
+
+% XXX: add challenging homogeneous example
+
+% XXX: add challenging bernoulli example
+
+% XXX: add challenging (a x + b y + c) dx + ... = 0 example
+
+% XXX: add challenging y' = f(ax + by) example
+
+% XXX: add an interesting example
+
+% XXX: add an interesting example
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% second order
+%%
+\newpage
+\chapter{Second-order DEs}
+
+% XXX: intro
+
+\newpage
+\section{Homogeneous linear equations}
+
+Linear second order homogeneous differential equations are equations
+of the form
+\begin{equation}
+  \label{eq:second_order_linear_homogeneous}
+  a \ddtwo{y}{x} + b \dd{y}{x} + c y = 0
+\end{equation}
+where $a$, $b$, and $c$ are constants.
+
+To find the general solution to a second order linear homogeneous equation:
 \begin{enumerate}
-\item Determine if $y(x) = \sqrt{3-2\sin x}$ solves the differential
-  equation
+\item \emph{Auxiliary equation}: write the auxiliary equation, which
+  is
   \begin{equation*}
-    y\frac{dy}{dx}=\sin(x).
+    a r^2 + b r + c = 0.
   \end{equation*}
-
-\item Find the general solution of the ``logistic map'', which is
+  That is, the auxiliary equation is the DE with $y''$ replaced by
+  $r^2$, $y'$ replaced by $r$, and $y$ replaced by $1$.
+\item \emph{Roots}: find the roots of the auxiliary equation.  If a
+  factorisation isn't obvious, you can find the roots by using the
+  quadratic equation, which is
   \begin{equation*}
-    \dd{y}{x} = y - y^2.
+    r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
   \end{equation*}
-
-\item Find the general solution of the differential equation
-  \begin{equation*}
-    \ddt{y} = 1 + \frac{1}{y^2}.
-  \end{equation*}
-
-  \hidesolution{
-    \begin{solution}
-      This is a separable equation.  Separating and integrating, we obtain
-      \begin{equation*}
-        \frac{dy}{1+\frac{1}{y^2}} = dt
-        \implies \int dt = \int \frac{dy}{1+\frac{1}{y^2}}.
-      \end{equation*}
-      But, since
-      \begin{equation*}
-        \frac{1}{1+\frac{1}{y^2}} = \frac{y^2}{y^2+1} = 1 - \frac{1}{1+y^2}
-      \end{equation*}
-      we obtain
-      \begin{equation*}
-        t = \int \biggl[1 - \frac{1}{1+y^2}\biggr] dy = y + \arctan y + C
-      \end{equation*}
-      which implicitly defines $y(t)$.
-    \end{solution}
-  }
-
+\item \emph{General solution}: write the general solution.  Once you
+  have found the roots of the auxiliary equation, there are three
+  possibilities:
+  \begin{enumerate}
+  \item The roots are real and distinct.  In this case, the general
+    solution is
+    \begin{equation*}
+      y(x) = A e^{r_1 x} + B e^{r_2 x}
+    \end{equation*}
+    where $A$ and $B$ are constants.
+  \item The roots are real but repeated.  In this case, the general
+    solution is
+    \begin{equation*}
+      y(x) = A e^{r x} + B x e^{r x}
+    \end{equation*}
+    where $A$ and $B$ are constants.
+  \item The roots are complex.  In this case, the roots always appear
+    in the form $r_{1,2} = \alpha \pm \beta i$, and the general
+    solution is
+    \begin{equation*}
+      y(x) = A e^{\alpha x} \cos(\beta x) + B e^{\alpha x} \sin(\beta x)
+    \end{equation*}
+    where $A$ and $B$ are constants.
+  \end{enumerate}
+\item \emph{Apply conditions}: apply any extra conditions, if
+  supplied.
+\item \emph{Check}: check the solution for consistency.
 \end{enumerate}
+
+% XXX: add an easy example
+
+% XXX: add an easy example
 
 \end{document}

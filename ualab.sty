@@ -8,6 +8,7 @@
 \usepackage{framed}
 \usepackage[margin=1in,letterpaper,dvips]{geometry}
 \usepackage{graphicx}
+\usepackage{units}
 
 %%
 %% paragraph layout
@@ -70,7 +71,26 @@
   \stepcounter{examplecounter}
   \bigskip
   \begin{framed}
-    {\bf Example \arabic{section}.\arabic{examplecounter}: }
+    {\bf Example \arabic{chapter}.\arabic{section}.\arabic{examplecounter}: }
+}{%
+  \end{framed}
+}
+
+\newenvironment{easyexample}%
+{%
+  \stepcounter{examplecounter}
+  \bigskip
+  \begin{framed}
+    {\bf Illustrative Example \arabic{chapter}.\arabic{section}.\arabic{examplecounter}: }
+}{%
+  \end{framed}
+}
+
+\newenvironment{example*}%
+{%
+  \bigskip
+  \begin{framed}
+    {\bf Example: }
 }{%
   \end{framed}
 }
