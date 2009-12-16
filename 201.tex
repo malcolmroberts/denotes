@@ -333,7 +333,7 @@ To find the solution to linear equations:
     \mu(x) \doteq \exp \left( \int P(x) \;dx \right).
   \end{equation*}
 \item \emph{Multiply by $\mu(x)$}: multiply both sides by $\mu(x)$.
-\item \emph{Re-write}: re-write the LHS as one derivative, ie
+\item \emph{Re-write as linear}: re-write the LHS as one derivative, ie
   \begin{equation*}
     \mu(x) \dd{y}{x} + \mu(x) P(x) y \quad \text{ can be re-written as } \quad \dd{}{x} \bigl( \mu(x) y \bigr).
   \end{equation*}
@@ -351,7 +351,7 @@ which is
 
 \begin{heads}
   When solving a particular problem, be careful to incorporate the
-  sign of $P(x)$ when identifying $P(x)$.
+  sign of $P(x)$ when identifying $P(x)$. % FIXME: awkward
 \end{heads}
 
 \begin{heads}
@@ -450,9 +450,10 @@ Homogeneous first-order differential equations can be written in the form
   M(x,y) dx + N(x,y) dy = 0.
 \end{equation}
 If
-\begin{equation*}
-  \pp{M(x,y)}{y} = \pp{N(x,y)}{x}
-\end{equation*}
+\begin{equation}
+  \label{crosspartials}
+  \pp{M}{y} = \pp{N}{x}
+\end{equation}
 then the equation is called \emph{exact}.
 
 To find the solution to exact equations:
@@ -461,11 +462,12 @@ To find the solution to exact equations:
   \begin{equation*}
     \pp{M}{y} \quad \text{ and } \quad \pp{N}{x}
   \end{equation*}
-  and make sure they match.  Note that $M$ is the thing that
-  multiplies $dx$ in \eqref{eq:exact}, and we take its partial
-  derivative with respect to $y$ (and similarly for $N$).
+  and make sure they match as in \eqref{crosspartials}.  Note that $M$
+  is the thing that multiplies $dx$ in \eqref{eq:exact}, and we take
+  its partial derivative with respect to $y$ (and similarly for $N$).
 \item \emph{Find $F(x,y)$}:
   \begin{enumerate*}
+    % FIXME: why don't we call this integration?
   \item \emph{anti-differentiate}: anti-differentiate the two equations
     \begin{equation*}
       \pp{F}{x} = M \quad \text{ and } \quad \pp{F}{y} = N;
