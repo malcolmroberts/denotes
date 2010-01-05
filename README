@@ -6,3 +6,10 @@ Samantha Marion to create a 201 lab manual.  The version of the manual
 that they produced is stored in the 201.v01 directory.
 
 During the 2009-2010 academic year, XXX
+
+Typesetting conventions:
+We would like to use automatic equation breaking.  Use "\no" to prevent breaking
+when it the automatic routine becomes over-zealous.
+\be ... \ee is for unlabelled equations which may be broken up.
+\bel ... \eel is for labelled equations which may be broken up.
+\bec .. \eec and \belc .. /eelc are similar, but try and stop all breaks.
