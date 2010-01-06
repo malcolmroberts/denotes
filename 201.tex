@@ -8,8 +8,6 @@
 \usepackage{ualab}
 \usepackage{math}
 
-
-
 %% see solutions?
 %\showsolutionstrue  % yes 
 \showsolutionsfalse % no
@@ -84,19 +82,19 @@ what's going on!
 \begin{example}
   Determine if $y(x) = \sqrt{3-2\sin x}$ is a solution to the
   differential equation
-  \be
+  \begin{dmath*}
     y \dd{y}{x} = \sin(x).
-  \ee
+  \end{dmath*}
 \end{example}
 
 \begin{solution}
   First, we consider the LHS of the DE.  Subsituting the proposed
   solution into the LHS, we obtain
-  \be
+  \begin{dmath*}
     y \dd{y}{x} = \sqrt{3-2\sin x}\ \frac{d}{dx} \sqrt{3-2\sin x} 
                 = \sqrt{3-2\sin x}\ \frac{-\cos x}{\sqrt{3-2\sin x}} 
                 = - \cos x.
-  \ee
+  \end{dmath*}
   Next, we consider the RHS of the DE.  The RHS is $\sin(x)$.
 
   The LHS and RHS do not match ($-\cos x \neq \sin x$), and therefore
@@ -121,10 +119,10 @@ what's going on!
 \section{Separable equations}
 
 Separable equations are differential equations of the form
-\bel
+\begin{dmath}
   \label{eq:separable}
   h(y) \dd{y}{x} = g(x).
-\eel
+\end{dmath}
 They are called \emph{separable} because it is possible to move
 everything that depends on $x$ to one side of the equation, and
 everything to do with $y$ to the other.
@@ -152,10 +150,10 @@ any conditions if you prefer.
 \newpage
 \begin{example}
   Find the solution to the differential equation
-  \bel
+  \begin{dmath}
     \label{eq:ex:separable}
     y \dd{y}{x} = \sin(x)
-  \eel
+  \end{dmath}
   with initial condition $y(0) = 1$.
 \end{example}
 
@@ -163,18 +161,18 @@ any conditions if you prefer.
   \solstep{Separate}
 
   First, we separate by multiplying both sides by $dx$ to obtain
-  \be
+  \begin{dmath*}
     y \;dx = \sin(x) \;dx.
-  \ee
+  \end{dmath*}
 
   \solstep{Integrate}
 
   Next, we integrate to obtain
-  \be
+  \begin{dmath*}
     \int y \, dy = \int \sin(x) \, dx
     \quad \text{ and hence } \quad
     \frac{y^2}{2} = -\cos(x) + C
-  \ee
+  \end{dmath*}
   where $C$ is an integration constant that will be determined by the
   initial conditions.
 
@@ -184,20 +182,20 @@ any conditions if you prefer.
   was given is $y(0) = 1$, which means that ``when $x$ is 0, $y$
   should be 1''.  Therefore, subsituting $x=0$ and $y=1$ into our
   solution, we obtain
-  \be
+  \begin{dmath*}
     \frac{1^2}{2} = -\cos(0) + C
     \quad \text{ and hence } \quad
     \frac{1}{2} = -1 + C.
-  \ee
+  \end{dmath*}
   Therefore, we have determined that $C = 3/2$.
 
   \solstep{Isolate}
 
   Finally, we isolate $y$ to obtain
-  \begin{equation} 
+  \begin{dmath}
     \label{eq:ex:separable:solution}
     y(x) = \sqrt{3 - 2\cos(x)}.
-  \end{equation}
+  \end{dmath}
   We have chosen the positive root in order to satisfy the initial
   condition.
 
@@ -207,9 +205,9 @@ any conditions if you prefer.
   This is pretty easy; just plug the solution into the original
   equation.  The solution is given in
   \eqref{eq:ex:separable:solution}, and therefore
-  \begin{equation*}
+  \begin{dmath*}
     \dd{y}{x} = \frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}.
-  \end{equation*}
+  \end{dmath*}
   Putting this into equation \eqref{eq:ex:separable} and simplifying
   each side, we obtain
   \begin{gather*}
@@ -224,9 +222,9 @@ any conditions if you prefer.
 
 \begin{example}
   Find the general solution to
-  \begin{equation*}
+  \begin{dmath*}
     x \dd{y}{x} - y = 2 x^2 y.
-  \end{equation*}
+  \end{dmath*}
 \end{example}
 
 \begin{solution}
