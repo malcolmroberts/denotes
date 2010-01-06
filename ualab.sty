@@ -93,6 +93,57 @@
 \newcommand{\ddt}[1]{\dd{#1}{t}}
 \newcommand{\ppt}[1]{\pp{#1}{t}}
 
+%%
+%% mktitle
+%%
+
+\newcommand{\mktitle}[3]{\begin{center}
+    \textsf{\LARGE #1}\\
+    \vspace{0.2in}
+    \textsf{\LARGE #2}
+    \vspace{2in}
+
+    \textsf{\Huge #3}
+    \vspace{2.5in}
+
+    \textsf{\Large by GAME (Graduates at Alberta Mathematics Etc.)}
+  \end{center}}
+
+%%
+%% example environment
+%%
+
+\newcounter{examplecounter}[section]
+
+\newenvironment{example}%
+{%
+  \stepcounter{examplecounter}
+  \bigskip
+  \begin{framed}
+    {\bf Example \arabic{chapter}.\arabic{section}.\arabic{examplecounter}: }
+}{%
+  \end{framed}
+}
+
+\newenvironment{easyexample}%
+{%
+  \stepcounter{examplecounter}
+  \bigskip
+  \begin{framed}
+    {\bf Illustrative Example \arabic{chapter}.\arabic{section}.\arabic{examplecounter}: }
+}{%
+  \end{framed}
+}
+
+\newenvironment{example*}%
+{%
+  \bigskip
+  \begin{framed}
+    {\bf Example: }
+}{%
+  \end{framed}
+}
+
 \newenvironment{solution}%
 {%
   {\bf Solution} \vspace{-\parskip}
