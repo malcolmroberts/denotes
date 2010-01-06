@@ -30,10 +30,59 @@
 \newcommand{\solstep}[1]{\hspace{-0.15in} \emph{\textbf{#1}}}
 
 %%
-%% absolute value, derivatives etc
+%% need this stuff to compile for now...
 %%
 
-\newcommand{\abs}[1]{\left|#1\right|}
+\newtheorem{theorem}{Theorem}
+\newcommand{\oexample}[2]{\begin{example} #1 \end{example} \begin{solution} #2 \end{solution}}
+
+%%
+%% some math shortcuts
+%%
+
+\def\abs#1{\left|#1\right|}
+
+\def\({\left(}\def\){\right)}
+\def\[{\left[}\def\]{\right]}
+\def\half{\frac{1}{2}}
+
+\def\a{\alpha}
+\def\b{\beta}
+\def\c{\chi}
+\def\d{\delta} \def\D{\Delta}
+\def\e{\epsilon} \def\eps{\epsilon}
+\def\g{\gamma} \def\G{\Gamma}
+\def\h{\eta}
+\def\i{\iota} \def\io{\iota}
+\def\k{\kappa}
+\def\l{\lambda} \def\L{\Lambda}
+\def\n{\eta}
+\def\Om{\Omega}
+\def\p{\phi}\def\ph{\varphi} \def\P{\Phi}
+\def\ps{\psi}\def\Ps{\Psi}
+\def\r{\rho}
+\def\s{\sigma} \def\S{\Sigma}
+\def\t{\tau}
+\def\th{\theta}\def\Th{\Theta}
+\def\u{\upsilon} \def\U{\Upsilon}
+\def\W{\Omega}
+\def\w{\omega}
+\def\x{\xi} \def\X{\Xi}
+\def\z{\zeta}
+
+\def\O{{\cal O}}
+
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{\mathbb R}
+\def\C{\mathbb C}
+\def\Q{\mathbb Q}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+
+%%
+%% derivatives etc
+%%
 
 \newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pptwo}[2]{\frac{\partial^2 #1}{\partial #2^2}}
@@ -77,3 +126,11 @@
 \newenvironment{heads}{%
   \textbf{Heads up! }}{}
 
+%%
+%% other
+%%
+
+% XXX: on memmett's machine, this has to appear here (ie, not at the
+% top of this .sty) for some reason, otherwise 201.tex doesn't
+% compile.  weird.
+\usepackage{breqn}

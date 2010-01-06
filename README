@@ -7,9 +7,18 @@ that they produced is stored in the 201.v01 directory.
 
 During the 2009-2010 academic year, XXX
 
-Typesetting conventions:
+
+Typesetting conventions
+-----------------------
+
 We would like to use automatic equation breaking.  Use "\no" to prevent breaking
 when it the automatic routine becomes over-zealous.
 \be ... \ee is for unlabelled equations which may be broken up.
 \bel ... \eel is for labelled equations which may be broken up.
 \bec .. \eec and \belc .. /eelc are similar, but try and stop all breaks.
+
+MEmmett: I like the breqn package, but I would prefer to use
+'\begin{dmath}' etc explicity instead of defining '\be' etc.
+
+XXX: add descriptions of easyexample, example, solution, solstep,
+enumerate*, etc here.

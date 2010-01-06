@@ -4,12 +4,10 @@
 %% authors: Malcolm Roberts, Samantha Marion
 %%
 \documentclass{book}
-\usepackage[dvips]{attachfile2}
 \usepackage{ualab}
-\usepackage{math}
 
-%% see solutions?
-%\showsolutionstrue  % yes 
+%% see solutions?  (XXX: this might not be necessary, given the new format)
+%\showsolutionstrue  % yes
 \showsolutionsfalse % no
 
 \begin{document}
@@ -19,11 +17,8 @@
 %%
 \pagestyle{empty}
 \pagenumbering{roman}
-\title{Math 201 \\ Differential Equations for Engineers \\an
+\mktitle{Math 201}{Differential Equations for Engineers}{an
   \emph{unofficial} lab manual}
-\author{M.\ Roberts and S.\ Marion}
-
-\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% disclaimer and copyright page
@@ -31,9 +26,9 @@
 \newpage\
 \vspace{5in}
 
-This manual was prepared for \emph{Graduates at Alberta Methematics
-  Etc.} (GAME) by Malcolm Roberts and Samantha Marion, with
-contributions from others.  \vspace{0.5in}
+This manual was originally prepared for \emph{Graduates at Alberta
+  Methematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion,
+with contributions from others.  \vspace{0.5in}
 
 This manual is \emph{not} officially endorsed by the University of
 Alberta or the Department of Mathematical and Statistical Sciences at
@@ -43,7 +38,7 @@ the University of Alberta.
 \emph{Use at your own risk.  Errors and omissions are expected.}
 \vspace{0.5in}
 
-Copyright 2009, Graduates at Alberta Mathematics Etc.  All rights
+Copyright 2010, Graduates at Alberta Mathematics Etc.  All rights
 reserved.
 
 \newpage
@@ -79,20 +74,20 @@ should always try to do this themselves.
 This becomes easier with practise, and will help your understanding of
 what's going on!
 
-\begin{example}
+\begin{example*}
   Determine if $y(x) = \sqrt{3-2\sin x}$ is a solution to the
   differential equation
   \begin{dmath*}
     y \dd{y}{x} = \sin(x).
   \end{dmath*}
-\end{example}
+\end{example*}
 
 \begin{solution}
   First, we consider the LHS of the DE.  Subsituting the proposed
   solution into the LHS, we obtain
   \begin{dmath*}
-    y \dd{y}{x} = \sqrt{3-2\sin x}\ \frac{d}{dx} \sqrt{3-2\sin x} 
-                = \sqrt{3-2\sin x}\ \frac{-\cos x}{\sqrt{3-2\sin x}} 
+    y \dd{y}{x} = \sqrt{3-2\sin x}\ \frac{d}{dx} \sqrt{3-2\sin x}
+                = \sqrt{3-2\sin x}\ \frac{-\cos x}{\sqrt{3-2\sin x}}
                 = - \cos x.
   \end{dmath*}
   Next, we consider the RHS of the DE.  The RHS is $\sin(x)$.
@@ -119,10 +114,10 @@ what's going on!
 \section{Separable equations}
 
 Separable equations are differential equations of the form
-\begin{dmath}
+\begin{equation}
   \label{eq:separable}
   h(y) \dd{y}{x} = g(x).
-\end{dmath}
+\end{equation}
 They are called \emph{separable} because it is possible to move
 everything that depends on $x$ to one side of the equation, and
 everything to do with $y$ to the other.
@@ -148,31 +143,31 @@ any conditions if you prefer.
 \end{heads}
 
 \newpage
-\begin{example}
+\begin{easyexample}
   Find the solution to the differential equation
-  \begin{dmath}
+  \begin{equation}
     \label{eq:ex:separable}
     y \dd{y}{x} = \sin(x)
-  \end{dmath}
+  \end{equation}
   with initial condition $y(0) = 1$.
-\end{example}
+\end{easyexample}
 
 \begin{solution}
   \solstep{Separate}
 
   First, we separate by multiplying both sides by $dx$ to obtain
-  \begin{dmath*}
+  \begin{equation*}
     y \;dx = \sin(x) \;dx.
-  \end{dmath*}
+  \end{equation*}
 
   \solstep{Integrate}
 
   Next, we integrate to obtain
-  \begin{dmath*}
+  \begin{equation*}
     \int y \, dy = \int \sin(x) \, dx
     \quad \text{ and hence } \quad
     \frac{y^2}{2} = -\cos(x) + C
-  \end{dmath*}
+  \end{equation*}
   where $C$ is an integration constant that will be determined by the
   initial conditions.
 
@@ -182,20 +177,19 @@ any conditions if you prefer.
   was given is $y(0) = 1$, which means that ``when $x$ is 0, $y$
   should be 1''.  Therefore, subsituting $x=0$ and $y=1$ into our
   solution, we obtain
-  \begin{dmath*}
+  \begin{equation*}
     \frac{1^2}{2} = -\cos(0) + C
     \quad \text{ and hence } \quad
     \frac{1}{2} = -1 + C.
-  \end{dmath*}
+  \end{equation*}
   Therefore, we have determined that $C = 3/2$.
 
   \solstep{Isolate}
 
   Finally, we isolate $y$ to obtain
-  \begin{dmath}
-    \label{eq:ex:separable:solution}
+  \begin{equation} \label{eq:ex:separable:solution}
     y(x) = \sqrt{3 - 2\cos(x)}.
-  \end{dmath}
+  \end{equation}
   We have chosen the positive root in order to satisfy the initial
   condition.
 
@@ -205,9 +199,9 @@ any conditions if you prefer.
   This is pretty easy; just plug the solution into the original
   equation.  The solution is given in
   \eqref{eq:ex:separable:solution}, and therefore
-  \begin{dmath*}
+  \begin{equation*}
     \dd{y}{x} = \frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}.
-  \end{dmath*}
+  \end{equation*}
   Putting this into equation \eqref{eq:ex:separable} and simplifying
   each side, we obtain
   \begin{gather*}
@@ -222,9 +216,9 @@ any conditions if you prefer.
 
 \begin{example}
   Find the general solution to
-  \begin{dmath*}
+  \begin{equation*}
     x \dd{y}{x} - y = 2 x^2 y.
-  \end{dmath*}
+  \end{equation*}
 \end{example}
 
 \begin{solution}
@@ -357,8 +351,8 @@ which is
 \end{equation*}
 
 \begin{heads}
-  When solving a particular problem, be careful to incorporate the
-  sign of $P(x)$ when identifying $P(x)$. % FIXME: awkward
+  When identifying $P(x)$, be careful to correctly identify the sign
+  (ie, be aware of any minus signs that might be hanging around).
 \end{heads}
 
 \begin{heads}
@@ -475,6 +469,7 @@ To find the solution to exact equations:
 \item \emph{Find $F(x,y)$}:
   \begin{enumerate*}
     % FIXME: why don't we call this integration?
+    % memmett: so people don't confuse this method with the one in the text book
   \item \emph{anti-differentiate}: anti-differentiate the two equations
     \begin{equation*}
       \pp{F}{x} = M \quad \text{ and } \quad \pp{F}{y} = N;
@@ -497,12 +492,12 @@ To find the solution to exact equations:
 \end{heads}
 
 \newpage
-\begin{example}
+\begin{easyexample}
   Find the general solution to
   \begin{equation*}
     y \;dx + \bigl( y^2 + x \bigr) \;dy = 0.
   \end{equation*}
-\end{example}
+\end{easyexample}
 
 \begin{solution}
   \solstep{Check for exactness}
@@ -605,12 +600,12 @@ differentiating, we obtain
   \dd{y}{x} = \dd{}{x} \bigl( x v \bigr) = v + x \dd{v}{x}.
 \end{equation}
 
-\begin{example}
+\begin{easyexample}
   Find the general solution to:
   \begin{equation*}
     \dd{y}{x} = \frac{x}{y}, \quad y(1) = 2.
   \end{equation*}
-\end{example}
+\end{easyexample}
 
 \begin{solution}
   XXX
@@ -741,14 +736,14 @@ equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 %\def\ycomb{\alpha y_1 + \beta y_2}
 %%% FIXME
 \begin{align}
-%   a \ddtwo{\(\a y_1 + \b y_2\)}{t} 
-%  + b \dd{\(\a y_1 + \b y_2\)}{t} + c \(\a y_1 + \b y_2 \) 
+%   a \ddtwo{\(\a y_1 + \b y_2\)}{t}
+%  + b \dd{\(\a y_1 + \b y_2\)}{t} + c \(\a y_1 + \b y_2 \)
 %  = \a\(a \ddtwo{y_1}{t} + b \dd{y_1}{t} + cy_1 \)
-%  +\b\(a \ddtwo{y_2}{t} + b \dd{y_2}{t} + cy_2 \)  
+%  +\b\(a \ddtwo{y_2}{t} + b \dd{y_2}{t} + cy_2 \)
 %  = \a (0) +\b (0) =0,
 1+1=2
 \end{align}
-In other words, $\alpha y_1 + \beta y_2$, which is a linear combination of 
+In other words, $\alpha y_1 + \beta y_2$, which is a linear combination of
 $y_1$ and $y_2$, is also a solution to equation (FIXME). Being able to use this linearity
 is a powerful tool that we can use to solve this very important type of
 differential equation. We will, in general, have two solutions to these
@@ -1694,7 +1689,7 @@ $\sum_{n=0}^\infty r^n = 1/(1-r)$ with $r=e^{-sT}$, so
 \end{align}
 
 %\workedexample
-\example{Find the Laplace transform of a saw wave with period $T=1$,
+\oexample{Find the Laplace transform of a saw wave with period $T=1$,
 \begin{align*}
 f(t) = \left\{ \begin{array}{ll}
          t & \mbox{if $t \in (0,1)$};\\
@@ -1829,14 +1824,13 @@ $\Laplace(g)=G$, then
 That is, the Laplace transform of a convolution is the product of their Laplace
 transforms.
 
-\example{
+\oexample{
 Solve
 \begin{align*}
 y'' = g(t), \qquad y(0) = c_0, \qquad y'(0)=c_1
 \end{align*}
  for $y$ using Laplace transforms.
-}\\
-{
+}{
 Taking the Laplace transform of both sides, we have
 \begin{align*}
 s^2Y - sc_0 - c_1 = G(s).
@@ -1900,7 +1894,7 @@ we take $c>0$, then
 
 The step function often shows up multiplied by other functions, as in the
 following example.\\
-\example{Solve the differential equation
+\oexample{Solve the differential equation
 \begin{align*}
 y'=t u_c(t), \qquad y(0)=0
 \end{align*}
@@ -2423,7 +2417,7 @@ make sure that these series converge in order for our solution to make sense.
 What's more, if $f$ is analytic, then the derivative of the sum is the sum
 of the derivatives, which can greatly simplify things.\\
 
-\example{
+\oexample{
   Find the Taylor series for $f=e^x$ about $x=0$ and its interval of
   convergence.
 }{
@@ -2470,7 +2464,7 @@ valid in some neighbourhood of the initial conditions, and the series
 becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of
 convergence.\\
 
-\example{
+\oexample{
   Find the radius of convergence for the Taylor series for $f=\arctan(x)$
   about $x=0$.\\
 }
@@ -2514,7 +2508,7 @@ series term-by-term. That is,
 can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is
 given by the initial conditions, we can solve for the rest of the $a_n$
 recursively.\\
-\example{Determine the solution to the IVP
+\oexample{Determine the solution to the IVP
 \begin{align*}
 y'(t) = t^2 +t, \qquad y(0)=1
 \end{align*}
@@ -2542,7 +2536,7 @@ using a Taylor series for $y$.\\
 It was easy to isolate all of the $a_n$'s in the previous example, since $y'$
 appeared alone in the IVP. It's usually necessary to solve for $a_n$
 recursively.\\
-\example{
+\oexample{
   Solve the IVP
   \begin{align*}
   y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
@@ -2852,106 +2846,106 @@ for some constant $C\in\mathbb{R}$.
 Once one has determined $r_1$ and $r_2$, the constants $a_n$ and $b_n$ can
 be determined by matching powers as per the previous section.
 
-\example{
-  Consider Bessel's equation,
-  \begin{align}
-  \label{bessel}
-  t^2 y'' + ty' + (t^2-\alpha^2)y=0.
-  \end{align}
-}{
-  We can divide Bessel's equation by $t^2$ to get it in the form of
-  \eqref{singode}, that is
-  \begin{align*}
-  y''  + \frac{1}{t}y' + \(1-\frac{\alpha^2}{t^2}\)y=0,
-  \end{align*}
-  which is clearly singular. We can identify $p=1/t$, and
-  $q=1-\frac{\alpha^2}{t^2}$. Then,
-  \begin{align*}
-  p_0 = \lim_{t\rightarrow 0} t p(t) =1, \quad \text{and}\quad
-  q_0 = \lim_{t\rightarrow 0} t^2 q(t) =-\alpha^2.
-  \end{align*}
-  The indicial equation is then
-  $r(r-1) +r -\alpha^2 =0 \implies r_{1,2} = \pm \alpha$.  Thus,
-  \begin{align*}
-  y_1\phantom{''} &=& \sum_{n=0}^\infty a_n t^{n+\alpha} \\
-  y_1'\phantom{'}  &=& \sum_{n=0}^\infty a_n (n+\alpha)t^{n+\alpha-1}, \\
-  y_1'' &=& \sum_{n=0}^\infty a_n (n+\alpha)(n+\alpha-1)t^{n+\alpha-2}.
-  \end{align*}
-  Putting this into \eqref{bessel}, we have
-  \begin{align*}
-  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
-  + \sum_{n=0}^\infty a_n t^{n+2+\alpha}=0.
-  \end{align*}
-  Changing the index of the second sum, we have
-  \begin{align*}
-  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
-  + \sum_{n=2}^\infty a_{n-2} t^{n+\alpha}=0.
-  \end{align*}
-  The $a_0$ and $a_1$ terms are determined by initial conditions. For
-  $n\geq 2$, the terms must cancel, so we have
-  \begin{align*}
-  a_n\[\(n+\a\)^2 - \a^2\]t^{n+\alpha}  + a_{n-2} t^{n+\alpha}=0
-  \end{align*}
-  which implies that
-  \begin{align*}
-  a_n = \frac{-a_{n-2}}{\(n+\a\)^2 - \a^2} =  \frac{-a_{n-2}}{n(n+ 2\a)}.
-  \end{align*}
-  Associating $y_1$ with $a_0=1$ and $a_1=0$, we can set $n=2m$, so the
-  recursion relationship is
-  \begin{align}
-  a_{2m} = \frac{-a_{2(m-1)}}{2m (2m+2\a)} = \frac{-a_{2(m-1)}}{2^2m (m+\a)}.
-  \end{align}
-  Solving the recursion relationship then yields
-  \begin{align}
-  a_{2m} = \frac{(-1)^ma_0}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)}.
-  \end{align}
-  The solution is then
-  \begin{align}
-  \label{bessel1}
-  y_1 = \sum_{m=0}^\infty
-  \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.  \qed
-  \end{align}
-We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would
-get the standard form of Bessel's function of the first kind of order $\a$,
-  \begin{align*}
-  J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
-  \(\frac{t}{2}\)^{2n-\a}.
-  \end{align*}
-Here $\G(x)$ is called the Gamma function and it is just an extension of the
-factorial function. So in particular, when $\alpha=0$, we get
-  \begin{align*}
-  J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
-  \end{align*}
-% Too messy and complicated- fixed above
-%  Now, we can simplify this slightly, by using the gamma function. The
-%  Gamma function,
-%  \be
-%  \G(x) = \int_0^\infty t^{x-1} e^{-t} \, dt,
-%  \end{align}
-%  is a generalization of the factorial. The key step is that
-%  \be
-%  \G(x+1) = x \G(x),
-%  \end{align}
-%  which can be derived using integration by parts. If $x$ is an integer, this
-%  gives us $\G(x+1)=x!$, since $\G(0)=1$. If we set $x=m+\a+1$, then
-%  \be
-%  \G(m+\a+1) &=& (m+\a) \G(m+\a) = (m+\a)(m+\a-1)\G(m+\a-1) = \dots \\\nonumber
-%  &=& (m+\a)(m+\a-1) \dots (2+\a)(1+\a)\G(\a+1).
-%  \end{align}
-%  We can then write \eqref{bessel1} as
-%  \be
-%  y_1 = \sum_{m=0}^\infty
-%  \frac{(-1)^m}{2^{2m}m! \G(m+\a+1)/\G(\a+1)} t^{m+\alpha}.
-%  \end{align}
-%
-%  Setting $a_0=1/(2^\a\G(\a+1))$, we have the standard form of Bessel's
-%  function
-%  of the first kind of order $\a$,
-%  \be
-%  J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
-%  \(\frac{t}{2}\)^{2n-\a}. \qed
-%  \end{align}
-}
+% \oexample{
+%   Consider Bessel's equation,
+%   \begin{align}
+%   \label{bessel}
+%   t^2 y'' + ty' + (t^2-\alpha^2)y=0.
+%   \end{align}
+% }{
+%   We can divide Bessel's equation by $t^2$ to get it in the form of
+%   \eqref{singode}, that is
+%   \begin{align*}
+%   y''  + \frac{1}{t}y' + \(1-\frac{\alpha^2}{t^2}\)y=0,
+%   \end{align*}
+%   which is clearly singular. We can identify $p=1/t$, and
+%   $q=1-\frac{\alpha^2}{t^2}$. Then,
+%   \begin{align*}
+%   p_0 = \lim_{t\rightarrow 0} t p(t) =1, \quad \text{and}\quad
+%   q_0 = \lim_{t\rightarrow 0} t^2 q(t) =-\alpha^2.
+%   \end{align*}
+%   The indicial equation is then
+%   $r(r-1) +r -\alpha^2 =0 \implies r_{1,2} = \pm \alpha$.  Thus,
+%   \begin{align*}
+%   y_1\phantom{''} &=& \sum_{n=0}^\infty a_n t^{n+\alpha} \\
+%   y_1'\phantom{'}  &=& \sum_{n=0}^\infty a_n (n+\alpha)t^{n+\alpha-1}, \\
+%   y_1'' &=& \sum_{n=0}^\infty a_n (n+\alpha)(n+\alpha-1)t^{n+\alpha-2}.
+%   \end{align*}
+%   Putting this into \eqref{bessel}, we have
+%   \begin{align*}
+%   \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
+%   + \sum_{n=0}^\infty a_n t^{n+2+\alpha}=0.
+%   \end{align*}
+%   Changing the index of the second sum, we have
+%   \begin{align*}
+%   \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
+%   + \sum_{n=2}^\infty a_{n-2} t^{n+\alpha}=0.
+%   \end{align*}
+%   The $a_0$ and $a_1$ terms are determined by initial conditions. For
+%   $n\geq 2$, the terms must cancel, so we have
+%   \begin{align*}
+%   a_n\[\(n+\a\)^2 - \a^2\]t^{n+\alpha}  + a_{n-2} t^{n+\alpha}=0
+%   \end{align*}
+%   which implies that
+%   \begin{align*}
+%   a_n = \frac{-a_{n-2}}{\(n+\a\)^2 - \a^2} =  \frac{-a_{n-2}}{n(n+ 2\a)}.
+%   \end{align*}
+%   Associating $y_1$ with $a_0=1$ and $a_1=0$, we can set $n=2m$, so the
+%   recursion relationship is
+%   \begin{align}
+%   a_{2m} = \frac{-a_{2(m-1)}}{2m (2m+2\a)} = \frac{-a_{2(m-1)}}{2^2m (m+\a)}.
+%   \end{align}
+%   Solving the recursion relationship then yields
+%   \begin{align}
+%   a_{2m} = \frac{(-1)^ma_0}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)}.
+%   \end{align}
+%   The solution is then
+%   \begin{align}
+%   \label{bessel1}
+%   y_1 = \sum_{m=0}^\infty
+%   \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.  \qed
+%   \end{align}
+% We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would
+% get the standard form of Bessel's function of the first kind of order $\a$,
+%   \begin{align*}
+%   J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
+%   \(\frac{t}{2}\)^{2n-\a}.
+%   \end{align*}
+% Here $\G(x)$ is called the Gamma function and it is just an extension of the
+% factorial function. So in particular, when $\alpha=0$, we get
+%   \begin{align*}
+%   J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
+%   \end{align*}
+% % Too messy and complicated- fixed above
+% %  Now, we can simplify this slightly, by using the gamma function. The
+% %  Gamma function,
+% %  \be
+% %  \G(x) = \int_0^\infty t^{x-1} e^{-t} \, dt,
+% %  \end{align}
+% %  is a generalization of the factorial. The key step is that
+% %  \be
+% %  \G(x+1) = x \G(x),
+% %  \end{align}
+% %  which can be derived using integration by parts. If $x$ is an integer, this
+% %  gives us $\G(x+1)=x!$, since $\G(0)=1$. If we set $x=m+\a+1$, then
+% %  \be
+% %  \G(m+\a+1) &=& (m+\a) \G(m+\a) = (m+\a)(m+\a-1)\G(m+\a-1) = \dots \\\nonumber
+% %  &=& (m+\a)(m+\a-1) \dots (2+\a)(1+\a)\G(\a+1).
+% %  \end{align}
+% %  We can then write \eqref{bessel1} as
+% %  \be
+% %  y_1 = \sum_{m=0}^\infty
+% %  \frac{(-1)^m}{2^{2m}m! \G(m+\a+1)/\G(\a+1)} t^{m+\alpha}.
+% %  \end{align}
+% %
+% %  Setting $a_0=1/(2^\a\G(\a+1))$, we have the standard form of Bessel's
+% %  function
+% %  of the first kind of order $\a$,
+% %  \be
+% %  J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
+% %  \(\frac{t}{2}\)^{2n-\a}. \qed
+% %  \end{align}
+% }
 
 
 
@@ -3126,7 +3120,7 @@ fact that
 equations into algebraic equations. But more on that later. First, let's just
 find the Fourier series for a normal function.
 
-\example{
+\oexample{
 Find the Fourier series of
 \begin{align*}
 f(x) = x
@@ -3318,7 +3312,7 @@ e^{-kn^2t}
 \sin(nx)}.
 \end{align}
 
-\example{
+\oexample{
   The initial temperature in a rod of length $\pi$ is given by
   \begin{align}
   \label{heat1ic}
@@ -3329,8 +3323,7 @@ e^{-kn^2t}
   \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
   \end{align*}
   find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
-  }\\
-{
+  }{
   The boundary conditions match those given in equation \eqref{homdibc}, so
   the above analysis shows that we can express $y$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
@@ -3382,7 +3375,7 @@ y(x,t)=A + \frac{B-A}{\pi}x +
 \end{align}
 matches both the initial and boundary conditions.
 
-\example{
+\oexample{
   Solve the initial boundary problem
   \begin{align*}
   \label{heat3ic}
@@ -3439,7 +3432,7 @@ matches both the initial and boundary conditions.
 % This lab is too long!
 %\section{A more complicated example}
 %
-%\example{
+%\oexample{
 %  The heat in a rod obey the equation
 %  \begin{align}
 %  \pp{y}{t}=\pptwo{y}{x}.
@@ -3774,7 +3767,7 @@ y(t) = \alpha y_1(t) + \beta y_2(t) = \alpha e^{-t} + \beta e^t,
 \end{align*}
 for some constants $\alpha$ and $\beta$ that are determined by the initial
 conditions. Since $y(0)=1$,
-\begin{align} 
+\begin{align}
   \label{sec2ab1}
   y(0) = \alpha +\beta =1.
 \end{align}
@@ -4663,7 +4656,7 @@ $\sum_{n=0}^\infty r^n = 1/(1-r)$ with $r=e^{-sT}$, so
 \boxed{\Laplace\{f\} =\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}}.
 \end{align}
 
-\example{Find the Laplace transform of a saw wave with period $T=1$,
+\oexample{Find the Laplace transform of a saw wave with period $T=1$,
 \begin{align*}
 f(t) = \left\{ \begin{array}{ll}
          t & \mbox{if $t \in (0,1)$};\\
@@ -4798,14 +4791,13 @@ $\Laplace(g)=G$, then
 That is, the Laplace transform of a convolution is the product of their Laplace
 transforms.
 
-\example{
+\oexample{
 Solve
 \begin{align*}
 y'' = g(t), \qquad y(0) = c_0, \qquad y'(0)=c_1
 \end{align*}
  for $y$ using Laplace transforms.
-}\\
-{
+}{
 Taking the Laplace transform of both sides, we have
 \begin{align*}
 s^2Y - sc_0 - c_1 = G(s).
@@ -4869,7 +4861,7 @@ we take $c>0$, then
 
 The step function often shows up multiplied by other functions, as in the
 following example.\\
-\example{Solve the differential equation
+\oexample{Solve the differential equation
 \begin{align*}
 y'=t u_c(t), \qquad y(0)=0
 \end{align*}
@@ -5390,7 +5382,7 @@ make sure that these series converge in order for our solution to make sense.
 What's more, if $f$ is analytic, then the derivative of the sum is the sum
 of the derivatives, which can greatly simplify things.\\
 
-\example{
+\oexample{
   Find the Taylor series for $f=e^x$ about $x=0$ and its interval of
   convergence.
 }{
@@ -5437,7 +5429,7 @@ valid in some neighbourhood of the initial conditions, and the series
 becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of
 convergence.\\
 
-\example{
+\oexample{
   Find the radius of convergence for the Taylor series for $f=\arctan(x)$
   about $x=0$.\\
 }
@@ -5481,7 +5473,7 @@ series term-by-term. That is,
 can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is
 given by the initial conditions, we can solve for the rest of the $a_n$
 recursively.\\
-\example{Determine the solution to the IVP
+\oexample{Determine the solution to the IVP
 \begin{align*}
 y'(t) = t^2 +t, \qquad y(0)=1
 \end{align*}
@@ -5509,7 +5501,7 @@ using a Taylor series for $y$.\\
 It was easy to isolate all of the $a_n$'s in the previous example, since $y'$
 appeared alone in the IVP. It's usually necessary to solve for $a_n$
 recursively.\\
-\example{
+\oexample{
   Solve the IVP
   \begin{align*}
   y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
@@ -5819,7 +5811,7 @@ for some constant $C\in\mathbb{R}$.
 Once one has determined $r_1$ and $r_2$, the constants $a_n$ and $b_n$ can
 be determined by matching powers as per the previous section.
 
-\example{
+\oexample{
   Consider Bessel's equation,
   \begin{align}
   \label{bessel}
@@ -6093,7 +6085,7 @@ fact that
 equations into algebraic equations. But more on that later. First, let's just
 find the Fourier series for a normal function.
 
-\example{
+\oexample{
 Find the Fourier series of
 \begin{align*}
 f(x) = x
@@ -6284,7 +6276,7 @@ e^{-kn^2t}
 \sin(nx)}.
 \end{align}
 
-\example{
+\oexample{
   The initial temperature in a rod of length $\pi$ is given by
   \begin{align}
   \label{heat1ic}
@@ -6295,8 +6287,7 @@ e^{-kn^2t}
   \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
   \end{align*}
   find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
-  }\\
-{
+  }{
   The boundary conditions match those given in equation \eqref{homdibc}, so
   the above analysis shows that we can express $y$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
@@ -6348,7 +6339,7 @@ y(x,t)=A + \frac{B-A}{\pi}x +
 \end{align}
 matches both the initial and boundary conditions.
 
-\example{
+\oexample{
   Solve the initial boundary problem
   \begin{align*}
   \label{heat3ic}
@@ -6405,7 +6396,7 @@ matches both the initial and boundary conditions.
 % This lab is too long!
 %\section{A more complicated example}
 %
-%\example{
+%\oexample{
 %  The heat in a rod obey the equation
 %  \be
 %  \pp{y}{t}=\pptwo{y}{x}.
