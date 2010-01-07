@@ -11,14 +11,22 @@ During the 2009-2010 academic year, XXX
 Typesetting conventions
 -----------------------
 
-We would like to use automatic equation breaking.  Use "\no" to prevent breaking
-when it the automatic routine becomes over-zealous.
-\be ... \ee is for unlabelled equations which may be broken up.
-\bel ... \eel is for labelled equations which may be broken up.
-\bec .. \eec and \belc .. /eelc are similar, but try and stop all breaks.
+We are using the breqn package to automatically break long equations.
+use 
+  \begin{dmath} ... \end{dmath} 
+for numbered equations, and
+  \begin{dmath*} ... \end{dmath*} 
+for non-numbered equations. 
+Use "\hiderel" to prevent breaking at specific points.  If you want to prevent
+the equation from breaking in general, use 
+  \begin{dmath}[compact] ... \end{dmath} 
+or
+  \begin{dmath*}[compact] ... \end{dmath*}
+For writing multiple equations with, eg, the equals sign aligned vertically
+for both a LHS and a RHS, dmath doesn't seem to work, and align puts things
+on opposite sides of the page.  Use 
+  \begin{eqnarray} ... \end{eqnarray}
+for now, I guess?
 
-MEmmett: I like the breqn package, but I would prefer to use
-'\begin{dmath}' etc explicity instead of defining '\be' etc.
-
-XXX: add descriptions of easyexample, example, solution, solstep,
+XXX or FIXME: add descriptions of easyexample, example, solution, solstep,
 enumerate*, etc here.

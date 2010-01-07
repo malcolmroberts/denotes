@@ -116,10 +116,10 @@ what's going on!
 \section{Separable equations}
 
 Separable equations are differential equations of the form
-\begin{equation}
+\begin{dmath}
   \label{eq:separable}
   h(y) \dd{y}{x} = g(x).
-\end{equation}
+\end{dmath}
 They are called \emph{separable} because it is possible to move
 everything that depends on $x$ to one side of the equation, and
 everything to do with $y$ to the other.
@@ -147,10 +147,10 @@ any conditions if you prefer.
 \newpage
 \begin{easyexample}
   Find the solution to the differential equation
-  \begin{equation}
+  \begin{dmath}
     \label{eq:ex:separable}
     y \dd{y}{x} = \sin(x)
-  \end{equation}
+  \end{dmath}
   with initial condition $y(0) = 1$.
 \end{easyexample}
 
@@ -189,9 +189,10 @@ any conditions if you prefer.
   \solstep{Isolate}
 
   Finally, we isolate $y$ to obtain
-  \begin{equation} \label{eq:ex:separable:solution}
+  \begin{dmath} 
+    \label{eq:ex:separable:solution}
     y(x) = \sqrt{3 - 2\cos(x)}.
-  \end{equation}
+  \end{dmath}
   We have chosen the positive root in order to satisfy the initial
   condition.
 
@@ -323,10 +324,10 @@ any conditions if you prefer.
 \section{Linear equations}
 
 First order linear equations are differential equations of the form
-\begin{equation}
+\begin{dmath}
   \label{eq:linear}
   \dd{y}{x} + P(x) y = Q(x)
-\end{equation}
+\end{dmath}
 
 To find the solution to linear equations:
 \begin{enumerate*}
@@ -448,15 +449,15 @@ which is
 \section{Exact equations}
 
 Homogeneous first-order differential equations can be written in the form
-\begin{equation}
+\begin{dmath}
   \label{eq:exact}
   M(x,y) dx + N(x,y) dy = 0.
-\end{equation}
+\end{dmath}
 If
-\begin{equation}
+\begin{dmath}
   \label{crosspartials}
   \pp{M}{y} = \pp{N}{x}
-\end{equation}
+\end{dmath}
 then the equation is called \emph{exact}.
 
 To find the solution to exact equations:
@@ -586,21 +587,21 @@ To solve a differential equation using a substitution, we
 \subsection{(Homogeneous) equations of the form $y' = f(y/x)$}
 
 Equations of form
-\begin{equation}
+\begin{dmath}
   \label{eq:homogeneous}
   \dd{y}{x} = f\left(\frac{y}{x}\right)
-\end{equation}
+\end{dmath}
 are transformed into separable equations by using the subsitution
-\begin{equation}
+\begin{dmath}
   \label{eq:homogeneous_subsitution}
   v = \frac{y}{x}.
-\end{equation}
+\end{dmath}
 Isolating $y$ in \eqref{eq:homogeneous_subsitution} and
 differentiating, we obtain
-\begin{equation}
+\begin{dmath}
   \label{eq:homogeneous_differential}
   \dd{y}{x} = \dd{}{x} \bigl( x v \bigr) = v + x \dd{v}{x}.
-\end{equation}
+\end{dmath}
 
 \begin{easyexample}
   Find the general solution to:
@@ -670,10 +671,10 @@ $v = ax + by$
 
 Linear second order homogeneous differential equations are equations
 of the form
-\begin{equation}
+\begin{dmath}
   \label{eq:second_order_linear_homogeneous}
   a \ddtwo{y}{x} + b \dd{y}{x} + c y = 0
-\end{equation}
+\end{dmath}
 where $a$, $b$, and $c$ are constants.
 
 To find the general solution to a second order linear homogeneous equation:
@@ -729,10 +730,10 @@ To find the general solution to a second order linear homogeneous equation:
 \chapter{Second-order Linear Equations}
 % Text chapter 4.2
 Let $a,b,c$ be real numbers. Second order equations of the form
-\begin{equation}
+\begin{dmath}
   \label{sec2hom}
   a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
-\end{equation}
+\end{dmath}
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to
 equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 %\def\ycomb{\alpha y_1 + \beta y_2}
@@ -804,10 +805,10 @@ conditions. Since $y(0)=1$,
   y(0) = \alpha +\beta =1.
 \end{align}
 Since $y'(0)=0$, and $y'(t) = -\alpha e^{-t} + \beta e^t$,
-\begin{equation}
+\begin{dmath}
   \label{sec2ab2}
   y'(0) = -\alpha + \beta =0.
-\end{equation}
+\end{dmath}
 Combining equations \eqref{sec2ab1} and \eqref{sec2ab2}, it is easy to see
 that $\alpha = \beta =\half$. The solution is therefore
 \begin{align*}
@@ -1033,9 +1034,9 @@ $y_p = t^2 \(C_2 t^2 + C_1 t + C_0 \)e^t$.
 
 Once you have determined $y_p$, combine it with the homogeneous solutions
 to give the general solution
-\begin{equation}
-\boxed{y(t) = \alpha y_1(t) + \beta y_2(t) + y_p(t) }
-\end{equation}
+\begin{dmath}
+  \boxed{y(t) = \alpha y_1(t) + \beta y_2(t) + y_p(t) }
+\end{dmath}
 to match the initial conditions.
 \\
 
@@ -1464,25 +1465,23 @@ f(t) = e^{2t} + e^{3t}.
 \end{align*}
 ~\\
 \emph{Solution 1}:  By the definition of the Laplace transform,
-\begin{align*}
-\Laplace \{f\}(s)&=& \int_0^\infty e^{-st} f(t) dt \\
-&=& \int_0^\infty \(e^{2t} + e^{3t}\) e^{-st} dt
-\\
-&=& \int_0^\infty e^{2t} e^{-st} dt + \int_0^\infty e^{3t} e^{-st} dt
-\\
-&=& \left.\frac{e^{(2-s)t}}{2-s}\right|_0^\infty
-+  \left.\frac{e^{(3-s)t}}{3-s}\right|_0^\infty
-\\
-&=& \frac{1}{s-2} + \frac{1}{s-3}. \qed
-\end{align*}
+\begin{dmath*}
+  \Laplace \{f\}(s)
+  = \int_0^\infty e^{-st} f(t) dt
+  = \int_0^\infty \(e^{2t} + e^{3t}\) e^{-st} dt
+  = \int_0^\infty e^{2t} e^{-st} dt + \int_0^\infty e^{3t} e^{-st} dt
+  = \left.\frac{e^{(2-s)t}}{2-s}\right|_0^\infty
+  +  \left.\frac{e^{(3-s)t}}{3-s}\right|_0^\infty
+  = \frac{1}{s-2} + \frac{1}{s-3}. \qed
+\end{dmath*}
 Alternatively, we can solve this using the table of Laplace transforms:
 ~\\
 \emph{Solution 2}:  The Laplace transform is linear, so
-\begin{align*}
-\Laplace\{e^{2t} + e^{3t}\}
-&=& \Laplace\{e^{2t}\} + \Laplace\{e^{3t}\}
-= \frac{1}{s-2} + \frac{1}{s-3}. \qed
-\end{align*}
+\begin{dmath*}[compact]
+  \Laplace\{e^{2t} + e^{3t}\}
+  = \Laplace\{e^{2t}\} + \Laplace\{e^{3t}\}
+  = \frac{1}{s-2} + \frac{1}{s-3}. \qed
+\end{dmath*}
 Of course, you should know how to use both techniques.
 
 
@@ -3698,10 +3697,10 @@ matches both the initial and boundary conditions.
 \chapter{Second-order Linear Equations}
 % Text chapter 4.2
 Let $a,b,c$ be real numbers. Second order equations of the form
-\begin{equation}
+\begin{dmath}
   \label{sec2hom}
   a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
-\end{equation}
+\end{dmath}
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to
 equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 %\newcommand\alpha y_1 + \beta y_2{\alpha y_1 + \beta y_2}
@@ -3738,9 +3737,9 @@ a r^2 e^{rt} + b r e^{rt} + ce^{rt}
 \end{align*}
 Since $e^{rt}$ is never zero, there is no harm in dividing by it. This leaves
 us with the \emph{characteristic equation},
-\begin{equation}
-\boxed{ar^2 + br + c =0},
-\end{equation}
+\begin{dmath}
+  \boxed{ar^2 + br + c =0},
+\end{dmath}
 which allows us to determine $r$ using the quadratic formula. In this way
 we get two solutions,
 \begin{align*}
@@ -3768,15 +3767,15 @@ y(t) = \alpha y_1(t) + \beta y_2(t) = \alpha e^{-t} + \beta e^t,
 \end{align*}
 for some constants $\alpha$ and $\beta$ that are determined by the initial
 conditions. Since $y(0)=1$,
-\begin{align}
+\begin{dmath}
   \label{sec2ab1}
   y(0) = \alpha +\beta =1.
-\end{align}
+\end{dmath}
 Since $y'(0)=0$, and $y'(t) = -\alpha e^{-t} + \beta e^t$,
-\begin{equation}
+\begin{dmath}
   \label{sec2ab2}
   y'(0) = -\alpha + \beta =0.
-\end{equation}
+\end{dmath}
 Combining equations \eqref{sec2ab1} and \eqref{sec2ab2}, it is easy to see
 that $\alpha = \beta =\half$. The solution is therefore
 \begin{align*}
@@ -3823,12 +3822,11 @@ y_2(t) = e^{0t}\sin(t) = \sin(t)
 \end{align*}
 Setting $y(t)=\alpha \cos(t) + \beta \sin(t)$, we can input the initial
 conditions to get
-\begin{align*}
-y(0) &=& \alpha\cos(0) + \beta\sin(0) = \alpha =1,
-\\
-y'(0) &=& -\alpha\sin(0) + \beta\cos(0) =\beta =0.
-\end{align*}
-The solution to the IVP is then $y(t) = \cos(t)$. \qed
+\begin{dmath*}[compact]
+  y(0) = \alpha\cos(0) + \beta\sin(0) = \alpha =1, \qquad
+  y'(0) = -\alpha\sin(0) + \beta\cos(0) =\beta =0.
+\end{dmath*}
+The solution to the IVP is then $y(t) = \cos(t)$. \qed 
 
 \section{Dealing with repeated roots}
 In the above section, we were lucky, since we had two independent roots.
@@ -3966,9 +3964,10 @@ that}.
 
 The idea behind this method is trying to find the particular solution $y_p$,
 which has the property
-\begin{align}\label{yp}
-a y_p'' + b y_p' + cy_p =f(t),
-\end{align}
+\begin{dmath}
+  \label{yp}
+  a y_p'' + b y_p' + cy_p =f(t),
+\end{dmath}
 though it need not match the initial conditions. For instance, if
 $f(t)=\sin(t)$, guessing that $y_p = A \sin(t) + B \cos(t)$ would probably do
 the trick. We can just substitute $y_p = A \sin(t) + B \cos(t)$ into equation
@@ -4002,17 +4001,18 @@ $y_p = t^2 \(C_2 t^2 + C_1 t + C_0 \)e^t$.
 
 Once you have determined $y_p$, combine it with the homogeneous solutions
 to give the general solution
-\begin{equation}
-\boxed{y(t) = \alpha y_1(t) + \beta y_2(t) + y_p(t) }
-\end{equation}
+\begin{dmath}
+  \boxed{y(t) = \alpha y_1(t) + \beta y_2(t) + y_p(t) }
+\end{dmath}
 to match the initial conditions.
 \\
 
 \noindent \emph{Example}:
 Solve the IVP
-\begin{align}\label{undetceg}
-y'' -3y' +2 y = t
-\end{align}
+\begin{dmath}
+  \label{undetceg}
+  y'' -3y' +2 y = t
+\end{dmath}
 with $y(0) = 3/4$ and $y'(0) = 3/2$.\\
 \noindent \emph{Solution}:
 This has characteristic equation
@@ -4047,13 +4047,11 @@ so $\alpha=-1$ and $\beta =1$. The solution is therefore
 y(t) = -e^t +e^{2t}  + \frac{t}{2} +\frac{3}{4}.
 \end{align*}
 Let's check this solution. We have
-\begin{align*}
-y(t) &=& -e^t +e^{2t}  + \frac{t}{2} +\frac{3}{4}
-\\
-y'(t) &=& -e^t +2e^{2t}  + \frac{1}{2}
-\\
-y''(t) &=& -e^t +4 e^{2t}.
-\end{align*}
+\begin{eqnarray*}
+  y(t) &=& -e^t +e^{2t}  + \frac{t}{2} +\frac{3}{4} \\
+  y'(t) &=& -e^t +2e^{2t}  + \frac{1}{2}\\
+  y''(t) &=& -e^t +4 e^{2t}.
+\end{eqnarray*}
 Putting these into equation \eqref{undetceg} yields
 \begin{align*}
 &&y'' - 3 y' + 2 y
@@ -4066,21 +4064,22 @@ as required. \qed
 
 \section{Superposition Principle}
 Suppose that we know the solution $y_{1,p}$ to
-\begin{equation}
+\begin{dmath}
   ay'' + by' + cy = f(t)
-\end{equation}
+\end{dmath}
 and the solution $y_{2,p}$ to
-\begin{equation}
+\begin{dmath}
   ay'' + by' + cy = g(t).
-\end{equation}
+\end{dmath}
 We can use these to determine the solution to the more difficult problem
-\begin{align}\label{super}
+\begin{dmath}
+  \label{super}
   ay'' + by' +cy = A f(t) + B g(t)
-\end{align}
+\end{dmath}
 by using the fact that the differential operator
-\begin{equation}
-L = a \ddtwo{}{t}  + b \dd{}{t} + c
-\end{equation}
+\begin{dmath}
+  L = a \ddtwo{}{t}  + b \dd{}{t} + c
+\end{dmath}
 is linear. That is, for constants $\alpha$ and $\beta$
 \begin{align}
   L\(\alpha y_{1,p} + \beta y_{2,p} \)
@@ -4096,17 +4095,17 @@ is linear. That is, for constants $\alpha$ and $\beta$
 \end{align}
 just like ``linearity'' is defined in linear algebra. Then since
 $L\(y_{1,p}\)= f(t)$ and $L\(y_{2,p}\) = g(t)$,
-\begin{equation}
+\begin{dmath}
   L\(A y_{1,p} + B y_{2,p} \) = A f(t) + B g(t),
-\end{equation}
+\end{dmath}
 which gives us the particular solution for equation \eqref{super} without
 having to do a lot of extra work.
 \\
 
 \noindent\emph{Example}: Find the general solution to
-\begin{equation}
+\begin{dmath}
   y'' -3 y' -4y = t + 10 e^{-t}.
-\end{equation}
+\end{dmath}
 \noindent\emph{Solution}:
 The characteristic equation for the homogeneous part is
 $0 = r^2 -3r -4 = (r+1)(r-4)$ which gives $r_1=-1$ and $r_2=4$. The solution
@@ -4121,16 +4120,16 @@ this problem up into two smaller problems:
   Notice that $t$ is not a multiple of $y_1$ or $y_2$, so, looking at the
   table, we use $y_{1,p}=at + b$. Plugging this into equation
   \eqref{supereg1}, we get
-  \begin{equation}
-  - 3\(a\) -4\(at + b\) = t
-  \end{equation}
+  \begin{dmath}
+    - 3\(a\) -4\(at + b\) = t
+  \end{dmath}
   Grouping the terms that have a factor of $t$, we get $-4a t =t$ $\implies$
   $a =-1/4$.
   Similarly, the constant terms give us $ -3a -4b =0$,
   which, with $a=-1/4$, gives $b=3/16$. Thus
-  \begin{equation}
-  y_{1,p}= \frac{-t}{4} + \frac{3}{16}.
-  \end{equation}
+  \begin{dmath}
+    y_{1,p}= \frac{-t}{4} + \frac{3}{16}.
+  \end{dmath}
 
 
 \item
@@ -4141,32 +4140,32 @@ this problem up into two smaller problems:
   of the homogeneous solution, and on the right-hand side. Thus, we need
   to choose $y_{2,p} = ct e^{-t}$. Plugging this into equation
   \eqref{supereg2}, we get
-  \begin{equation}
-  \(ct  -2c \)e^{-t} -3 \(-ct +c \)e^{-t} -4 ct  e^{-t} =e^{-t}.
-  \end{equation}
+  \begin{dmath}
+    \(ct  -2c \)e^{-t} -3 \(-ct +c \)e^{-t} -4 ct  e^{-t} =e^{-t}.
+  \end{dmath}
   Dividing by $e^{-t}$ and gathering powers of $t$, we get the following
   system:
-  \begin{equation}
-  ct +3ct -4ct =0 \quad \implies \quad 0 =0 \\
-  -2c -3c = 1 \quad \implies \quad c = -\frac{1}{5}
-  \end{equation}
+  \begin{dmath}
+    ct +3ct -4ct =0 \quad \implies \quad 0 =0 \\
+    -2c -3c = 1 \quad \implies \quad c = -\frac{1}{5}
+  \end{dmath}
   Notice that the first equation didn't tell us anything, but the second
   equation gave us everything that we needed to solve the system. That is
-  \begin{equation}
-  y_{2,p} = -\frac{te^{-t}}{5}.
-  \end{equation}
+  \begin{dmath}
+    y_{2,p} = -\frac{te^{-t}}{5}.
+  \end{dmath}
 \end{enumerate}
 We combine these two solutions to give us the particular solution for the
 problem: we want $L(y_p) = t+10e^{-t}$. We found that $y_{1,p}$ gives us $t$,
 and $y_{2,p}$ gives us $e^{-t}$, so we choose
-\begin{equation}
+\begin{dmath}
   y_p = y_{1,p} + 10 y_{2,p} = \frac{-t}{4} + \frac{3}{16} -2 t e^{-t}.
-\end{equation}
+\end{dmath}
 The general solution is then
-\begin{equation}
-y = \alpha y_1 + \beta y_2 + y_p
-= \alpha e^{-t} + \beta e^{4t} -2 t e^{-t} -\frac{t}{4} + \frac{3}{16}. \qed
-\end{equation}
+\begin{dmath}
+  y = \alpha y_1 + \beta y_2 + y_p
+  = \alpha e^{-t} + \beta e^{4t} -2 t e^{-t} -\frac{t}{4} + \frac{3}{16}. \qed
+\end{dmath}
 
 
 \section{Problems}
@@ -4220,9 +4219,9 @@ The technique is actually an application of Cramer's rule from linear algebra,
 and can be generalized to linear differential equations of any order.
 
 Given a differential equation
-\begin{equation}
-y'' + by' +cy = f(t)
-\end{equation}
+\begin{dmath}
+  y'' + by' +cy = f(t)
+\end{dmath}
 with homogeneous solutions $\{y_1(t), y_2(t)\}$, we are going to look for
 a particular solution of the form $y_p=u_1(t) y_1(t) + u_2(t) y_2(t)$. This
 means that $y_p' = \(u_1' y_1 + u_2' y_2\) + \(u_1 y_1' + u_2 y_2'\)$, which
@@ -4232,10 +4231,10 @@ because it reduces the order of the system for $u_1$ and $u_2$. The addition
 of equation~\ref{voprandom} gives us two equations to solve for two unknowns.
 The authors still find this trick a little unmotivated, but rest assured that
 it does work.}
-\begin{equation}
-\label{voprandom}
-u_1'y_1 +u_2'y_2 =0.
-\end{equation}
+\begin{dmath}
+  \label{voprandom}
+  u_1'y_1 +u_2'y_2 =0.
+\end{dmath}
 Substituting this into the original differential equation produces the linear
 system
 \begin{align*}
@@ -4244,7 +4243,7 @@ u_1'y_1 +u_2'y_2 &=0
 u_1'y_1' +u_2'y_2' &=f.
 \end{align*}
 Using Cramer's rule to solve the linear system, the solution is
-\begin{equation}
+\begin{dmath}
 %y_p
 %&=& y_1 \int
 %\(
@@ -4264,55 +4263,55 @@ Using Cramer's rule to solve the linear system, the solution is
 %\, dt
 %\\ \nonumber
 %y_p&=& y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt
-\boxed{
-y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt
-}
-\end{equation}
+  \boxed{
+    y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt
+  }
+\end{dmath}
 where
-\begin{equation}
-w=
-\left| \begin{array}{cc}
-y_1 & y_2  \\
-y_1' & y_2' \end{array} \right|
-\end{equation}
+\begin{dmath}
+  w=
+  \left| \begin{array}{cc}
+    y_1 & y_2  \\
+    y_1' & y_2' \end{array} \right|
+\end{dmath}
 is known as the Wronskian. The general solution is, as always,
-\begin{equation}
-y = \alpha y_1 + \beta y_2 + y_p.
-\end{equation}
-\\
+\begin{dmath}
+  y = \alpha y_1 + \beta y_2 + y_p.
+\end{dmath}
+%\\
 
 \noindent\emph{Example}: Give the general solution to
-\begin{align}\label{varpareg}
-y'' -2 y' + 2y = 2 e^t
-\end{align}
+\begin{dmath}
+  \label{varpareg}
+  y'' -2 y' + 2y = 2 e^t
+\end{dmath}
 using variation of parameters.\\
 \noindent\emph{Solution}: The characteristic equation is
-\begin{equation}
-r^2 -2r +2 =0
-\end{equation}
+\begin{dmath}
+  r^2 -2r +2 =0
+\end{dmath}
 which has roots $r=1\pm i$. Thus, $y_1=e^t\cos t$, and $y_2=e^t \sin t$.
 The Wronskian is
-\begin{equation}
-w=
-\left| \begin{array}{cc}
-y_1 & y_2  \\
-y_1' & y_2' \end{array} \right|
-=e^{2t} \[\cos t \(\cos t + \sin t\) - \sin t \(\cos t - \sin t \) \]
-=e^{2t}.
-\end{equation}
+\begin{dmath}
+  w=
+  \left| \begin{array}{cc}
+    y_1 & y_2  \\
+    y_1' & y_2' \end{array} \right|
+  =e^{2t} \[\cos t \(\cos t + \sin t\) - \sin t \(\cos t - \sin t \) \]
+  =e^{2t}.
+\end{dmath}
 The particular solution is
-\begin{align}
-y_p &=& e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
-+ e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt \,
-\\\nonumber
-&=& 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
-\end{align}
-\\
+\begin{dmath*}
+  y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt 
+  + e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt 
+%  \\\nonumber
+  = 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
+\end{dmath*}
 \noindent\emph{Check}: When we put $y_p$ into equation \eqref{varpareg}, we
 get
-\begin{equation}
-2e^t  -4 e^t + 4 e^t = 2 e^t,
-\end{equation}
+\begin{dmath}
+  2e^t  -4 e^t + 4 e^t = 2 e^t,
+\end{dmath}
 so we got the correct $y_p$. \qed
 
 
@@ -4373,36 +4372,36 @@ our choice of transformation, we can solve the problem.
 
 The Laplace transform of a function $f(t)$, which we denote by either
 $\Laplace(f(t))$ or $F(s)$, is defined as
-\begin{equation}
-\boxed{\Laplace(f(t)) =\int_0^\infty e^{-st} f(t) \, dt}.
-\end{equation}
+\begin{dmath}
+  \boxed{\Laplace(f(t)) =\int_0^\infty e^{-st} f(t) \, dt}.
+\end{dmath}
 This is itself a function, though we have changed the independent variable
 from $t$ to $s$. So long as $f$ is sufficiently smooth and doesn't grow too
 fast as $t$ goes to infinity, we can always find its Laplace transform.\\
 
 \noindent\emph{Example}: Find the Laplace transform of
-\begin{equation}
-f(t) = t
-\end{equation}
+\begin{dmath}
+  f(t) = t
+\end{dmath}
 \noindent\emph{Solution}: The Laplace transform of $t$ is given by
-\begin{equation}
-F(s) = \int_0^\infty t e^{-st} \, dt
-\end{equation}
+\begin{dmath}
+  F(s) = \int_0^\infty t e^{-st} \, dt
+\end{dmath}
 Using integration by parts with $u=t$ and $dv=e^{-st}$,
-\begin{equation}
-F(s) =\left. t \frac{e^{-st}}{-s} \right|_0^\infty
-- \int_0^\infty \frac{e^{-st}}{-s}\, dt
-= \frac{1}{s^2},
-\end{equation}
+\begin{dmath}
+  F(s) =\left. t \frac{e^{-st}}{-s} \right|_0^\infty
+  - \int_0^\infty \frac{e^{-st}}{-s}\, dt
+  = \frac{1}{s^2},
+\end{dmath}
 that is, $\mathcal{L}(t)= 1/s^2$.\\
 
 Well, that was an excellent example, and we all had a lot of fun. The question
 remains, however, ``why is this useful?'' Consider the Laplace transform of
 the first derivative of $y(t)$:
-\begin{align}
-\Laplace(y') = \int_0^\infty y'(t) e^{-st} \, dt
-= \left. y(t) e^{-st} \right|_0^\infty - \int_0^\infty y \(-s e^{-st}\) \, dt,
-\end{align}
+\begin{dmath}
+  \Laplace(y') = \int_0^\infty y'(t) e^{-st} \, dt \hiderel
+  = \left. y(t) e^{-st} \right|_0^\infty - \int_0^\infty y \(-s e^{-st}\) \, dt,
+\end{dmath}
 so
 \begin{align}
 \boxed{\Laplace(y')= s \mathcal{L}(y) - y(0)}.
