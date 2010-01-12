@@ -3,7 +3,8 @@
  */
 
 import flowchart;
-size(7inch, 0);
+defaultpen(fontsize(8pt));
+size(5.5inch, 0);
 
 real dx = 2.0;
 real dy = 1.0;
@@ -14,7 +15,7 @@ block linear =        roundrectangle(pack(Label("Linear DEs"), "", "$\frac{dy}{d
 block linear_coeffs = roundrectangle(pack(Label("DEs with Linear Coefficients"), "",
 				   "$(a_1 x +b_1 y + c_1 )dx + (a_2 x + b_2 y + c_2 ) dy =0$"), (0, dy));
 block homogeneous =   roundrectangle(pack(Label("Homogeneous"), "", "$\frac{dy}{dx} = f\left(\frac{y}{x} \right)$"), (0,0));
-block Gaxby =         roundrectangle("$y'=G(ax+by)$", (dx, 0));
+block Gaxby =         roundrectangle("$\frac{dy}{dx}=G(ax+by)$", (dx, 0));
 block separable =     roundrectangle(pack(Label("Separable DEs"), "", "$h(y)\frac{dy}{dx} = g(x)$"), (0, -dy));
 
 // draw the blocks
@@ -32,8 +33,10 @@ add(new void(picture pic, transform t) {
     bernoulli--Label("$z=y^{1-n}$",align=E)--Arrow--linear;
     linear--Down--Right--Label("$\mu = \exp \left(\int P(x) \,dx\right)$",align=S)--Arrow--separable;
 
-    linear_coeffs--Label(minipage("$x=u+h, y=v+k$,\\
-                              $a_1 h + b_1 k + c_1 =0$\\ $a_2 h + b_2 k + c_2 =0 $"),align=E)--Arrow--homogeneous;
+    linear_coeffs--Label(minipage("{\centering% \
+                                    $x=u+h,\; y=v+k$\\ \
+                                    $a_1 h + b_1 k + c_1 =0$\\ \
+                                    $a_2 h + b_2 k + c_2 =0$\\}"),align=E)--Arrow--homogeneous;
     homogeneous--Label("$z=\frac{y}{x}$",align=E)--Arrow--separable;
     
     Gaxby--Down--Left--Label("$z=ax+by$",align=N)--Arrow--separable;
