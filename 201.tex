@@ -449,7 +449,77 @@ which is
   \end{equation*}
 \end{solution}
 
-% XXX: add a challenging example
+\begin{example}
+  A radioactive isotope with a half-life of $\lambda$ seconds is
+  produced in a nuclear reactor at a rate of $a$ grams per second.
+  That is, the isotope disintegrates at a rate proportional to the
+  amount of the isotope present with a half-life of $\lambda$ seconds,
+  and is created at a constant rate $a$.  Therefore, the DE that
+  governs the amount $u(t)$ of the isotope is
+  \begin{equation}
+    \label{eq:ex:linear_isotope}
+    \dd{u}{t} = - k u + a
+  \end{equation}
+  where $k = \ln 2 / \lambda$.  How many grams of the isotope are
+  present in the reactor after a very long time?
+\end{example}
+
+\begin{solution}
+  The governing equation \eqref{eq:ex:linear_isotope} is linear since
+  is can be re-written in linear form as
+  \begin{equation*}
+    \dd{u}{t} + k u = a.
+  \end{equation*}
+
+  \solstep{Find the integrating factor}
+
+  First, we find the integrating factor, which is
+  \begin{equation*}
+    \mu(t) = \exp\left[ \int k \;dt \right] = e^{k t}.
+  \end{equation*}
+
+  \solstep{Multiply by $\mu(t)$ and re-write}
+
+  Next, we multiply by $\mu(t)$ and re-write to obtain
+  \begin{equation*}
+    \dd{}{t} \( u(t) e^{k t} \) = a e^{k t}.
+  \end{equation*}
+
+  \solstep{Integrate}
+
+  Next, we integrate both sides to obtain
+  \begin{gather*}
+    u(t) e^{k t} = \frac{a}{k} e^{k t} + C.
+  \end{gather*}
+
+  \solstep{Isolate}
+
+  Finally, we isolate $u$ to obtain the general solution
+  \begin{equation*}
+    u(t) = \frac{a}{k} + C e^{-k t}.
+  \end{equation*}
+
+  \solstep{Interpret}
+
+  Taking the limit as $t \rightarrow \infty$ we obtain
+  \begin{equation*}
+    \lim_{t \rightarrow \infty} u(t)
+      = \lim_{t \rightarrow \infty} \[ \frac{a}{k} + C e^{-k t} \]
+      = \frac{a}{k} = \frac{a \lambda}{\ln 2}.
+  \end{equation*}
+  Therefore, after a very long time $a \lambda / \ln 2$ grams of the
+  isotope remain.
+\end{solution}
+
+As an aside, another way of solving the example above can be found by
+considering the following: after a very long time, the rate of
+production and decay reach an equilibrium so that the amount of the
+isotope remaining doesn't change with time.  Therefore
+\begin{equation*}
+  \dd{u}{t} = 0 \quad \text{ and hence } \quad k u = a
+\end{equation*}
+which gives the desired result.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
