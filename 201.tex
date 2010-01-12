@@ -5,7 +5,6 @@
 %%
 \documentclass{book}
 \usepackage{ualab}
-\usepackage{breqn}
 
 %% see solutions?  (XXX: this might not be necessary, given the new format)
 %\showsolutionstrue  % yes
@@ -19,8 +18,8 @@
 \pagestyle{empty}
 \pagenumbering{roman}
 
-%\mktitle{Math 201}{Differential Equations for Engineers}{an
-%  \emph{unofficial} lab manual}
+\mktitle{Math 201}{Differential Equations for Engineers}{an
+  \emph{unofficial} lab manual}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% disclaimer and copyright page
@@ -105,8 +104,19 @@ what's going on!
 \newpage
 \chapter{First order DEs}
 
-% XXX: intro and quick note about how first order DEs may fit into
-% more than one category
+\emph{First order} differential equations are equations in which the
+order of highest derivative occuring in the equation is one.  We will
+cover three basic types of first order differential equations
+(separable, linear, and exact) and several other types of first order
+differential equations that be transformed into one of the three basic
+types.
+
+\begin{heads}
+  Any given first order differential equation may fit into one or more
+  different categories (types).  However, regardless of which
+  technique you choose to use in order to find a solution, the
+  solution will be the same.
+\end{heads}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,7 +199,7 @@ any conditions if you prefer.
   \solstep{Isolate}
 
   Finally, we isolate $y$ to obtain
-  \begin{dmath} 
+  \begin{dmath}
     \label{eq:ex:separable:solution}
     y(x) = \sqrt{3 - 2\cos(x)}.
   \end{dmath}
@@ -576,11 +586,11 @@ subsections.
 
 To solve a differential equation using a substitution, we
 \begin{enumerate*}
-\item Determine the form of the DE.
-\item Substitute.
-\item Compute $\dd{y}{x}$ in terms of $\dd{v}{x}$.
-\item Re-write the DE in terms of $v$ and $x$ (no $y$'s should remain).
-\item Solve the resulting DE.
+\item determine the form of the DE,
+\item substitute,
+\item compute $\dd{y}{x}$ in terms of $\dd{v}{x}$,
+\item re-write the DE in terms of $v$ and $x$ (no $y$'s should remain), and finally
+\item solve the resulting DE.
 \end{enumerate*}
 
 \newpage
@@ -658,13 +668,19 @@ $v = ax + by$
 
 
 \newpage
-\subsection{Flow-Chart for solving first-order DEs}
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics{201/firstorderchart}
-%    \caption{Graph of the step function $u_c(t)$.}
-    \label{step}
-  \end{center}
+\subsection{Flow chart for solving first-order DEs}
+
+As we have seen, it is sometimes necessary to use several
+transformations in order to solve a given DE.  Each type of first
+order DE that we have seen so far is ultimately separable or exact, as
+outlined in the flow chart below.
+
+\vspace{0.5in}
+\begin{figure}[h]
+  \centering
+  \includegraphics{201/firstorderchart}
+  \caption{Flow chart for solving first-order DEs}
+  \label{fig:first_order_flow_shar}
 \end{figure}
 
 
@@ -3836,7 +3852,7 @@ conditions to get
   y(0) = \alpha\cos(0) + \beta\sin(0) = \alpha =1, \qquad
   y'(0) = -\alpha\sin(0) + \beta\cos(0) =\beta =0.
 \end{dmath*}
-The solution to the IVP is then $y(t) = \cos(t)$. \qed 
+The solution to the IVP is then $y(t) = \cos(t)$. \qed
 
 \section{Dealing with repeated roots}
 In the above section, we were lucky, since we had two independent roots.
@@ -4312,8 +4328,8 @@ The Wronskian is
 \end{dmath}
 The particular solution is
 \begin{dmath*}
-  y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt 
-  + e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt 
+  y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt
+  + e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt
 %  \\\nonumber
   = 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
 \end{dmath*}
