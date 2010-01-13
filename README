@@ -21,11 +21,14 @@ Use "\hiderel" to prevent breaking at specific points.  If you want to prevent
 the equation from breaking in general, use 
   \begin{dmath}[compact] ... \end{dmath} 
 or
-  \begin{dmath*}[compact] ... \end{dmath*}
+  \begin{dmath*}[compact] ... \end{dmath*},
+and you can then use "\\" (the normal line break) to indicate to breqn where
+you would like it to break equations.
+
 For writing multiple equations with, eg, the equals sign aligned vertically
 for both a LHS and a RHS, dmath doesn't seem to work, and align puts things
 on opposite sides of the page.  Use 
-  \begin{eqnarray} ... \end{eqnarray}
+  \begin{align} ... \end{align}
 for now, I guess?
 
 XXX or FIXME: add descriptions of easyexample, example, solution, solstep,
