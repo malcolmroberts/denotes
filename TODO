@@ -7,3 +7,12 @@ migrate things to dmath and align, away from eqnarray.
 2010-01-13
 add flow charts to the end of other chapters besides just the first? Do people
 think that this would work?
+
+2010-01-14 
+A note from Eric Woolgar re: first-order flow chart:
+  Nice. One very small point: The chart is slightly more accurate if you
+  also write the condition $a_1 b_2 \neq a_2 b_1$ in the box for the
+  equations with linear coefficients, as the $a_1 b_2 = a_2 b_1$
+  sub-case actually belongs the the $y'=G(ax+by)$ form.  
+I'm not sure if the manual mentions this at all. Add to chart? Should
+be in the text, at any rate
