@@ -16,3 +16,7 @@ A note from Eric Woolgar re: first-order flow chart:
   sub-case actually belongs the the $y'=G(ax+by)$ form.  
 I'm not sure if the manual mentions this at all. Add to chart? Should
 be in the text, at any rate
+
+2010-01-20 Variation of parameters can be used to solve some of the
+first-order problems. Might be a nice exercise for the VoP
+section. (e.g.: identify which ones work. Give a general solution.)
