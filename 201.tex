@@ -7,7 +7,7 @@
 \usepackage{ualab}
 
 %% see solutions?  (XXX: this might not be necessary, given the new format)
-\showsolutionstrue  % yes
+%\showsolutionstrue  % yes
 %\showsolutionsfalse % no
 
 \begin{document}
@@ -1337,7 +1337,7 @@ y = \alpha y_1 + \beta y_2 + y_p
 \item
   Solve the IVP
   \begin{align*}
-  y'' + y = \cos(t) + t
+    y'' + y = \cos(t) + t
   \end{align*}
   with initial conditions $y(0)=0$ and $y'(0)=1$.\\
   Hint: first solve $y'' + y = \cos(t)$, and then $y'' + y = t$. Combine
@@ -1350,8 +1350,22 @@ y = \alpha y_1 + \beta y_2 + y_p
   Use the method of undetermined coefficients to find a particular solution of
   the differential equation
   \begin{align*}
-  x''(t) - 3x'(t) = 27t^2e^{3t}
+    x''(t) - 3x'(t) = 27t^2e^{3t}
   \end{align*}
+
+\item
+  Solve the following differential equation:
+  \begin{align*}
+    y''(t) + y'(t) = 1 - 6 e^{2t}.
+  \end{align*}
+  \hidesolution{
+    The characteristic equation is $r^2+r=0$, so we get
+    $y_1=e^{-t}$, $y_2=1$. Using superposition, find $y_{p,1}$ to get
+    $L(y_{p,1})=1$, which would normally be $y_{p,1}=A$, but that's already
+    a solution, so we need $y_{p,1}=At$, and we easily find $A=1$. For the 
+    other part, we set $y_{p,1}=Ae^{2t}$, and get that $A=-1$. The general
+    solution is $y=C_1 + C_2 e^{-t} + t - e^{2t}$.
+  }
 
 \end{enumerate}
 
