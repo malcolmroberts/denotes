@@ -1615,6 +1615,18 @@ Alternatively, we can solve this using the table of Laplace transforms:
 \end{dmath*}
 Of course, you should know how to use both techniques.
 
+\noindent\emph{Example}: Compute the Laplace transform of the $y$, given
+$y' =t$ and $y(0)=2$.
+~\\
+\emph{Solution}:  Taking the Laplace transform of both sides of the
+differential equation, we have $\Laplace[y'] = \Laplace[t]$
+which we have computed already to be just
+\begin{dmath*}
+  s Y - y(0) = \frac{1}{s^2}.
+\end{dmath*}
+Since $y(0)=2$, this become $s Y - y(0) = \frac{1}{s^2}$. Solving for $Y$ 
+yields $\boxed{Y = \frac{1}{s^3} + \frac{2}{s}}$.
+
 
 
 
@@ -1716,6 +1728,24 @@ Of course, you should know how to use both techniques.
 	\end{align*}
 	as required.
 	}
+    \item
+      Suppose that $y' = e^t$, with $y(0)=3$. Find $\mathcal{L}(y)$ in
+      terms of $s$.
+      \hidesolution{
+        Taking the Laplace transform of both sides, we get
+        $$
+        s Y - y(0) =  s Y - 3= 
+        \mathcal{L}(e^t)=\frac{1}{s-1}
+        $$
+        so
+        $$
+        Y = \frac{1}{s(s-1)} + \frac{3}{s} = 
+        \frac{-1}{s} + \frac{1}{s-1} + \frac{3}{s}
+        =\boxed{\frac{2}{s} + \frac{1}{s-1}}.
+        $$
+      }
+
+
 
 \end{enumerate}
 
