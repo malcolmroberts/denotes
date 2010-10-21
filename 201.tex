@@ -556,9 +556,9 @@ produces, his temperature is determined by Newton's law of cooling.
 Determine Joe's temperature $T$ at time $t$ by solving Newton's law of cooling,
 both as a separation problem and a linear problem
 \bee
-\dd{T}{t} = -r\(T - T_\text{env}\),
+\dd{T}{t} = -r\(T - T_{\text{env}}\),
 \quad
-T(0)=37,\, T_\text{env}=-40,\, r=5 \, \(\text{Thinsulate's r-value}\)
+T(0)=37,\, T_{\text{env}}=-40,\, r=5 \, \(\text{Thinsulate's r-value}\)
 \eee
 \hidesolution{TODO: write solution.}
 
@@ -1930,14 +1930,14 @@ because the Laplace transform is linear and then if we rearrange this, we get
 Y = \frac{2}{\sqrt{15}}  \, e^{-5s}
 \frac{\sqrt{\frac{15}{16}}}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}}
 = \frac{2}{\sqrt{15}}  \, e^{-5s} \,
-\Laplace\[e^\frac{-t}{4}\sin\(\frac{\sqrt{15}}{4}t \) \]
+\Laplace\[e^{\frac{-t}{4}}\sin\(\frac{\sqrt{15}}{4}t \) \]
 \eee
 Now we have an exponential term, $e^{-5s}$, times a term that is the Laplace
 transform of $e^{\alpha t}\sin(\beta t)$ with $\alpha=1/4$ and
 $\beta=\sqrt{{15}/{16}}$. So we will use the Laplace
 transform table to see that $Y$ is the Laplace transform of
 \bee
-y=\frac{2}{\sqrt{15}}u_5(t) e^\frac{-(t-5)}{4}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
+y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
 \qed
 \eee
 
