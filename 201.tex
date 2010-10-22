@@ -1479,101 +1479,93 @@ Of course, you should know how to use both techniques.
 \section{Problems}
 
 \begin{enumerate}
-  \item
-    Find the Laplace transform of $f(t) = t^n$ where $n \in \mathbb{N}$, $n>0$.
-    \hidesolution{
-      \bee
-      \mathcal{L}(t^n)
-      &=& \int_0^\infty t^n e^{-st}\,dt
-      \\
-      &=& \left.\frac{t^ne^{-st}}{-s}\right|_0^\infty
-      -n\int_0^\infty t^{n-1}\frac{e^{-st}}{-s}\,dt
-      \\
-      &=&\frac{n}{s}\int_0^\infty t^{n-1}e^{-st}\, dt
-      \\
-      &=&\frac{n}{s}\mathcal{L}(t^{n-1})
-      \eee
-      Now, from the example above, $\mathcal{L}(t)=1/s^2$. Then,
-      \bee
-      \mathcal{L}(t^2)= \frac{2}{s}\frac{1}{s^2} = \frac{2}{s^3},
-      \eee
-      and
-      \bee
-      \mathcal{L}(t^n) = \frac{n (n-1) \dots 2}{s^{n-1}}\frac{1}{s^2}
-      =\frac{n!}{s^{n+1}}.
-      \eee
-    }
+\item
+  Find the Laplace transform of $f(t) = t^n$ where $n \in \mathbb{N}$, $n>0$.
+  \hidesolution{
+    \bee
+    \mathcal{L}(t^n)
+    &=& \int_0^\infty t^n e^{-st}\,dt
+    \\
+    &=& \left.\frac{t^ne^{-st}}{-s}\right|_0^\infty
+    -n\int_0^\infty t^{n-1}\frac{e^{-st}}{-s}\,dt
+    \\
+    &=&\frac{n}{s}\int_0^\infty t^{n-1}e^{-st}\, dt
+    \\
+    &=&\frac{n}{s}\mathcal{L}(t^{n-1})
+    \eee
+    Now, from the example above, $\mathcal{L}(t)=1/s^2$. Then,
+    \bee
+    \mathcal{L}(t^2)= \frac{2}{s}\frac{1}{s^2} = \frac{2}{s^3},
+    \eee
+    and
+    \bee
+    \mathcal{L}(t^n) = \frac{n (n-1) \dots 2}{s^{n-1}}\frac{1}{s^2}
+    =\frac{n!}{s^{n+1}}.
+    \eee
+  }
 
-  \item
-    Find the $\mathcal{L}(e^{\alpha t}\cos t)$ and
-    $\mathcal{L}(e^{\alpha t}\sin t)$ by finding the Laplace transform of
-    $e^{\(\alpha + i\beta\)t}$.
-    \hidesolution{
-      \bee
-      \mathcal{L}(e^{(\alpha + i\beta)t})
-      &=& \int_0^\infty e^{(\alpha -s + i\beta)t}
-      \\
-      &=& \left.
-      \frac{e^{(\alpha -s + i\beta)t}}{\alpha -s + i\beta}\right|_0^\infty
-      \\
-      &=& \frac{-1}{\alpha -s + i\beta}
-      \frac{\alpha -s - i\beta}{\alpha -s - i\beta}
-      \\
-      &=&\frac{s-\alpha}{(\alpha -s)^2 + \beta^2}
-      +i\frac{\beta}{(\alpha -s)^2 + \beta^2}
-      \eee
-      Thus, since
-      $e^{(\alpha + i\beta)t}=e^{\alpha t}\(\cos \beta t+ \sin\beta t\)$, and
-      the Laplace transform is linear,
-      \bee
-      \mathcal{L}(e^{\alpha t}\cos \beta t)
-      &=&\frac{\alpha -s}{(s-\alpha)^2 + \beta^2},
-      \\
-      \mathcal{L}(e^{\alpha t}\cos \beta t)
-      &=&\frac{\beta}{(s-\alpha)^2 + \beta^2}.
-      \eee
-    }
-
-    \item
-      Prove that the Laplace transform is linear.
-
-    \item
-      Prove that
-      \bee
-      \mathcal{L}(y^{(n)})
-      = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0).
-      \eee
-      \hidesolution{
-	Using integration by parts, with $u=e^{-st}$ and $dv=y^{(n)}dt$,
-	\bee
-	\mathcal{L}(y^{(n)}
-	&=& \int_0^\infty y^{(n)}e^{-st}\,dt
-	\\
-	&=& \left.y^{(n-1)}(t)e^{-st}\right|_0^\infty
-	- \int_0^\infty -s e^{-st} y^{(n-1)} \, dt
-	\\
-	&=& s\mathcal{L}(y^{(n-1)}) - y^{(n-1)}(0).
-	\eee
-	This gives us a method to reduce the order of the equation. That is,
-	\bee
-	\mathcal{L}(y^{(n)}
-	&=&s\mathcal{L}(y^{(n-1)}) - y^{(n-1)}(0)
-	\\
-	&=&s\(s\mathcal{L}(y^{(n-2)}) -y^{(n-2)}\) - y^{(n-1)}(0)
-	\\
-	&=&s\(s\(s\mathcal{L}(y^{(n-3)}) - y^{(n-3)}\) -y^{(n-2)}\)
-	- y^{(n-1)}(0),
-	\eee
-	and so on. Eventually this must terminate when we get $y^{(n-n)}=y$ as
-	the argument of the Laplace transform. Noting that $y^{(n-i)}(0)$ term
-	is multiplied by $-s^{i-1}$, and that the remaining Laplace transform
-	is multiplied by $s^n$, we have that
-	\bee
-	\mathcal{L}(y^{(n)})
-	= s^n\mathcal{L}(y) -s^{n-1}y(0) - \dots -y^{(n-1)}(0),
-	\eee
-	as required.
-	}
+\item
+  Find the $\mathcal{L}(e^{\alpha t}\cos t)$ and
+  $\mathcal{L}(e^{\alpha t}\sin t)$ by finding the Laplace transform of
+  $e^{\(\alpha + i\beta\)t}$.
+  \hidesolution{
+    \begin{dmath}
+    \mathcal{L}(e^{(\alpha + i\beta)t})
+    = \int_0^\infty e^{(\alpha -s + i\beta)t}
+    = \left.
+    \frac{e^{(\alpha -s + i\beta)t}}{\alpha -s + i\beta}\right|_0^\infty
+    = \frac{-1}{\alpha -s + i\beta}
+    \frac{\alpha -s - i\beta}{\alpha -s - i\beta}
+    =\frac{s-\alpha}{(\alpha -s)^2 + \beta^2}
+    +i\frac{\beta}{(\alpha -s)^2 + \beta^2}
+    \end{dmath}
+    Thus, since
+    $e^{(\alpha + i\beta)t}=e^{\alpha t}\(\cos \beta t+ \sin\beta t\)$, and
+    the Laplace transform is linear,
+%    \bee
+%    \mathcal{L}(e^{\alpha t}\cos \beta t)
+%    &=&\frac{\alpha -s}{(s-\alpha)^2 + \beta^2},
+%    \\
+%    \mathcal{L}(e^{\alpha t}\cos \beta t)
+%    &=&\frac{\beta}{(s-\alpha)^2 + \beta^2}.
+%    \eee
+  }
+  
+\item
+  Prove that the Laplace transform is linear.
+  
+\item
+  Prove that
+  \bee
+  \mathcal{L}(y^{(n)})
+  = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0).
+  \eee
+  \hidesolution{
+    Using integration by parts, with $u=e^{-st}$ and $dv=y^{(n)}dt$,
+    \begin{dmath*}
+      \Laplace\(y^{(n)}\)
+      = \int_0^\infty y^{(n)}e^{-st}\,dt
+      = \left.y^{(n-1)}(t)e^{-st}\right|_0^\infty
+      - \int_0^\infty -s e^{-st} y^{(n-1)} \, dt
+      = s\mathcal{L}(y^{(n-1)}) - y^{(n-1)}(0).
+    \end{dmath*}
+    This gives us a method to reduce the order of the equation. That is,
+    \begin{dmath*}
+      \Laplace(y^{(n)}
+      = s\Laplace(y^{(n-1)}) - y^{(n-1)}(0)
+      =s\(s\Laplace(y^{(n-2)}) -y^{(n-2)}\) - y^{(n-1)}(0)
+      =s(s(s\Laplace(y^{(n-3)}) - y^{(n-3)}) -y^{(n-2)})
+      - y^{(n-1)}(0),
+    \end{dmath*}
+    and so on. Eventually this must terminate when we get $y^{(n-n)}=y$ as
+    the argument of the Laplace transform. Noting that $y^{(n-i)}(0)$ term
+    is multiplied by $-s^{i-1}$, and that the remaining Laplace transform
+    is multiplied by $s^n$, we have that
+    \begin{dmath*}[compact]
+      \Laplace(y^{(n)})= s^n\Laplace(y) -s^{n-1}y(0) - \dots -y^{(n-1)}(0),
+    \end{dmath*}
+    as required.
+  }
 
 \end{enumerate}
 
@@ -1949,7 +1941,7 @@ Laplace transforms.
 To see that the Laplace transform of $\delta(t-5)$ is $e^{-5s}$, consider the
 definition of the Laplace transform:
 \be
-\mathcal{L}(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt.
+\Laplace(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt.
 \ee
 If we let $\tau = t-5$, then this is the same as
 \bee
@@ -2025,7 +2017,7 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
     \eee
     \hidesolution{
       \bee
-      \mathcal{L}(f)
+      \Laplace(f)
       &=& \int_0^c e^t e^{-st} \, dt + \int_c^\infty t^2 e^{-st} \, dt
       \eee
       The first integral is
@@ -2049,7 +2041,7 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
       \eee
       The Laplace transform of $f$ is then the sum, i.e.,
       \bee
-      \mathcal{L}(f) =
+      \Laplace(f) =
       \frac{e^{(1-s)c}-1}{1-s}
       + \frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
       \eee
@@ -2233,60 +2225,62 @@ work. \qed
       takes students about 40 minutes.\\
 
       The Laplace transform gives us
-      \bee
-      sX &=& Z \\
-      sY &=& X \\
-      sZ-1 &=& Y
-      \eee
+      \begin{dmath*}[compact]
+        sX = Z 
+        sY = X 
+        sZ-1 = Y
+      \end{dmath*}
       Solving for $Z$, we have
-      \bee
-      Z &=& \frac{s^2}{s^3-1}
-      = \frac{1}{3}\frac{1}{s-1}
-      + \frac{1}{3} \frac{2s+1}{s^2 + s+ 1}\\
-      &=& \frac{1}{3}\frac{1}{s-1}
-      + \frac{1}{3} \frac{2s+1}{(s+\half)^2+ \frac{3}{4}}
-      = \frac{1}{3}\frac{1}{s-1}
-      + \frac{2}{3} \frac{s+\half}{(s+\half)^2+ \frac{3}{4}}
-      \eee
+      \begin{dmath*}
+        Z = \frac{s^2}{s^3-1}
+        = \frac{1}{3}\frac{1}{s-1}
+        + \frac{1}{3} \frac{2s+1}{s^2 + s+ 1}
+        = \frac{1}{3}\frac{1}{s-1}
+        + \frac{1}{3} \frac{2s+1}{(s+\half)^2+ \frac{3}{4}}
+        = \frac{1}{3}\frac{1}{s-1}
+        + \frac{2}{3} \frac{s+\half}{(s+\half)^2+ \frac{3}{4}}
+      \end{dmath*}
       which has inverse Laplace transformation
-      \bee
-      z = \frac{1}{3}e^t
-      + \frac{2}{3}e^{-\frac{t}{2}} \cos \frac{\sqrt{3}}{2} t.
-      \eee
+      \begin{dmath*}[compact]
+        z = \frac{1}{3}e^t
+        + \frac{2}{3}e^{-\frac{t}{2}} \cos \frac{\sqrt{3}}{2} t.
+      \end{dmath*}
       Similarly, $sX=Z$ implies that
-      \bee
-      X = \frac{s}{s^3 -1}
-      = \frac{1}{3}\frac{1}{s-1} - \frac{1}{3}\frac{s-1}{s^2+s+1}
-      = \frac{1}{3}\frac{1}{s-1}
-      - \frac{1}{3}\frac{s+\half}{(s+\half)^2+\frac{3}{4}}
-      - \frac{1}{3}\frac{-3}{2}\frac{2}{\sqrt{3}}
-      \frac{\sqrt{3}/2}{(s+\half)^2+\frac{3}{4}}
-      \eee
+      \begin{dmath*}
+        X = \frac{s}{s^3 -1}
+        = \frac{1}{3}\frac{1}{s-1} - \frac{1}{3}\frac{s-1}{s^2+s+1}
+        = \frac{1}{3}\frac{1}{s-1}
+        - \frac{1}{3}\frac{s+\half}{(s+\half)^2+\frac{3}{4}}
+        - \frac{1}{3}\frac{-3}{2}\frac{2}{\sqrt{3}}
+        \frac{\sqrt{3}/2}{(s+\half)^2+\frac{3}{4}}
+      \end{dmath*}
       so
-      \bee
-      x = \frac{e^t}{3}
-      -e^\frac{-t}{2}\(
-      \frac{1}{3}\cos \frac{\sqrt{3}}{2}t
-      +\frac{1}{\sqrt{3}}\sin \frac{\sqrt{3}}{2}t
-      \),
-      \eee
+      \begin{dmath*}
+        x = \frac{e^t}{3}
+        -e^{\frac{-t}{2}}\(
+        \frac{1}{3}\cos \frac{\sqrt{3}}{2}t
+        +\frac{1}{\sqrt{3}}\sin \frac{\sqrt{3}}{2}t
+        \),
+      \end{dmath*}
       and $sY=X$ implies that
-      \bee
-      Y = \frac{1}{s^3-1}
-      = \frac{1}{3}\frac{1}{s-1} - \frac{1}{3}\frac{s+2}{s^2+s+1}
-      = \frac{1}{3}\frac{1}{s-1}
-      - \frac{1}{3}\frac{s+\half}{(s+\half)^2+\frac{3}{4}}
-      - \frac{1}{3}\frac{3}{2}\frac{2}{\sqrt{3}}
-      \frac{\sqrt{3}/2}{(s+\half)^2+\frac{3}{4}}
-      \eee
+      \begin{dmath*}
+        Y = \frac{1}{s^3-1}
+        = \frac{1}{3}\frac{1}{s-1} - \frac{1}{3}\frac{s+2}{s^2+s+1}
+        = \frac{1}{3}\frac{1}{s-1}
+        - \frac{1}{3}\frac{s+\half}{(s+\half)^2+\frac{3}{4}}
+        - \frac{1}{3}\frac{3}{2}\frac{2}{\sqrt{3}}
+        \frac{\sqrt{3}/2}{(s+\half)^2+\frac{3}{4}}
+      \end{dmath*}
       so
-      \bee
-      Y = \frac{e^t}{3}
-      +e^\frac{-t}{2}\(
-      \frac{1}{3}\cos \frac{\sqrt{3}}{2}t
-      -\frac{1}{\sqrt{3}}\sin \frac{\sqrt{3}}{2}t
-      \).\qed
-      \eee
+      \begin{dmath*}
+        Y = \frac{e^t}{3}
+        +e^{\frac{-t}{2}}
+        \(
+        \frac{1}{3}\cos \frac{\sqrt{3}}{2}t
+        -\frac{1}{\sqrt{3}}\sin \frac{\sqrt{3}}{2}t
+        \).
+        \qed
+      \end{dmath*}
     }
 
   \item
@@ -2653,35 +2647,35 @@ recursively.\\
     \eee
     \hidesolution{
       The first four terms of $y'$ are $a_1 + 2 a_2 x +3 a_3 x^2 + 4 a_4 x^3$.
-      The first four terms of $y'^2$ are therefore
-      \bee
-      (y') + y \approx a_0+a_1^2 + x\(a_1 +4 a_1 a_2 \)
-      + x^2 \(a_2+ 4a_2^2+6 a_1 a_3 \)
-      +x^3\(a_3 + 8a_1 a_4 +12 a_2 a_3 \)
-      \eee
+      The first four terms of $(y')^2$ are therefore
+      \begin{dmath*}
+        (y') + y \approx a_0+a_1^2 + x\(a_1 +4 a_1 a_2 \)
+        + x^2 \(a_2+ 4a_2^2+6 a_1 a_3 \)
+        +x^3\(a_3 + 8a_1 a_4 +12 a_2 a_3 \)
+      \end{dmath*}
       and equal
-      \bee
-      e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
-      \eee
+      \begin{dmath*}
+        e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
+      \end{dmath*}
       Matching order-by-order, we have
       \bee
       \begin{array}{ll}
 	\O(1): & a_0 + a_1^2 =1 \\
 	\O(x): & a_1(1+ 4 a_2) =1\\
-	\O(x^2): & a_2 + 4a_2^2 + 6 a_1a_3 =\half \\
-	\O(x^3): & a_3 + 8 a_1 a_4 + 12 a_2a_3=\frac{1}{6} \\
+	\O(x^2): & a_2 + 4a_2^2 + 6 a_1 a_3 =\half \\
+	\O(x^3): & a_3 + 8 a_1 a_4 + 12 a_2 a_3=\frac{1}{6} \\
       \end{array}
       \eee
       Subbing back into these equations, we get
-      \bee
-      a_1=1, \qquad a_2 =0, \qquad a_3=\frac{1}{12}, \qquad a_4=\frac{1}{96},
-      \eee
+      \begin{dmath*}[compact]
+        a_1=1, \qquad a_2 =0, \qquad a_3=\frac{1}{12}, \qquad a_4=\frac{1}{96},
+      \end{dmath*}
       and
-      \bee
-      y(x) \approx x + \frac{x^3}{12} + \frac{x^4}{96}.
-      \eee
+      \begin{dmath*}
+        y(x) \approx x + \frac{x^3}{12} + \frac{x^4}{96}.
+      \end{dmath*}
     }
-
+    
   \item
     Solve
     \bee
@@ -2956,7 +2950,7 @@ factorial function. So in particular, when $\alpha=0$, we get
       \eee
       which has repeated root $r = \frac{1}{\pi}$.  So a general solution is
       \bee
-      y(x) = C_1 x^\frac{1}{\pi} + C_2 x^\frac{1}{\pi} \ln x
+      y(x) = C_1 x^{\frac{1}{\pi}} + C_2 x^{\frac{1}{\pi}} \ln x
       = C_1 \sqrt[\pi]{x} + C_2 \sqrt[\pi]{x} \ln x, \quad x > 0.
       \eee
     }
@@ -3643,7 +3637,7 @@ matches both the initial and boundary conditions.
 \label{tableolap}
 \begin{center}
 \begin{tabular}{ l |  l }
-  $f(t)$ & $\mathcal{L}(f) = F(s)$  \\
+  $f(t)$ & $\Laplace(f) = F(s)$  \\
   \hline
   $f'(t)$ & $sF(s) -f(0)$\\
   $f''(t)$ & $s^2F(s) -sf(0) - f'(0)$\\
