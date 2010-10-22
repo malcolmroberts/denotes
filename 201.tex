@@ -28,7 +28,10 @@
   \textsf{\Huge an \emph{unofficial} lab manual}
   \vspace{2.5in}
 
-  \textsf{\Large by GAME (Graduates at Alberta Mathematics Etc.)}
+by Malcolm Roberts and Samantha Marion
+\vspace{0.5in}
+
+%  \textsf{\Large by GAME (Graduates at Alberta Mathematics Etc.)}
 \end{center}
 
 %%
@@ -40,8 +43,10 @@
 
 \noindent
 This (unofficial) manual was prepared for \emph{Graduates at Alberta
-  Methematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion,
-with contributions from others.
+  Methematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion.
+Later additions were made by Matthew Emmett and Remkes Kooistra, with
+funding provided by the Department of Mathematical and Statistical
+Sciences at the University of Alberta.
 \vspace{0.5in}
 
 \noindent
@@ -493,6 +498,25 @@ which is the linear equation given as the example from section \ref{linearsec}.
 %which is homogeneous in $u$ and $v$.
 %\end{enumerate}
 
+
+\newpage
+\subsection{Flow chart for solving first-order DEs}
+
+As we have seen, it is sometimes necessary to use several
+transformations in order to solve a given DE.  Each type of first
+order DE that we have seen so far is ultimately separable, as outlined
+in the flow chart below, or exact.
+
+%FIXME: refer to this somewhere
+\vspace{0.5in}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{201/firstorderchart}
+  \caption{Flow chart for solving first-order DEs}
+  \label{fig:first_order_flow_shar}
+\end{figure}
+
+
 \section{Problems}
 
 \begin{enumerate}
@@ -658,24 +682,6 @@ Solve the differential equation
 
 \end{enumerate}
 
-\newpage
-\subsection{Flow chart for solving first-order DEs}
-
-As we have seen, it is sometimes necessary to use several
-transformations in order to solve a given DE.  Each type of first
-order DE that we have seen so far is ultimately separable, as outlined
-in the flow chart below, or exact.
-
-%FIXME: refer to this somewhere
-\vspace{0.5in}
-\begin{figure}[h]
-  \centering
-  \includegraphics{201/firstorderchart}
-  \caption{Flow chart for solving first-order DEs}
-  \label{fig:first_order_flow_shar}
-\end{figure}
-
-
 
 
 \chapter{Second-order Linear Equations}
@@ -693,7 +699,7 @@ equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 &&= \alpha\(a \ddtwo{y_1}{t} + b \dd{y_1}{t} + cy_1 \)
 +\beta\(a \ddtwo{y_2}{t} + b \dd{y_2}{t} + cy_2 \)
 \\ \nonumber
-&&= \alpha \(0\) +\beta \(0\) =0,
+&&= \alpha \times 0 +\beta \times 0 =0,
 \eee
 In other words, $\ycomb$, which is a linear combination of $y_1$ and $y_2$, is
 also a solution to equation (\ref{sec2hom}). Being able to use this linearity
@@ -860,6 +866,25 @@ Thus, $\alpha=1$ and $\beta =-1$, so the solution is
 y(t) = e^t - te^t. \qed
 \eee
 
+\newpage
+\subsection{Flow chart for $2^{\text{nd}}$-order linear homogeneous DEs}
+
+Second-order linear differential equations with real-valued
+coefficients will produce two (possibly equal) real roots or a pair of
+complex roots.  In this case, you will never encounter repeated
+complex roots, and you can use the following flow-chart to solve these
+types of equations:
+
+%FIXME: refer to this somewhere
+\vspace{0.5in}
+\begin{figure}[h]
+  \centering
+  \includegraphics{201/linhomflow}
+  \caption{Flow chart for solving second-order homogeneous DEs}
+  \label{fig:linhomflow}
+\end{figure}
+
+
 
 \section{Problems}
 
@@ -925,24 +950,6 @@ y(t) = e^t - te^t. \qed
   with $y(\pi) =\ e^{-\pi},$ $y' (0) = \sqrt{\pi} + 2e^\pi$.
 
 \end{enumerate}
-
-\newpage
-\subsection{Flow chart for solving second-order linear homogeneous DEs}
-
-Second-order linear differential equations with real-valued
-coefficients will produce two (possibly equal) real roots or a pair of
-complex roots.  In this case, you will never encounter repeated
-complex roots, and you can use the following flow-chart to solve these
-types of equations:
-
-%FIXME: refer to this somewhere
-\vspace{0.5in}
-\begin{figure}[h]
-  \centering
-  \includegraphics{201/linhomflow}
-  \caption{Flow chart for solving second-order homogeneous DEs}
-  \label{fig:linhomflow}
-\end{figure}
 
 
 \chapter{Non-homogeneous Second-Order Linear Equations}
@@ -1315,7 +1322,7 @@ get
 so we got the correct $y_p$. \qed
 
 \newpage
-\subsection{Flow chart for solving second-order linear homogeneous DEs}
+\subsection{Flow chart for $2^{\text{nd}}$-order linear nonhomogeneous DEs}
 FIXME: text
 
 %FIXME: refer to this somewhere

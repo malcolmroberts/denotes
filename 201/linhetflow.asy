@@ -55,7 +55,12 @@ block vop1=roundrectangle(pack(Label("Calculate Wronskians"),"",
 
 y-=dy;
 
-block undet2=roundrectangle(Label("Is $y_p \cap \rm{span}\{y_1,y_2\}=\emptyset$?"),(-dx,y));
+
+block undet2=roundrectangle(Label("Is any term in $y_p$ also in $y_h$?"),(-dx,y));
+pair undet2topright=undet2.topright();
+
+block undet2a=roundrectangle(Label("multiply by $t$!"),(0,y));
+
 
 block vop2=roundrectangle(Label("$y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt$"),(dx,y));
 
@@ -87,6 +92,7 @@ draw(peqn);
 draw(undet1);
 draw(vop1);
 draw(undet2);
+draw(undet2a);
 draw(vop2);
 draw(undet3);
 draw(IC);
@@ -100,13 +106,16 @@ add(new void(picture pic, transform t) {
     undet1--Arrow--undet2;
     // FIXME: add a yes and a no arrow, with the yes looping back
     // and saying "$y_p \rightarrow t y_p$
-    undet2--Arrow--undet3;
+    undet2--Label("yes",align=N)--Arrow--undet2a;
+    undet2a--Up--Left--Down--Arrow--undet2;
+    //    undet2a--Up--Left--Down--Arrow--undet2topright;
+    undet2--Label("no",align=E)--Arrow--undet3;
     peqn--Arrow--vop1;
     vop1--Arrow--vop2;
     
     vop2--Arrow--IC;
-    undet3--Arrow--IC;
+    undet3--Down--Right--Arrow--IC;
     // FIXME: fix directions of arrows.
   });
 
-
+//dot(undet2.position(0),red);
