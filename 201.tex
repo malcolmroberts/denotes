@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{ifthen}
 \usepackage{math}
+\usepackage{multirow} 
 \usepackage{ode}
 
 \newcounter{showsolutions}
@@ -3599,41 +3600,54 @@ matches both the initial and boundary conditions.
 \newpage
 \section{Table of Laplace Transforms}
 
-The Laplace transform of $f(t)$ is defined as
-$$
-\Laplace\[f\] = \int_0^\infty f(t) e^{-st} \, dt
-$$
-and takes a function of $t$ to a function of $s$. 
-We use the notation $\Laplace\[f\] = F(s)$ in the following table:
-
 \label{tableolap}
 %\begin{center}
 $$
 \begin{tabular}{ l |  l }
-  $f(t)$ & $\Laplace(f) = F(s)$  \\
+  $\displaystyle  f(t)$ & $\displaystyle \Laplace(f) = F(s)$  \\
   \hline
   \hline
-  $f'(t)$ & $sF(s) -f(0)$\\ \hline
-  $f''(t)$ & $s^2F(s) -sf(0) - f'(0)$\\ \hline
-  $f^{(n)}(t)$ & $s^nF(s) -s^{n-1}f(0)-\dots - f^{(n-1)}(0)$\\ \hline
-  $t$ & $\frac{1}{s^2}$ \\ \hline
-  $t^n$ & $\frac{n!}{s^{n+1}}$ \\ \hline
-  $e^{\a t}$ & $\frac{1}{s-\a} $ \\ \hline
-  $e^{\a t}f(t) $ & $F(s-\a) $ \\ \hline
-  $f(ct) $ & $\frac{1}{c}F\(\frac{s}{c}\) $ \\ \hline
-  $\sin(\beta t)$ & $\frac{\beta}{s^2 + \beta^2} $ \\ \hline
-  $\cos(\beta t)$ & $\frac{s}{s^2 + \beta^2} $ \\ \hline
-  $\sinh(\beta t)$ & $\frac{\beta}{s^2 - \beta^2} $ \\ \hline
-  $\cosh(\beta t)$ & $\frac{s}{s^2 - \beta^2} $ \\ \hline
-  $e^{\alpha t}\sin(\beta t)$ & $\frac{\beta}{(s-\alpha)^2 + \beta^2} $ \\ \hline
-  $e^{\alpha t}\cos(\beta t)$ & $\frac{s-\alpha}{(s-\alpha)^2 + \beta^2} $ \\ 
-  \hline
-  $u_c(t)$ & $\frac{e^{-cs}}{s}$ \\ \hline
-  $u_c(t)f(t-c)$ & $e^{-cs}F(s)$ \\ \hline
-  $\delta(t)$ & $1$ \\ \hline
-  $\int_0^t f(t-\tau) g(\tau) \,d\tau \doteq f*g$ & $F(s)G(s) $ \\ \hline
-  $f(t)$ with $f(t+T)=f(t)$ & $\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}$\\ \hline
-  $t^n f(t)$ & $(-1)^n \frac{d^n}{ds^n} F(s)$\\ \hline
+  $\displaystyle f'(t)$ 
+  & $\displaystyle sF(s) -f(0)$\\ \hline
+  $\displaystyle f''(t)$ 
+  & $\displaystyle s^2F(s) -sf(0) - f'(0)$\\ \hline
+  $\displaystyle f^{(n)}(t)$ 
+  & $\displaystyle s^nF(s) -s^{n-1}f(0)-\dots - f^{(n-1)}(0)$\\ \hline
+  \multirow{2}{*}{$\displaystyle t$}
+  & \multirow{2}{*}{$\displaystyle\frac{1}{s^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle t^n$}
+  & \multirow{2}{*}{$\displaystyle\frac{n!}{s^{n+1}}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle e^{\a t}$ }
+  & \multirow{2}{*}{$\displaystyle\frac{1}{s-\a} $} \\ \\ \hline
+  $\displaystyle e^{\a t}f(t) $ 
+  & $\displaystyle F(s-\a) $ \\ \hline
+  \multirow{2}{*}{$\displaystyle f(ct) $ }
+  & \multirow{2}{*}{$\displaystyle \frac{1}{c}F\(\frac{s}{c}\) $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \sin(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \cos(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 + \b^2} $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \sinh(\b t)$ }
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 - \b^2} $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \cosh(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 - \b^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle e^{\a t}\sin(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{(s-\a)^2 + \b^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle e^{\a t}\cos(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{s-\a}{(s-\a)^2 + \b^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle u_c(t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{e^{-cs}}{s}$} \\ \\ \hline
+  $\displaystyle u_c(t)f(t-c)$ 
+  & $\displaystyle e^{-cs}F(s)$ \\ \hline
+  $\displaystyle \delta(t)$ 
+  & $\displaystyle 1$ \\ \hline
+  \multirow{2}{*}{$\displaystyle \int_0^t f(t-\t)g(\t) \,d\t \doteq f*g$} 
+  & \multirow{2}{*}{$\displaystyle F(s)G(s)$} \\ \\ \hline
+  \multirow{3}{*}{$\displaystyle f(t)$ with $\displaystyle f(t+T)=f(t)$}
+  & \multirow{3}{*}{$\displaystyle \frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}$}
+  \\ \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle t^n f(t)$}
+  & \multirow{2}{*}{$\displaystyle (-1)^n \frac{d^n}{ds^n} F(s)$} \\ \\ \hline
 \end{tabular}\\
 $$
 %\end{center}
