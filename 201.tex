@@ -8,7 +8,7 @@
 \usepackage{ode}
 
 \newcounter{showsolutions}
-\setcounter{showsolutions}{0}
+\setcounter{showsolutions}{1}
 
 \begin{document}
 
@@ -1742,18 +1742,18 @@ From equation \eqref{lapper}, we have
 \item
   Solve the following IVP:
   \bee
-  y'' + y = e^t, \qquad y(0)=0, \qquad y'(0)=1.
+  y'' + y = e^t, \qquad y(0)=1, \qquad y'(0)=0.
   \eee
   \hidesolution{
     The Laplace transform of the system is
     \bee
-    s^2Y -s + Y = \frac{1}{s-1},
-    \implies Y = \frac{1}{s-1}\frac{1}{s^2+1} + \frac{s}{s^2+1}
-    = \frac{\half}{s-1} + \frac{-\half s -\half}{s^2+1}
+    s^2Y -1 + Y = \frac{1}{s-1},
+    \implies Y = \frac{s}{(s-1)(s^2+1)}
+    = \half\frac{1}{s-1} -\half \frac{s}{s^2+1} +\half \frac{1}{s^2+1}
     \eee
     which has inverse transform
     \bee
-    y = -\half \cos t - \half \sin t + \half e^t. \qed
+    y = \half e^t -\half \cos t + \half \sin t. \qed
     \eee
   }
 
