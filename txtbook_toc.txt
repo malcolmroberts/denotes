@@ -1,0 +1,228 @@
+Table of contents of Nagle, Saff, and Snider
+from http://vig.pearsoned.co.uk/catalog/academic/product/0,1144,0321388437-TOC,00.html
+
+1. Introduction
+Background
+Solutions and Initial Value Problems
+Direction Fields
+The Approximation Method of Euler
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 1
+            A. Taylor Series Method
+            B. Picard's Method
+            C. Magnetic Dipole
+            D. The Phase Line
+ 
+2. First-Order Differential Equations
+Introduction: Motion of a Falling Body
+Separable Equations
+Linear Equations
+Exact Equations
+Special Integrating Factors
+Substitutions and Transformations
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 2
+            A. Differential Equations in Clinical Medicine
+            B. Torricelli's Law of Fluid Flow
+            C. The Snowplow Problem
+            D. Two Snowplows
+            E. Clairaut Equations and Singular Solutions
+            F. Multiple Solutions of a First-Order Initial Value Problem
+            G. Designing a Solar Collector
+            H. Asymptotic Behavior of Solutions to Linear Equations
+            I. Utility Functions and Risk Aversion
+ 
+3. Mathematical Models and Numerical Methods Involving First Order Equations
+Mathematical Modeling
+Compartmental Analysis
+Heating and Cooling of Buildings
+Newtonian Mechanics
+Electrical Circuits
+Improved Euler's Method
+Higher-Order Numerical Methods: Taylor and Runge-Kutta
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 3
+            A. Dynamics of HIV Infection
+            B. Aquaculture
+            C. Curve of Pursuit
+            D. Aircraft Guidance in a Crosswind
+            E. Feedback and the Op Amp
+            F. Bang-Bang Controls
+            G. Market Equilibrium: Stability and Time Paths
+            H. Stability of Numerical Methods
+            I. Period Doubling and Chaos
+ 
+4. Linear Second-Order Equations
+Introduction: The Mass-Spring Oscillator
+Homogeneous Linear Equations; The General Solution
+Auxiliary Equations with Complex Roots
+Nonhomogeneous Equations: The Method of Undetermined Coefficients
+The Superposition Principle and Undetermined Coefficients Revisited
+Variation of Parameters
+Variable-Coefficient Equations
+Qualitative Considerations for Variable-Coefficient and Nonlinear Equations
+A Closer Look at Free Mechanical Vibrations
+A Closer Look at Forced Mechanical Vibrations
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 4
+            A. Nonlinear Equations Solvable by First-Order Techniques
+            B. Apollo Reentry
+            C. Simple Pendulum
+            D. Linearization of Nonlinear Problems
+            E. Convolution Method
+            F. Undetermined Coefficients Using Complex Arithmetic
+            G. An Alternative to the Method of Undetermined Coefficients
+            H. Asymptotic Behavior of Solutions
+ 
+ 
+5. Introduction to Systems and Phase Plane Analysis
+Interconnected Fluid Tanks
+Elimination Method for Systems with Constant Coefficients
+Solving Systems and Higher-Order Equations Numerically
+Introduction to the Phase Plane
+Applications to Biomathematics: Epidemic and Tumor Growth Models
+Coupled Mass-Spring Systems
+Electrical Systems
+Dynamical Systems, Poincaré Maps, and Chaos
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 5
+            A. Designing a Landing System for Interplanetary Travel
+            B. Things That Bob
+            C. Hamiltonian Systems
+            D. Strange Behavior of Competing Species - Part 1
+            E. Cleaning Up the Great Lakes
+ 
+6. Theory of Higher-Order Linear Differential Equations
+Basic Theory of Linear Differential Equations
+Homogeneous Linear Equations with Constant Coefficients
+Undetermined Coefficients and the Annihilator Method
+Method of Variation of Parameters
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 6
+            A. Computer Algebra Systems and Exponential Shift
+            B. Justifying the Method of Undetermined Coefficients
+            C. Transverse Vibrations of a Beam
+ 
+7. Laplace Transforms
+7.1 Introduction: A Mixing Problem
+7.2 Definition of the Laplace Transform
+7.3 Properties of the Laplace Transform
+7.4 Inverse Laplace Transform
+7.5 Solving Initial Value Problems
+7.6 Transforms of Discontinuous and Periodic Functions
+7.7 Convolution
+7.8 Impulses and the Dirac Delta Function
+7.9 Solving Linear Systems with Laplace Transforms
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 7
+            A. Duhamel's Formulas
+            B. Frequency Response Modeling
+            C. Determining System Parameters
+ 
+8. Series Solutions of Differential Equations
+Introduction: The Taylor Polynomial Approximation
+Power Series and Analytic Functions
+Power Series Solutions to Linear Differential Equations
+Equations with Analytic Coefficients
+Cauchy-Euler (Equidimensional) Equations
+Method of Frobenius
+Finding a Second Linearly Independent Solution
+Special Functions
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 8
+            A. Spherically Symmetric Solutions to Shrodinger's Equation for the Hydrogen Atom
+            B. Airy's Equation
+            C. Buckling of a Tower
+            D. Aging Spring and Bessel Functions
+ 
+9. Matrix Methods for Linear Systems
+Introduction
+Review 1: Linear Algebraic Equations
+Review 2: Matrices and Vectors
+Linear Systems in Normal Form
+Homogeneous Linear Systems with Constant Coefficients
+Complex Eigenvalues
+Nonhomogeneous Linear Systems
+The Matrix Exponential Function
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 9
+            A. Uncoupling Normal Systems
+            B. Matrix Laplace Transform Method
+            C. Undamped Second-Order Systems
+            D. Strange Behavior of Competing Species - Part II
+ 
+10. Partial Differential Equations
+Introduction: A Model for Heat Flow
+Method of Separation of Variables
+Fourier Series
+Fourier Cosine and Sine Series
+The Heat Equation
+The Wave Equation
+Laplace's Equation
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 10
+            A. Steady-State Temperature Distribution in a Circular Cylinder
+            B. A Laplace Transform Solution of the Wave Equation
+            C. Green's Function
+            D. Numerical Method for ?u=f on a Rectangle
+ 
+11. Eigenvalue Problems and Sturm-Liouville Equations
+Introduction: Heat Flow in a Nonuniform Wire
+Eigenvalues and Eigenfunctions
+Regular Sturm-Liouville Boundary Value Problems
+Nonhomogeneous Boundary Value Problems and the Fredholm Alternative
+Solution by Eigenfunction Expansion
+Green's Functions.
+Singular Sturm-Liouville Boundary Value Problems.
+Oscillation and Comparison Theory.
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 11
+            A. Hermite Polynomials and the Harmonic Oscillator
+            B. Continuous and Mixed Spectra
+            C. Picone Comparison Theorem
+            D. Shooting Method
+            E. Finite-Difference Method for Boundary Value Problems
+ 
+12. Stability of Autonomous Systems
+Introduction: Competing Species
+Linear Systems in the Plane
+Almost Linear Systems
+Energy Methods
+Lyapunov's Direct Method
+Limit Cycles and Periodic Solutions
+Stability of Higher-Dimensional Systems
+Chapter Summary
+Technical Writing Exercises
+Group Projects for Chapter 12
+            A. Solutions and Korteweg-de Vries Equation
+            B. Burger's Equation
+            C. Computing Phase Plane Diagrams
+            D. Ecosystem on Planet GLIA-2
+ 
+13. Existence and Uniqueness Theory
+Introduction: Successive Approximations
+Picard's Existence and Uniqueness Theorem
+Existence of Solutions of Linear Equations
+Continuous Dependence of Solutions
+Chapter Summary
+Technical Writing Exercises
+ 
+Appendices
+A. Newton's Method
+B. Simpson's Rule
+C. Cramer's Rule
+D. Method of Least Squares
+E. Runge-Kutta Precedure for n Equations
+ 
+Answers to Odd-Numbered Problems
