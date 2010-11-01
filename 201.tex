@@ -525,10 +525,11 @@ in the flow chart below, or exact.
 \item
 % a linear equation
 Solve the initial value problem
-\bee
-&&\qquad(x^2 + 1) \frac{dy}{dx} + 4xy = 4x \\ \nonumber
-&&y(0) =\ 0\ \text{ or }\ 1\ \mbox{ (choose one, and circle your choice)}
-\eee
+\begin{dmath*}[compact]
+  (x^2 + 1) \frac{dy}{dx} + 4xy = 4x,
+  \qquad 
+  y(0) =\ 0\ \text{ or }\ 1\ \mbox{ (choose one, and circle your choice).}
+\end{dmath*}
 \hidesolution{Rewrite this equation as
 \bee
 \frac{dy}{dx} + \frac{4x}{x^2+1}y = \frac{4x}{x^2+1}
@@ -694,14 +695,12 @@ a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to
 equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 \newcommand\ycomb{\alpha y_1 + \beta y_2}
-\bee
-&& a \ddtwo{\(\ycomb\)}{t} + b \dd{\(\ycomb\)}{t} + c \(\ycomb \)
-\\  \nonumber
-&&= \alpha\(a \ddtwo{y_1}{t} + b \dd{y_1}{t} + cy_1 \)
-+\beta\(a \ddtwo{y_2}{t} + b \dd{y_2}{t} + cy_2 \)
-\\ \nonumber
-&&= \alpha \times 0 +\beta \times 0 =0,
-\eee
+\begin{dmath*}
+   a \ddtwo{\(\ycomb\)}{t} + b \dd{\(\ycomb\)}{t} + c \(\ycomb \)
+   = \alpha\(a \ddtwo{y_1}{t} + b \dd{y_1}{t} + cy_1 \)
+   +\beta\(a \ddtwo{y_2}{t} + b \dd{y_2}{t} + cy_2 \)
+   = \alpha \times 0 +\beta \times 0 =0.
+\end{dmath*}
 In other words, $\ycomb$, which is a linear combination of $y_1$ and $y_2$, is
 also a solution to equation (\ref{sec2hom}). Being able to use this linearity
 is a powerful tool that we can use to solve this very important type of
@@ -1308,12 +1307,11 @@ y_1' & y_2' \end{array} \right|
 =e^{2t}.
 \ee
 The particular solution is
-\be
-y_p &=& e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
-+ e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt \,
-\\\nonumber
-&=& 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
-\ee
+\begin{dmath*}
+  y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
+  + e^t \sin t \int \frac{ 2 e^t e^t \cos t}{e^{2t}} \,dt \,
+  = 2e^t \(\cos^2 t + \sin^2 t\) = 2e^t.
+\end{dmath*}
 \\
 \noindent\emph{Check}: When we put $y_p$ into equation \eqref{varpareg}, we
 get
@@ -1866,13 +1864,12 @@ and is useful for describing processes that start at a certain time.
 
 The Laplace transform of the step function is straightforward to calculate. If
 we take $c>0$, then
-\bee
-\Laplace{}\(u_c(t)\) &=& \int_0^\infty u_c(t) e^{-st} dt
-\\\nonumber
-&=& \int_c^\infty e^{-st} dt
-\\\nonumber
-&=&\frac{e^{-cs}}{s}.
-\eee
+\begin{dmath*}[compact]
+  \Laplace{}\(u_c(t)\) 
+  = \int_0^\infty u_c(t) e^{-st} dt
+  = \int_c^\infty e^{-st} dt
+  =\frac{e^{-cs}}{s}.
+\end{dmath*}
 
 The step function often shows up multiplied by other functions, as in the
 following example.\\
@@ -1882,15 +1879,15 @@ y'=t u_c(t), \qquad y(0)=0
 \eee
 using Laplace transforms.\\
 }
-{
+{\\\indent
 Take the Laplace transform of both sides of the differential equation, yielding
-\bee
-sY &=& \Laplace{}\(t u_c(t)\) = \int_0^\infty t u_c(t) e^{-st} dt
-= \int_c^\infty t e^{-st} dt
-\\\nonumber
-&=& \[t \frac{e^{-st}}{-s}\]_c^\infty - \int_c^\infty \frac{e^{-st}}{-s}dt
-= \frac{-ce^{-sc}}{s} + \frac{e^{-sc}}{s^2}
-\eee
+\begin{dmath*}
+  sY = \Laplace{}\(t u_c(t)\) \no
+  = \int_0^\infty t u_c(t) e^{-st} dt \no
+  = \int_c^\infty t e^{-st} dt 
+  = \[t \frac{e^{-st}}{-s}\]_c^\infty - \int_c^\infty \frac{e^{-st}}{-s}dt
+  = \frac{-ce^{-sc}}{s} + \frac{e^{-sc}}{s^2}.
+\end{dmath*}
 Thus,
 \bee
 Y = \frac{ce^{-sc}}{s} +\frac{e^{-sc}}{s^3}.
@@ -2153,14 +2150,15 @@ Put this into the first equation, so
 = \frac{1}{s^2+1}
 \eee
 which gives
-\be
-\label{sysY}
-Y &=& -\frac{(s-4)(s+1)}{(s^2+1)(s^2-2s+5)} \\ \nonumber
-&=& \frac{11s +7}{10(s^2+1)} + \frac{-11s + 5}{10(s^2-2s+5)}  \\ \nonumber
-&=& \frac{11s}{10(s^2+1)} + \frac{7}{10(s^2+1)} +
-\frac{-11}{10}\frac{s-1}{(s-1)^2 + 2^2}
--  \frac{3}{10}\frac2{(s-1)^2 + 2^2}
-\ee
+\begin{dmath}
+  \label{sysY}
+  Y 
+  = -\frac{(s-4)(s+1)}{(s^2+1)(s^2-2s+5)}
+  = \frac{11s +7}{10(s^2+1)} + \frac{-11s + 5}{10(s^2-2s+5)}
+  = \frac{11s}{10(s^2+1)} + \frac{7}{10(s^2+1)} +
+  \frac{-11}{10}\frac{s-1}{(s-1)^2 + 2^2}
+  -  \frac{3}{10}\frac2{(s-1)^2 + 2^2}
+\end{dmath}
 by partial fractions and completing the square in the last two terms. We are
 now in a position to use an inverse Laplace transform to get $y(t)$:
 \bee
@@ -2169,13 +2167,14 @@ y(t) = \frac{7}{10} \sin t + \frac{11}{10} \cos t
 \eee
 It now remains to solve for $x(t)$. We use the solution for $X$
 and the Laplace transform of $y$. This is to say
-\be
-\label{sysX}
-X &=& \frac{1}{4}\(\frac{s}{s^2+1} + (s+1)Y\)\\ \nonumber
- &=& \frac{-1 + 7s}{10(s^2+1)} + \frac{-7s + 15}{10(s^2-2s+5)} \\ \nonumber
- &=& \frac{7s}{10(s^2+1)} + \frac{-1}{10(s^2+1)} + \frac{-7}{10}
-\frac{s-1} {(s-1)^2 + 2^2} +  \frac{2}{5}\frac{2}{(s-1)^2 + 2^2}
-\ee
+\begin{dmath}
+  \label{sysX}
+  X 
+  = \frac{1}{4}\(\frac{s}{s^2+1} + (s+1)Y\)
+  = \frac{-1 + 7s}{10(s^2+1)} + \frac{-7s + 15}{10(s^2-2s+5)}
+ = \frac{7s}{10(s^2+1)} + \frac{-1}{10(s^2+1)} + \frac{-7}{10}
+ \frac{s-1} {(s-1)^2 + 2^2} +  \frac{2}{5}\frac{2}{(s-1)^2 + 2^2}
+\end{dmath}
 So we can now use an inverse Laplace transform to get $x(t)$.
 \bee
 x(t) = \frac{-1}{10} \sin t + \frac{7}{10} \cos t - \frac{7}{10}e^{t}\cos 2t
@@ -3060,14 +3059,13 @@ More generally, the \emph{Fourier series} for $f(x)$ is the sum of these, i.e.\
 \eee
 Often, we just look at functions that have period $2\pi$, which makes for the
 simpler formulae,
-\be\label{nicefourier}
-&&\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(nx\)
-+ b_n \sin\(nx\) \] ;
-\\ \nonumber
-&&a_n = \frac{1}{\pi} \int_{-\pi}^\pi f(x) \cos\(n x\) \, dx,
-\\ \nonumber
-&&b_n = \frac{1}{\pi} \int_{-\pi}^\pi f(x) \sin\(n x\) \, dx,
-\ee
+\begin{dmath}
+  \label{nicefourier}
+  \frac{a_0}{2} + \sum_{n=1}^{\infty} \[ a_n \cos\(nx\)
+  + b_n \sin\(nx\) \],\\
+  \no{a_n =  \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos\(n x\) \, dx,}\\
+  \no{b_n =\frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin\(n x\) \, dx,}
+\end{dmath}
 which we will refer to as ``the'' Fourier series, unless otherwise stated.
 
 
@@ -3109,31 +3107,28 @@ Find the Fourier series of $f(x) = x$ for $x\in(-\pi,\pi)$.\\
 }{\\\indent
 To find the Fourier series, we just need to determine $a_n$ and $b_n$ using
 equation~\eqref{nicefourier}. The coefficients for the cosine series are
-\bee
-a_n &=& \frac{1}{\pi}\int_{-\pi}^\pi x \cos(nx)\, dx
-\\\nonumber
-&=& \frac{1}{\pi}\[ \left.x \frac{\sin(nx)}{n} \right|_{-\pi}^{\pi}
--\int_{-\pi}^\pi \frac{\sin(nx)}{n}\, dx \]
-\\\nonumber
-&=& \frac{1}{\pi}
-\[0 - \frac{1}{n^2}\left. \cos(nx) \right|_{-\pi}^{\phantom{-}\pi} \] =0.
-\eee
+\begin{dmath*}
+  a_n 
+  = \frac{1}{\pi}\int_{-\pi}^{\pi} x \cos(nx)\, dx
+  = \frac{1}{\pi}\[ \left.x \frac{\sin(nx)}{n} \right|_{-\pi}^{\phantom{-}\pi}
+  -\int_{-\pi}^\pi \frac{\sin(nx)}{n}\, dx \]
+  = \frac{1}{\pi}
+  \[0 - \frac{1}{n^2}\left. \cos(nx) \right|_{-\pi}^{\phantom{-}\pi} \] 
+  =0.
+\end{dmath*}
 This could have been expected, since $f(x)=x$ is an odd function, and $\cos(nx)$
 is even, and the integration domain is symmetric. Notice, then, that the
 cosine series of a function is equal to the even part of the function. Now,
 for the sine series, we have
-\bee
-b_n &=& \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx
-\\\nonumber
-&=& \frac{1}{\pi} \[ \left.\frac{-x\cos(nx)}{n}\right|_{-\pi}^\pi
+\begin{dmath*}
+  b_n 
+  = \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx
+  = \frac{1}{\pi} \[ \left.\frac{-x\cos(nx)}{n}\right|_{-\pi}^{\phantom{-}\pi}
                     - \int_{-\pi}^\pi \frac{-\cos(nx)}{n}\, dx  \]
-\\\nonumber
-&=& \frac{1}{\pi}\[\frac{-\pi\cos(\pi n)}{n} - \frac{-\pi\cos(-n\pi)}{n} -0 \]
-\\\nonumber
-&=& \frac{1}{\pi}\[\frac{-2\pi}{n}\cos(n \pi)\]
-\\\nonumber
-&=&\frac{-2 (-1)^n}{n} = (-1)^{n+1}\frac{2}{n}.
-\eee
+  = \frac{1}{\pi}\[\frac{-\pi\cos(\pi n)}{n} - \frac{-\pi\cos(-n\pi)}{n} -0 \]
+  = \frac{1}{\pi}\[\frac{-2\pi}{n}\cos(n \pi)\]
+  =\frac{-2 (-1)^n}{n} = (-1)^{n+1}\frac{2}{n}.
+\end{dmath*}
 The Fourier series for $f(x)=x$ is then
 \be
 \label{Fourierx}
@@ -3575,28 +3570,28 @@ matches both the initial and boundary conditions.
 
 
 \section{Table of Taylor Series}
-\begin{align}\nonumber
+\begin{align*}
 & f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
 + \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
 %&
 %&
-\\\nonumber
+\\
 & e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
 \qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
 \qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
-\\\nonumber
+\\
 &\tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \frac{17}{315}x^7
 + \frac{62}{2835}x^9 + \dots
-\\\nonumber
+\\
 &\arcsin x = x + \frac{1}{2}\frac{x^3}{3}
 + \frac{1\cdot 3}{2\cdot 4}\frac{x^5}{5}
 + \frac{1\cdot3\cdot5}{2\cdot4\cdot6}\frac{x^7}{7} + \dots
-\\\nonumber
+\\
 &\arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}
-\\\nonumber
+\\
 &\frac{1}{1-x} = \sum_{n=0}^\infty x^n
 \qquad \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
-\end{align}
+\end{align*}
 
 \newpage
 \section{Table of Laplace Transforms}
@@ -3656,65 +3651,65 @@ $$
 
 
 \section{Table of Integrals}
-\begin{align}\nonumber
+\begin{align*}
 &\int u dv = uv - \int v du
 &
-\\\nonumber
+\\
 & \int \cos x dx = -\sin x
 & \int \sin x dx = \cos x
-\\\nonumber
+\\
 & \int \tan x dx  = -\ln\abs{\cos x}
 &
-\\\nonumber
+\\
 & \int \sin^2 x dx = \frac{1}{2}x - \frac{1}{4}\sin 2x
 & \int \cos^2 x dx = \frac{1}{2}x + \frac{1}{4}\sin 2x
-\\\nonumber
+\\
 & \int \tan^2 x dx  = \tan x - x
 &
-\\\nonumber
+\\
 & \int \sin^n x dx = -\frac{\sin^{n-1}x\cos{x}}{n}
 + \frac{n-1}{n}\int\sin^{n-2}xdx
 &
-\\\nonumber
+\\
 & \int \cos^n x dx = \frac{\cos^{n-1}x\sin x}{n}
 + \frac{n-1}{n}\int \cos^{n-2}x dx
 &
-\\\nonumber
+\\
 & \int \sin ax \sin bx dx = - \frac{\sin(a+b)x}{2(a+b)}
   + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
 &
-\\\nonumber
+\\
 & \int \cos ax \cos bx dx = \frac{\sin(a+b)x}{2(a+b)}
 + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
 &
-\\\nonumber
+\\
 & \int \sin ax \cos bx dx = -\frac{\cos(a+b)x}{2(a+b)}
 - \frac{\cos(a-b)x}{2(a-b)},\quad a^2\neq b^2
 &
-\\\nonumber
+\\
 & \int \sec^2 x dx = \tan x
 & \int \csc^2 x dx = -\cot x
-\\\nonumber
+\\
 & \int \sec x \tan x  dx = \sec x
 &
-\\\nonumber
+\\
 & \int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin\frac{x}{a}
 & \int \frac{dx}{x\sqrt{x^2-a^2}}= \frac{1}{a}\arccos\frac{a}{x}
-\\\nonumber
+\\
 &\int \frac{dx}{a^2+x^2} = \frac{1}{a}\arctan\frac{x}{a},
 &
-\\\nonumber
+\\
 & \int \frac{dx}{a^2-x^2} = \frac{1}{2a}\ln\abs{\frac{x+a}{x-a}},
 & \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\abs{x+\sqrt{x^2+a^2}}
-\\\nonumber
+\\
 & \int \sinh x dx = \cosh x
 & \int \cosh x dx = \sinh x
-\\\nonumber
+\\
 & \int e^{ax}\sin nx dx = \frac{e^{ax}\(a \sin nx - n \cos nx \) }{a^2+n^2 }&
-\\\nonumber
+\\
 & \int e^{ax}\cos nx dx = \frac{e^{ax}\(a \cos nx + n \sin nx \) }{a^2+n^2 }
 &
-\end{align}
+\end{align*}
 
 
 \end{document}
