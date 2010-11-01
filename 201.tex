@@ -1794,50 +1794,50 @@ all DEs are linear. In fact, the most aren't.
 
 The Laplace transform is a good tool when the nonlinear term is a convolution.
 The convolution of two functions $f$ and $g$ is written $f*g$ and is defined as
-\be
-\boxed{f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau}.
-\ee
+\begin{dmath}
+  \boxed{f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau .}
+\end{dmath}
 It has a particularly nice Laplace transform. If we write $\Laplace(f)=F$ and
 $\Laplace(g)=G$, then
-\be
-\boxed{\Laplace(f*g)=F(s)G(s)}.
-\ee
+\begin{dmath}
+  \boxed{\Laplace(f*g)=F(s)G(s).}
+\end{dmath}
 That is, the Laplace transform of a convolution is the product of their Laplace
 transforms.
 
-\workedexample{
-Solve
-\bee
-y'' = g(t), \qquad y(0) = c_0, \qquad y'(0)=c_1
-\eee
- for $y$ using Laplace transforms.
-}\\
+\workedexample{  Solve $ y'' = g(t)$, $y(0) = c_0$, $y'(0)=c_1$
+  for $y(t)$ using Laplace transforms.
+\\}
 {
 Taking the Laplace transform of both sides, we have
-\bee
-s^2Y - sc_0 - c_1 = G(s).
-\eee
+\begin{dmath*}
+  s^2Y - sc_0 - c_1 = G(s).
+\end{dmath*}
 Solving for $Y$ yields
-\bee
-Y = \frac{G + sc_0 + c_1}{s^2}= \frac{G}{s^2} + \frac{c_0}{s} + \frac{c_1}{s^2}.
-\eee
+\begin{dmath*}[compact]
+  Y 
+  = \frac{G + sc_0 + c_1}{s^2}
+  = \frac{G}{s^2} + \frac{c_0}{s} + \frac{c_1}{s^2}.
+\end{dmath*}
 }
 The solution is then the inverse Laplace transform, i.e.\
-\bee
-y = \Laplace^{-1}\(G(s)\frac{1}{s^2} + c_0 + c_1 t\)
-= g(t)*t + c_0 + c_1 t. \qed
-\eee
-
+\begin{dmath*}[compact]
+  y = \Laplace^{-1}\(G(s)\frac{1}{s^2} + c_0 + c_1 t\)
+  = g(t)*t + c_0 + c_1 t. \qed
+\end{dmath*}
 This technique can be extended to the full harmonic oscillator,
-\bee
-y'' + by' + cy = g
-\eee
+\begin{dmath*}[compact]
+  y'' + by' + cy = g , \qquad y(0) = c_0, \qquad y'(0)=c_1,
+\end{dmath*}
 which then has solution
-\be
-\boxed{
-y = \Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \)
-}.
-\ee
+\begin{dmath*}[compact]
+  \boxed{
+    y  
+    %=\Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \)
+    =g(t)*\Laplace^{-1}\(\frac{1}{s^2+bs+c} \)
+    + \Laplace^{-1}\(\frac{sc_0 +b c_0+ c_1 }{s^2+bs+c} \).
+  }
+\end{dmath*}
 
 
 \section{Laplace Transforms of Discontinuous Functions}
@@ -1920,14 +1920,15 @@ and, for any function $f(t)$,
 \be \label{deltaprop}
 \boxed{\int_{-\infty}^\infty f(t) \delta(t)\, dt = f(0)}.
 \ee
-Approximations to the delta function are shown in figure~\ref{deltafig}.
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics{figures/delta}
-    \caption{Approximations to $\d(x)$.}
-    \label{deltafig}
-  \end{center}
-\end{figure}
+% FIXME: this figure isn't very good.
+%Approximations to the delta function are shown in figure~\ref{deltafig}.
+%\begin{figure}[htbp]
+%  \begin{center}
+%    \includegraphics{figures/delta}
+%    \caption{Approximations to $\d(x)$.}
+%    \label{deltafig}
+%  \end{center}
+%\end{figure}
 
 
 \noindent\emph{Example}: Solve the following differential equation using
@@ -2053,7 +2054,8 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
   \hidesolution{TODO: write solution.}
 
 \item
-  Solve $y'' = t u_c(t)$, $y(0)=y'(0)=0$, for $y(t)$ using Laplace transforms.
+  Solve $y'' = t\times u_c(t)$, $y(0)=y'(0)=0$, for $y(t)$ using Laplace 
+  transforms.
   \hidesolution{
     Note that $tu_c(t) = (t-c)u_c(t) +cu_c(t)$. Then,
     \bee
@@ -2072,7 +2074,9 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
   y'' + y = M\d(t-1), \qquad y'(0)=y(0)=0.
   \eee
   \hidesolution{
-  TODO: write solution.
+    Taking the Laplace transform yields $ s^2 Y + Y = M e^{-s}$. Solving for
+    $Y$ gives $Y= M e^{-s}\frac{1}{1+s^2}$, which has inverse Laplace 
+    transform $y(t) = M u_1(t) cos(t-1)$.
   }
 
 \end{enumerate}
@@ -2114,7 +2118,7 @@ y(t) = \cos t.
 \eee
 We can solve for $X$ in a similar way, or just notice that $x=y'$, i.e.\
 \bee
-x(t) = -\sin t
+x(t) = -\sin t.
 \eee
 
 Systems of differential equations model situations where there are two or
@@ -3075,14 +3079,12 @@ If $\int_{-\infty}^\infty \abs{f(x)} dx$ exists, then
 \be
 \lim_{z\rightarrow \pm \infty}\int_{-\infty}^\infty f(x) e^{izx} dx =0
 \ee
-which implies that
+which implies that $\lim_{n\rightarrow \infty} a_n =0$ and $
+\lim_{n\rightarrow \infty} b_n =0$, and
 \bee
-\lim_{n\rightarrow \infty} a_n =0 \qquad \text{and} \qquad
-\lim_{n\rightarrow \infty} b_n =0,
-\eee
-and
-\bee
-f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \].
+\boxed{
+  f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \].
+}
 \eee
 %FIXME: should the limits of integration be $(-\pi,\pi)$ for the series (as
 %opposed to the transform)? Also, uniqueness?
@@ -3098,16 +3100,13 @@ fact that
 \bee
 \ddtwo{}{x}\sin(nx) = -n^2 \sin(nx),
 \eee
-(i.e.\ that sine is an Eigenfunction of $\ddtwo{}{x}$) to turn differential
+(i.e.\ that sine is an Eigenfunction of $d^2/dx^2$) to turn differential
 equations into algebraic equations. But more on that later. First, let's just
 find the Fourier series for a normal function.
 
 \workedexample{
-Find the Fourier series of
-\bee
-f(x) = x
-\eee
-}{
+Find the Fourier series of $f(x) = x$ for $x\in(-\pi,\pi)$.\\
+}{\\\indent
 To find the Fourier series, we just need to determine $a_n$ and $b_n$ using
 equation~\eqref{nicefourier}. The coefficients for the cosine series are
 \bee
@@ -3158,22 +3157,24 @@ figure~\ref{fourierx}.
 \begin{enumerate}
   \item
     What are the Fourier sine and cosine series for
-    $y=\sin x$?
+    $y=\sin x$, $x \in (-\pi,\pi)$?
     \hidesolution{
       Students should make use of the orthogonality property for $\sin nx$ and
       $\sin mx$, $n \neq m$.
     }
   \item
-    What is the Fourier series for $ f(x) = \d(x-1)$?
+    What is the Fourier series for $ f(x) = \d(x-1)$, $x \in (-\pi,\pi)$?
+  \item
+    What is the Fourier series for $ f(x) = 2 u_0(t)-1 $, $x \in (-\pi,\pi)$?
 
-  \item What is the Fourier series in $x$ for $f(x,t)$ if
-    \be
+  \item What is the Fourier series in $x$ for $f(x,t)$, $x \in (-\pi,\pi)$, if
+    \begin{dmath*}[compact]
     f(x,t) =
     \left\{ \begin{array}{ll}
       -t           & \mbox{if $x < 0$};\\
-      \phantom{-}t & \mbox{if $x \geq 0$}?
-    \end{array} \right.
-    \ee
+      \phantom{-}t & \mbox{if $x \geq 0$}
+    \end{array} \right. ?
+    \end{dmath*}
 
 \end{enumerate}
 
@@ -3205,9 +3206,9 @@ We'll solve this using separation of variables:
 \be\label{heatF}
 y = \sum_{n=0}^\infty T_n(t) X_n(x),
 \ee
-where we have taken $X_n(x)$ to be orthogonal\footnote{That is, if $n\neq m$,
-then $\int_0^\pi X_n(x) X_m(x) dx =0.$ This is the case with elements of
-$\{\cos(nx),\sin(nx),n=0,1,\dots \}$.}.
+where we have taken $X_n(x)$ to be orthogonal\footnote{That is, if $i\neq j$,
+then $\int_0^\pi X_i(x) X_j(x) dx =0.$ This is the case with elements of
+$\{1,\cos(nx),\sin(nx),n=1,2,\dots \}$.}.
 Putting equation \eqref{heatF} into equation \eqref{heateq}, we get
 \be\label{heats}
 \sum_{n=0}^\infty \ddt{T_n(t)}X_n(x)
@@ -3635,12 +3636,12 @@ $$
   & \multirow{2}{*}{$\displaystyle \frac{s-\a}{(s-\a)^2 + \b^2}$} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle e^{\a t}\sin(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{\b}{(s-\a)^2 + \b^2}$} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle u_c(t)$}
+  \multirow{2}{*}{$\displaystyle u_c(t)$, $c > 0$}
   & \multirow{2}{*}{$\displaystyle {e^{-cs}}/{s}$} \\ \\ \hline
-  \multirow{2}{*}{$u_c(t)f(t-c)$}
+  \multirow{2}{*}{$u_c(t)f(t-c)$, $c > 0$}
   & \multirow{2}{*}{$e^{-cs}F(s)$} \\  \\ \hline
-  \multirow{2}{*}{$\delta(t)$} 
-  & \multirow{2}{*}{$ 1$} \\  \\ \hline
+  \multirow{2}{*}{$\delta(t-c)$, $c > 0$} 
+  & \multirow{2}{*}{$e^{-cs}$} \\  \\ \hline
   \multirow{2}{*}{$\displaystyle \int_0^t f(t-\t)g(\t) \,d\t \doteq f*g$} 
   & \multirow{2}{*}{$\displaystyle F(s)G(s)$} \\ \\ \hline
   \multirow{3}{*}{$\displaystyle f(t)$ with $\displaystyle f(t+T)=f(t)$}
