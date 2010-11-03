@@ -44,7 +44,7 @@ by Malcolm Roberts and Samantha Marion
 
 \noindent
 This (unofficial) manual was prepared for \emph{Graduates at Alberta
-  Methematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion.
+  Mathematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion.
 Later additions were made by Matthew Emmett and Remkes Kooistra, with
 funding provided by the Department of Mathematical and Statistical
 Sciences at the University of Alberta.
@@ -1871,9 +1871,13 @@ we take $c>0$, then
   = \int_c^\infty e^{-st} dt
   =\frac{e^{-cs}}{s}.
 \end{dmath*}
+The step function often shows up multiplied by other functions, but it's easy
+to spot. Whenever you have an exponential in the frequency domain, the 
+inverse Laplace transform involves a step function: just use the formula
+\begin{dmath*}
+  \boxed{\Laplace\[u_c(t) f(t-c)\] = e^{-cs} F(s)}.
+\end{dmath*}
 
-The step function often shows up multiplied by other functions, as in the
-following example.\\
 \workedexample{Solve the differential equation
 \bee
 y'=t u_c(t), \qquad y(0)=0
@@ -1883,20 +1887,19 @@ using Laplace transforms.\\
 {\\\indent
 Take the Laplace transform of both sides of the differential equation, yielding
 \begin{dmath*}
-  sY = \Laplace{}\(t u_c(t)\) \no
-  = \int_0^\infty t u_c(t) e^{-st} dt \no
-  = \int_c^\infty t e^{-st} dt 
-  = \[t \frac{e^{-st}}{-s}\]_c^\infty - \int_c^\infty \frac{e^{-st}}{-s}dt
-  = \frac{-ce^{-sc}}{s} + \frac{e^{-sc}}{s^2}.
+  sY 
+  = \Laplace{}\[t u_c(t)\]
+  = \Laplace{}\[ u_c(t) (t-c)\]  + c \Laplace\[u_c(t)\]
+  = e^{-cs} \frac{1}{s^2}  + c \frac{e^{-cs}}{s}
 \end{dmath*}
 Thus,
-\bee
-Y = \frac{ce^{-sc}}{s} +\frac{e^{-sc}}{s^3}.
-\eee
+\begin{dmath*}
+  Y = \frac{ce^{-sc}}{s^2} +\frac{e^{-sc}}{s^3}.
+\end{dmath*}
 From the table of  Laplace transforms, we know that
 $\Laplace{}\(f(t-c)u_c(t)\)=e^{-cs}F(s)$, so
 \bee
-y = -c(t-c)u_c(t) + \frac{1}{2} (t-c)^2 u_c(t). \qed %FIXME: check
+y = c(t-c)u_c(t) + \frac{1}{2} (t-c)^2 u_c(t). \qed
 \eee
 }
 
