@@ -1790,10 +1790,11 @@ From equation \eqref{lapper}, we have
 The Laplace transform is linear, so it deals with linear DEs very well. But not
 all DEs are linear. In fact, the most aren't.
 
-The Laplace transform is a good tool when the nonlinear term is a convolution.
-The convolution of two functions $f$ and $g$ is written $f*g$ and is defined as
+The Laplace transform is a good tool when the nonlinear term is a
+convolution.  The convolution of two functions $f(t)$ and $g(t)$ from
+$\(0,\infty\)$ to $\mathbb{R}$ is written $f*g$ and is defined as
 \begin{dmath}
-  \boxed{f*g=\int_0^t f(t-\tau) g(\tau) \,d\tau .}
+  \boxed{(f*g)(t)=\int_0^t f(t-\tau) g(\tau) \,d\tau .}
 \end{dmath}
 It has a particularly nice Laplace transform. If we write $\Laplace(f)=F$ and
 $\Laplace(g)=G$, then
