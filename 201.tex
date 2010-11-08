@@ -2353,31 +2353,212 @@ work. \qed
 
 \chapter{Series Solutions to DEs}
 
-A smooth function $f(t)$ can be approximated near a point $t=a$ by looking
-at its derivatives. In fact, if $f$ is smooth enough, its value at any
-given $t$ can be entirely determined by its behaviour at $t=a$.
+An appropriately smooth function $f(t)$ may be represented as a 
+\emph{Taylor series},
+\begin{dmath*}
+  \boxed{f(t)=\sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i}.
+\end{dmath*}
+The Taylor series breaks $f(t)$ up into powers of $t$; this can be
+very useful in solving some differential equations.  It's important to when
+a series solution is valid, which is to say, when the Taylor series
+converges to the value of the function. To answer this question, we have
+a variety of tests:
+\begin{enumerate}
+\item \emph{The comparison test}: if $\lim_{n \rightarrow \infty}
+  \abs{a_n/b_n} \in (0,\infty)$, then $\sum_{n=0}^\infty a_n$
+  converges if and only if $\sum_{n=0}^\infty b_n$ converges.
+\item \emph{The ratio test}: if
+  $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then
+  the series converges.
+\item \emph{The root test}: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
+  then the series converges.
+\item \emph{The integral test}: if there is a function $f$ with $f(n)=a_n$,
+  then the series converges if and only if $\int_0^\infty f(t) dt$
+  is finite.
+\item \emph{The alternating series test}: if $a_n = (-1)^n c_n$, $c_n \geq
+  0$, then the series converges so long as
+  $\lim_{n\rightarrow\infty}c_n=0$ and $c_{n+1} < c_n$ for large
+  enough $n$.
+\end{enumerate}
+If we know the Taylor series, we can use these tests to determine the range
+in which the series equals the function.
 
-The most basic approximation that we can make is that the function stays
-constant. For example, a good guess for the temperature in ten minutes would
-be what the temperature is now. That is, we approximate $f$ as
-\bee
-f(t) \approx f_0(t) = f(a).
-\eee
-Now, it may be that the sun is shining, so we expect it to heat up. Then our
-next approximation is to account for this using $f'(a)$, i.e.\
-\bee
-f(t) \approx f_1(t) = f(a) + f'(a) (t-a).
-\eee
-As the sun sets, the rate of heating changes, so we need to add a term with
-$f''(a)$, which gives us
-\bee
-f(t) \approx f_2(t) = f(a) + f'(a) (t-a) + \frac{f''(a)}{2}\(t-a\)^2,
-\eee
-and so on. This is called a \emph{Taylor Polynomial Approximation} (or simply a
-Taylor polynomial). It's easy to deal with both analytically and numerically,
-and it can be used to get at least a basic understanding of just about any IVP.
+\workedexample{
+  Find the Taylor series for $f=e^x$ about $x=0$ and derermine its interval of
+  convergence.
+}{
+  First, we need to find the derivatives of $e^x$. This is easy, since
+  \begin{dmath*}[compact]
+    f^{(n)}(x) = \frac{d^n}{dx^n}e^x = e^x.
+  \end{dmath*}
+  Thus, $f^{(n)}(0)=e^0=1$, so the Taylor series is given by
+  \begin{dmath*}
+    \sum_{n=0}^\infty \frac{1}{n!} x^n.
+  \end{dmath*}
+  For what values of $x$ will this series converge? To determine this, we'll
+  have to use a convergence test. Our test are:
+  Let's try the ratio test. That is, fix $x$ and look at
+  \begin{dmath*}[compact]
+    \lim_{n\rightarrow\infty} \frac{a_{n+1}}{a_n}
+    = \lim_{n\rightarrow\infty}\frac{x^{n+1}/(n+1)!}{x^n/n!}
+    =\lim_{n\rightarrow\infty}\frac{x}{n+1} =0 < 1.
+  \end{dmath*}
+  That is, for any $x\in \mathbb{R}$, $n+1$ will eventually be greater than
+  $x$.  Thus, the limit is zero, and the series converges for all
+  $x \in (-\infty,\infty) =\mathbb{R}$. \qed
+}
+In the above example, the series converged everywhere. This isn't always
+the case: often, a series solution to a differential equation is only
+valid in some neighbourhood of the initial conditions, and the series
+becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of
+convergence.
 
-The $n$th degree Taylor polynomial is
+
+
+
+
+
+
+%\workedexample{
+%  Find the radius of convergence for the Taylor series for $f=\arctan(x)$
+%  about $x=0$.\\
+%}
+%{
+%
+%  The Taylor series for $\arctan(z)$ is
+%  \begin{dmath*}
+%  \sum_{n=0}^\infty \frac{(-1)^n z^{2n+1}}{2n+1}
+%  \end{dmath*}
+%  Using the ratio test again, we look at
+%  \begin{dmath*}
+%  \abs{\frac{a_{n+1}}{a_n}} = \frac{z^{2(n+1)+1}/(2(n+1)+1)}{z^{2n+1}/(2n+1)}
+%  = \frac{z^2}{(2n+3)/(2n+1)}\rightarrow z^2
+%  \end{dmath*}
+%  Clearly, this limit is only less than one if $\abs{z}<1$. We still need to
+%  check the case when $\abs{z}=1$. This is pretty easy to do, since if $z=1$,
+%  the series is just
+%  \begin{dmath*}
+%  \sum_{n=0}^\infty \frac{(-1)^n}{2n+1},
+%  \end{dmath*}
+%  which converges by the alternating series test. Similarly, the series
+%  converges if $z=-1$. Thus, the interval of convergence is $\[-1,1\]$.
+%  \qed
+%}
+
+Now that we can calculate Taylor series and know when they are valid,
+we can use them to calculate solutions to differential equations. To
+simplify matters, we will restrict ourselves to initial value problems
+which begin at $t=0$, so that $a=0$ in all the above formulae. Now, we
+can express the solution $y(t)$ as a Taylor series,
+\begin{dmath*}
+  y = \sum_{n=0}^\infty a_n t^n .
+\end{dmath*}
+We assume that this solution is analytic, so we can take the
+derivative of the series term-by-term. That is,
+\begin{dmath*}[compact]
+  \dd{y}{t} 
+  = \dd{}{t}\sum_{n=0}^\infty a_n t^n
+  = \sum_{n=0}^\infty \dd{}{t}a_n t^n
+  = \sum_{n=0}^\infty a_n n t^{n-1}
+  = \sum_{n=1}^\infty a_n n t^{n-1}
+\end{dmath*}
+(the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we
+can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is
+given by the initial conditions, we can solve for the rest of the $a_n$
+recursively.\\
+%\workedexample{Determine the solution to the IVP
+%\begin{dmath*}[compact]
+%  y'(t) = t^2 +t, \qquad y(0)=1
+%\end{dmath*}
+%using a Taylor series for $y$.\\
+%}
+%{
+%  Let $y =\sum_{n=0}^\infty a_n t^n$.  Then, $a_0=y(0)=1$, and
+%  \begin{dmath*}
+%    y'(t) = \sum_{n=1}^\infty a_n n  t^{n-1} = t^2 +t.
+%  \end{dmath*}
+%  Matching like powers of $t$, we have
+%  \begin{dmath*}[compact]
+%    2 a_2 t = t, \qquad 3 a_3 t^2 = t^2
+%  \end{dmath*}
+%  and $a_n n t^n =0$ for $n=1$ and all $n \geq 4$. Thus, $a_1 =0$, $a_2=\half$,
+%  and $a_3 = \frac{1}{3}$. The solution is then
+%  \begin{dmath*}
+%    y(t) = 1 +\frac{t^2}{2} +\frac{t^3}{3}.
+%  \end{dmath*}
+%}
+%It was easy to isolate all of the $a_n$'s in the previous example, since $y'$
+%appeared alone in the IVP. It's usually necessary to solve for $a_n$
+%recursively.\\
+\workedexample{
+  Solve the IVP
+  \begin{dmath*}[compact]
+  y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
+  \end{dmath*}
+  using a Taylor series for $y$.\\
+}
+{
+
+  Again, let $y=\sum_{n=0}^\infty a_n t^n$. Then
+  \begin{dmath*}
+    y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}.
+  \end{dmath*}
+  The differential equation is then
+  \begin{dmath}
+    \label{serieseg}
+    \sum_{n=2}^\infty a_n n (n-1)t^{n-2} = -\sum_{n=0}^\infty a_n t^n
+  \end{dmath}
+  If we set $m=n-2$, then we can shift the summation index on the LHS to start
+  at zero. That is,
+  \begin{dmath*}
+    y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}
+    = \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m.
+  \end{dmath*}
+  This makes it much easier to solve \eqref{serieseg}, since we now have
+  \begin{dmath*}[compact]
+    \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m =  -\sum_{n=0}^\infty a_n t^n
+    \implies \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
+  \end{dmath*}
+  In order for this to hold for all $t$ in a neighbourhood of $t=0$, it must
+  be that
+  \begin{dmath}
+    \label{seriesrec}
+    a_{n+2}(n+2)(n+1) +a_n =0.
+  \end{dmath}
+  From the initial conditions, we have $a_0=1$ and $a_1=0$. We can solve
+  for $a_2$ by setting $n=0$ in equation \eqref{seriesrec}, which yields
+  \begin{dmath*}[compact]
+    a_2 \times 2 \times 1 = -1, \implies a_2=-\half.
+  \end{dmath*}
+  If we have $n$ even, then $n=2p$, and
+  \begin{dmath*}[compact]
+    a_{2p} 
+    = -\frac{a_{2p-2}}{2p(2p-1)} 
+    = \frac{a_{2p-4}}{2p(2p-1)(2p-3)(2p-4)}
+    = \dots
+    = \frac{(-1)^p a_0}{(2p)!} =\frac{(-1)^p}{(2p)!}
+  \end{dmath*}
+  It's easy to see that $a_3=0$, and, in fact, $a_n=0$ if $n$ is odd. Since
+  we now know the values for all the $a_n$, we can write the solution:
+  \begin{dmath*}
+  y(t) = \sum_{n=0}^\infty t^n
+  \left\{\begin{array}{ll}
+    \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
+    0 & \mbox{if $n$ is odd}.
+  \end{array} \right.
+  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. \qed
+ \end{dmath*}
+ You may recall from previous classes that this is just the Taylor series
+ for $\cos t$.
+}
+
+Sometimes we just don't know how to solve a differential equation, and
+the best that we can do is to give an approximation of the solution
+which is valid over some range. One way to do this is to use the
+\emph{Taylor Polynomial Approximation} (or simply a Taylor
+polynomial). It's easy to deal with both analytically and numerically,
+and it can be used to get at least a basic understanding of just about
+any initial value problem. The $n$th degree Taylor polynomial is
 \begin{dmath*}
   \boxed{
     f_n(t) 
@@ -2395,206 +2576,14 @@ states that there exists a number $\xi \in [a,t]$ where
 So long as $\lim_{n\rightarrow \infty} R_n(t) =0$, $f_n$ will be a better and
 better approximation as $n$ increases.
 
-
-The Taylor series of $f$ is the limit of $f_n$ as $n\rightarrow\infty$, which is
-\begin{dmath*}
-  \boxed{\sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i}.
-\end{dmath*}
-The Taylor series for $f$ exists as long as every derivative of $f$ is
-continuous (i.e.\ $f$ is \emph{analytic}), and is equal to $f$ if
-their difference is zero (i.e.\ $\lim_{n\rightarrow \infty} R_n(t)
-=0$). Since these things are equal, we can use this to solve
-equations. Of course, we need to make sure that these series converge
-in order for our solution to make sense.  What's more, if $f$ is
-analytic, then the derivative of the sum is the sum of the
-derivatives, which can greatly simplify things.\\
-
-\workedexample{
-  Find the Taylor series for $f=e^x$ about $x=0$ and its interval of
-  convergence.
-}{
-  First, we need to find the derivatives of $e^x$. This is easy, since
-  \bee
-  f^{(n)}(x) = \frac{d^n}{dx^n}e^x = e^x.
-  \eee
-  Thus, $f^{(n)}(0)=e^0=1$, so the Taylor series is given by
-  \bee
-  \sum_{n=0}^\infty \frac{1}{n!} x^n.
-  \eee
-  For what values of $x$ will this series converge? To determine this, we'll
-  have to use a convergence test. Our test are:
-  \begin{enumerate}
-  \item \emph{The comparison test}: if $\lim_{n \rightarrow \infty}
-    \abs{a_n/b_n} \in (0,\infty)$, then $\sum_{n=0}^\infty a_n$
-    converges if and only if $\sum_{n=0}^\infty b_n$ converges.
-  \item \emph{The ratio test}: if
-    $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then
-    the series converges.
-  \item \emph{The root test}: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
-    then the series converges.
-  \item \emph{The integral test}: if there is a function $f$ with $f(n)=a_n$,
-    then the series converges if and only if $\int_0^\infty f(t) dt$
-    is finite.
-  \item \emph{The alternating series test}: if $a_n = (-1)^n c_n$, $c_n \geq
-    0$, then the series converges so long as
-    $\lim_{n\rightarrow\infty}c_n=0$ and $c_{n+1} < c_n$ for large
-    enough $n$.
-  \end{enumerate}
-  Let's try the ratio test. That is, fix $x$ and look at
-  \bee
-  \lim_{n\rightarrow\infty} \frac{a_{n+1}}{a_n}
-  = \lim_{n\rightarrow\infty}\frac{x^{n+1}/(n+1)!}{x^n/n!}
-  =\lim_{n\rightarrow\infty}\frac{x}{n+1} =0 < 1.
-  \eee
-  That is, for any $x\in \mathbb{R}$, $n+1$ will eventually be greater than
-  $x$.  Thus, the limit is zero, and the series converges for all
-  $x \in (-\infty,\infty) =\mathbb{R}$. \qed
-}
-
-In the above example, the series converged everywhere. This isn't always
-the case: often, a series solution to a differential equation is only
-valid in some neighbourhood of the initial conditions, and the series
-becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of
-convergence.\\
-
-\workedexample{
-  Find the radius of convergence for the Taylor series for $f=\arctan(x)$
-  about $x=0$.\\
-}
-{
-
-  The Taylor series for $\arctan(z)$ is
-  \bee
-  \sum_{n=0}^\infty \frac{(-1)^n z^{2n+1}}{2n+1}
-  \eee
-  Using the ratio test again, we look at
-  \bee
-  \abs{\frac{a_{n+1}}{a_n}} = \frac{z^{2(n+1)+1}/(2(n+1)+1)}{z^{2n+1}/(2n+1)}
-  = \frac{z^2}{(2n+3)/(2n+1)}\rightarrow z^2
-  \eee
-  Clearly, this limit is only less than one if $\abs{z}<1$. We still need to
-  check the case when $\abs{z}=1$. This is pretty easy to do, since if $z=1$,
-  the series is just
-  \bee
-  \sum_{n=0}^\infty \frac{(-1)^n}{2n+1},
-  \eee
-  which converges by the alternating series test. Similarly, the series
-  converges if $z=-1$. Thus, the interval of convergence is $\[-1,1\]$.
-  \qed
-}
-
-Now that we can calculate Taylor series and know when they are valid, we
-can use them to calculate solutions to differential equations. To simplify
-matters, we will restrict ourselves to initial value problems
-which begin at $t=0$, so that $a=0$ in all the above formulae. Now, we can
-express the solution $y(t)$ as a Taylor series,
-\bee
-y = \sum_{n=0}^\infty a_n t^n .
-\eee
-We assume that this solution is analytic, so we can take the derivative of the
-series term-by-term. That is,
-\bee
-\dd{y}{t} = \dd{}{t}\sum_{n=0}^\infty a_n t^n
-= \sum_{n=0}^\infty \dd{(a_n t^n)}{t} = \sum_{n=0}^\infty a_n n t^{n-1}
-= \sum_{n=1}^\infty a_n n t^{n-1}
-\eee
-(the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we
-can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is
-given by the initial conditions, we can solve for the rest of the $a_n$
-recursively.\\
-\workedexample{Determine the solution to the IVP
-\bee
-y'(t) = t^2 +t, \qquad y(0)=1
-\eee
-using a Taylor series for $y$.\\
-}
-{
-  Let $y =\sum_{n=0}^\infty a_n t^n$.  Then, $a_0=y(0)=1$, and
-  \begin{dmath*}
-    y'(t) = \sum_{n=1}^\infty a_n n  t^{n-1} = t^2 +t.
-  \end{dmath*}
-  Matching like powers of $t$, we have
-  \bee
-  2 a_2 t = t, \qquad 3 a_3 t^2 = t^2
-  \eee
-  and $a_n n t^n =0$ for $n=1$ and all $n \geq 4$. Thus, $a_1 =0$, $a_2=\half$,
-  and $a_3 = \frac{1}{3}$. The solution is then
-  \bee
-  y(t) = 1 +\frac{t^2}{2} +\frac{t^3}{3}.
-  \eee
-}
-It was easy to isolate all of the $a_n$'s in the previous example, since $y'$
-appeared alone in the IVP. It's usually necessary to solve for $a_n$
-recursively.\\
-\workedexample{
-  Solve the IVP
-  \bee
-  y'' = -y, \qquad y(0) =1, \qquad y'(0)=0.
-  \eee
-  using a Taylor series for $y$.\\
-}
-{
-
-  Again, let $y=\sum_{n=0}^\infty a_n t^n$. Then
-  \bee
-  y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}.
-  \eee
-  The differential equation is then
-  \be
-  \label{serieseg}
-  \sum_{n=2}^\infty a_n n (n-1)t^{n-2} = -\sum_{n=0}^\infty a_n t^n
-  \ee
-  If we set $m=n-2$, then we can shift the summation index on the LHS to start
-  at zero. That is,
-  \bee
-  y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}
-  = \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m.
-  \eee
-  This makes it much easier to solve \eqref{serieseg}, since we now have
-  \bee
-  \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m =  -\sum_{n=0}^\infty a_n t^n
-%  \eee
-%  \bee
-  \implies \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
-  \eee
-  In order for this to hold for all $t$ in a neighbourhood of $t=0$, it must
-  be that
-  \be
-  \label{seriesrec}
-  a_{n+2}(n+2)(n+1) +a_n =0.
-  \ee
-  From the initial conditions, we have $a_0=1$ and $a_1=0$. We can solve
-  for $a_2$ by setting $n=0$ in equation \eqref{seriesrec}, which yields
-  \bee
-  a_2 \times 2 \times 1 = -1, \implies a_2=-\half.
-  \eee
-  If we have $n$ even, then $n=2p$, and
-  \bee
-  a_{2p} = -\frac{a_{2p-2}}{2p(2p-1)} = \frac{a_{2p-4}}{2p(2p-1)(2p-3)(2p-4)}
-  = \dots
-  = \frac{(-1)^p a_0}{(2p)!} =\frac{(-1)^p}{(2p)!}
-  \eee
-  It's easy to see that $a_3=0$, and, in fact, $a_n=0$ if $n$ is odd. Since
-  we now know the values for all the $a_n$, we can write the solution:
-  \bee
-  y(t) = \sum_{n=0}^\infty t^n
-  \left\{\begin{array}{ll}
-    \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
-    0 & \mbox{if $n$ is odd}.
-  \end{array} \right.
-  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. \qed
- \eee
- You may recall from previous classes that this is just the Taylor series
- for $\cos t$.
-}
-
+%FIXME: put an example where we just find a couple of terms?
 
 \section{Problems}
 \begin{enumerate}
 \item Determine the convergence set of the series
-  \bee
+  \begin{dmath*}
   \sum_{n=0}^\infty \frac{3^n}{n} (x-2)^n.
-  \eee
+  \end{dmath*}
   \hidesolution{
     For this series $a_n = \frac{3^n}{n}$ and $x_0 = 2$, so
     \begin{dmath*}
@@ -2609,10 +2598,10 @@ recursively.\\
     \end{dmath*}
     and then $\rho = \frac{1}{L} = \frac{1}{3}$. So the series converges 
     (absolutely) on
-    \bee
+    \begin{dmath*}
     (x_0 - \rho, x_0 + \rho) = \left( 2 - \frac{1}{3}, 2 + \frac{1}{3} \right)
     = \left( \frac{5}{3}, \frac{7}{3} \right).
-    \eee
+    \end{dmath*}
     It remains to check if the series converges at the endpoints of this
     interval.  At $x = \frac{5}{3}$, we have
     \begin{dmath*}[compact]
@@ -2636,9 +2625,9 @@ recursively.\\
   \item
     Determine the first four non-zero terms of the Taylor series of the
     solution to the Chebyshev equation,
-    \bee
+    \begin{dmath*}
     (1-x^2)y'' - xy' +p^2 y=0
-    \eee
+    \end{dmath*}
     with initial conditions $y(0)=a_0$, $y'(0)=a_1$.
     \hidesolution{
       TODO: write the solution
@@ -2646,9 +2635,9 @@ recursively.\\
 
   \item
     Determine the fourth degree Taylor polynomial for the solution to
-    \bee
+    \begin{dmath*}
     (y')^2 + y = e^x, \qquad y(0)=0.
-    \eee
+    \end{dmath*}
     \hidesolution{
       The first four terms of $y'$ are $a_1 + 2 a_2 x +3 a_3 x^2 + 4 a_4 x^3$.
       The first four terms of $(y')^2$ are therefore
@@ -2662,14 +2651,14 @@ recursively.\\
         e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
       \end{dmath*}
       Matching order-by-order, we have
-      \bee
+      \begin{dmath*}
       \begin{array}{ll}
 	\O(1): & a_0 + a_1^2 =1 \\
 	\O(x): & a_1(1+ 4 a_2) =1\\
 	\O(x^2): & a_2 + 4a_2^2 + 6 a_1 a_3 =\half \\
 	\O(x^3): & a_3 + 8 a_1 a_4 + 12 a_2 a_3=\frac{1}{6} \\
       \end{array}
-      \eee
+      \end{dmath*}
       Subbing back into these equations, we get
       \begin{dmath*}[compact]
         a_1=1, \qquad a_2 =0, \qquad a_3=\frac{1}{12}, \qquad a_4=\frac{1}{96},
@@ -2682,9 +2671,9 @@ recursively.\\
     
   \item
     Solve
-    \bee
+    \begin{dmath*}
     y' = \frac{1}{1+x^2}, \qquad y(0)=0
-    \eee
+    \end{dmath*}
     using a Taylor series. Do not leave your solution as an infinite series,
     but equate it to a known function.
     \hidesolution{
@@ -2733,29 +2722,29 @@ recursively.\\
 
   \item
     Give a recursion formula for $a_n$ if
-    \bee
+    \begin{dmath*}
     a_{3n+1} = \frac{a_1}{(3n+1)\times (3n) \times (3n-2) \dots
       6 \times 4 \times \times 3}.
-    \eee
+    \end{dmath*}
 
   \item
     Given the recursion relationship
-    \bee
+    \begin{dmath*}
     a_n = \frac{-2}{n^2}a_{n-1},
-    \eee
+    \end{dmath*}
     find $a_n$ explicitly.
 
   \item
     Given the recursion relationship
-    \bee
+    \begin{dmath*}
     a_{n+4} = \frac{-k^2}{(n+4)(n+3)} a_{n-1},
-    \eee
+    \end{dmath*}
     with $k$ a constant, find $a_n$ explicitly.
 
   \item Solve the differential equation
-    \bee
+    \begin{dmath*}
     y'' - 2 x y' + \l y=0,
-    \eee
+    \end{dmath*}
     with $\l$ a constant, using a Taylor series about $x=0$. For what values
     of $\l$ is the solution a polynomial?
     \hidesolution{
