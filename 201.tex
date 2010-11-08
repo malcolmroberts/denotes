@@ -2378,33 +2378,36 @@ Taylor polynomial). It's easy to deal with both analytically and numerically,
 and it can be used to get at least a basic understanding of just about any IVP.
 
 The $n$th degree Taylor polynomial is
-\be
-\boxed{f_n(t) = f(a) + f'(a)(t-a) + \dots + \frac{f^{(n)}(a)}{n!} (t-a)^n
-= \sum_{i=0}^n \frac{f^{(i)}(a)}{i!}(t-a)^i},
-\ee
-and it exists for any function $f$ whose first $n$ derivatives are smooth for
-$t\in [a,t]$.
-Let $R_n(t) = f(t) -f_n(t)$ denote the error associated with the $n$th Taylor
-polynomial. Then, Taylor's theorem states that there exists a number
-$\xi \in [a,t]$ where
-\be
-\boxed{R_n(t) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(t-a)^{n+1}}.
-\ee
+\begin{dmath*}
+  \boxed{
+    f_n(t) 
+    = f(a) + f'(a)(t-a) + \dots + \frac{f^{(n)}(a)}{n!} (t-a)^n
+    = \sum_{i=0}^n \frac{f^{(i)}(a)}{i!}(t-a)^i
+  },
+\end{dmath*}
+and it exists for any function $f$ whose first $n$ derivatives are
+smooth for $t\in [a,t]$.  Let $R_n(t) = f(t) -f_n(t)$ denote the error
+associated with the $n$th Taylor polynomial. Then, Taylor's theorem
+states that there exists a number $\xi \in [a,t]$ where
+\begin{dmath*}
+  \boxed{R_n(t) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(t-a)^{n+1}}.
+\end{dmath*}
 So long as $\lim_{n\rightarrow \infty} R_n(t) =0$, $f_n$ will be a better and
 better approximation as $n$ increases.
 
 
 The Taylor series of $f$ is the limit of $f_n$ as $n\rightarrow\infty$, which is
-\be
-\boxed{\sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i}.
-\ee
+\begin{dmath*}
+  \boxed{\sum_{i=0}^\infty \frac{f^{(i)}(a)}{i!}(t-a)^i}.
+\end{dmath*}
 The Taylor series for $f$ exists as long as every derivative of $f$ is
-continuous (i.e.\ $f$ is \emph{analytic}), and is equal to $f$ if their
-difference is zero (i.e.\ $\lim_{n\rightarrow \infty} R_n(t) =0$). Since these
-things are equal, we can use this to solve equations. Of course, we need to
-make sure that these series converge in order for our solution to make sense.
-What's more, if $f$ is analytic, then the derivative of the sum is the sum
-of the derivatives, which can greatly simplify things.\\
+continuous (i.e.\ $f$ is \emph{analytic}), and is equal to $f$ if
+their difference is zero (i.e.\ $\lim_{n\rightarrow \infty} R_n(t)
+=0$). Since these things are equal, we can use this to solve
+equations. Of course, we need to make sure that these series converge
+in order for our solution to make sense.  What's more, if $f$ is
+analytic, then the derivative of the sum is the sum of the
+derivatives, which can greatly simplify things.\\
 
 \workedexample{
   Find the Taylor series for $f=e^x$ about $x=0$ and its interval of
@@ -2419,22 +2422,23 @@ of the derivatives, which can greatly simplify things.\\
   \sum_{n=0}^\infty \frac{1}{n!} x^n.
   \eee
   For what values of $x$ will this series converge? To determine this, we'll
-  have to use a convergence test. Letting $A=\sum_{n=0}^\infty a_n$
-  $B=\sum_{n=0}^\infty b_n$ be two series, our test are:
+  have to use a convergence test. Our test are:
   \begin{enumerate}
-  \item The comparison test: if
-    $\lim_{n \rightarrow \infty} \abs{a_n/b_n} \in (0,\infty)$, then $A$
-    converges if and only if $B$ converges.
-  \item The ratio test: if
-    $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then $A$
-    converges.
-  \item The root test: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
-    then $A$ converges.
-  \item The integral test: if there is a function $f$ with $f(n)=a_n$, then
-    $A$ converges if and only if $\int_0^\infty f(t) dt$ is finite.
-  \item The alternating series test: if $a_n = (-1)^n c_n$, then $A$
-    converges so long as $\lim_{n\rightarrow\infty}c_n=0$ and each $c_n$ is
-    smaller than $c_{n-1}$.
+  \item \emph{The comparison test}: if $\lim_{n \rightarrow \infty}
+    \abs{a_n/b_n} \in (0,\infty)$, then $\sum_{n=0}^\infty a_n$
+    converges if and only if $\sum_{n=0}^\infty b_n$ converges.
+  \item \emph{The ratio test}: if
+    $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then
+    the series converges.
+  \item \emph{The root test}: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
+    then the series converges.
+  \item \emph{The integral test}: if there is a function $f$ with $f(n)=a_n$,
+    then the series converges if and only if $\int_0^\infty f(t) dt$
+    is finite.
+  \item \emph{The alternating series test}: if $a_n = (-1)^n c_n$, $c_n \geq
+    0$, then the series converges so long as
+    $\lim_{n\rightarrow\infty}c_n=0$ and $c_{n+1} < c_n$ for large
+    enough $n$.
   \end{enumerate}
   Let's try the ratio test. That is, fix $x$ and look at
   \bee
@@ -2458,6 +2462,7 @@ convergence.\\
   about $x=0$.\\
 }
 {
+
   The Taylor series for $\arctan(z)$ is
   \bee
   \sum_{n=0}^\infty \frac{(-1)^n z^{2n+1}}{2n+1}
@@ -2504,14 +2509,10 @@ y'(t) = t^2 +t, \qquad y(0)=1
 using a Taylor series for $y$.\\
 }
 {
-  Let
-  \bee
-  y =\sum_{n=0}^\infty a_n t^n.
-  \eee
-  Then, $a_0=y(0)=1$, and
-  \bee
-  y'(t) = \sum_{n=1}^\infty a_n n  t^{n-1} = t^2 +t.
-  \eee
+  Let $y =\sum_{n=0}^\infty a_n t^n$.  Then, $a_0=y(0)=1$, and
+  \begin{dmath*}
+    y'(t) = \sum_{n=1}^\infty a_n n  t^{n-1} = t^2 +t.
+  \end{dmath*}
   Matching like powers of $t$, we have
   \bee
   2 a_2 t = t, \qquad 3 a_3 t^2 = t^2
@@ -2533,6 +2534,7 @@ recursively.\\
   using a Taylor series for $y$.\\
 }
 {
+
   Again, let $y=\sum_{n=0}^\infty a_n t^n$. Then
   \bee
   y'' = \sum_{n=2}^\infty a_n n (n-1)t^{n-2}.
