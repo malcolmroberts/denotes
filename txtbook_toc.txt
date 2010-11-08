@@ -127,18 +127,19 @@ Group Projects for Chapter 7
             C. Determining System Parameters
  
 8. Series Solutions of Differential Equations
-Introduction: The Taylor Polynomial Approximation
-Power Series and Analytic Functions
-Power Series Solutions to Linear Differential Equations
-Equations with Analytic Coefficients
-Cauchy-Euler (Equidimensional) Equations
-Method of Frobenius
-Finding a Second Linearly Independent Solution
-Special Functions
-Chapter Summary
-Technical Writing Exercises
-Group Projects for Chapter 8
-            A. Spherically Symmetric Solutions to Shrodinger's Equation for the Hydrogen Atom
+8.1 Introduction: The Taylor Polynomial Approximation
+8.2 Power Series and Analytic Functions
+8.3 Power Series Solutions to Linear Differential Equations
+8.4 Equations with Analytic Coefficients
+8.5 Cauchy-Euler (Equidimensional) Equations
+8.6 Method of Frobenius
+8.7 Finding a Second Linearly Independent Solution
+8.8 Special Functions
+8.9 Chapter Summary
+8.10 Technical Writing Exercises
+8.11 Group Projects for Chapter 8
+            A. Spherically Symmetric Solutions to Shrodinger's Equation for 
+	       the Hydrogen Atom
             B. Airy's Equation
             C. Buckling of a Tower
             D. Aging Spring and Bessel Functions
@@ -161,16 +162,16 @@ Group Projects for Chapter 9
             D. Strange Behavior of Competing Species - Part II
  
 10. Partial Differential Equations
-Introduction: A Model for Heat Flow
-Method of Separation of Variables
-Fourier Series
-Fourier Cosine and Sine Series
-The Heat Equation
-The Wave Equation
-Laplace's Equation
-Chapter Summary
-Technical Writing Exercises
-Group Projects for Chapter 10
+10.1 Introduction: A Model for Heat Flow
+10.2 Method of Separation of Variables
+10.3 Fourier Series
+10.4 Fourier Cosine and Sine Series
+10.5 The Heat Equation
+10.6 The Wave Equation
+10.7 Laplace's Equation
+10.8 Chapter Summary
+10.9 Technical Writing Exercises
+10.10 Group Projects for Chapter 10
             A. Steady-State Temperature Distribution in a Circular Cylinder
             B. A Laplace Transform Solution of the Wave Equation
             C. Green's Function
