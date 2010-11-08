@@ -2756,7 +2756,54 @@ recursively.\\
     \eee
     with $\l$ a constant, using a Taylor series about $x=0$. For what values
     of $\l$ is the solution a polynomial?
+    \hidesolution{
+      Putting the Taylor series in we get
+      \begin{dmath*}
+        \sum_{n=2}^\infty a_n n (n-1) x^{n-2} 
+        - 2x \sum_{n=1}^\infty a_n n x^{n-1}
+        + \l \sum_{n=0}^\infty a_n x^ n=0
+      \end{dmath*}
+      which gives
+      \begin{dmath*}
+        \sum_{m=0}^\infty a_{m+2} (m+2)(m+1) t^m
+        - 2 \sum_{n=1}^\infty a_n n t^n
+        + \l \sum_{n=0}^\infty a_n t^ n=0
+      \end{dmath*}
+      so, for $n > 0$, $a_{n+2} (n+2)(n+1) - 2 n a_n  + \l a_n =0$.
+      The recurrence relation is 
+      \begin{dmath*}[compact]
+        a_{n+2} = a_n \frac{\l - 2n}{(n+2)(n+1)}, \qquad n > 0.
+      \end{dmath*}
+      FIXME: is this question right?
+    }
 
+  \item 
+    Find the general solution to $y''' + \l y =0$.
+    \hidesolution{
+      Putting the Taylor series in gives
+      \begin{dmath*}
+        \sum_{n=3}^\infty a_n(n)(n-1)(n-2) t^{n-3} 
+        + \l \sum_{n=0}^\infty a_n t^n=0.
+      \end{dmath*}
+      let $m=n-3$, so
+      \begin{dmath*}
+        \sum_{m=0}^\infty a_{m+3}(m+3)(m+2)(m+1) t^m
+        + \l \sum_{n=0}^\infty a_n t^n=0.
+      \end{dmath*}
+      The recurrence relation is then 
+      \begin{dmath*}
+        a_{n+3} = \frac{-\l a_n}{(n+3)(n+2)(n+1)}.
+      \end{dmath*}
+      This is solved by
+      $a_{3n} = -1^n a_0 / (3n)!$, $a_{3n+1} = -1^n a_1 / (3n+1)!$, 
+      $a_{3n+2} = -1^n a_2 / (3n+2)!$, so
+      \begin{dmath*}
+        y(t) = a_0 \sum_{n=0}^\infty \frac{-1^n}{(3n)!}t^{3n}
+        +a_1 \sum_{n=0}^\infty \frac{-1^n}{(3n+1)!}t^{3n+1}
+        +a_2 \sum_{n=0}^\infty \frac{-1^n}{(3n+2)!}t^{3n+2}.
+      \end{dmath*}
+    }
+    
 \end{enumerate}
 
 
