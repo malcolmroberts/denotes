@@ -2384,7 +2384,7 @@ If we know the Taylor series, we can use these tests to determine the range
 in which the series equals the function.
 
 \workedexample{
-  Find the Taylor series for $f=e^x$ about $x=0$ and derermine its interval of
+  Find the Taylor series for $f=e^x$ about $x=0$ and determine its interval of
   convergence.
 }{
   First, we need to find the derivatives of $e^x$. This is easy, since
@@ -2458,12 +2458,12 @@ derivative of the series term-by-term. That is,
 \begin{dmath*}[compact]
   \dd{y}{t} 
   = \dd{}{t}\sum_{n=0}^\infty a_n t^n
-  = \sum_{n=0}^\infty \dd{}{t}a_n t^n
+  = \sum_{n=0}^\infty \dd{}{t}\(a_n t^n\)
   = \sum_{n=0}^\infty a_n n t^{n-1}
-  = \sum_{n=1}^\infty a_n n t^{n-1}
+  = \sum_{n=1}^\infty a_n n t^{n-1}.
 \end{dmath*}
-(the last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we
-can ignore the term with $n=0$). Since we know that $a_0=y(0)$, and $y(0)$ is
+The last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we
+can ignore the term with $n=0$. Since we know that $a_0=y(0)$, and $y(0)$ is
 given by the initial conditions, we can solve for the rest of the $a_n$
 recursively.\\
 %\workedexample{Determine the solution to the IVP
@@ -2517,19 +2517,25 @@ recursively.\\
   This makes it much easier to solve \eqref{serieseg}, since we now have
   \begin{dmath*}[compact]
     \sum_{m=0}^\infty a_{m+2}(m+2)(m+1)t^m =  -\sum_{n=0}^\infty a_n t^n
-    \implies \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
+  \end{dmath*}
+  and we can put it all together to get
+  \begin{dmath*}
+    \sum_{n=0}^\infty \[a_{n+2}(n+2)(n+1) +a_n \]t^n =0
   \end{dmath*}
   In order for this to hold for all $t$ in a neighbourhood of $t=0$, it must
   be that
+  \begin{dmath*}
+    a_{n+2}(n+2)(n+1) +a_n =0
+  \end{dmath*}
+  which gives us the recurrence relation
   \begin{dmath}
     \label{seriesrec}
-    a_{n+2}(n+2)(n+1) +a_n =0.
+    a_{n+2}= \frac{-a_n}{(n+2)(n+1)}.
   \end{dmath}
-  From the initial conditions, we have $a_0=1$ and $a_1=0$. We can solve
-  for $a_2$ by setting $n=0$ in equation \eqref{seriesrec}, which yields
-  \begin{dmath*}[compact]
-    a_2 \times 2 \times 1 = -1, \implies a_2=-\half.
-  \end{dmath*}
+  From the initial conditions, we have $a_0=1$ and $a_1=0$. We can
+  solve for $a_2$ by setting $n=0$ in equation \eqref{seriesrec},
+  which yields $a_2=-\half$.
+
   If we have $n$ even, then $n=2p$, and
   \begin{dmath*}[compact]
     a_{2p} 
@@ -2540,16 +2546,16 @@ recursively.\\
   \end{dmath*}
   It's easy to see that $a_3=0$, and, in fact, $a_n=0$ if $n$ is odd. Since
   we now know the values for all the $a_n$, we can write the solution:
-  \begin{dmath*}
+  \begin{dmath*}[compact]
   y(t) = \sum_{n=0}^\infty t^n
   \left\{\begin{array}{ll}
     \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
     0 & \mbox{if $n$ is odd}.
   \end{array} \right.
-  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. \qed
+  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. 
  \end{dmath*}
  You may recall from previous classes that this is just the Taylor series
- for $\cos t$.
+ for $\cos t$. \qed
 }
 
 Sometimes we just don't know how to solve a differential equation, and
@@ -2582,7 +2588,7 @@ better approximation as $n$ increases.
 \begin{enumerate}
 \item Determine the convergence set of the series
   \begin{dmath*}
-  \sum_{n=0}^\infty \frac{3^n}{n} (x-2)^n.
+    \sum_{n=0}^\infty \frac{3^n}{n} (x-2)^n.
   \end{dmath*}
   \hidesolution{
     For this series $a_n = \frac{3^n}{n}$ and $x_0 = 2$, so
@@ -2635,7 +2641,7 @@ better approximation as $n$ increases.
 
   \item
     Determine the fourth degree Taylor polynomial for the solution to
-    \begin{dmath*}
+    \begin{dmath*}[compact]
     (y')^2 + y = e^x, \qquad y(0)=0.
     \end{dmath*}
     \hidesolution{
@@ -2671,8 +2677,8 @@ better approximation as $n$ increases.
     
   \item
     Solve
-    \begin{dmath*}
-    y' = \frac{1}{1+x^2}, \qquad y(0)=0
+    \begin{dmath*}[compact]
+      y' = \frac{1}{1+x^2}, \qquad y(0)=0
     \end{dmath*}
     using a Taylor series. Do not leave your solution as an infinite series,
     but equate it to a known function.
