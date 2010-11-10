@@ -6,10 +6,9 @@
 ./sTA.sh
 pdflatex 201.tex
 pdflatex 201.tex
-cp 201.pdf ta201.pdf
+mv 201.pdf ta201.pdf 
 
 # make student version:
 ./sStu.sh
 pdflatex 201.tex
 pdflatex 201.tex
-cp 201.pdf ta201.pdf
