@@ -2474,9 +2474,15 @@ derivative of the series term-by-term. That is,
   = \sum_{n=1}^\infty a_n n t^{n-1}.
 \end{dmath*}
 The last equality is because when $n=0$ we have that $a_n n t^{n-1}=0$, so we
-can ignore the term with $n=0$. Since we know that $a_0=y(0)$, and $y(0)$ is
-given by the initial conditions, we can solve for the rest of the $a_n$
-recursively.\\
+can ignore the term with $n=0$. 
+
+To solve differential equations using power series, we put the power
+series representation for $y(t)$, $y'(t)$, and so on, into the
+differential equation.  Matching like powers of $t$ gives us a a
+recurrence relation, which expresses $a_n$ in terms of $a_m$ with $m <
+n$, which we can solve to get $a_n$ in terms of $n$ and the initial
+conditions.
+
 %\workedexample{Determine the solution to the IVP
 %\begin{dmath*}[compact]
 %  y'(t) = t^2 +t, \qquad y(0)=1
@@ -2650,41 +2656,41 @@ better approximation as $n$ increases.
       TODO: write the solution
     }
 
-  \item
-    Determine the fourth degree Taylor polynomial for the solution to
-    \begin{dmath*}[compact]
-    (y')^2 + y = e^x, \qquad y(0)=0.
-    \end{dmath*}
-    \hidesolution{
-      The first four terms of $y'$ are $a_1 + 2 a_2 x +3 a_3 x^2 + 4 a_4 x^3$.
-      The first four terms of $(y')^2$ are therefore
-      \begin{dmath*}
-        (y') + y \approx a_0+a_1^2 + x\(a_1 +4 a_1 a_2 \)
-        + x^2 \(a_2+ 4a_2^2+6 a_1 a_3 \)
-        +x^3\(a_3 + 8a_1 a_4 +12 a_2 a_3 \)
-      \end{dmath*}
-      and equal
-      \begin{dmath*}
-        e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
-      \end{dmath*}
-      Matching order-by-order, we have
-      \begin{dmath*}
-      \begin{array}{ll}
-	\O(1): & a_0 + a_1^2 =1 \\
-	\O(x): & a_1(1+ 4 a_2) =1\\
-	\O(x^2): & a_2 + 4a_2^2 + 6 a_1 a_3 =\half \\
-	\O(x^3): & a_3 + 8 a_1 a_4 + 12 a_2 a_3=\frac{1}{6} \\
-      \end{array}
-      \end{dmath*}
-      Subbing back into these equations, we get
-      \begin{dmath*}[compact]
-        a_1=1, \qquad a_2 =0, \qquad a_3=\frac{1}{12}, \qquad a_4=\frac{1}{96},
-      \end{dmath*}
-      and
-      \begin{dmath*}
-        y(x) \approx x + \frac{x^3}{12} + \frac{x^4}{96}.
-      \end{dmath*}
-    }
+%  \item
+%    Determine the fourth degree Taylor polynomial for the solution to
+%    \begin{dmath*}[compact]
+%    (y')^2 + y = e^x, \qquad y(0)=0.
+%    \end{dmath*}
+%    \hidesolution{
+%      The first four terms of $y'$ are $a_1 + 2 a_2 x +3 a_3 x^2 + 4 a_4 x^3$.
+%      The first four terms of $(y')^2$ are therefore
+%      \begin{dmath*}
+%        (y') + y \approx a_0+a_1^2 + x\(a_1 +4 a_1 a_2 \)
+%        + x^2 \(a_2+ 4a_2^2+6 a_1 a_3 \)
+%        +x^3\(a_3 + 8a_1 a_4 +12 a_2 a_3 \)
+%      \end{dmath*}
+%      and equal
+%      \begin{dmath*}
+%        e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
+%      \end{dmath*}
+%      Matching order-by-order, we have
+%      \begin{dmath*}
+%      \begin{array}{ll}
+%	\O(1): & a_0 + a_1^2 =1 \\
+%	\O(x): & a_1(1+ 4 a_2) =1\\
+%	\O(x^2): & a_2 + 4a_2^2 + 6 a_1 a_3 =\half \\
+%	\O(x^3): & a_3 + 8 a_1 a_4 + 12 a_2 a_3=\frac{1}{6} \\
+%      \end{array}
+%      \end{dmath*}
+%      Subbing back into these equations, we get
+%      \begin{dmath*}[compact]
+%        a_1=1, \qquad a_2 =0, \qquad a_3=\frac{1}{12}, \qquad a_4=\frac{1}{96},
+%      \end{dmath*}
+%      and
+%      \begin{dmath*}
+%        y(x) \approx x + \frac{x^3}{12} + \frac{x^4}{96}.
+%      \end{dmath*}
+%    }
     
   \item
     Solve
