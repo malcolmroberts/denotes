@@ -2369,14 +2369,14 @@ a variety of tests:
   converges if and only if $\sum_{n=0}^\infty b_n$ converges.
 \item \emph{The ratio test}: if
   $\lim_{n\rightarrow\infty}\abs{\frac{a_{n+1}}{a_n}}=c < 1$, then
-  the series converges.
+  $\sum_{n=0}^\infty a_n$ converges.
 \item \emph{The root test}: if $\lim_{n\rightarrow\infty}\abs{a_n}^{1/n}=c < 1$,
-  then the series converges.
-\item \emph{The integral test}: if there is a function $f$ with $f(n)=a_n$,
-  then the series converges if and only if $\int_0^\infty f(t) dt$
-  is finite.
+  then $\sum_{n=0}^\infty a_n$ converges.
+\item \emph{The integral test}: if there is a function $f$ with
+  $f(n)=a_n$, then $\sum_{n=0}^\infty a_n$ converges if and only if
+  $\int_0^\infty f(t) dt$ is finite.
 \item \emph{The alternating series test}: if $a_n = (-1)^n c_n$, $c_n \geq
-  0$, then the series converges so long as
+  0$, then $\sum_{n=0}^\infty a_n$ converges so long as
   $\lim_{n\rightarrow\infty}c_n=0$ and $c_{n+1} < c_n$ for large
   enough $n$.
 \end{enumerate}
@@ -2386,6 +2386,7 @@ in which the series equals the function.
 \workedexample{
   Find the Taylor series for $f=e^x$ about $x=0$ and determine its interval of
   convergence.
+
 }{
   First, we need to find the derivatives of $e^x$. This is easy, since
   \begin{dmath*}[compact]
@@ -2407,17 +2408,12 @@ in which the series equals the function.
   $x$.  Thus, the limit is zero, and the series converges for all
   $x \in (-\infty,\infty) =\mathbb{R}$. \qed
 }
+
 In the above example, the series converged everywhere. This isn't always
 the case: often, a series solution to a differential equation is only
 valid in some neighbourhood of the initial conditions, and the series
 becomes divergent when $\abs{t-a} > r$, and we call $r$ the radius of
 convergence.
-
-
-
-
-
-
 
 %\workedexample{
 %  Find the radius of convergence for the Taylor series for $f=\arctan(x)$
@@ -2449,10 +2445,25 @@ Now that we can calculate Taylor series and know when they are valid,
 we can use them to calculate solutions to differential equations. To
 simplify matters, we will restrict ourselves to initial value problems
 which begin at $t=0$, so that $a=0$ in all the above formulae. Now, we
-can express the solution $y(t)$ as a Taylor series,
+can express the solution $y(t)$ as a power series,
+\begin{dmath}
+  \label{pseries}
+  y(t) = \sum_{n=0}^\infty a_n t^n .
+\end{dmath}
+which is really just a Taylor series:
+\begin{dmath}
+  \label{tseries}
+  y(t) = \sum_{n=0}^\infty \frac{y^{(n)}(0)}{n!} t^n .
+\end{dmath}
+Since Taylor series are unique, equations \eqref{pseries} and
+\eqref{tseries} must agree term-by-term.  That is, for $n=0,1,2,\dots$,
 \begin{dmath*}
-  y = \sum_{n=0}^\infty a_n t^n .
+  a_n = \frac{y^{(n)}(0)}{n!}.
 \end{dmath*}
+That is, initial conditions specify coefficients: if you are given
+$y(0)=c_0$, then you know that $a_0 = y(0)/0! = c_0$. Similarly, $y'(0)=c_1$
+specifies $a_1$, and so on.
+
 We assume that this solution is analytic, so we can take the
 derivative of the series term-by-term. That is,
 \begin{dmath*}[compact]
