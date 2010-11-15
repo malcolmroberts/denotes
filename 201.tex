@@ -400,11 +400,11 @@ other techniques.
 \boxed{\dd{y}{x} = f\(\frac{y}{x}\)}.
 \ee
 We solve this by substituting $v=y/x$, so that
-\bee
-\dd{y}{x} = v + x \dd{v}{x},
-\quad \implies \quad
-v + x \dd{v}{x} = f(v),
-\eee
+\begin{dmath*}[compact]
+  \dd{y}{x} = v + x \dd{v}{x},
+  \quad \implies \quad
+  v + x \dd{v}{x} = f(v),
+\end{dmath*}
 which can be written as the separable equation
 \begin{dmath*}
 \boxed{\dd{v}{x} = \frac{f(v) -v}{x}}.
@@ -415,36 +415,36 @@ which can be written as the separable equation
   \dd{y}{x} = \frac{x}{y}, \mbox{ with } y(1) = 2.
 \end{dmath*}
 This is homogeneous, so let $v=y/x$, and then $f(v) = \frac{1}{v}$, so
-\bee
-v + x \dd{v}{x} = \frac{1}{v}
-\quad \implies \quad
-\frac{1}{\frac{1}{v} -v} dv = \frac{1}{x}dx.
-\eee
+\begin{dmath*}[compact]
+  v + x \dd{v}{x} = \frac{1}{v}
+  \quad \implies \quad
+  \frac{1}{\frac{1}{v} -v} dv = \frac{1}{x}dx.
+\end{dmath*}
 Integrating both sides gives
-\bee
-\int \frac{v}{1-v^2}dv = \int \frac{1}{x} dx
-\quad \implies \quad
--\frac{1}{2} \int \frac{1}{u}du = \ln x+ \ln C
-\eee
+\begin{dmath*}[compact]
+  \int \frac{v}{1-v^2}dv = \int \frac{1}{x} dx
+  \quad \implies \quad
+  -\frac{1}{2} \int \frac{1}{u}du = \ln x+ \ln C
+\end{dmath*}
 where we have used the substitution $u = 1-v^2$. Thus,
 \begin{dmath*}
-\ln\(1-v^2 \) = \ln \frac{C}{x^2}
+  \ln\(1-v^2 \) = \ln \frac{C}{x^2}
 \end{dmath*}
 which implies that
-\bee
-v = \pm \sqrt{1 - \frac{C}{x^2}}
-\quad \implies \quad
-y = \pm x \sqrt{1 - \frac{C}{x^2}}.
-\eee
+\begin{dmath*}[compact]
+  v = \pm \sqrt{1 - \frac{C}{x^2}}
+  \quad \implies \quad
+  y = \pm x \sqrt{1 - \frac{C}{x^2}}.
+\end{dmath*}
 The initial condition is $y(1)=2$, so we choose the positive root, and
 find $C$ by setting $x=1$, $y=2$, i.e.\
-\bee
-2 = 1 \times \sqrt{1-C}
-\quad \implies \quad
-C=-3
-\quad \implies \quad
-y = x \sqrt{1 + \frac{3}{x^2}}.
-\eee
+\begin{dmath*}[compact]
+  2 = 1 \times \sqrt{1-C}
+  \quad \implies \quad
+  C=-3
+  \quad \implies \quad
+  y = x \sqrt{1 + \frac{3}{x^2}}.
+\end{dmath*}
 
 This would be a good one to check. Note that
 \begin{dmath*}[compact]
@@ -458,7 +458,7 @@ so the solution is correct. \qed
 \subsubsection{Bernoulli Equations}
 Bernoulli equations are differential equations of the form
 \begin{dmath*}
-\dd{y}{x} + P(x) y = Q(x)y^n
+  \dd{y}{x} + P(x) y = Q(x)y^n
 \end{dmath*}
 where $n$ can be an integer or a rational number. Note that if
 $n=0$ or $n=1$, then this is just a linear equation.
@@ -479,13 +479,13 @@ which can be written as the linear equation
   \dd{y}{x} -\half \frac{y}{x} = -e^x y^3
 \end{dmath*}
 Since $n=3$, choose $v=y^{-2}$. Then
-\bee
-\dd{v}{x} = -2 y^{-3} \dd{y}{x}
-\quad \implies \quad
-\dd{v}{x} = -2 y^{-3}\( \half \frac{y}{x}  - e^x y^3\)
-\quad \implies \quad
-\dd{v}{x} + \frac{v}{x} = 2 e^x,
-\eee
+\begin{dmath*}[compact]
+  \dd{v}{x} = -2 y^{-3} \dd{y}{x}
+  \quad \implies \quad
+  \dd{v}{x} = -2 y^{-3}\( \half \frac{y}{x}  - e^x y^3\)
+  \quad \implies \quad
+  \dd{v}{x} + \frac{v}{x} = 2 e^x,
+\end{dmath*}
 which is the linear equation given as the example from section \ref{linearsec}.
 \qed
 
@@ -549,50 +549,55 @@ Solve the initial value problem
   y(0) =\ 0\ \text{ or }\ 1\ \mbox{ (choose one, and circle your choice).}
 \end{dmath*}
 \hidesolution{Rewrite this equation as
-\begin{dmath*}
-\frac{dy}{dx} + \frac{4x}{x^2+1}y = \frac{4x}{x^2+1}
-\eee
-which is linear with $P(x) = \frac{4x}{x^2+1}$, so let
-\begin{dmath*}
-\mu(x) = \exp \left(\int P(x)dx \right)
-= \exp \left( \int \frac{4x}{x^2+1} dx \right) = \exp(2 \ln (x^2+1))
-= \exp(\ln (x^2+1)^2) = (x^2+1)^2.
-\eee
+  \begin{dmath*}
+    \frac{dy}{dx} + \frac{4x}{x^2+1}y = \frac{4x}{x^2+1}
+  \end{dmath*}
+  which is linear with $P(x) = \frac{4x}{x^2+1}$, so let
+  \begin{dmath*}
+    \mu(x) = \exp \left(\int P(x)dx \right)
+    = \exp \left( \int \frac{4x}{x^2+1} dx \right) = \exp(2 \ln (x^2+1))
+    = \exp(\ln (x^2+1)^2) = (x^2+1)^2.
+  \end{dmath*}
 (Note that we can omit the absolute value bars around $x^2+1$ since it is
 always positive.) Then multiplying through by $\mu(x)$ we obtain
-\bee
-(x+1)^2 \frac{dy}{dx} + 4x(x^2+1)y &=& 4x(x^2+1) \\
-\frac{d}{dx} \left( (x^2+1)y \right) &=& 4x^3+4x. \\
+\begin{dmath*}
+  (x+1)^2 \frac{dy}{dx} + 4x(x^2+1)y &=& 4x(x^2+1) \\
+\end{dmath*}
+\begin{dmath*}
+  \frac{d}{dx} \left( (x^2+1)y \right) &=& 4x^3+4x. \\
 \eee
 Integrating yields
-\bee
-(x^2+1)^2 y 
-&=& x^4 + 2x^2 + C 
-\\
-y 
-&=& \frac{x^4 + 2x^2 + C}{(x^2+1)^2}.
-\eee
+\begin{dmath*}
+  (x^2+1)^2 y 
+  = x^4 + 2x^2 + C 
+\end{dmath*}
+\begin{dmath*}
+  y = \frac{x^4 + 2x^2 + C}{(x^2+1)^2}.
+\end{dmath*}
 Solving the IVP $y(0) = 1$ gives $C = 1$, then the solution is
 \begin{dmath*}
-y = \frac{x^4 + 2x^2 + 1}{(x^2+1)^2} = \frac{(x^2+1)^2}{(x^2+1)^2} \equiv 1.
-\eee
+  y = \frac{x^4 + 2x^2 + 1}{(x^2+1)^2} 
+  = \frac{(x^2+1)^2}{(x^2+1)^2} 
+  \equiv 1.
+\end{dmath*}
 It's actually obvious from just looking at the problem that $y \equiv 1$ is a
 solution to this IVP, so you could just have wrote it down and quoted the
 result that linear equations have unique solutions to IVPs.
 
 This equation is also separable since we may rewrite it as
-\bee
-(x^2+1) \frac{dy}{dx}
-= 4x(1-y) \qquad\Rightarrow\qquad \frac{1}{1-y} \frac{dy}{dx}
-= \frac{4x}{x^2+1}
-\eee
-but in dividing by $1-y$ we have destroyed the solution $y \equiv 1$, which
-is the (unique) solution to the initial value problem $y(0) = 1$, so it is
-not possible to solve the IVP $y(0) = 1$ by separating this equation.  This
-is why I let you choose instead the IVP $y(0) = 0$, which has solution
+\begin
+  (x^2+1) \frac{dy}{dx}
+  = 4x(1-y) \qquad\Rightarrow\qquad \frac{1}{1-y} \frac{dy}{dx}
+  = \frac{4x}{x^2+1}
+\end{dmath*}
+but in dividing by $1-y$ we have destroyed the solution $y \equiv 1$,
+which is the (unique) solution to the initial value problem $y(0) =
+1$, so it is not possible to solve the IVP $y(0) = 1$ by separating
+this equation.  This is why I let you choose instead the IVP $y(0) =
+0$, which has solution
 \begin{dmath*}
-y = 1 - \frac{1}{(x^2+1)^2}
-\eee
+  y = 1 - \frac{1}{(x^2+1)^2}
+\end{dmath*}
 }
 
 
@@ -602,17 +607,17 @@ too much and passed out on the way home. Ignoring the heat that his body
 produces, his temperature is determined by Newton's law of cooling.
 Determine Joe's temperature $T$ at time $t$ by solving Newton's law of cooling,
 both as a separation problem and a linear problem
-\bee
+\begin{dmath*}[compact]
 \dd{T}{t} = -r\(T - T_{\text{env}}\),
 \quad
 T(0)=37,\, T_{\text{env}}=-40,\, r=5 \, \(\text{Thinsulate's r-value}\)
-\eee
+\end{dmath*}
 \hidesolution{TODO: write solution.}
 
 \item
 Solve the logistic map,
 \begin{dmath*}
-\dd{y}{x} = y - y^2.
+  \dd{y}{x} = y - y^2.
 \end{dmath*}
 as a Bernoulli equation
 \hidesolution{TODO: write solution.}
@@ -620,7 +625,7 @@ as a Bernoulli equation
 \item
 Solve the differential equation
 \begin{dmath*}
-\dd{y}{x} = \frac{y}{x} + x^2y^2.
+  \dd{y}{x} = \frac{y}{x} + x^2y^2.
 \end{dmath*}
 \hidesolution{TODO: write solution. Bernoulli equation.}
 
@@ -629,7 +634,7 @@ Solve the differential equation
   separable equation via the substitution  $v=ax + by$. Using this technique,
   solve the differential equation
   \begin{dmath*}
-  \dd{y}{x} = - \(4x -y\)^2
+    \dd{y}{x} = - \(4x -y\)^2
   \end{dmath*}
   \hidesolution{
     Let $v=4x-y$, so $y'=4-v'$. Then
@@ -823,20 +828,20 @@ An easy way to get all linear combinations is to just set
 \\
 
 \noindent\emph{Example}: Give the general solution to
-\bee
-\ddtwo{y}{t} + 1 =0
-\eee
+\begin{dmath*}
+  \ddtwo{y}{t} + 1 =0
+\end{dmath*}
 with initial conditions $y(0) =1, \, y'(0) =0.$\\
 \noindent\emph{Solution}:
 The characteristic equation is
-\bee
-r^2 +1 =0 \quad \implies \quad r = \pm i.
-\eee
+\begin{dmath*}[compact]
+  r^2 +1 =0 \quad \implies \quad r = \pm i.
+\end{dmath*}
 The solution is then a linear combination of
-\bee
-y_1(t) = e^{0t}\cos(t) = \cos(t), \qquad
-y_2(t) = e^{0t}\sin(t) = \sin(t)
-\eee
+\begin{dmath*}[compact]
+  y_1(t) = e^{0t}\cos(t) = \cos(t), \qquad
+  y_2(t) = e^{0t}\sin(t) = \sin(t)
+\end{dmath*}
 Setting $y(t)=\alpha \cos(t) + \beta \sin(t)$, we can input the initial
 conditions to get
 \bee
@@ -856,45 +861,45 @@ solutions. How do we get this? Well, just multiply one solution by $t$.
 
 For example, suppose that we solved the characteristic equation and got
 $r_1=r_2=r$. We still get one solution out of this, namely
-\bee
-y_1(t) =e^{rt}.
-\eee
+\begin{dmath*}
+  y_1(t) =e^{rt}.
+\end{dmath*}
 To get the second solution, just take
-\bee
-y_2(t) = t y_1(t) = t e^{rt}.
-\eee
+\begin{dmath*}
+  y_2(t) = t y_1(t) = t e^{rt}.
+\end{dmath*}
 This works since $\ddtwo{t}{t}=0$, so the extra $t$ in $y_2$ is eventually
 killed, and everything cancels out nicely.
 \\
 
 \noindent\emph{Example}: Give the general solution to
-\bee
-\ddtwo{y}{t} - 2 \dd{y}{t}+1 =0
-\eee
+\begin{dmath*}
+  \ddtwo{y}{t} - 2 \dd{y}{t}+1 =0
+\end{dmath*}
 with initial conditions $y(0) =1, \, y'(0) =0.$\\
 \noindent\emph{Solution}:
 The characteristic equation for this problem is
-\bee
-r^2 - 2r +1 = (r-1)(r-1) =0,
-\eee
+\begin{dmath*}
+  r^2 - 2r +1 = (r-1)(r-1) =0,
+\end{dmath*}
 which has the double root $r_1=r_2=1$. Thus, set
 $y_1(t) = e^t$ and $y_2=t e^t$, so
-\bee
-y = \alpha e^t + \beta t e^t
-\eee
+\begin{dmath*}
+  y = \alpha e^t + \beta t e^t
+\end{dmath*}
 Now,
-\bee
-y(0) = \alpha = 1.
-\eee
+\begin{dmath*}[compact]
+  y(0) = \alpha = 1.
+\end{dmath*}
 For the second condition, calculate that
 $y'(t) = \alpha e^t + \beta e^t + \beta te^t$. Thus
-\bee
-y'(0) = \alpha + \beta =0.
-\eee
+\begin{dmath*}[compact]
+  y'(0) = \alpha + \beta =0.
+\end{dmath*}
 Thus, $\alpha=1$ and $\beta =-1$, so the solution is
-\bee
-y(t) = e^t - te^t. \qed
-\eee
+\begin{dmath*}[compact]
+  y(t) = e^t - te^t. \qed
+\end{dmath*}
 
 \newpage
 \subsection{Flow chart for $2^{\text{nd}}$-order linear homogeneous DEs}
@@ -923,25 +928,25 @@ types of equations:
 \item
   % Real roots
   Solve the IVP
-  \bee
-  2 y'' + 5y' + 2y =0
-  \eee
+  \begin{dmath*}
+    2 y'' + 5y' + 2y =0
+  \end{dmath*}
   with initial conditions $y(0)=0$ and $y'(0)=3/2$.
 
 \item
   Solve the IVP
   % imaginary roots
-  \bee
-  2 y'' + 8y =0
-  \eee
+  \begin{dmath*}
+    2 y'' + 8y =0
+  \end{dmath*}
   with initial conditions $y(0)=1$ and $y'(0)=2$.
 
 \item
   Solve the IVP
   % complex roots
-  \bee
-  y'' + 2y' + 4y=0
-  \eee
+  \begin{dmath*}
+    y'' + 2y' + 4y=0
+  \end{dmath*}
   with initial conditions $y(0)=0$ and $y'(0)=2$.
   %r = -1 \pm i \sqrt{3}
   % y =2 \sqrt{3} e^{-t} \sin(\sqrt{3}t\)
@@ -949,9 +954,9 @@ types of equations:
 \item
   Prove Euler's formula using differential equations. \\
   Consider the IVP
-  \bee
-  y'' +y =0, \qquad y(0)=1, \quad y'(0)=i.
-  \eee
+  \begin{dmath*}[compact]
+    y'' +y =0, \qquad y(0)=1, \quad y'(0)=i.
+  \end{dmath*}
   \begin{enumerate}
     \item Step 1: Show that $\{y_1=\cos(t),y_2=\sin(t)\}$ are solutions
       to the differential equation. Find a solution $y=\alpha y_1 + \beta y_2$
@@ -966,17 +971,17 @@ types of equations:
 \item
   % Mazowita's question. Solution is tex'd.
   Find the general solution of the differential equation
-  \bee
+  \begin{dmath*}
   10, \! 000 \, y'' - 100, \! 000 \, y' + 250, \! 000 \, y = 0.
-  \eee
+  \end{dmath*}
 
 
 \item
   % Mazowita's question. Solution is tex'd.
   Solve the IVP
-  \bee
-  y'' + 4y' + 5y = 0
-  \eee
+  \begin{dmath*}
+    y'' + 4y' + 5y = 0
+  \end{dmath*}
   with $y(\pi) =\ e^{-\pi},$ $y' (0) = \sqrt{\pi} + 2e^\pi$.
 
 \end{enumerate}
@@ -988,22 +993,24 @@ types of equations:
 % Text section  4.4
 The next step is to add a function to the right-hand side of equation
 (\ref{sec2hom}), so that we get
-\bee
-a y'' + b y' + cy =f(t).
-\eee
-Then what we have is a \emph{non-homogeneous equation} and we say that equation
-$a y'' + b y' + cy =0$ is the corresponding homogeneous equation.
+\begin{dmath*}
+  a y'' + b y' + cy =f(t).
+\end{dmath*}
+Then what we have is a \emph{non-homogeneous equation} and we say that
+equation $a y'' + b y' + cy =0$ is the corresponding homogeneous
+equation.
 
-In this section, we are going to restrict ourselves to a couple of choices
-for $f(t)$ so that we can use the method of \emph{undetermined coefficients},
-also known as \emph{we can probably guess what the answer is, so let's do
-that}.
+In this section, we are going to restrict ourselves to a couple of
+choices for $f(t)$ so that we can use the method of \emph{undetermined
+  coefficients}, also known as \emph{we can probably guess what the
+  answer is, so let's do that}.
 
 The idea behind this method is trying to find the particular solution $y_p$,
 which has the property
-\be \label{yp}
-a y_p'' + b y_p' + cy_p =f(t),
-\ee
+\begin{dmath} 
+  \label{yp}
+  a y_p'' + b y_p' + cy_p =f(t),
+\end{dmath}
 though it need not match the initial conditions. For instance, if
 $f(t)=\sin(t)$, guessing that $y_p = A \sin(t) + B \cos(t)$ would probably do
 the trick. We can just substitute $y_p = A \sin(t) + B \cos(t)$ into equation
@@ -1026,61 +1033,62 @@ Here is a table that will guide you, young jedi:
   $\(C_nt^n + \dots +C_0 \)e^{at}\cos(bt)
   + \(D_nt^n + \dots + D_0 \)e^{bt}\sin(bt)$ \\
 \end{tabular}
-\eee
-Finally, if your guess ends up being a polynomial times a linear
-combination of the solutions to the corresponding homogeneous equation (known
-as $y_1$ and $y_2$ in previous lab), then multiply your
-guess by $t$ until it isn't. For example, if $y_1=e^t$, $y_2=e^{2t}$, and
-$f(t)=t^2e^t$, then you would choose $y_p = t\(C_2 t^2 + C_1 t + C_0 \)e^t$.
-If $y_1=e^t$, $y_2=t e^t$, and $f(t)=t^2e^t$, then you would choose
-$y_p = t^2 \(C_2 t^2 + C_1 t + C_0 \)e^t$.
+\eee Finally, if your guess ends up being a polynomial times a linear
+combination of the solutions to the corresponding homogeneous equation
+(known as $y_1$ and $y_2$ in previous lab), then multiply your guess
+by $t$ until it isn't. For example, if $y_1=e^t$, $y_2=e^{2t}$, and
+$f(t)=t^2e^t$, then you would choose $y_p = t\(C_2 t^2 + C_1 t + C_0
+\)e^t$.  If $y_1=e^t$, $y_2=t e^t$, and $f(t)=t^2e^t$, then you would
+choose $y_p = t^2 \(C_2 t^2 + C_1 t + C_0 \)e^t$.
 
-Once you have determined $y_p$, combine it with the homogeneous solutions
-to give the general solution
-\be
-\boxed{y(t) = \alpha y_1(t) + \beta y_2(t) + y_p(t) }
-\ee
+Once you have determined $y_p$, combine it with the homogeneous
+solutions to give the general solution
+\begin{dmath*}
+  \boxed{y(t) = \alpha y_1(t) + \beta y_2(t) + y_p(t) }
+\end{dmath*}
 to match the initial conditions.
 \\
 
 \noindent \emph{Example}:
 Solve the IVP
-\be \label{undetceg}
-y'' -3y' +2 y = t
-\ee
+\begin{dmath} 
+  \label{undetceg}
+  y'' -3y' +2 y = t
+\end{dmath}
 with $y(0) = 3/4$ and $y'(0) = 3/2$.\\
 \noindent \emph{Solution}:
 This has characteristic equation
-\bee
-r^2 -3r +2 = (r-1)(r-2) \quad \implies \quad r_1=1, \, r_2=2,
-\eee
+\begin{dmath*}[compact]
+  r^2 -3r +2 = (r-1)(r-2) \quad \implies \quad r_1=1, \, r_2=2,
+\end{dmath*}
 so the homogeneous solutions are $y_1(t) = e^t, \, y_2=e^{2t}$. Since
-$f(t)=t$ is not a linear combination of $y_1$ and $y_2$, we can just choose
-$y_p = C_1 t + C_0$. Putting this into equation \eqref{undetceg}, we get
-\bee
+$f(t)=t$ is not a linear combination of $y_1$ and $y_2$, we can just
+choose $y_p = C_1 t + C_0$. Putting this into equation
+\eqref{undetceg}, we get
+\begin{dmath*}[compact]
 \ddtwo{(C_1 t + C_0)}{t} -3\dd{(C_1 t + C_0)}{t} + 2 \(C_1 t + C_0\) =t
 \quad \implies \quad
 -3 C_1 + 2C_1 t + 2C_0 = t,
-\eee
+\end{dmath*}
 so $C_1=1/2$ and $C_0=3/4$. Thus, $y_p = \frac{t}{2} +\frac{3}{4}$, and the
 general solution is
-\bee
-y = \alpha e^t + \beta e^{2t} + \frac{t}{2} +\frac{3}{4}.
-\eee
+\begin{dmath*}
+  y = \alpha e^t + \beta e^{2t} + \frac{t}{2} +\frac{3}{4}.
+\end{dmath*}
 Now, we satisfy the initial conditions:
-\bee
-y(0) = \alpha + \beta +\frac{3}{4} = \frac{3}{4}
-\quad \implies \quad \alpha+\beta=0,
-\eee
+\begin{dmath*}[compact]
+  y(0) = \alpha + \beta +\frac{3}{4} = \frac{3}{4}
+  \quad \implies \quad \alpha+\beta=0,
+\end{dmath*}
 and
-\bee
+\begin{dmath*}[compact]
 y'(0) = \alpha + 2\beta + \half = \frac{3}{2}
 \quad \implies \quad \alpha+2 \beta=1
-\eee
+\end{dmath*}
 so $\alpha=-1$ and $\beta =1$. The solution is therefore
-\bee
-y(t) = -e^t +e^{2t}  + \frac{t}{2} +\frac{3}{4}.
-\eee
+\begin{dmath*}
+  y(t) = -e^t +e^{2t}  + \frac{t}{2} +\frac{3}{4}.
+\end{dmath*}
 Let's check this solution. We have
 \bee
 y(t) &=& -e^t +e^{2t}  + \frac{t}{2} +\frac{3}{4}
@@ -1090,58 +1098,56 @@ y'(t) &=& -e^t +2e^{2t}  + \frac{1}{2}
 y''(t) &=& -e^t +4 e^{2t}.
 \eee
 Putting these into equation \eqref{undetceg} yields
-\bee
-&&y'' - 3 y' + 2 y
-\\
-&&= \(-e^t + 4 e^{2t}\)
--3 \(-e^t +2e^{2t}  + \frac{1}{2} \)
-+2 \(-e^t +e^{2t}  + \frac{t}{2} + \frac{3}{4} \) = t,
-\eee
+\begin{dmath*}
+  y'' - 3 y' + 2 y
+  = \(-e^t + 4 e^{2t}\)
+  -3 \(-e^t +2e^{2t}  + \frac{1}{2} \)
+  +2 \(-e^t +e^{2t}  + \frac{t}{2} + \frac{3}{4} \) 
+  = t,
+\end{dmath*}
 as required. \qed
 
 \section{Superposition Principle}
 Suppose that we know the solution $y_{1,p}$ to
-\be
+\begin{dmath*}
   ay'' + by' + cy = f(t)
-\ee
+\end{dmath*}
 and the solution $y_{2,p}$ to
-\be
+\begin{dmath*}
   ay'' + by' + cy = g(t).
-\ee
+\end{dmath*}
 We can use these to determine the solution to the more difficult problem
-\be \label{super}
+\begin{dmath}
+  \label{super}
   ay'' + by' +cy = A f(t) + B g(t)
-\ee
+\end{dmath}
 by using the fact that the differential operator
-\be
-L = a \ddtwo{}{t}  + b \dd{}{t} + c
-\ee
+\begin{dmath*}
+  L = a \ddtwo{}{t}  + b \dd{}{t} + c
+\end{dmath*}
 is linear. That is, for constants $\alpha$ and $\beta$
-\be
+\begin{dmath*}
   L\(\alpha y_{1,p} + \beta y_{2,p} \)
-  &=&
+  =
   a \(\alpha y_{1,p} + \beta y_{2,p} \)'' + b \(\alpha y_{1,p}+\beta y_{2,p}\)'
   + c\(\alpha y_{1,p} + \beta y_{2,p} \)
-  \\
-  &=& \alpha \(a y_{1,p}'' + b y_{1,p}' + c  y_{1,p}\)
+  = \alpha \(a y_{1,p}'' + b y_{1,p}' + c  y_{1,p}\)
   + \beta \(a y_{2,p}'' + b y_{2,p}' + c  y_{2,p}\)
-  \\
-  &=&
+  =
   \alpha L\( y_{1,p}\)  + \beta L\(y_{2,p} \),
-\ee
+\end{dmath*}
 just like ``linearity'' is defined in linear algebra. Then since
 $L\(y_{1,p}\)= f(t)$ and $L\(y_{2,p}\) = g(t)$,
-\be
+\begin{dmath*}
   L\(A y_{1,p} + B y_{2,p} \) = A f(t) + B g(t),
-\ee
-which gives us the particular solution for equation \eqref{super} without
-having to do a lot of extra work.
-\\
+\end{dmath*}
+which gives us the particular solution for equation \eqref{super}
+without having to do a lot of extra work.  \\
 
 \noindent\emph{Example}: Find the general solution to
-\be
+\begin{dmath*}
   y'' -3 y' -4y = t + 10 e^{-t}.
-\ee
+\end{dmath*}
 \noindent\emph{Solution}:
 The characteristic equation for the homogeneous part is
 $0 = r^2 -3r -4 = (r+1)(r-4)$ which gives $r_1=-1$ and $r_2=4$. The solution
@@ -1150,58 +1156,60 @@ We can use the superposition principle to break
 this problem up into two smaller problems:
 \begin{enumerate}
 \item
-  \be \label{supereg1}
+  \begin{dmath}
+    \label{supereg1}
     y'' -3 y' -4y = t
-  \ee
-  Notice that $t$ is not a multiple of $y_1$ or $y_2$, so, looking at the
-  table, we use $y_{1,p}=at + b$. Plugging this into equation
+  \end{dmath}
+  Notice that $t$ is not a multiple of $y_1$ or $y_2$, so, looking at
+  the table, we use $y_{1,p}=at + b$. Plugging this into equation
   \eqref{supereg1}, we get
-  \be
-  - 3\(a\) -4\(at + b\) = t
-  \ee
+  \begin{dmath*}
+    - 3\(a\) -4\(at + b\) = t
+  \end{dmath*}
   Grouping the terms that have a factor of $t$, we get $-4a t =t$ $\implies$
   $a =-1/4$.
   Similarly, the constant terms give us $ -3a -4b =0$,
   which, with $a=-1/4$, gives $b=3/16$. Thus
-  \be
-  y_{1,p}= \frac{-t}{4} + \frac{3}{16}.
-  \ee
+  \begin{dmath*}
+    y_{1,p}= \frac{-t}{4} + \frac{3}{16}.
+  \end{dmath*}
 
 
 \item
-  \be \label{supereg2}
+  \begin{dmath}
+    \label{supereg2}
     y'' -3 y' -4y = e^{-t}
-  \ee
+  \end{dmath}
   The situation here is slightly different, since $e^{-t}$ is both part
   of the homogeneous solution, and on the right-hand side. Thus, we need
   to choose $y_{2,p} = ct e^{-t}$. Plugging this into equation
   \eqref{supereg2}, we get
-  \be
-  \(ct  -2c \)e^{-t} -3 \(-ct +c \)e^{-t} -4 ct  e^{-t} =e^{-t}.
-  \ee
+  \begin{dmath*}
+    \(ct  -2c \)e^{-t} -3 \(-ct +c \)e^{-t} -4 ct  e^{-t} =e^{-t}.
+  \end{dmath*}
   Dividing by $e^{-t}$ and gathering powers of $t$, we get the following
   system:
-  \be
-  ct +3ct -4ct =0 \quad \implies \quad 0 =0 \\
-  -2c -3c = 1 \quad \implies \quad c = -\frac{1}{5}
-  \ee
+  \begin{dmath*}[compact]
+    ct +3ct -4ct =0 \quad \implies \quad 0 =0 \\
+    -2c -3c = 1 \quad \implies \quad c = -\frac{1}{5}
+  \end{dmath*}
   Notice that the first equation didn't tell us anything, but the second
   equation gave us everything that we needed to solve the system. That is
-  \be
-  y_{2,p} = -\frac{te^{-t}}{5}.
-  \ee
+  \begin{dmath*}
+    y_{2,p} = -\frac{te^{-t}}{5}.
+  \end{dmath*}
 \end{enumerate}
 We combine these two solutions to give us the particular solution for the
 problem: we want $L(y_p) = t+10e^{-t}$. We found that $y_{1,p}$ gives us $t$,
 and $y_{2,p}$ gives us $e^{-t}$, so we choose
-\be
-y_p = y_{1,p} + 10 y_{2,p} = \frac{-t}{4} + \frac{3}{16} -2 t e^{-t}.
-\ee
+\begin{dmath*}
+  y_p = y_{1,p} + 10 y_{2,p} = \frac{-t}{4} + \frac{3}{16} -2 t e^{-t}.
+\end{dmath*}
 The general solution is then
-\be
+\begin{dmath*}
 y = \alpha y_1 + \beta y_2 + y_p
 = \alpha e^{-t} + \beta e^{4t} -2 t e^{-t} -\frac{t}{4} + \frac{3}{16}. \qed
-\ee
+\end{dmath*}
 
 
 \section{Problems}
