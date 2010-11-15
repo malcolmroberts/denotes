@@ -2898,6 +2898,7 @@ be determined by matching powers as per the previous section.
   t^2 y'' + ty' + (t^2-\alpha^2)y=0.
   \ee
 }{
+
   We can divide Bessel's equation by $t^2$ to get it in the form of
   \eqref{singode}, that is
   \bee
@@ -3017,6 +3018,7 @@ factorial function. So in particular, when $\alpha=0$, we get
       y(x) = C_1 x^{\frac{1}{\pi}} + C_2 x^{\frac{1}{\pi}} \ln x
       = C_1 \sqrt[\pi]{x} + C_2 \sqrt[\pi]{x} \ln x, \quad x > 0.
       \eee
+      % FIXME: check this.
     }
 
   \item Find the solution to Bessel's equation corresponding to $r=-\a$,
@@ -3036,29 +3038,22 @@ factorial function. So in particular, when $\alpha=0$, we get
       p_0 = \lim_{x\rightarrow 0^+} x p(x)=-1, \qquad
       q_0 = \lim_{x\rightarrow 0^+} x^2 q(x)=1.
       \eee
-      The indicial equation is
+      The indicial equation is $r(r-1)-r+1=0$ which gives the double
+      root $r_1=r_2=1$. Thus, $y_1$ is given by 
+      $y = x^1 \sum_{n=0}^\infty a_n x^n$, which gives
       \bee
-      r(r-1)-r+1=0 \implies r_1=r_2=1
+      \sum_{n=1}a_n(n+1)(n)x^{n+1} - \sum_{n=1}a_n(n+1)x^{n+1}
+      + \sum_{n=0}a_nx^{n+1} - \sum_{n=0}a_nx^{n+2}.
       \eee
-      $y_1$ is given by
-      \bee
-      y = t^1 \sum_{n=0}^\infty a_n t^n,
-      \eee
-      which gives
-      \bee
-      \sum_{n=1}a_n(n+1)(n)t^{n+1} - \sum_{n=1}a_n(n+1)t^{n+1}
-      + \sum_{n=0}a_nt^{n+1} - \sum_{n=0}a_nt^{n+2}.
-      \eee
-      The order $t$ term cancels out, leaving us free to determine $a_0$ by
+      The order $x$ term cancels out, leaving us free to determine $a_0$ by
       the initial conditions. We are then left with
-      \bee
-      \sum_{n=1}^\infty \[a_n(n+1)(n)-a_n(n+1)+a_n - a_{n-1}\]t^{n+1}=0,
-      \implies a_n n^2 = a_{n-1}
-      \eee
-      which yields
-      \bee
-      y_1 = a_0\sum_{n=0}^\infty \frac{t^{n+1}}{(n!)^2}.
-      \eee
+      \begin{dmath*}[compact]
+        \sum_{n=1}^\infty \[a_n(n+1)(n)-a_n(n+1)+a_n - a_{n-1}\]x^{n+1}=0,
+      \end{dmath*}
+      so  $a_n n^2 = a_{n-1}$, which yields
+      \begin{dmath*}
+        y_1 = a_0\sum_{n=0}^\infty \frac{x^{n+1}}{(n!)^2}.
+      \end{dmath*}
     }
 
 \end{enumerate}
