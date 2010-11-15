@@ -2845,10 +2845,9 @@ the two limits $\lim_{t\rightarrow 0} t p(t) =p_0$
 and $\lim_{t\rightarrow 0} t^2 q(t) =q_0$
 exist and are finite. 
 
-Series solutions at regular singular points are of the
-form
+Series solutions at regular singular points have one solution of the form
 \begin{dmath*}
-  \boxed{y(t) = \sum_{n=0}^\infty a_n t^{n+r}},
+  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r}},
 \end{dmath*}
 for some $r\in\mathbb{C}$ such that $a_0 \neq 0$.
 
@@ -2869,27 +2868,28 @@ We can multiply by $t^2$ and since $a_0 \neq 0$, we see that
 This is called the \emph{indicial equation}. It's a quadratic so it has two
 solutions, $r=r_1,r_2$.
 
-If we have two distinct roots with $Re(r_1) > Re(r_2)$, we're fine, and we
-have two linearly independent solutions
-\begin{dmath*}[compact]
-  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
-  \quad\mbox{  and  }\quad
-  \boxed{y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}}.
-\end{dmath*}
-If $r_1=r_2$, then our solutions are
-\begin{dmath*}[compact]
-  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
-  \quad\mbox{  and  }\quad
-  \boxed{y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}}.
-\end{dmath*}
-If $r_1-r_2$ is an integer, then we have yet another possibility, i.e.\ that
-\begin{dmath*}[compact]
-  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
-  \quad\mbox{  and  }\quad
-  \boxed{y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}},
-\end{dmath*}
-for some constant $C\in\mathbb{R}$.
-
+Second-order differential equations always have two independent
+solutions.  For regular singular points, there are three cases which
+determine the form of $y_2$:
+\begin{enumerate}
+\item
+  If we have two distinct roots with $Re(r_1) > Re(r_2)$, which do not
+  differ by an integer, then the second solution looks like
+  \begin{dmath*}
+    \boxed{y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}}.
+  \end{dmath*}
+  \item
+    If $r_1=r_2$, then the second solution looks like
+    \begin{dmath*}
+      \boxed{y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}}.
+    \end{dmath*}
+  \item
+    If $r_1-r_2$ is an integer, then the second solutions looks like
+    \begin{dmath*}
+      \boxed{y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_2}},
+    \end{dmath*}
+    for some constant $C\in\mathbb{R}$.
+\end{enumerate}
 Once one has determined $r_1$ and $r_2$, the constants $a_n$ and $b_n$ can
 be determined by matching powers as per the previous section.
 
