@@ -2818,6 +2818,11 @@ better approximation as $n$ increases.
         +a_2 \sum_{n=0}^\infty \frac{-1^n}{(3n+2)!}t^{3n+2}.
       \end{dmath*}
     }
+  \item
+    Find the general solution to $y' = 2xy$.
+    \hidesolution{
+      The solution is $y=a_0e^{x^2}$.
+    }
     
 \end{enumerate}
 
@@ -2871,30 +2876,40 @@ solutions, $r=r_1,r_2$.
 Second-order differential equations always have two independent
 solutions.  For regular singular points, there are three cases which
 determine the form of $y_2$:
-\begin{enumerate}
-\item
-  If we have two distinct roots with $Re(r_1) > Re(r_2)$, which do not
-  differ by an integer, then the second solution looks like
-  \begin{dmath*}
-    \boxed{y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}}.
-  \end{dmath*}
-  \item
-    If $r_1=r_2$, then the second solution looks like
-    \begin{dmath*}
-      \boxed{y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}}.
-    \end{dmath*}
-  \item
-    If $r_1-r_2$ is an integer, then the second solutions looks like
-    \begin{dmath*}
-      \boxed{y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_2}},
-    \end{dmath*}
-    for some constant $C\in\mathbb{R}$.
-\end{enumerate}
+\begin{center}
+  \begin{tabular}{l |p{0.28\textwidth} | p{0.28\textwidth} | p{0.3\textwidth} |}
+    \hline
+    &
+    $r_1\neq r_2$, and
+    &
+    $r_1=r_2$
+    &
+    $r_1\neq r_2$, and
+    \\
+    &
+    $r_1-r_2$ is not an integer
+    &
+    &
+    $r_1-r_2$ is an integer
+    \\
+    \hline
+    $y_2$
+    &
+    $\displaystyle \sum_{n=0}^\infty b_n t^{n+r_2}$
+    & 
+    $\displaystyle \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}$
+    &
+    $\displaystyle C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_2}$
+    \\
+    \hline
+  \end{tabular}
+\end{center}
+where $C$ is a constant in $\mathbb{C}$.
 Once one has determined $r_1$ and $r_2$, the constants $a_n$ and $b_n$ can
-be determined by matching powers as per the previous section.
+be determined by matching powers as per the previous section.  We're often
+only interested in determining $y_1$.
 
-\workedexample{
-  Consider Bessel's equation,
+\workedexample{ Consider Bessel's equation,
   \begin{dmath}
     \label{bessel}
     t^2 y'' + ty' + (t^2-\alpha^2)y=0.
@@ -3032,7 +3047,7 @@ be determined by matching powers as per the previous section.
   \item Find the first solution (i.e.\ $y_1$ in the above notation) to the
     differential equation
     \bee
-    x^2 y'' - xy' + (1-x)y=0
+    x^2 y'' - xy' + (1-x)y=0.
     \eee
     \hidesolution{
       We have $p=-1/x$ and $q=(1-x)/x^2 = 1/x^2-1/x$. Then
