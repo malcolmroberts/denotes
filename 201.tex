@@ -2564,13 +2564,13 @@ conditions.
   It's easy to see that $a_3=0$, and, in fact, $a_n=0$ if $n$ is odd. Since
   we now know the values for all the $a_n$, we can write the solution:
   \begin{dmath*}[compact]
-  y(t) = \sum_{n=0}^\infty t^n
-  \left\{\begin{array}{ll}
+    y(t) = \sum_{n=0}^\infty t^n
+    \left\{\begin{array}{ll}
     \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
     0 & \mbox{if $n$ is odd}.
-  \end{array} \right.
-  = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. 
- \end{dmath*}
+    \end{array} \right.
+    = \sum_{p=0}^\infty \frac{(-1)^p t^{2p}}{(2p)!}. 
+  \end{dmath*}
  You may recall from previous classes that this is just the Taylor series
  for $\cos t$. \qed
 }
@@ -2649,7 +2649,7 @@ better approximation as $n$ increases.
     Determine the first four non-zero terms of the Taylor series of the
     solution to the Chebyshev equation,
     \begin{dmath*}
-    (1-x^2)y'' - xy' +p^2 y=0
+      (1-x^2)y'' - xy' +p^2 y=0
     \end{dmath*}
     with initial conditions $y(0)=a_0$, $y'(0)=a_1$.
     \hidesolution{
@@ -2746,27 +2746,28 @@ better approximation as $n$ increases.
   \item
     Give a recursion formula for $a_n$ if
     \begin{dmath*}
-    a_{3n+1} = \frac{a_1}{(3n+1)\times (3n) \times (3n-2) \dots
-      6 \times 4 \times \times 3}.
+      a_{3n+1} 
+      = \frac{a_1}{(3n+1)\times (3n) \times (3n-2) \dots
+        6 \times 4 \times \times 3}.
     \end{dmath*}
 
   \item
     Given the recursion relationship
     \begin{dmath*}
-    a_n = \frac{-2}{n^2}a_{n-1},
+      a_n = \frac{-2}{n^2}a_{n-1},
     \end{dmath*}
     find $a_n$ explicitly.
 
   \item
     Given the recursion relationship
     \begin{dmath*}
-    a_{n+4} = \frac{-k^2}{(n+4)(n+3)} a_{n-1},
+      a_{n+4} = \frac{-k^2}{(n+4)(n+3)} a_{n-1},
     \end{dmath*}
     with $k$ a constant, find $a_n$ explicitly.
 
   \item Solve the differential equation
     \begin{dmath*}
-    y'' - 2 x y' + \l y=0,
+      y'' - 2 x y' + \l y=0,
     \end{dmath*}
     with $\l$ a constant, using a Taylor series about $x=0$. For what values
     of $\l$ is the solution a polynomial?
@@ -3081,9 +3082,9 @@ only interested in determining $y_1$.
 Let $y(x,t)$ be the temperature of a one-dimensional rod with thermal
 conductivity $k$. The equation that describes the evolution of $y$ is
 called the heat equation:
-\bee
-\pp{y}{t} =  k\pptwo{y}{x}.
-\eee
+\begin{dmath*}
+  \pp{y}{t} =  k\pptwo{y}{x}.
+\end{dmath*}
 This is an important example of a partial differential equation (PDE), in which
 the derivatives with respect to one variable are related to derivatives with
 respect to another variable, in this case $\partial/\partial t$ and
@@ -3099,25 +3100,25 @@ As in the previous section, we use a series solution for $y$ and expand around
  $x=0$. However, instead of the coefficients being constant, we allow them to
 be functions of time, and, instead of using $x^n$, we let $X_n(x)$ be a more
 general function of $x$. That is, we let
-\be
-\boxed{y = \sum_{n=0}^\infty T_n(t) X_n(x)}.
-\ee
+\begin{dmath*}
+  \boxed{y = \sum_{n=0}^\infty T_n(t) X_n(x)}.
+\end{dmath*}
 As you will see in the next lab, we can choose the functions $X_n$ in a way
 that makes the PDE solvable. For now, let's consider the case where the $X_n$
 are either sine or cosine, i.e.\ when $y$ is a Fourier sine or cosine series.
 
 \section{Fourier Cosine and Sine Series}
-Consider functions that are periodic with period $2T$.
-If we set $X_n =\cos(n \pi x/T)$, we have the \emph{Fourier cosine series} for
+Consider functions that are periodic with period $2T$.  If we set $X_n
+=\cos(n \pi x/T)$, we have the \emph{Fourier cosine series} for
 $f(x)$,
-\bee
-\frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\(\frac{n \pi x}{T}\)
-\eee
+\begin{dmath*}
+  \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\(\frac{n \pi x}{T}\)
+\end{dmath*}
 (note the annoying $1/2$ on the first term). Setting $X_n=\sin(n \pi x/T)$,
 we get the \emph{Fourier sine series} for $f(x)$,
-\bee
-\sum_{n=1}^\infty b_n \sin\(\frac{n \pi x}{T}\)
-\eee
+\begin{dmath*}
+  \sum_{n=1}^\infty b_n \sin\(\frac{n \pi x}{T}\)
+\end{dmath*}
 The coefficients $a_n$ and $b_n$ are determined by integration, with
 \be\label{fouriercoeff}
 \boxed{a_n = \frac{1}{T} \int_{-T}^T f(x) \cos\(\frac{n \pi x}{T}\) \, dx},
@@ -3125,10 +3126,10 @@ The coefficients $a_n$ and $b_n$ are determined by integration, with
 \boxed{b_n = \frac{1}{T} \int_{-T}^T f(x) \sin\(\frac{n \pi x}{T}\) \, dx}.
 \ee
 More generally, the \emph{Fourier series} for $f(x)$ is the sum of these, i.e.\
-\bee
-\boxed{\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(\frac{n \pi x}{T}\)
-+ b_n \sin\(\frac{n \pi x}{T}\) \]}.
-\eee
+\begin{dmath*}
+  \boxed{\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(\frac{n \pi x}{T}\)
+    + b_n \sin\(\frac{n \pi x}{T}\) \]}.
+\end{dmath*}
 Often, we just look at functions that have period $2\pi$, which makes for the
 simpler formulae,
 \begin{dmath}
@@ -3146,75 +3147,78 @@ but we have to show that the series converges to the function if we
 want to do anything useful. For this we have the following lemma:
 \begin{theorem}[Riemann-Lebesque lemma]
 If $\int_{-\infty}^\infty \abs{f(x)} dx$ exists, then
-\be
-\lim_{z\rightarrow \pm \infty}\int_{-\infty}^\infty f(x) e^{izx} dx =0
-\ee
+\begin{dmath*}
+  \lim_{z\rightarrow \pm \infty}\int_{-\infty}^\infty f(x) e^{izx} dx =0
+\end{dmath*}
 which implies that $\lim_{n\rightarrow \infty} a_n =0$ and $
 \lim_{n\rightarrow \infty} b_n =0$, and
-\bee
-\boxed{
-  f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \].
-}
-\eee
+\begin{dmath*}
+  \boxed{
+    f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos(nx) + b_n \sin(nx) \].
+  }
+\end{dmath*}
 %FIXME: should the limits of integration be $(-\pi,\pi)$ for the series (as
 %opposed to the transform)? Also, uniqueness?
 \end{theorem}
 
-The Fourier series is the expression of a function as the sum an infinite series
-of waves with different amplitudes. That is, we transform from ``$x$-space'' to
-``frequency-space'', which can be incredibly useful. For example, the
-\texttt{Ogg Vorbis} audio format is just a modified cosine-series. Fourier
-series (and Fourier transforms, which are not covered in this course) lie at
-the heart of signal analysis. In terms of solving PDEs, we make use of the
-fact that
-\bee
-\ddtwo{}{x}\sin(nx) = -n^2 \sin(nx),
-\eee
-(i.e.\ that sine is an Eigenfunction of $d^2/dx^2$) to turn differential
-equations into algebraic equations. But more on that later. First, let's just
-find the Fourier series for a normal function.
+The Fourier series is the expression of a function as the sum an
+infinite series of waves with different amplitudes. That is, we
+transform from ``$x$-space'' to ``frequency-space'', which can be
+incredibly useful. For example, the \texttt{Ogg Vorbis} audio format
+is just a modified cosine-series. Fourier series (and Fourier
+transforms, which are not covered in this course) lie at the heart of
+signal analysis. In terms of solving PDEs, we make use of the fact
+that
+\begin{dmath*}
+  \ddtwo{}{x}\sin(nx) = -n^2 \sin(nx),
+\end{dmath*}
+(i.e.\ that sine is an Eigenfunction of $d^2/dx^2$) to turn
+differential equations into algebraic equations. But more on that
+later. First, let's just find the Fourier series for a normal
+function.
 
 \workedexample{
-Find the Fourier series of $f(x) = x$ for $x\in(-\pi,\pi)$.\\
+  Find the Fourier series of $f(x) = x$ for $x\in(-\pi,\pi)$.\\
 }{\\\indent
-To find the Fourier series, we just need to determine $a_n$ and $b_n$ using
-equation~\eqref{nicefourier}. The coefficients for the cosine series are
-\begin{dmath*}
-  a_n 
-  = \frac{1}{\pi}\int_{-\pi}^{\pi} x \cos(nx)\, dx
-  = \frac{1}{\pi}\[ \left.x \frac{\sin(nx)}{n} \right|_{-\pi}^{\phantom{-}\pi}
-  -\int_{-\pi}^\pi \frac{\sin(nx)}{n}\, dx \]
-  = \frac{1}{\pi}
-  \[0 - \frac{1}{n^2}\left. \cos(nx) \right|_{-\pi}^{\phantom{-}\pi} \] 
-  =0.
-\end{dmath*}
-This could have been expected, since $f(x)=x$ is an odd function, and $\cos(nx)$
-is even, and the integration domain is symmetric. Notice, then, that the
-cosine series of a function is equal to the even part of the function. Now,
-for the sine series, we have
-\begin{dmath*}
-  b_n 
-  = \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx
-  = \frac{1}{\pi} \[ \left.\frac{-x\cos(nx)}{n}\right|_{-\pi}^{\phantom{-}\pi}
-                    - \int_{-\pi}^\pi \frac{-\cos(nx)}{n}\, dx  \]
-  = \frac{1}{\pi}\[\frac{-\pi\cos(\pi n)}{n} - \frac{-\pi\cos(-n\pi)}{n} -0 \]
-  = \frac{1}{\pi}\[\frac{-2\pi}{n}\cos(n \pi)\]
-  =\frac{-2 (-1)^n}{n} = (-1)^{n+1}\frac{2}{n}.
-\end{dmath*}
-The Fourier series for $f(x)=x$ is then
-\be
-\label{Fourierx}
-x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx). \qed
-\ee
-This does indeed converge to $f(x)=x$ around $x=0$, as can be seen in
-figure~\ref{fourierx}.
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics{figures/fourierx}
-    \caption{Fourier series approximations to $f(x)=x$.}
-    \label{fourierx}
-  \end{center}
-\end{figure}
+  To find the Fourier series, we just need to determine $a_n$ and $b_n$ using
+  equation~\eqref{nicefourier}. The coefficients for the cosine series are
+  \begin{dmath*}
+    a_n 
+    = \frac{1}{\pi}\int_{-\pi}^{\pi} x \cos(nx)\, dx
+    = \frac{1}{\pi}\[ \left.x \frac{\sin(nx)}{n} \right|_{-\pi}^{\phantom{-}\pi}
+    -\int_{-\pi}^\pi \frac{\sin(nx)}{n}\, dx \]
+    = \frac{1}{\pi}
+    \[0 - \frac{1}{n^2}\left. \cos(nx) \right|_{-\pi}^{\phantom{-}\pi} \] 
+    =0.
+  \end{dmath*}
+  This could have been expected, since $f(x)=x$ is an odd function,
+  and $\cos(nx)$ is even, and the integration domain is
+  symmetric. Notice, then, that the cosine series of a function is
+  equal to the even part of the function. Now, for the sine series, we
+  have
+  \begin{dmath*}
+    b_n 
+    = \frac{1}{\pi} \int_{-\pi}^\pi x \sin(nx)\, dx
+    = \frac{1}{\pi} \[ \left.\frac{-x\cos(nx)}{n}\right|_{-\pi}^{\phantom{-}\pi}
+    - \int_{-\pi}^\pi \frac{-\cos(nx)}{n}\, dx  \]
+    = \frac{1}{\pi}\[\frac{-\pi\cos(\pi n)}{n} - \frac{-\pi\cos(-n\pi)}{n} -0 \]
+    = \frac{1}{\pi}\[\frac{-2\pi}{n}\cos(n \pi)\]
+    =\frac{-2 (-1)^n}{n} = (-1)^{n+1}\frac{2}{n}.
+  \end{dmath*}
+  The Fourier series for $f(x)=x$ is then
+  \begin{dmath}
+    \label{Fourierx}
+    x = 2 \sum_{n=1}^\infty  \frac{(-1)^{n+1}}{n} \sin(nx). \qed
+  \end{dmath}
+  This does indeed converge to $f(x)=x$ around $x=0$, as can be seen in
+  figure~\ref{fourierx}.
+  \begin{figure}[htbp]
+    \begin{center}
+      \includegraphics{figures/fourierx}
+      \caption{Fourier series approximations to $f(x)=x$.}
+      \label{fourierx}
+    \end{center}
+  \end{figure}
 }
 
 %TODO: something about orthogonality? More examples?
@@ -3236,11 +3240,11 @@ figure~\ref{fourierx}.
 
   \item What is the Fourier series in $x$ for $f(x,t)$, $x \in (-\pi,\pi)$, if
     \begin{dmath*}[compact]
-    f(x,t) =
-    \left\{ \begin{array}{ll}
-      -t           & \mbox{if $x < 0$};\\
-      \phantom{-}t & \mbox{if $x \geq 0$}
-    \end{array} \right. ?
+      f(x,t) =
+      \left\{ \begin{array}{ll}
+        -t           & \mbox{if $x < 0$};\\
+        \phantom{-}t & \mbox{if $x \geq 0$}
+      \end{array} \right. ?
     \end{dmath*}
 
 \end{enumerate}
@@ -3255,9 +3259,9 @@ Let us now return to the heat equation,
 \pp{y}{t} = \beta \frac{\partial^2y}{\partial x^2},
 \ee
 and add some \emph{initial conditions}
-\bee
+\begin{dmath*}
 y(x,0)=f(x),
-\eee
+\end{dmath*}
 and \emph{boundary conditions}
 \be
 \label{homdibc}
@@ -3283,16 +3287,18 @@ Putting equation \eqref{heatF} into equation \eqref{heateq}, we get
 \ee
 Now, since the $X_n$'s are orthogonal, this actually holds term-by-term. That
 is, for each $n$, we have
-\bee
-T_n'(t)X_n(x) = \beta  T_n(t)X_n''(x)
-\quad \implies \quad
-\frac{1}{\beta}\frac{T_n'(t)}{T_n(t)}= \frac{X_n''(x)}{X_n(x)}.
-\eee
+\begin{dmath*}[compact]
+  T_n'(t)X_n(x) = \beta  T_n(t)X_n''(x)
+  \quad \implies \quad
+  \frac{1}{\beta}\frac{T_n'(t)}{T_n(t)}= \frac{X_n''(x)}{X_n(x)}.
+\end{dmath*}
 Now, the LHS is independent of $x$, so the RHS must also be independent of $x$.
 Since the RHS is also clearly independent of $t$, it must be constant. That is,
-\bee
-\frac{1}{\beta}\frac{T_n'(t)}{T_n(t)}= \frac{X_n''(x)}{X_n(x)} = K_n,
-\eee
+\begin{dmath*}[compact]
+  \frac{1}{\beta}\frac{T_n'(t)}{T_n(t)}
+  = \frac{X_n''(x)}{X_n(x)} 
+  = K_n,
+\end{dmath*}
 where $K_n$ can only depend on $n$.
 
 This gives us an ODE for $X_n$,
@@ -3310,14 +3316,14 @@ the boundary conditions must be satisfied for each $n$. The cases are:
   \item $K_n = 0$. In this case, we get $X_n(x)=Ax +B$. Again, the boundary
     conditions imply that $A=B=0$, so $X_n=0$ in this case.
   \item $K_n =-k_n^2 < 0$. This gives us periodic behaviour,
-    \bee
+    \begin{dmath*}
     X_n(x)=C_1\cos(k_nx) + C_2\sin(k_nx).
-    \eee
+    \end{dmath*}
     We require that $X_n(0)=C_1=0$, so we can remove all the cosines. The
     other boundary condition gives us
-    \bee
+    \begin{dmath*}
     X_n(\pi)=C_2\sin(k_n\pi)=0,
-    \eee
+    \end{dmath*}
     which implies that either $C_2=0$ or $k_n$ is an integer. Since this is
     our last chance to have $X_n$ not be zero everywhere, we can't have $C_2=0$,
     so we set $k_n$ to be an integer. In particular, set $k_n=n$.
@@ -3326,31 +3332,32 @@ Thus, $K_n=-n^2$, and $X_n= \sin(nx)$. Much simpler!
 
 We now have enough information to start determining $T_n$. We know that
 $K_n=-n^2$, so $T_n$ obeys the equation
-\bee
-T_n' = \beta K_n T_n = - \beta n^2 T_n
-\qquad \implies \qquad
-T_n = T_n(0) e^{-\beta n^2 t}.
-\eee
+\begin{dmath*}[compact]
+  T_n' = \beta K_n T_n = - \beta n^2 T_n
+  \qquad \implies \qquad
+  T_n = T_n(0) e^{-\beta n^2 t}.
+\end{dmath*}
 
 Putting this together, our solution (so far) is
-\bee
-y(x,t) = \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx).
-\eee
+\begin{dmath*}
+  y(x,t) = \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx).
+\end{dmath*}
 To get this, we have used the original equation and the boundary conditions.
 We still have to determine the values of $T_n(0)$, for which we will use the
 initial conditions, $y(x,0)=f(x)$. That is,
-\bee
-y(x,0)=f(x) =  \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx)
-= \sum_{n=0}^\infty T_n(0) \sin(nx).
-\eee
+\begin{dmath*}
+  y(x,0)=f(x) 
+  =  \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx)
+  = \sum_{n=0}^\infty T_n(0) \sin(nx).
+\end{dmath*}
 In other words, this is just a sine-series for $f(x)$! However, instead of
 integrating over $(-\pi,\pi)$, we only know $f(x)$ for $x\in(0,\pi)$. We can
 solve this problem by extending $f(x)$ as an odd function by setting
 $f(-x)=-f(x)$, so the coefficients are given by
-\bee
+\begin{dmath*}
 T_n(0)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)dx
 =\frac{2}{\pi}\int_0^\pi f(x)\sin(nx)dx,
-\eee
+\end{dmath*}
 since the integrand is even.
 
 The solution to the heat equation is then
@@ -3369,23 +3376,23 @@ e^{-kn^2t}
   y(x,0)=2\sin(x)+\sin(5x),
   \ee
   and the temperature at the ends of the rod is kept at zero. Assuming that
-  \bee
+  \begin{dmath*}
   \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
-  \eee
+  \end{dmath*}
   find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
   }\\
 {
   The boundary conditions match those given in equation \eqref{homdibc}, so
   the above analysis shows that we can express $y$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
-  \bee
+  \begin{dmath*}
   y(x,t)=\sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
-  \eee
+  \end{dmath*}
   The initial conditions are that $y(x,0)=2\sin(x)+\sin(5x)$, so $T_1(0)=2$,
   $T_5(0)=1$, and all others are zero. We can then write the solution as
-  \bee
+  \begin{dmath*}
   y(x,t) = 2 e^{-\b t} \sin(x) + e^{-25 \b t} \sin(5x).
-  \eee
+  \end{dmath*}
 %FIXME: Is this enough explanation?
  This result is shown for various times in figure \ref{heat1} for $\b=1$.
   \begin{figure}[htbp]
@@ -3403,71 +3410,69 @@ e^{-kn^2t}
 \section{Non-homogeneous constant boundary conditions}
 
 Suppose that the boundary conditions were instead
-\bee
-y(0,t)=A, \qquad y(\pi,t)=B.
-\eee
+\begin{dmath*}
+  y(0,t)=A, \qquad y(\pi,t)=B.
+\end{dmath*}
 Notice that these conditions match the case $K_n=0$ with
-\bee
-y(x,t)=\frac{B-A}{\pi}x+A.
-\eee
+\begin{dmath*}
+  y(x,t)=\frac{B-A}{\pi}x+A.
+\end{dmath*}
 This obeys the heat equation, since
-\bee
-\frac{\partial^2}{\partial x^2}(mx+b)=0= \pp{}{t}(mx+b),
-\eee
+\begin{dmath*}[compact]
+  \frac{\partial^2}{\partial x^2}(mx+b)=0= \pp{}{t}(mx+b),
+\end{dmath*}
 and is independent of $t$, i.e.\ it is a steady state solution. Then, setting
-\bee
-g(x) = f(x) - \(A+ \frac{B-A}{\pi}x\),
-\eee
-\be
-\label{diribc}
-y(x,t)=A + \frac{B-A}{\pi}x +
-\frac{2}{\pi}
-\sum_{n=1}^\infty\(\int_{0}^\pi g(x)\sin(nx)dx\) e^{-\b n^2t} \sin(nx)
-\ee
+\begin{dmath*}
+  g(x) = f(x) - \(A+ \frac{B-A}{\pi}x\),
+\end{dmath*}
+\begin{dmath}
+  \label{diribc}
+  y(x,t)=A + \frac{B-A}{\pi}x +
+  \frac{2}{\pi}
+  \sum_{n=1}^\infty\(\int_{0}^\pi g(x)\sin(nx)dx\) e^{-\b n^2t} \sin(nx)
+\end{dmath}
 matches both the initial and boundary conditions.
 
 \workedexample{
   Solve the initial boundary problem
-  \bee
+  \be
   \label{heat3ic}
   \pp{y}{t} = \b \pptwo{y}{x}, \qquad y(0)=1, \quad y(\pi)=1+\pi,
   \quad y(x,0)=f(x)=x^2 +x +1
-  \eee
+  \ee
   for $y(x,t)$.
 
 }{
   The steady-state solution is $x+1$. Let
-  \bee
-  g(x) = f(x) -(x+1) = x^2
-  \eee
+  \begin{dmath*}
+    g(x) = f(x) -(x+1) = x^2
+  \end{dmath*}
   Then,
-  \bee
-  y(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
-  \eee
+  \begin{dmath*}
+    y(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
+  \end{dmath*}
   And in order to satisfy $y(x,0)=1+x+x^2$, we have
-  \bee
-  x^2 = \sum_{n=1}^\infty T_n(0) \sin(nx).
-  \eee
+  \begin{dmath*}
+    x^2 = \sum_{n=1}^\infty T_n(0) \sin(nx).
+  \end{dmath*}
   The coefficients are given by the formula
-  \bee
-  T_n(0) &=& \frac{2}{\pi} \int_0^\pi x^2 \sin(nx) \, dx
-  \\\nonumber
-  &=& \frac{2}{\pi}\[\left.x^2 \frac{-\cos(nx)}{n} \right|_0^\pi
-  + \frac{2}{n}\int_0^\pi x \cos(nx)dx\]
-  \\\nonumber
-  &=& \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)+2(\left.\frac{x \sin(nx)}{n}
-  \right|_0^\pi
-  - \frac{1}{n}\int_0^\pi\sin(nx)dx)  \]
-  \\\nonumber
-  &=& \frac{-2\pi}{n}\cos(n\pi)-\frac{4}{n^3\pi} \left.-\cos(nx) \right|_0^\pi
-  = \frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}
-  \eee
+  \begin{dmath*}
+    T_n(0) 
+    = \frac{2}{\pi} \int_0^\pi x^2 \sin(nx) \, dx
+    = \frac{2}{\pi}\[\left.x^2 \frac{-\cos(nx)}{n} \right|_0^\pi
+    + \frac{2}{n}\int_0^\pi x \cos(nx)dx\]
+    = \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)+2(\left.\frac{x \sin(nx)}{n}
+    \right|_0^\pi
+    - \frac{1}{n}\int_0^\pi\sin(nx)dx)  \]
+    = \frac{-2\pi}{n}\cos(n\pi)-\frac{4}{n^3\pi} \left.-\cos(nx) \right|_0^\pi
+    = \frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}
+  \end{dmath*}
   The solution is therefore
-  \bee
-  y(x,t) = 1+x+
-  \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\]
-  e^{-\b n^2 t}\sin(nx).
-  \eee
+  \begin{dmath*}
+    y(x,t) = 1+x+
+    \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\]
+    e^{-\b n^2 t}\sin(nx).
+  \end{dmath*}
 % Useless figure
 %  as can be seen in figure \ref{heat3}. \qed
 %  \begin{figure}[htbp]
@@ -3582,43 +3587,42 @@ matches both the initial and boundary conditions.
     An inanimate carbon rod of length $\pi$ is hit with a ``laser'',
     transferring an amount of heat $H$ to a point at its centre. That is, the
     initial temperature distribution along its length is given by
-    \bee
+    \begin{dmath*}
     y(x,0)=H\delta\(x-\frac{\pi}{2}\).
-    \eee
+    \end{dmath*}
     If the ends of the rod are kept at constant temperature $0$, and the
     temperature in the rod obeys the relationship
-    \bee
-    \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
-    \eee
+    \begin{dmath*}
+      \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
+    \end{dmath*}
     find $y(x,t)$ for all $t\geq 0$.
     \hidesolution{
       Following the above procedure,
-      \bee
-      y(x,t)=\frac{2}{\pi}
-      \sum_{n=1}^\infty T_n(0) e^{-kn^2t} \sin(nx)
-      \eee
+      \begin{dmath*}
+        y(x,t)
+        =\frac{2}{\pi}\sum_{n=1}^\infty T_n(0) e^{-kn^2t} \sin(nx)
+      \end{dmath*}
       with
-      \bee
-      T_n(0) &=& \frac{2}{\pi}\int_0^\pi H \d\(x-\frac{\pi}{2} \) \sin(nx) \, dx
-      \\
-      &=& \frac{2H}{\pi} \sin\(\frac{n\pi}{2}\)
-      \\
-      &=& \frac{2H}{\pi}
-      \left\{ \begin{array}{ll}
-        0,           & \mbox{if $n=2m$}\\
-        \sin\(m\pi+ \frac{\pi}{2}\), & \mbox{if $n=2m+1$}
-      \end{array} \right.
-      \\
-      &=& \frac{2H}{\pi}
-      \left\{ \begin{array}{ll}
-        0,           & \mbox{if $n=2m$}\\
-        (-1)^m, & \mbox{if $n=2m+1$}.
-      \end{array} \right.
-      \eee
+      \begin{dmath*}
+        T_n(0) 
+        = \frac{2}{\pi}\int_0^\pi H \d\(x-\frac{\pi}{2} \) \sin(nx) \, dx
+        = \frac{2H}{\pi} \sin\(\frac{n\pi}{2}\)
+        = \frac{2H}{\pi}
+        \left\{ \begin{array}{ll}
+          0,           & \mbox{if $n=2m$}\\
+          \sin\(m\pi+ \frac{\pi}{2}\), & \mbox{if $n=2m+1$}
+        \end{array} \right.
+        = \frac{2H}{\pi}
+        \left\{ \begin{array}{ll}
+          0,           & \mbox{if $n=2m$}\\
+          (-1)^m, & \mbox{if $n=2m+1$}.
+        \end{array} \right.
+      \end{dmath*}
       The solution is then given by
-      \bee
-      y(x,t) = \frac{2H}{\pi} \sum_{m=0}^\infty (-1)^m e^{-4\beta m^2 t} \sin(2mx)
-      \eee
+      \begin{dmath*}
+        y(x,t) 
+        = \frac{2H}{\pi} \sum_{m=0}^\infty (-1)^m e^{-4\beta m^2 t} \sin(2mx)
+      \end{dmath*}
     }
   \item
     \emph{Neumann boundary conditions} specify the value of the function at
@@ -3627,10 +3631,10 @@ matches both the initial and boundary conditions.
     \eqref{Eigenfunction} must be $\{\sin(nx),n=1,2,\dots\}$ in this case.
     If the boundary conditions were instead \emph{Dirichlet boundary conditions}
     such as
-    \bee
+    \begin{dmath*}[compact]
     \left.\pp{y(x,t)}{x}\right|_{x=0}=0, \qquad
         \left.\pp{y(x,t)}{x}\right|_{x=\pi}=0,
-    \eee
+    \end{dmath*}
     what are the Eigenfunctions?
 
 
