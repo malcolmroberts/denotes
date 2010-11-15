@@ -2827,10 +2827,10 @@ better approximation as $n$ increases.
 %Let $p(t), q(t)$ be analytic functions (ie, they admit power series
 %representations).
 Differential equations of the form
-\be
-\label{singode}
-y'' + p(t)y' + q(t)y=0
-\ee
+\begin{dmath}
+  \label{singode}
+  y'' + p(t)y' + q(t)y=0
+\end{dmath}
 can behave poorly at $t=0$, and may not admit solutions of the form
 $y(t) =\sum_{n=0}^\infty a_n t^n$. However, we can still solve these problem
 by modifying the series expansion. The easiest case is when the singular
@@ -2843,11 +2843,13 @@ $\lim_{t \rightarrow 0}p(t)=\infty$ or  $lim_{t \rightarrow 0}q(t)=\infty$.
 The point $t=0$ is a \emph{regular singular point} of \eqref{singode} if
 the two limits $\lim_{t\rightarrow 0} t p(t) =p_0$
 and $\lim_{t\rightarrow 0} t^2 q(t) =q_0$
-exist and are finite. Series solutions at regular singular points are of the
+exist and are finite. 
+
+Series solutions at regular singular points are of the
 form
-\be
-\boxed{y(t) = \sum_{n=0}^\infty a_n t^{n+r}},
-\ee
+\begin{dmath*}
+  \boxed{y(t) = \sum_{n=0}^\infty a_n t^{n+r}},
+\end{dmath*}
 for some $r\in\mathbb{C}$ such that $a_0 \neq 0$.
 
 Since we now have one more variable for which to solve (i.e.\ $r$ in addition
@@ -2856,36 +2858,36 @@ solution uniquely. Then if we take the first and second derivative of
 $y(t) = \sum_{n=0}^\infty a_n t^{n+r}$ and put them into the left-hand side of
 equation \eqref{singode}, we can see that the
 leading-order (which is to say the $t^{r-2}$) coefficient is
-\bee
-a_0 r(r-1)t^{r-2} + a_0 \frac{p_0}{t} r t^{r-1} + a_0 \frac{q_0}{t^2} t^r
-\eee
+\begin{dmath*}
+  a_0 r(r-1)t^{r-2} + a_0 \frac{p_0}{t} r t^{r-1} + a_0 \frac{q_0}{t^2} t^r
+\end{dmath*}
 In order to satisfy equation \eqref{singode}, this equation must equal $0$.
 We can multiply by $t^2$ and since $a_0 \neq 0$, we see that
-\be
-\boxed{\implies r(r-1) + p_0 r  + q_0=0}.
-\ee
+\begin{dmath*}
+  \boxed{\implies r(r-1) + p_0 r  + q_0=0}.
+\end{dmath*}
 This is called the \emph{indicial equation}. It's a quadratic so it has two
 solutions, $r=r_1,r_2$.
 
 If we have two distinct roots with $Re(r_1) > Re(r_2)$, we're fine, and we
 have two linearly independent solutions
-\be
-\boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
-\quad\mbox{  and  }\quad
-\boxed{y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}}.
-\ee
+\begin{dmath*}[compact]
+  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
+  \quad\mbox{  and  }\quad
+  \boxed{y_2(t) = \sum_{n=0}^\infty b_n t^{n+r_2}}.
+\end{dmath*}
 If $r_1=r_2$, then our solutions are
-\be
-\boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
-\quad\mbox{  and  }\quad
-\boxed{y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}}.
-\ee
+\begin{dmath*}[compact]
+  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
+  \quad\mbox{  and  }\quad
+  \boxed{y_2(t) = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}}.
+\end{dmath*}
 If $r_1-r_2$ is an integer, then we have yet another possibility, i.e.\ that
-\be
-\boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
-\quad\mbox{  and  }\quad
-\boxed{y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}},
-\ee
+\begin{dmath*}[compact]
+  \boxed{y_1(t) = \sum_{n=0}^\infty a_n t^{n+r_1}}
+  \quad\mbox{  and  }\quad
+  \boxed{y_2(t) = C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}},
+\end{dmath*}
 for some constant $C\in\mathbb{R}$.
 
 Once one has determined $r_1$ and $r_2$, the constants $a_n$ and $b_n$ can
@@ -2893,23 +2895,23 @@ be determined by matching powers as per the previous section.
 
 \workedexample{
   Consider Bessel's equation,
-  \be
-  \label{bessel}
-  t^2 y'' + ty' + (t^2-\alpha^2)y=0.
-  \ee
+  \begin{dmath}
+    \label{bessel}
+    t^2 y'' + ty' + (t^2-\alpha^2)y=0.
+  \end{dmath}
 }{
 
   We can divide Bessel's equation by $t^2$ to get it in the form of
   \eqref{singode}, that is
-  \bee
-  y''  + \frac{1}{t}y' + \(1-\frac{\alpha^2}{t^2}\)y=0,
-  \eee
+  \begin{dmath*}
+    y''  + \frac{1}{t}y' + \(1-\frac{\alpha^2}{t^2}\)y=0,
+  \end{dmath*}
   which is clearly singular. We can identify $p=1/t$, and
   $q=1-\frac{\alpha^2}{t^2}$. Then,
-  \bee
-  p_0 = \lim_{t\rightarrow 0} t p(t) =1, \quad \text{and}\quad
-  q_0 = \lim_{t\rightarrow 0} t^2 q(t) =-\alpha^2.
-  \eee
+  \begin{dmath*}[compact]
+    p_0 = \lim_{t\rightarrow 0} t p(t) =1, \quad \text{and}\quad
+    q_0 = \lim_{t\rightarrow 0} t^2 q(t) =-\alpha^2.
+  \end{dmath*}
   The indicial equation is then
   $r(r-1) +r -\alpha^2 =0 \implies r_{1,2} = \pm \alpha$.  Thus,
   \bee
@@ -2918,50 +2920,50 @@ be determined by matching powers as per the previous section.
   y_1'' &=& \sum_{n=0}^\infty a_n (n+\alpha)(n+\alpha-1)t^{n+\alpha-2}.
   \eee
   Putting this into \eqref{bessel}, we have
-  \bee
-  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
-  + \sum_{n=0}^\infty a_n t^{n+2+\alpha}=0.
-  \eee
+  \begin{dmath*}
+    \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
+    + \sum_{n=0}^\infty a_n t^{n+2+\alpha}=0.
+  \end{dmath*}
   Changing the index of the second sum, we have
-  \bee
-  \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
-  + \sum_{n=2}^\infty a_{n-2} t^{n+\alpha}=0.
-  \eee
+  \begin{dmath*}
+    \sum_{n=0}^\infty a_n\[(n+\a)(n+\a-1) + (n+\a) - \a^2  \]t^{n+\alpha}
+    + \sum_{n=2}^\infty a_{n-2} t^{n+\alpha}=0.
+  \end{dmath*}
   The $a_0$ and $a_1$ terms are determined by initial conditions. For
   $n\geq 2$, the terms must cancel, so we have
-  \bee
-  a_n\[\(n+\a\)^2 - \a^2\]t^{n+\alpha}  + a_{n-2} t^{n+\alpha}=0
-  \eee
+  \begin{dmath*}
+    a_n\[\(n+\a\)^2 - \a^2\]t^{n+\alpha}  + a_{n-2} t^{n+\alpha}=0
+  \end{dmath*}
   which implies that
-  \bee
-  a_n = \frac{-a_{n-2}}{\(n+\a\)^2 - \a^2} =  \frac{-a_{n-2}}{n(n+ 2\a)}.
-  \eee
+  \begin{dmath*}
+    a_n = \frac{-a_{n-2}}{\(n+\a\)^2 - \a^2} =  \frac{-a_{n-2}}{n(n+ 2\a)}.
+  \end{dmath*}
   Associating $y_1$ with $a_0=1$ and $a_1=0$, we can set $n=2m$, so the
   recursion relationship is
-  \be
-  a_{2m} = \frac{-a_{2(m-1)}}{2m (2m+2\a)} = \frac{-a_{2(m-1)}}{2^2m (m+\a)}.
-  \ee
+  \begin{dmath*}
+    a_{2m} = \frac{-a_{2(m-1)}}{2m (2m+2\a)} = \frac{-a_{2(m-1)}}{2^2m (m+\a)}.
+  \end{dmath*}
   Solving the recursion relationship then yields
-  \be
-  a_{2m} = \frac{(-1)^ma_0}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)}.
-  \ee
+  \begin{dmath*}
+    a_{2m} = \frac{(-1)^ma_0}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)}.
+  \end{dmath*}
   The solution is then
-  \be
-  \label{bessel1}
-  y_1 = \sum_{m=0}^\infty
-  \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.  \qed
-  \ee
-We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would
-get the standard form of Bessel's function of the first kind of order $\a$,
-  \bee
-  J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
-  \(\frac{t}{2}\)^{2n-\a}.
-  \eee
-Here $\G(x)$ is called the Gamma function and it is just an extension of the
-factorial function. So in particular, when $\alpha=0$, we get
-  \bee
-  J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
-  \eee
+  \begin{dmath}
+    \label{bessel1}
+    y_1 = \sum_{m=0}^\infty
+    \frac{(-1)^m}{2^{2m}m! (m+\a)(m+\a-1)\dots(1+\a)(\a)} t^{m+\alpha}.  \qed
+  \end{dmath}
+  We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would
+  get the standard form of Bessel's function of the first kind of order $\a$,
+  \begin{dmath*}
+    J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
+    \(\frac{t}{2}\)^{2n-\a}.
+  \end{dmath*}
+  Here $\G(x)$ is called the Gamma function and it is an extension of the
+  factorial function. So in particular, when $\alpha=0$, we get
+  \begin{dmath*}
+    J_0(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{2^{2n}(n!)^2}.
+  \end{dmath*}
 % Too messy and complicated- fixed above
 %  Now, we can simplify this slightly, by using the gamma function. The
 %  Gamma function,
