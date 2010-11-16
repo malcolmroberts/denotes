@@ -780,7 +780,7 @@ Setting $y=e^{rt}$, this becomes
   =0,
 \end{dmath*}
 so $r_1=-1$, and $r_2=1$. Thus,
-\begin{dmath*}
+\begin{dmath*}[compact]
   y_1(t) 
   = e^{-t}, \qquad y_2(t) 
   =e^t.
@@ -831,7 +831,6 @@ An easy way to get all linear combinations is to just set
 \begin{dmath*}[compact]
   y_1(t) = e^{4t} \cos(2t), \qquad y_2(t) = e^{4t} \sin(2t).
 \end{dmath*}
-\\
 
 \noindent\emph{Example}: Give the general solution to
 \begin{dmath*}
@@ -1683,12 +1682,12 @@ The Laplace transform of $f$ is
   \int_{nT}^{(n+1)T} f(t) e^{-st} dt + \dots
 \end{dmath*}
 Then we perform the change of variables $\tau = t-nT$ to see that this is just
-\bee
-&=& \int_0^T f(\t) e^{-s\t} d\t + e^{-sT}\int_0^{T} f(\t) e^{-s\t} d\t + \dots +
-e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
-\\
-&=& \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\int_0^T f(\t) e^{-s\t}d\t.
-\eee
+\begin{dmath*}[compact]
+  \int_0^T f(\t) e^{-s\t} d\t + e^{-sT}\int_0^{T} f(\t) e^{-s\t} d\t + \dots +
+  e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
+  \\
+  = \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\int_0^T f(\t) e^{-s\t}d\t.
+\end{dmath*}
 Now, the first factor is just the geometric series
 $\sum_{n=0}^\infty r^n = 1/(1-r)$ with $r=e^{-sT}$, so
 \begin{dmath}
@@ -1769,7 +1768,7 @@ From equation \eqref{lapper}, we have
 
 \item
   Solve the following IVP:
-  \begin{dmath*}
+  \begin{dmath*}[compact]
   y'' + y = e^t, \qquad y(0)=1, \qquad y'(0)=0.
   \end{dmath*}
   \hidesolution{
@@ -3447,7 +3446,7 @@ e^{-kn^2t}
 \section{Non-homogeneous constant boundary conditions}
 
 Suppose that the boundary conditions were instead
-\begin{dmath*}
+\begin{dmath*}[compact]
   y(0,t)=A, \qquad y(\pi,t)=B.
 \end{dmath*}
 Notice that these conditions match the case $K_n=0$ with
