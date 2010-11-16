@@ -76,9 +76,10 @@ reserved.
 
 Differential equations (abbreviated DEs) are equations involving functions and
 their derivatives. For example,
-\be \label{eg1}
-\dd{y}{x} =y
-\ee
+\begin{dmath}
+  \label{eg1}
+  \dd{y}{x} =y
+\end{dmath}
 is a differential equation. In this case, $y$ is a function of the independent
 variable $x$, and we would like to determine $y$. The solution to this
 equation is
@@ -396,9 +397,9 @@ particular substitution and this makes substitution not as straight forward as
 other techniques.
 
 \subsubsection{Homogeneous Equations}
-\be
-\boxed{\dd{y}{x} = f\(\frac{y}{x}\)}.
-\ee
+\begin{dmath*}
+  \boxed{\dd{y}{x} = f\(\frac{y}{x}\)}.
+\end{dmath*}
 We solve this by substituting $v=y/x$, so that
 \begin{dmath*}[compact]
   \dd{y}{x} = v + x \dd{v}{x},
@@ -561,11 +562,13 @@ Solve the initial value problem
 (Note that we can omit the absolute value bars around $x^2+1$ since it is
 always positive.) Then multiplying through by $\mu(x)$ we obtain
 \begin{dmath*}
-  (x+1)^2 \frac{dy}{dx} + 4x(x^2+1)y &=& 4x(x^2+1) \\
+  (x+1)^2 \frac{dy}{dx} + 4x(x^2+1)y 
+  = 4x(x^2+1) 
 \end{dmath*}
 \begin{dmath*}
-  \frac{d}{dx} \left( (x^2+1)y \right) &=& 4x^3+4x. \\
-\eee
+  \frac{d}{dx} \left( (x^2+1)y \right) 
+  = 4x^3+4x.
+\end{dmath*}
 Integrating yields
 \begin{dmath*}
   (x^2+1)^2 y 
@@ -585,7 +588,7 @@ solution to this IVP, so you could just have wrote it down and quoted the
 result that linear equations have unique solutions to IVPs.
 
 This equation is also separable since we may rewrite it as
-\begin
+\begin{dmath*}
   (x^2+1) \frac{dy}{dx}
   = 4x(1-y) \qquad\Rightarrow\qquad \frac{1}{1-y} \frac{dy}{dx}
   = \frac{4x}{x^2+1}
@@ -646,15 +649,15 @@ Solve the differential equation
     \begin{dmath*}
       \int \frac{1/4}{v-2} -\frac{1/4}{v+2} \, dv
       = \frac{1}{4} \ln\abs{v-2} - \frac{1}{4} \ln\abs{v+2} = x + C.
-    \e{dmath*}
+    \end{dmath*}
     Substituting $v=4x-y$ back in, we get the implicit solution
     \begin{dmath*}
       \ln\abs{\frac{4x-y-2}{4x-y+2}} = 4x +C.
-    \e{dmath*}
+    \end{dmath*}
     Solving for $y$ yields
     \begin{dmath*}
       y = \frac{Ce^{4x}\(4x+2\) -4x +2}{1-Ce^{4x}}.
-    \e{dmath*}
+    \end{dmath*}
   }
 
 \item
@@ -692,19 +695,20 @@ Solve the differential equation
       \dd{y}{x} = \frac{-1}{x^2}\dd{v}{x}.
       \end{dmath*}
       Then,
-      \begin{dmath*}[copmact]
+      \begin{dmath*}[compact]
       \frac{-1}{v^2}v' - \frac{1}{xv} = \frac{x^2}{v^2}
       \implies
       v' = \frac{v}{x} - x^2
       \end{dmath*}
       Now, let $w=v/x$, which implies that
       \begin{dmath*}
-      w + x \dd{w}{x} = w -x^2 \implies \dd{w}{x} = -x^2
+        w + x \dd{w}{x} = w -x^2 \implies \dd{w}{x} = -x^2
       \end{dmath*}
       Thus, $w = - \half x^2 + C$, so
-      \begin{dmath*}
-      w=\frac{v}{x} = \frac{1}{xy} \implies \frac{1}{y} = \frac{-x^3}{2} + Cx
-      \implies y = \frac{1}{-x^3/2 + Cx}.
+      \begin{dmath*}[compact]
+        w=\frac{v}{x} 
+        = \frac{1}{xy} \implies \frac{1}{y} = \frac{-x^3}{2} + Cx
+        \implies y = \frac{1}{-x^3/2 + Cx}.
       \end{dmath*}
     }
 
@@ -715,9 +719,10 @@ Solve the differential equation
 \chapter{Second-order Linear Equations}
 % Text chapter 4.2
 Let $a,b,c$ be real numbers. Second order equations of the form
-\be \label{sec2hom}
-a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
-\ee
+\begin{dmath} 
+  \label{sec2hom}
+  a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
+\end{dmath}
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to
 equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
 \newcommand\ycomb{\alpha y_1 + \beta y_2}
@@ -793,9 +798,10 @@ conditions. Since $y(0)=1$,
   y(0) = \alpha +\beta =1.
 \end{dmath}
 Since $y'(0)=0$, and $y'(t) = -\alpha e^{-t} + \beta e^t$,
-\be \label{sec2ab2}
-y'(0) = -\alpha + \beta =0.
-\ee
+\begin{dmath}
+  \label{sec2ab2}
+  y'(0) = -\alpha + \beta =0.
+\end{dmath}
 Combining equations \eqref{sec2ab1} and \eqref{sec2ab2}, it is easy to see
 that $\alpha = \beta =\half$. The solution is therefore
 \begin{dmath*}
@@ -1218,25 +1224,25 @@ y = \alpha y_1 + \beta y_2 + y_p
 
 \item
   Solve the IVP
-  \bee
+  \begin{dmath*}
   y'' - y = \cos(t)
-  \eee
+  \end{dmath*}
   with initial conditions $y(0)=0$ and $y'(0)=1$.
 %  y_p = a \cos t + b \sin t
 
 \item
   Solve the IVP
-  \bee
+  \begin{dmath*}
   y'' + y = \cos(t)
-  \eee
+  \end{dmath*}
   with initial conditions $y(0)=0$ and $y'(0)=1$.
 %  y_p = at \cos t + bt \sin t = \frac{t\sin(t)}{2}.
 
 \item
   Solve the IVP
-  \bee
-  y'' + y = \cos(t) + t
-  \eee
+  \begin{dmath*}
+    y'' + y = \cos(t) + t
+  \end{dmath*}
   with initial conditions $y(0)=0$ and $y'(0)=1$.\\
   Hint: first solve $y'' + y = \cos(t)$, and then $y'' + y = t$. Combine
   the two to solve $y'' + y = \cos(t) + t$, to which you can apply the
@@ -1247,9 +1253,9 @@ y = \alpha y_1 + \beta y_2 + y_p
   % The solution ends up being quite computational. Not good for quizes?
   Use the method of undetermined coefficients to find a particular solution of
   the differential equation
-  \bee
-  x''(t) - 3x'(t) = 27t^2e^{3t}
-  \eee
+  \begin{dmath*}
+    x''(t) - 3x'(t) = 27t^2e^{3t}
+  \end{dmath*}
 
 \end{enumerate}
 
@@ -1264,9 +1270,9 @@ The technique is actually an application of Cramer's rule from linear algebra,
 and can be generalized to linear differential equations of any order.
 
 Given a differential equation
-\be
-y'' + by' +cy = f(t)
-\ee
+\begin{dmath*}
+  y'' + by' +cy = f(t)
+\end{dmath*}
 with homogeneous solutions $\{y_1(t), y_2(t)\}$, we are going to look for
 a particular solution of the form $y_p=u_1(t) y_1(t) + u_2(t) y_2(t)$. This
 means that $y_p' = \(u_1' y_1 + u_2' y_2\) + \(u_1 y_1' + u_2 y_2'\)$, which
@@ -1276,10 +1282,10 @@ because it reduces the order of the system for $u_1$ and $u_2$. The addition
 of equation~\ref{voprandom} gives us two equations to solve for two unknowns.
 The authors still find this trick a little unmotivated, but rest assured that
 it does work.}
-\be
-\label{voprandom}
-u_1'y_1 +u_2'y_2 =0.
-\ee
+\begin{dmath}
+  \label{voprandom}
+  u_1'y_1 +u_2'y_2 =0.
+\end{dmath}
 Substituting this into the original differential equation produces the linear
 system
 \be
@@ -1288,62 +1294,44 @@ u_1'y_1 +u_2'y_2 &=&0
 u_1'y_1' +u_2'y_2' &=&f.
 \ee
 Using Cramer's rule to solve the linear system, the solution is
-\be
-%y_p
-%&=& y_1 \int
-%\(
-%\left .
-%{\left| \begin{array}{cc}0 & y_2 \\f & y_2' \end{array} \right|}
-%\right/
-%{\left| \begin{array}{cc}y_1 & y_2 \\y_1' & y_2' \end{array} \right|}
-%\)
-%\, dt
-%+ y_2 \int
-%\left(
-%\left.
-%{\left| \begin{array}{cc}y_1 & 0 \\y_1' & f \end{array} \right|}
-%\right/
-%{\left| \begin{array}{cc}y_1 & y_2 \\y_1' & y_2' \end{array} \right|}
-%\right)
-%\, dt
-%\\ \nonumber
-%y_p&=& y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt
-\boxed{
-y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt
-}
-\ee
+\begin{dmath*}
+  \boxed{
+    y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt
+  }
+\end{dmath*}
 where
-\be
+\begin{dmath*}
 w=
 \left| \begin{array}{cc}
 y_1 & y_2  \\
 y_1' & y_2' \end{array} \right|
-\ee
+\end{dmath*}
 is known as the Wronskian. The general solution is, as always,
-\be
-y = \alpha y_1 + \beta y_2 + y_p.
-\ee
+\begin{dmath*}
+  y = \alpha y_1 + \beta y_2 + y_p.
+\end{dmath*}
 \\
 
 \noindent\emph{Example}: Give the general solution to
-\be \label{varpareg}
-y'' -2 y' + 2y = 2 e^t
-\ee
+\begin{dmath}
+  \label{varpareg}
+  y'' -2 y' + 2y = 2 e^t
+\end{dmath}
 using variation of parameters.\\
 \noindent\emph{Solution}: The characteristic equation is
-\be
-r^2 -2r +2 =0
-\ee
+\begin{dmath*}
+  r^2 -2r +2 =0
+\end{dmath*}
 which has roots $r=1\pm i$. Thus, $y_1=e^t\cos t$, and $y_2=e^t \sin t$.
 The Wronskian is
-\be
+\begin{dmath*}
 w=
 \left| \begin{array}{cc}
 y_1 & y_2  \\
 y_1' & y_2' \end{array} \right|
 =e^{2t} \[\cos t \(\cos t + \sin t\) - \sin t \(\cos t - \sin t \) \]
 =e^{2t}.
-\ee
+\end{dmath*}
 The particular solution is
 \begin{dmath*}
   y_p = e^t \cos t \int \frac{ -2 e^t e^t \sin t}{e^{2t}} \,dt \,
@@ -1353,9 +1341,9 @@ The particular solution is
 \\
 \noindent\emph{Check}: When we put $y_p$ into equation \eqref{varpareg}, we
 get
-\be
+\begin{dmath*}
 2e^t  -4 e^t + 4 e^t = 2 e^t,
-\ee
+\end{dmath*}
 so we got the correct $y_p$. \qed
 
 \newpage
@@ -1379,44 +1367,49 @@ so we got the correct $y_p$. \qed
 
 \item Use the method of variation of parameters to find the general solution of
   % Mazowita's question. Solution is tex'd.
-  \bee
+  \begin{dmath*}
   y'' - 2 y'' + y = t^{-1} e^t.
-  \eee
+  \end{dmath*}
 
 \item Use the method of variation of parameters to find the general solution of
-  \bee
+  \begin{dmath*}
   y'' + 4y = \sin(2t).
-  \eee
+  \end{dmath*}
 
 \item
   Find the general solution to
-  \bee
+  \begin{dmath*}
   y'' + y = \tan t + t.
-  \eee
+  \end{dmath*}
   \hidesolution{
     The homogeneous solutions are $y_1=\cos t$, $y_2=\sin t$. The Wronskian
     is easily computed to be $1$. Then, solving the $\tan t$ part,
-    \bee
-    v_1 = -\int\sin(t) \tan(t) \,dt = -\int\frac{\sin^2 t}{\cos t} \,dt
-    =\int -\sec t + \cos t = -\ln \abs{\sec t + \tan t} +\sin t.
-    \eee
+    \begin{dmath*}
+      v_1 
+      = -\int\sin(t) \tan(t) \,dt 
+      = -\int\frac{\sin^2 t}{\cos t} \,dt
+      =\int -\sec t + \cos t 
+      = -\ln \abs{\sec t + \tan t} +\sin t.
+    \end{dmath*}
     and $v_2= \int \sin t \, dt = \cos t$.  Thus,
-    \bee
-    y_{p,1}= v_1y_1 + v_2y_2 =-\cos t \ln\abs{\sec t + \tan t}.
-    \eee
+    \begin{dmath*}
+      y_{p,1}
+      = v_1y_1 + v_2y_2 
+      =-\cos t \ln\abs{\sec t + \tan t}.
+    \end{dmath*}
     Using undetermined coefficients, it is easy to see that $y_{p,2}=t$. The
     general solution is
-    \bee
-    y = C_1 \cos t + C_2 \sin t + t -\cos t \ln\abs{\sec t + \tan t}.
-    \eee
+    \begin{dmath*}
+      y = C_1 \cos t + C_2 \sin t + t -\cos t \ln\abs{\sec t + \tan t}.
+    \end{dmath*}
   }
 
 \item
   Derive the method of variation of parameters for first-order linear
   equations, i.e.\ equations of the form
-  \bee
+  \begin{dmath*}
   y' + by = f(t).
-  \eee
+  \end{dmath*}
   Hint: consider the method in terms of the determinants of matrices.
 
 \end{enumerate}
@@ -1430,48 +1423,49 @@ our choice of transformation, we can solve the problem.
 
 The Laplace transform of a function $f(t)$, which we denote by either
 $\Laplace(f(t))$ or $F(s)$, is defined as
-\be
-\boxed{\Laplace(f(t)) =\int_0^\infty e^{-st} f(t) \, dt}.
-\ee
+\begin{dmath*}
+  \boxed{\Laplace(f(t)) =\int_0^\infty e^{-st} f(t) \, dt}.
+\end{dmath*}
 This is itself a function, though we have changed the independent variable
 from $t$ to $s$. So long as $f$ is sufficiently smooth and doesn't grow too
 fast as $t$ goes to infinity, we can always find its Laplace transform.\\
 
 \noindent\emph{Example}: Find the Laplace transform of
-\be
-f(t) = t
-\ee
+\begin{dmath*}
+  f(t) = t
+\end{dmath*}
 \noindent\emph{Solution}: The Laplace transform of $t$ is given by
-\be
-F(s) = \int_0^\infty t e^{-st} \, dt
-\ee
+\begin{dmath*}
+  F(s) = \int_0^\infty t e^{-st} \, dt
+\end{dmath*}
 Using integration by parts with $u=t$ and $dv=e^{-st}$,
-\be
-F(s) =\left. t \frac{e^{-st}}{-s} \right|_0^\infty
-- \int_0^\infty \frac{e^{-st}}{-s}\, dt
-= \frac{1}{s^2},
-\ee
+\begin{dmath*}
+  F(s) =\left. t \frac{e^{-st}}{-s} \right|_0^\infty
+  - \int_0^\infty \frac{e^{-st}}{-s}\, dt
+  = \frac{1}{s^2},
+\end{dmath*}
 that is, $\mathcal{L}(t)= 1/s^2$.\\
 
 Well, that was an excellent example, and we all had a lot of fun. The question
 remains, however, ``why is this useful?'' Consider the Laplace transform of
 the first derivative of $y(t)$:
-\be
-\Laplace(y') = \int_0^\infty y'(t) e^{-st} \, dt
-= \left. y(t) e^{-st} \right|_0^\infty - \int_0^\infty y \(-s e^{-st}\) \, dt,
-\ee
+\begin{dmath*}
+  \Laplace(y') 
+  = \int_0^\infty y'(t) e^{-st} \, dt
+  = \left. y(t) e^{-st} \right|_0^\infty - \int_0^\infty y \(-s e^{-st}\) \, dt,
+\end{dmath*}
 so
-\be
-\boxed{\Laplace(y')= s \mathcal{L}(y) - y(0)}.
-\ee
+\begin{dmath*}
+  \boxed{\Laplace(y')= s \mathcal{L}(y) - y(0)}.
+\end{dmath*}
 That is, the Laplace transform changes derivatives into polynomials in $s$,
 which can be much easier to deal with!
 The Laplace transform of the $n$th derivative of $y$ is
-\be
-\boxed{
-\Laplace(y^{(n)}) = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0)
-},
-\ee
+\begin{dmath*}
+  \boxed{
+    \Laplace(y^{(n)}) = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0)
+  },
+\end{dmath*}
 which we will apply to higher-order differential equations.
 
 %FIXME: should these just be moved to the table?
@@ -1484,30 +1478,28 @@ which we will apply to higher-order differential equations.
 %\end{enumerate}
 
 \noindent\emph{Example}: Compute the Laplace transform of the function
-\bee
+\begin{dmath*}
 f(t) = e^{2t} + e^{3t}.
-\eee
+\end{dmath*}
 ~\\
 \emph{Solution 1}:  By the definition of the Laplace transform,
-\bee
-\Laplace \{f\}(s)&=& \int_0^\infty e^{-st} f(t) dt \\
-&=& \int_0^\infty \(e^{2t} + e^{3t}\) e^{-st} dt
-\\
-&=& \int_0^\infty e^{2t} e^{-st} dt + \int_0^\infty e^{3t} e^{-st} dt
-\\
-&=& \left.\frac{e^{(2-s)t}}{2-s}\right|_0^\infty
-+  \left.\frac{e^{(3-s)t}}{3-s}\right|_0^\infty
-\\
-&=& \frac{1}{s-2} + \frac{1}{s-3}. \qed
-\eee
+\begin{dmath*}
+  \Laplace \{f\}(s)
+  = \int_0^\infty e^{-st} f(t) dt 
+  = \int_0^\infty \(e^{2t} + e^{3t}\) e^{-st} dt
+  = \int_0^\infty e^{2t} e^{-st} dt + \int_0^\infty e^{3t} e^{-st} dt
+  = \left.\frac{e^{(2-s)t}}{2-s}\right|_0^\infty
+  +  \left.\frac{e^{(3-s)t}}{3-s}\right|_0^\infty
+  = \frac{1}{s-2} + \frac{1}{s-3}. \qed
+\end{dmath*}
 Alternatively, we can solve this using the table of Laplace transforms:
 ~\\
 \emph{Solution 2}:  The Laplace transform is linear, so
-\bee
-\Laplace\{e^{2t} + e^{3t}\}
-&=& \Laplace\{e^{2t}\} + \Laplace\{e^{3t}\}
-= \frac{1}{s-2} + \frac{1}{s-3}. \qed
-\eee
+\begin{dmath*}
+  \Laplace\{e^{2t} + e^{3t}\}
+  = \Laplace\{e^{2t}\} + \Laplace\{e^{3t}\}
+  = \frac{1}{s-2} + \frac{1}{s-3}. \qed
+\end{dmath*}
 Of course, you should know how to use both techniques.
 
 
@@ -1519,26 +1511,23 @@ Of course, you should know how to use both techniques.
 \item
   Find the Laplace transform of $f(t) = t^n$ where $n \in \mathbb{N}$, $n>0$.
   \hidesolution{
-    \bee
-    \mathcal{L}(t^n)
-    &=& \int_0^\infty t^n e^{-st}\,dt
-    \\
-    &=& \left.\frac{t^ne^{-st}}{-s}\right|_0^\infty
-    -n\int_0^\infty t^{n-1}\frac{e^{-st}}{-s}\,dt
-    \\
-    &=&\frac{n}{s}\int_0^\infty t^{n-1}e^{-st}\, dt
-    \\
-    &=&\frac{n}{s}\mathcal{L}(t^{n-1})
-    \eee
+    \begin{dmath*}
+      \mathcal{L}(t^n)
+      = \int_0^\infty t^n e^{-st}\,dt
+      = \left.\frac{t^ne^{-st}}{-s}\right|_0^\infty
+      -n\int_0^\infty t^{n-1}\frac{e^{-st}}{-s}\,dt
+      =\frac{n}{s}\int_0^\infty t^{n-1}e^{-st}\, dt
+      =\frac{n}{s}\mathcal{L}(t^{n-1})
+    \end{dmath*}
     Now, from the example above, $\mathcal{L}(t)=1/s^2$. Then,
-    \bee
-    \mathcal{L}(t^2)= \frac{2}{s}\frac{1}{s^2} = \frac{2}{s^3},
-    \eee
+    \begin{dmath*}
+      \mathcal{L}(t^2)= \frac{2}{s}\frac{1}{s^2} = \frac{2}{s^3},
+    \end{dmath*}
     and
-    \bee
-    \mathcal{L}(t^n) = \frac{n (n-1) \dots 2}{s^{n-1}}\frac{1}{s^2}
-    =\frac{n!}{s^{n+1}}.
-    \eee
+    \begin{dmath*}
+      \mathcal{L}(t^n) = \frac{n (n-1) \dots 2}{s^{n-1}}\frac{1}{s^2}
+      =\frac{n!}{s^{n+1}}.
+    \end{dmath*}
   }
 
 \item
@@ -1559,13 +1548,13 @@ Of course, you should know how to use both techniques.
     Thus, since
     $e^{(\alpha + i\beta)t}=e^{\alpha t}\(\cos \beta t+ \sin\beta t\)$, and
     the Laplace transform is linear,
-%    \bee
+%    \begin{dmath*}
 %    \mathcal{L}(e^{\alpha t}\cos \beta t)
 %    &=&\frac{\alpha -s}{(s-\alpha)^2 + \beta^2},
 %    \\
 %    \mathcal{L}(e^{\alpha t}\cos \beta t)
 %    &=&\frac{\beta}{(s-\alpha)^2 + \beta^2}.
-%    \eee
+%    \end{dmath*}
   }
   
 \item
@@ -1573,10 +1562,10 @@ Of course, you should know how to use both techniques.
   
 \item
   Prove that
-  \bee
+  \begin{dmath*}
   \mathcal{L}(y^{(n)})
   = s^n \mathcal{L}(y) -s^{n-1} y(0) -\dots -y^{(n-1)}(0).
-  \eee
+  \end{dmath*}
   \hidesolution{
     Using integration by parts, with $u=e^{-st}$ and $dv=y^{(n)}dt$,
     \begin{dmath*}
@@ -1610,18 +1599,18 @@ Of course, you should know how to use both techniques.
 \chapter{Solving DEs with Laplace Transforms}
 
 Consider a first-order IVP of the form
-\bee
-y' + by = f(t), \qquad y(0)=y_0.
-\eee
+\begin{dmath*}[compact]
+  y' + by = f(t), \qquad y(0)=y_0.
+\end{dmath*}
 Taking the Laplace transform of the DE and applying the properties of Laplace
 transforms yields
-\bee
-s\Laplace (y) - y(0) + b \Laplace(y) = \Laplace(f).
-\eee
+\begin{dmath*}
+  s\Laplace (y) - y(0) + b \Laplace(y) = \Laplace(f).
+\end{dmath*}
 Rearranging for $\Laplace(y)$, we get
-\bee
-\Laplace(y) =\frac{\Laplace(f) + y_0}{s+b}.
-\eee
+\begin{dmath*}
+  \Laplace(y) =\frac{\Laplace(f) + y_0}{s+b}.
+\end{dmath*}
 We need to invert the Laplace transform in order to determine $y$.
 Since the inverse Laplace transform is kind of complicated, the easiest
 way to deal with this is to use the table of Laplace transforms found in
@@ -1683,16 +1672,16 @@ y(t) = t^2 -t +2 +2 \sin{2t} - 2 \cos{2t}. \qed
 
 Periodic functions behave particularly nicely under Laplace transforms. Suppose
 the function $f(t)$ is periodic with period $T$. That is, for all $t$,
-\bee
-f(t+T)=f(t).
-\eee
+\begin{dmath*}
+  f(t+T)=f(t).
+\end{dmath*}
 The Laplace transform of $f$ is
-\bee
-\Laplace\{f\} &=& \int_0^\infty f(t) e^{-st} dt
-\\
-&=&\int_0^T f(t) e^{-st} dt + \int_T^{2T} f(t) e^{-st} dt + \dots +
-\int_{nT}^{(n+1)T} f(t) e^{-st} dt + \dots
-\eee
+\begin{dmath*}
+  \Laplace\{f\} 
+  = \int_0^\infty f(t) e^{-st} dt
+  =\int_0^T f(t) e^{-st} dt + \int_T^{2T} f(t) e^{-st} dt + \dots +
+  \int_{nT}^{(n+1)T} f(t) e^{-st} dt + \dots
+\end{dmath*}
 Then we perform the change of variables $\tau = t-nT$ to see that this is just
 \bee
 &=& \int_0^T f(\t) e^{-s\t} d\t + e^{-sT}\int_0^{T} f(\t) e^{-s\t} d\t + \dots +
@@ -1702,26 +1691,29 @@ e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
 \eee
 Now, the first factor is just the geometric series
 $\sum_{n=0}^\infty r^n = 1/(1-r)$ with $r=e^{-sT}$, so
-\be\label{lapper}
-\boxed{\Laplace\{f\} =\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}}.
-\ee
+\begin{dmath}
+  \label{lapper}
+  \boxed{\Laplace\{f\} =\frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}}.
+\end{dmath}
 
 \workedexample{Find the Laplace transform of a saw wave with period $T=1$,
-\bee
-f(t) = \left\{ \begin{array}{ll}
-         t & \mbox{if $t \in (0,1)$};\\
-        f(t-N) & \mbox{if $t \in (N,N+1)$ for $N\in \N$}.\end{array} \right.
-\eee
+\begin{dmath*}
+  f(t) 
+  = \left\{ \begin{array}{ll}
+    t & \mbox{if $t \in (0,1)$};\\
+    f(t-N) & \mbox{if $t \in (N,N+1)$ for $N\in \N$}.\end{array} 
+  \right.
+\end{dmath*}
 }{
 From equation \eqref{lapper}, we have
-\bee
-\Laplace\{f\}
-= \frac{\int_0^1 t e^{-st}dt}{1-e^{-sT}}
-= \frac{\[t \frac{e^{-st}}{-s}\]_0^1 -\int_0^1 \frac{e^{-st}}{-s} dt}{1-e^{-s}}
-%= \frac{\frac{e^{-s}}{s} - \frac{e^{-s}}{s^2} + \frac{1}{s^2} }{1-e^{-s}}
-= \frac{se^{-s} - e^{-s} +1}{s^2\(1-e^{-s} \)}.
-\qed
-\eee
+\begin{dmath*}
+  \Laplace\{f\}
+  = \frac{\int_0^1 t e^{-st}dt}{1-e^{-sT}}
+  = \frac{\[t \frac{e^{-st}}{-s}\]_0^1 -\int_0^1 \frac{e^{-st}}{-s} dt}{1-e^{-s}}
+  %= \frac{\frac{e^{-s}}{s} - \frac{e^{-s}}{s^2} + \frac{1}{s^2} }{1-e^{-s}}
+  = \frac{se^{-s} - e^{-s} +1}{s^2\(1-e^{-s} \)}.
+  \qed
+\end{dmath*}
 }
 
 
@@ -1731,14 +1723,14 @@ From equation \eqref{lapper}, we have
 
 \item
   Find $\Laplace^{-1}F(s)$ if
-  \bee
+  \begin{dmath*}
   F(s) = \frac{5s^2+s-3}{(s+3)(s^2-2s-3)}
-  \eee
+  \end{dmath*}
   \hidesolution{
     We first factor the denominator:
-    \bee
+    \begin{dmath*}
     (s+3)(s^2-2s-3) = (s+3)(s-3)(s+1).
-    \eee
+    \end{dmath*}
     Then using partial fractions we write down the equation
     \begin{eqnarray*}
       F(s) &=& \frac{5s^2+s-3}{(s+3)(s-3)(s+1)} \\
@@ -1750,7 +1742,7 @@ From equation \eqref{lapper}, we have
     $$ 5s^2+s-3 = A(s-3)(s+1)+B(s+3)(s+1)+C(s+3)(s-3). $$
     Since the above equation must hold for every real $s$, in particular it is
     satisfied for $s=-3$, $s=3$ and $s=-1$.  Thus,
-    \bee
+    \begin{dmath*}
     \begin{array}{lcccl}
       \textnormal{when } s=-3 & \Longrightarrow &
       45-3-3=A(-6)(-2) & \Longrightarrow &
@@ -1762,60 +1754,60 @@ From equation \eqref{lapper}, we have
       \phantom{4}5-1-3=C(\phantom{-}6)(-4) & \Longrightarrow &
       C=-\frac{\phantom{-}1}{8} \\
     \end{array}
-    \eee
+    \end{dmath*}
     This allows us to write
-    \bee
-    F(s) = \frac{13}{4}\frac{1}{s+3}+
-    \frac{15}{8}\frac{1}{s-3}-
-    \frac{1}{8}\frac{1}{s+1}
-    \eee
+    \begin{dmath*}
+      F(s) = \frac{13}{4}\frac{1}{s+3}+
+      \frac{15}{8}\frac{1}{s-3}-
+      \frac{1}{8}\frac{1}{s+1}
+    \end{dmath*}
     and directly from the table of Laplace inverse transforms we find
-    \bee
-    \Laplace^{-1}F(s) = \frac{13}{4}e^{-3t}+\frac{15}{8}e^{3t}-\frac{1}{8}e^t
-    \eee
+    \begin{dmath*}
+      \Laplace^{-1}F(s) = \frac{13}{4}e^{-3t}+\frac{15}{8}e^{3t}-\frac{1}{8}e^t
+    \end{dmath*}
   }
 
 \item
   Solve the following IVP:
-  \bee
+  \begin{dmath*}
   y'' + y = e^t, \qquad y(0)=1, \qquad y'(0)=0.
-  \eee
+  \end{dmath*}
   \hidesolution{
     The Laplace transform of the system is
-    \bee
+    \begin{dmath*}
     s^2Y -1 + Y = \frac{1}{s-1},
     \implies Y = \frac{s}{(s-1)(s^2+1)}
     = \half\frac{1}{s-1} -\half \frac{s}{s^2+1} +\half \frac{1}{s^2+1}
-    \eee
+    \end{dmath*}
     which has inverse transform
-    \bee
+    \begin{dmath*}
     y = \half e^t -\half \cos t + \half \sin t. \qed
-    \eee
+    \end{dmath*}
   }
 
 \item
   Find the Laplace transform of the square wave with period $T=2$,
-  \bee
+  \begin{dmath*}
   f(t) = \left\{ \begin{array}{ll}
     -1 & \mbox{if $t \in(0,1)$};\\
     \phantom{-}1 & \mbox{if $t \in (1,2)$}.\end{array} \right.
-  \eee
+  \end{dmath*}
   \hidesolution{TODO: add solution.}
 
 \item
   Solve the following IVP:
-  \bee
-  y' + 2y = e^{-2t}, \qquad y(0)=0.
-  \eee
+  \begin{dmath*}[compact]
+    y' + 2y = e^{-2t}, \qquad y(0)=0.
+  \end{dmath*}
   \hidesolution{
     The DE has Laplace transform
-    \bee
-    sY + 2Y = \frac{1}{s+2} \implies Y = \frac{1}{(s+2)^2},
-    \eee
+    \begin{dmath*}[compact]
+      sY + 2Y = \frac{1}{s+2} \implies Y = \frac{1}{(s+2)^2},
+    \end{dmath*}
     which has inverse transform
-    \bee
-    y = t e^{-2t}.
-    \eee
+    \begin{dmath*}
+      y = t e^{-2t}.
+    \end{dmath*}
   }
 
 
@@ -1917,9 +1909,9 @@ inverse Laplace transform involves a step function: just use the formula
 \end{dmath*}
 
 \workedexample{Solve the differential equation
-\bee
-y'=t u_c(t), \qquad y(0)=0
-\eee
+\begin{dmath*}[compact]
+  y'=t u_c(t), \qquad y(0)=0
+\end{dmath*}
 using Laplace transforms.\\
 }
 {\\\indent
@@ -1932,13 +1924,14 @@ Take the Laplace transform of both sides of the differential equation, yielding
 \end{dmath*}
 Thus,
 \begin{dmath*}
-  Y = \frac{ce^{-sc}}{s^2} +\frac{e^{-sc}}{s^3}.
+  Y 
+  = \frac{ce^{-sc}}{s^2} +\frac{e^{-sc}}{s^3}.
 \end{dmath*}
-From the table of  Laplace transforms, we know that
+From the table of Laplace transforms, we know that
 $\Laplace{}\(f(t-c)u_c(t)\)=e^{-cs}F(s)$, so
-\bee
-y = c(t-c)u_c(t) + \frac{1}{2} (t-c)^2 u_c(t). \qed
-\eee
+\begin{dmath*}
+  y = c(t-c)u_c(t) + \frac{1}{2} (t-c)^2 u_c(t). 
+\end{dmath*}\qed
 }
 
 
@@ -1972,65 +1965,68 @@ and, for any function $f(t)$,
 
 \noindent\emph{Example}: Solve the following differential equation using
 Laplace transforms.
-\bee
-2y'' + y' + 2y = \delta(t-5), \qquad y'(0)=y(0)=0
-\eee
+\begin{dmath*}[compact]
+  2y'' + y' + 2y = \delta(t-5), \qquad y'(0)=y(0)=0
+\end{dmath*}
 \emph{Solution}: Taking the Laplace transform of both sides, we have
-\be \label{exeq1}
-\(2s^2 + s +2\) Y = e^{-5s}.
-\ee
+\begin{dmath}
+  \label{exeq1}
+  \(2s^2 + s +2\) Y = e^{-5s}.
+\end{dmath}
 To see that the Laplace transform of $\delta(t-5)$ is $e^{-5s}$, consider the
 definition of the Laplace transform:
 \be
 \Laplace(\delta(t-5)) = \int_0^{\infty} e^{-st} \delta(t-5)\, dt.
 \ee
 If we let $\tau = t-5$, then this is the same as
-\bee
-\int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau .
-\eee
+\begin{dmath*}
+  \int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau .
+\end{dmath*}
 Then we apply equation (\ref{deltaprop}) to see that this is just $e^{-5s}$.
 
 Going back to equation (\ref{exeq1}), solving for $Y$ and completing the
 square yields
-\bee
-Y = \frac{e^{-5s}}{2} \( \frac{1}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} \).
-\eee
+\begin{dmath*}
+  Y = \frac{e^{-5s}}{2} \( \frac{1}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} \).
+\end{dmath*}
 Finding the inverse transform is the hardest part of this process, but we can
 break it up into smaller steps. We can just pull the $1/2$ out
 because the Laplace transform is linear and then if we rearrange this, we get
-\bee
-Y = \frac{2}{\sqrt{15}}  \, e^{-5s}
+\begin{dmath*}
+  Y = \frac{2}{\sqrt{15}}  \, e^{-5s}
 \frac{\sqrt{\frac{15}{16}}}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}}
 = \frac{2}{\sqrt{15}}  \, e^{-5s} \,
 \Laplace\[e^{\frac{-t}{4}}\sin\(\frac{\sqrt{15}}{4}t \) \]
-\eee
+\end{dmath*}
 Now we have an exponential term, $e^{-5s}$, times a term that is the Laplace
 transform of $e^{\alpha t}\sin(\beta t)$ with $\alpha=1/4$ and
 $\beta=\sqrt{{15}/{16}}$. So we will use the Laplace
 transform table to see that $Y$ is the Laplace transform of
-\bee
-y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\).
+\begin{dmath*}
+  y
+  =\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
+  .
 \qed
-\eee
+\end{dmath*}
 
 \section{Problems}
 \begin{enumerate}
 \item Solve the integro-differential equation
-  \bee
-  y(t) + \int_0^t y(v) (t-v) dv = 1.
-  \eee
+  \begin{dmath*}
+    y(t) + \int_0^t y(v) (t-v) dv = 1.
+  \end{dmath*}
   \hidesolution{
-    \bee
+    \begin{dmath*}
     \int_0^t y(v) (t-v) dv = \int_0^t (t-v) y(v) dv = t \ast y(t)
-    \eee
+    \end{dmath*}
     so this equation is
-    \bee
+    \begin{dmath*}
     y(t) + t \ast y(t) = 1.
-    \eee
+    \end{dmath*}
     Recall that
-    \bee
+    \begin{dmath*}
     \Laplace \{f \ast g\} = \Laplace \{f\} \Laplace \{g\}
-    \eee
+    \end{dmath*}
     so the Laplace transform of this equation is
     \bee
     \Laplace \{y(t)\} + \Laplace \{ t \ast y(t) \} &=& \Laplace \{1 \} \\
@@ -2042,50 +2038,49 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
     Y(s) &=& \frac{s}{s^2+1}.
     \eee
     Then taking the inverse transform yields
-    \bee
+    \begin{dmath*}
     y(t) = \Laplace^{-1} \( \frac{s}{s^2+1} \) = \cos t.
-    \eee
+    \end{dmath*}
   }
 
   \item
     Find the Laplace transform of
-    \bee
+    \begin{dmath*}
     f =
     \left\{ \begin{array}{ll}
       e^t & \mbox{if $t < c$};\\
       t^2 & \mbox{if $t \geq c$}.
     \end{array} \right.
-    \eee
+    \end{dmath*}
     \hidesolution{
-      \bee
-      \Laplace(f)
-      &=& \int_0^c e^t e^{-st} \, dt + \int_c^\infty t^2 e^{-st} \, dt
-      \eee
+      \begin{dmath*}
+        \Laplace(f)
+        = \int_0^c e^t e^{-st} \, dt + \int_c^\infty t^2 e^{-st} \, dt
+      \end{dmath*}
       The first integral is
-      \bee
-      \int_0^c e^t e^{-st} \, dt = \left.\frac{e^{(1-s)t}}{1-s}\right|_0^c
-      =\frac{e^{(1-s)c}-1}{1-s}.
-      \eee
+      \begin{dmath*}
+        \int_0^c e^t e^{-st} \, dt 
+        = \left.\frac{e^{(1-s)t}}{1-s}\right|_0^c
+        =\frac{e^{(1-s)c}-1}{1-s}.
+      \end{dmath*}
       The second integral requires two integrations-by-parts:
-      \bee
-      \int_c^\infty t^2 e^{-st} \, dt
-      &=& \left. t^2 \frac{e^{-st}}{-s}\right|_c^\infty
-      -2 \int_c^\infty t \frac{e^{-st}}{-s} \, dt
-      \\
-      &=&\frac{c^2}{s} +\frac{2}{s}
-      \[
-      t \left.\frac{e^{-st}}{-s}\right|_c^\infty
-      - \int_c^\infty \frac{e^{-st}}{-s}\,dt
-      \]
-      \\
-      &=&\frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
-      \eee
+      \begin{dmath*}
+        \int_c^\infty t^2 e^{-st} \, dt
+        = \left. t^2 \frac{e^{-st}}{-s}\right|_c^\infty
+        -2 \int_c^\infty t \frac{e^{-st}}{-s} \, dt
+        =\frac{c^2}{s} +\frac{2}{s}
+        \[
+        t \left.\frac{e^{-st}}{-s}\right|_c^\infty
+        - \int_c^\infty \frac{e^{-st}}{-s}\,dt
+        \]
+        =\frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
+      \end{dmath*}
       The Laplace transform of $f$ is then the sum, i.e.,
-      \bee
-      \Laplace(f) =
-      \frac{e^{(1-s)c}-1}{1-s}
-      + \frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
-      \eee
+      \begin{dmath*}
+        \Laplace(f) =
+        \frac{e^{(1-s)c}-1}{1-s}
+        + \frac{c^2}{s} + \frac{2c}{s^2} + \frac{2}{s^3}.
+      \end{dmath*}
     }
 
 \item
@@ -2097,21 +2092,21 @@ y=\frac{2}{\sqrt{15}}u_5(t) e^{\frac{-(t-5)}{4}}\sin\(\frac{\sqrt{15}}{4}(t-5)\)
   transforms.
   \hidesolution{
     Note that $tu_c(t) = (t-c)u_c(t) +cu_c(t)$. Then,
-    \bee
+    \begin{dmath*}
     s^2 Y = \frac{e^{-cs}}{s^2} + \frac{e^{-cs}}{s},
     \implies Y =  \frac{e^{-cs}}{s^4} + \frac{e^{-cs}}{s^3}
-    \eee
+    \end{dmath*}
     so
-    \bee
+    \begin{dmath*}
     y = u_c(t) \(\frac{t^3}{3!} + \frac{t^2}{2!}\).
-    \eee
+    \end{dmath*}
   }
 
 \item
   Solve the IVP
-  \bee
-  y'' + y = M\d(t-1), \qquad y'(0)=y(0)=0.
-  \eee
+  \begin{dmath*}[compact]
+    y'' + y = M\d(t-1), \qquad y'(0)=y(0)=0.
+  \end{dmath*}
   \hidesolution{
     Taking the Laplace transform yields $ s^2 Y + Y = M e^{-s}$. Solving for
     $Y$ gives $Y= M e^{-s}\frac{1}{1+s^2}$, which has inverse Laplace 
@@ -2152,13 +2147,13 @@ Solving for $Y$ yields
 sY -1 = \frac{-Y}{s} \quad \implies \quad Y = \frac{s}{s^2+1}.
 \ee
 Taking the inverse Laplace transform of equation (\ref{syseg1}) gives us
-\bee
+\begin{dmath*}
 y(t) = \cos t.
-\eee
+\end{dmath*}
 We can solve for $X$ in a similar way, or just notice that $x=y'$, i.e.\
-\bee
+\begin{dmath*}
 x(t) = -\sin t.
-\eee
+\end{dmath*}
 
 Systems of differential equations model situations where there are two or
 more quantities being evolved, such as heat and reaction rate, or predator and
@@ -2183,14 +2178,14 @@ sX - 3X +2Y = \frac{1}{s^2+1}\\
 4X -sY -Y = \frac{s}{s^2+1}.
 \eee
 We can solve the second equation for X:
-\bee
-X = \frac{1}{4}\(\frac{s}{s^2+1} + (s+1)Y\)
-\eee
+\begin{dmath*}
+  X = \frac{1}{4}\(\frac{s}{s^2+1} + (s+1)Y\)
+\end{dmath*}
 Put this into the first equation, so
-\bee
+\begin{dmath*}
 \(s-3\)\(\frac{1}{4} \frac{s}{s^2+1} + \frac{s+1}{4}Y\) +2Y
 = \frac{1}{s^2+1}
-\eee
+\end{dmath*}
 which gives
 \begin{dmath}
   \label{sysY}
@@ -2203,10 +2198,10 @@ which gives
 \end{dmath}
 by partial fractions and completing the square in the last two terms. We are
 now in a position to use an inverse Laplace transform to get $y(t)$:
-\bee
-y(t) = \frac{7}{10} \sin t + \frac{11}{10} \cos t
-- \frac{11}{10}e^{t}\cos 2t - \frac{3}{10}e^{t}\sin 2t
-\eee
+\begin{dmath*}
+  y(t) = \frac{7}{10} \sin t + \frac{11}{10} \cos t
+  - \frac{11}{10}e^{t}\cos 2t - \frac{3}{10}e^{t}\sin 2t
+\end{dmath*}
 It now remains to solve for $x(t)$. We use the solution for $X$
 and the Laplace transform of $y$. This is to say
 \begin{dmath}
@@ -2218,13 +2213,13 @@ and the Laplace transform of $y$. This is to say
  \frac{s-1} {(s-1)^2 + 2^2} +  \frac{2}{5}\frac{2}{(s-1)^2 + 2^2}
 \end{dmath}
 So we can now use an inverse Laplace transform to get $x(t)$.
-\bee
+\begin{dmath*}
 x(t) = \frac{-1}{10} \sin t + \frac{7}{10} \cos t - \frac{7}{10}e^{t}\cos 2t
 + \frac{2}{5}e^{t}\sin 2t
-\eee
+\end{dmath*}
 
 Alternatively, we could have solved this as a linear system, since
-\bee
+\begin{dmath*}
 \[ \begin{array}{ll}
     (s-3) & 2\\
     4 & -(s+1)
@@ -2238,9 +2233,9 @@ Alternatively, we could have solved this as a linear system, since
     \frac{1}{s^2+1}\\
     \frac{s}{s^2+1}
   \end{array} \)
-\eee
+\end{dmath*}
 which is easily solved for $X$ and $Y$ to give
-\bee
+\begin{dmath*}
 \( \begin{array}{l}
     X\\
     Y
@@ -2251,7 +2246,7 @@ which is easily solved for $X$ and $Y$ to give
     3s+1\\
     s^2 -3s -4
   \end{array} \),
-\eee
+\end{dmath*}
 which brings us to equations (\ref{sysY}) and (\ref{sysX}) with a lot less
 work. \qed
 
@@ -2259,13 +2254,13 @@ work. \qed
 
 \begin{enumerate}
   \item Solve the following system of differential equations:
-    \bee
-    \begin{array}{ll}
-      x'=z, & \qquad x(0)=0\\
-      y'=x, &\qquad y(0)=0 \\
-      z'=y, &\qquad z(0)=1.
-    \end{array}
-    \eee
+    \begin{dmath*}
+      \begin{array}{ll}
+        x'=z, & \qquad x(0)=0\\
+        y'=x, &\qquad y(0)=0 \\
+        z'=y, &\qquad z(0)=1.
+      \end{array}
+    \end{dmath*}
     \hidesolution{
       Note: For the quiz, computing just $z(t)$ should be sufficient, since this
       takes students about 40 minutes.\\
@@ -2344,22 +2339,22 @@ work. \qed
       sY + X = \frac{1}{s-1}
       \eee
       so
-      \bee
-      s^2 Y  + Y = \frac{-1}{s-1} -1 + \frac{s}{s-1}
-      =- \frac{1}{s-1} -1 + \frac{s-1}{s-1} - \frac{1}{s-1}
-      = \frac{-2}{s-1}.
-      \eee
+      \begin{dmath*}
+        s^2 Y  + Y = \frac{-1}{s-1} -1 + \frac{s}{s-1}
+        =- \frac{1}{s-1} -1 + \frac{s-1}{s-1} - \frac{1}{s-1}
+        = \frac{-2}{s-1}.
+      \end{dmath*}
       Thus,
-      \bee
-      Y = \frac{-2}{3} \(-\frac{s+1}{s^2+1} + \frac{1}{s-1} \)
-      \eee
+      \begin{dmath*}
+        Y = \frac{-2}{3} \(-\frac{s+1}{s^2+1} + \frac{1}{s-1} \)
+      \end{dmath*}
       so
-      \bee
-      y = \frac{2}{3}\sin t + \frac{2}{3}\cos t - \frac{2}{3}e^t
-      \text{ and } x = e^t-y'
-      = -\frac{2}{3}\cos t + \frac{2}{3} \sin t + \frac{5}{3}e^t
-      .\qed
-      \eee
+      \begin{dmath*}
+        y = \frac{2}{3}\sin t + \frac{2}{3}\cos t - \frac{2}{3}e^t
+        \text{ and } x = e^t-y'
+        = -\frac{2}{3}\cos t + \frac{2}{3} \sin t + \frac{5}{3}e^t
+        .\qed
+      \end{dmath*}
 
     }
 
@@ -2372,17 +2367,17 @@ work. \qed
       \eee
       \hidesolution{
       The second DE has transform
-      \bee
+      \begin{dmath*}
       sY -1 = 6 \frac{s}{s^2-4} \implies Y =  6 \frac{1}{s^2-4} + \frac{1}{s}
-      \eee
+      \end{dmath*}
       so
-      \bee
+      \begin{dmath*}
       y = \sinh(t) +1
-      \eee
+      \end{dmath*}
       and
-      \bee
+      \begin{dmath*}
       x = \int \sinh(t) +1 dt = \cosh t +t +C
-      \eee
+      \end{dmath*}
       with $C=0$ matching the initial condition. \qed
       }
 
@@ -3056,24 +3051,24 @@ only interested in determining $y_1$.
 \begin{enumerate}
 
   \item Find a general solution to the Cauchy-Euler (equidimensional) equation,
-    \bee
+    \begin{dmath*}
     (\pi x)^2 y'' (x) + \pi(\pi-2)xy' (x) + y(x) = 0, \quad x > 0.
-    \eee
+    \end{dmath*}
     \hidesolution{
       Rewrite this equation as
-      \bee
+      \begin{dmath*}
       \pi^2 x^2 y'' (x) + (\pi^2 - 2\pi)xy' (x) + y(x) = 0.
-      \eee
+      \end{dmath*}
       We substitute $y = x^r$ to find a solution. The indicial equation is
-      \bee
+      \begin{dmath*}
       \pi^2 r^2 + (\pi^2 - 2\pi - \pi^2) r + 1 = \pi^2 r^2 - 2 \pi r + 1
       = (\pi r - 1)^2 = 0
-      \eee
+      \end{dmath*}
       which has repeated root $r = \frac{1}{\pi}$.  So a general solution is
-      \bee
+      \begin{dmath*}
       y(x) = C_1 x^{\frac{1}{\pi}} + C_2 x^{\frac{1}{\pi}} \ln x
       = C_1 \sqrt[\pi]{x} + C_2 \sqrt[\pi]{x} \ln x, \quad x > 0.
-      \eee
+      \end{dmath*}
       % FIXME: check this.
     }
 
@@ -3085,22 +3080,22 @@ only interested in determining $y_1$.
 
   \item Find the first solution (i.e.\ $y_1$ in the above notation) to the
     differential equation
-    \bee
+    \begin{dmath*}
     x^2 y'' - xy' + (1-x)y=0.
-    \eee
+    \end{dmath*}
     \hidesolution{
       We have $p=-1/x$ and $q=(1-x)/x^2 = 1/x^2-1/x$. Then
-      \bee
+      \begin{dmath*}[compact]
       p_0 = \lim_{x\rightarrow 0^+} x p(x)=-1, \qquad
       q_0 = \lim_{x\rightarrow 0^+} x^2 q(x)=1.
-      \eee
+      \end{dmath*}
       The indicial equation is $r(r-1)-r+1=0$ which gives the double
       root $r_1=r_2=1$. Thus, $y_1$ is given by 
       $y = x^1 \sum_{n=0}^\infty a_n x^n$, which gives
-      \bee
+      \begin{dmath*}
       \sum_{n=1}a_n(n+1)(n)x^{n+1} - \sum_{n=1}a_n(n+1)x^{n+1}
       + \sum_{n=0}a_nx^{n+1} - \sum_{n=0}a_nx^{n+2}.
-      \eee
+      \end{dmath*}
       The order $x$ term cancels out, leaving us free to determine $a_0$ by
       the initial conditions. We are then left with
       \begin{dmath*}[compact]
