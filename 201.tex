@@ -3050,23 +3050,25 @@ only interested in determining $y_1$.
 \begin{enumerate}
 
   \item Find a general solution to the Cauchy-Euler (equidimensional) equation,
-    \begin{dmath*}
-    (\pi x)^2 y'' (x) + \pi(\pi-2)xy' (x) + y(x) = 0, \quad x > 0.
+    \begin{dmath*}[compact]
+      (\pi x)^2 y'' (x) + \pi(\pi-2)xy' (x) + y(x) = 0, \quad x > 0.
     \end{dmath*}
     \hidesolution{
       Rewrite this equation as
       \begin{dmath*}
-      \pi^2 x^2 y'' (x) + (\pi^2 - 2\pi)xy' (x) + y(x) = 0.
+        \pi^2 x^2 y'' (x) + (\pi^2 - 2\pi)xy' (x) + y(x) = 0.
       \end{dmath*}
       We substitute $y = x^r$ to find a solution. The indicial equation is
       \begin{dmath*}
-      \pi^2 r^2 + (\pi^2 - 2\pi - \pi^2) r + 1 = \pi^2 r^2 - 2 \pi r + 1
-      = (\pi r - 1)^2 = 0
+        \pi^2 r^2 + (\pi^2 - 2\pi - \pi^2) r + 1 
+        = \pi^2 r^2 - 2 \pi r + 1
+        = (\pi r - 1)^2 = 0
       \end{dmath*}
       which has repeated root $r = \frac{1}{\pi}$.  So a general solution is
       \begin{dmath*}
-      y(x) = C_1 x^{\frac{1}{\pi}} + C_2 x^{\frac{1}{\pi}} \ln x
-      = C_1 \sqrt[\pi]{x} + C_2 \sqrt[\pi]{x} \ln x, \quad x > 0.
+        y(x) 
+        = C_1 x^{\frac{1}{\pi}} + C_2 x^{\frac{1}{\pi}} \ln x
+        = C_1 \sqrt[\pi]{x} + C_2 \sqrt[\pi]{x} \ln x, \quad x \no > 0.
       \end{dmath*}
       % FIXME: check this.
     }
@@ -3080,20 +3082,20 @@ only interested in determining $y_1$.
   \item Find the first solution (i.e.\ $y_1$ in the above notation) to the
     differential equation
     \begin{dmath*}
-    x^2 y'' - xy' + (1-x)y=0.
+      x^2 y'' - xy' + (1-x)y=0.
     \end{dmath*}
     \hidesolution{
       We have $p=-1/x$ and $q=(1-x)/x^2 = 1/x^2-1/x$. Then
       \begin{dmath*}[compact]
-      p_0 = \lim_{x\rightarrow 0^+} x p(x)=-1, \qquad
-      q_0 = \lim_{x\rightarrow 0^+} x^2 q(x)=1.
+        p_0 = \lim_{x\rightarrow 0^+} x p(x)=-1, \qquad
+        q_0 = \lim_{x\rightarrow 0^+} x^2 q(x)=1.
       \end{dmath*}
       The indicial equation is $r(r-1)-r+1=0$ which gives the double
       root $r_1=r_2=1$. Thus, $y_1$ is given by 
       $y = x^1 \sum_{n=0}^\infty a_n x^n$, which gives
       \begin{dmath*}
-      \sum_{n=1}a_n(n+1)(n)x^{n+1} - \sum_{n=1}a_n(n+1)x^{n+1}
-      + \sum_{n=0}a_nx^{n+1} - \sum_{n=0}a_nx^{n+2}.
+        \sum_{n=1}a_n(n+1)(n)x^{n+1} - \sum_{n=1}a_n(n+1)x^{n+1}
+        + \sum_{n=0}a_nx^{n+1} - \sum_{n=0}a_nx^{n+2}.
       \end{dmath*}
       The order $x$ term cancels out, leaving us free to determine $a_0$ by
       the initial conditions. We are then left with
