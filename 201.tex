@@ -87,7 +87,7 @@ equation is
   y = Ce^x,
 \end{dmath*}
 with $C$ an arbitrary constant, since $y'=\dd{}{x}Ce^x=Ce^x=y$. That is, if we
-plug $y=Ce^x$ into equation (\ref{eg1}), both sides match. If we modify this
+plug $y=Ce^x$ into equation \eqref{eg1}, both sides match. If we modify this
 a little bit, say letting $y=Ce^x +x$, then the left hand side doesn't
 match the right:
 \begin{dmath*}
@@ -95,7 +95,7 @@ match the right:
   = Ce^x + 1 = y +1 
   \neq y,
 \end{dmath*}
-so it isn't a solution to equation (\ref{eg1}).
+so it isn't a solution to equation \eqref{eg1}.
 
 An initial value problem (abbreviated as IVP) is a differential equation
 combined with one or more initial conditions. For example,
@@ -127,8 +127,9 @@ Separable equations are differential equations of the form
   \label{separable}
   \boxed{h(y) \dd{y}{x} = g(x)}.
 \end{dmath}
-These are simple to solve: from equation (\ref{separable}), we can just split
-the derivative and integrate: $ h(y)\, dy = g(x) \, dx$ becomes
+These are simple to solve: from equation \eqref{separable}, we can
+just split the derivative and integrate: $ h(y)\, dy = g(x) \, dx$
+becomes
 \begin{dmath*}
   \boxed{  \int h(y) \, dy = \int g(x) \, dx},
 \end{dmath*}
@@ -171,7 +172,7 @@ the above example, $y(x) = 2 \sqrt{\frac{3}{2} - \cos(x)}$, so
 \begin{dmath*}
   \dd{y}{x} = \frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}.
 \end{dmath*}
-Putting this into equation (\ref{separableexample}) yields
+Putting this into equation \eqref{separableexample} yields
 \begin{dmath*}
   y \dd{y}{x}=
   \(\sqrt{3 - 2\cos(x)}\) \times \(\frac{\sin(x)}{\sqrt{3 -2 \cos(x)}}\)
@@ -213,7 +214,7 @@ $g(y)$. That is,
   = N(x,y) + g'(y).
 \end{dmath*}
 This tells us what $g'(y)$ is, so we now know $g(y)$ up to some constant
-$C$. We can put this into equation (\ref{exactsol}), which gives us the
+$C$. We can put this into equation \eqref{exactsol}, which gives us the
 implicit solution
 \begin{dmath}
   \label{exactimpl}
@@ -221,7 +222,7 @@ implicit solution
 \end{dmath}
 In many cases, we can solve for $y$, thus getting an explicit solution
 $y=f(x)$ so that $F(x,f(x))=C$, but sometimes all we have for a solution
-is something in the form of equation (\ref{exactimpl}).\\
+is something in the form of equation \eqref{exactimpl}.\\
 
 \noindent\emph{Example}: Solve
 \begin{dmath*}
@@ -256,7 +257,7 @@ The solution is then given by
 \end{dmath}
 (Note that in the above equation we have played fast and loose with the
 undetermined constant $C$; in fact, $C$ changed sign between equation
-(\ref{exactC1}) and equation (\ref{exactC2}). We perform this abuse of notation
+\eqref{exactC1} and equation \eqref{exactC2}. We perform this abuse of notation
 because $C$ is \emph{undetermined}, so there's not much point nailing it
 down to a value until the very last moment.)
 
@@ -724,7 +725,7 @@ Let $a,b,c$ be real numbers. Second order equations of the form
   a \ddtwo{y}{t} + b \dd{y}{t} + cy =0
 \end{dmath}
 are linear in $y$. If both $y_1$ and $y_2$ are solutions to
-equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
+equation \eqref{sec2hom}, and $\alpha$ and $\beta$ are constants, then
 \newcommand\ycomb{\alpha y_1 + \beta y_2}
 \begin{dmath*}
    a \ddtwo{\(\ycomb\)}{t} + b \dd{\(\ycomb\)}{t} + c \(\ycomb \)
@@ -733,7 +734,7 @@ equation (\ref{sec2hom}), and $\alpha$ and $\beta$ are constants, then
    = \alpha \times 0 +\beta \times 0 =0.
 \end{dmath*}
 In other words, $\ycomb$, which is a linear combination of $y_1$ and $y_2$, is
-also a solution to equation (\ref{sec2hom}). Being able to use this linearity
+also a solution to equation \eqref{sec2hom}. Being able to use this linearity
 is a powerful tool that we can use to solve this very important type of
 differential equation. We will, in general, have two solutions to these
 second-order differential equations, and we will need two initial values to
@@ -997,7 +998,7 @@ types of equations:
 \section{Method of Undetermined Coefficients}
 % Text section  4.4
 The next step is to add a function to the right-hand side of equation
-(\ref{sec2hom}), so that we get
+\eqref{sec2hom}, so that we get
 \begin{dmath*}
   a y'' + b y' + cy =f(t).
 \end{dmath*}
@@ -1071,9 +1072,9 @@ $f(t)=t$ is not a linear combination of $y_1$ and $y_2$, we can just
 choose $y_p = C_1 t + C_0$. Putting this into equation
 \eqref{undetceg}, we get
 \begin{dmath*}[compact]
-\ddtwo{(C_1 t + C_0)}{t} -3\dd{(C_1 t + C_0)}{t} + 2 \(C_1 t + C_0\) =t
-\quad \implies \quad
--3 C_1 + 2C_1 t + 2C_0 = t,
+  \ddtwo{(C_1 t + C_0)}{t} -3\dd{(C_1 t + C_0)}{t} + 2 \(C_1 t + C_0\) =t
+  \quad \implies \quad
+  -3 C_1 + 2C_1 t + 2C_0 = t,
 \end{dmath*}
 so $C_1=1/2$ and $C_0=3/4$. Thus, $y_p = \frac{t}{2} +\frac{3}{4}$, and the
 general solution is
@@ -1278,7 +1279,7 @@ means that $y_p' = \(u_1' y_1 + u_2' y_2\) + \(u_1 y_1' + u_2 y_2'\)$, which
 we can simplify by setting\footnote{If you work out the details, it's easy
 to see that equation~\eqref{voprandom} makes the system much easier to solve
 because it reduces the order of the system for $u_1$ and $u_2$. The addition
-of equation~\ref{voprandom} gives us two equations to solve for two unknowns.
+of equation~\eqref{voprandom} gives us two equations to solve for two unknowns.
 The authors still find this trick a little unmotivated, but rest assured that
 it does work.}
 \begin{dmath}
@@ -1613,7 +1614,7 @@ Rearranging for $\Laplace(y)$, we get
 We need to invert the Laplace transform in order to determine $y$.
 Since the inverse Laplace transform is kind of complicated, the easiest
 way to deal with this is to use the table of Laplace transforms found in
-section \ref{tableolap}.
+section \ref{sec:tableolap}.
 
 It is often necessary to use the technique of partial fractions to disentangle
 the Laplace transform of the solution so we can take the inverse transform.
@@ -1981,9 +1982,9 @@ If we let $\tau = t-5$, then this is the same as
 \begin{dmath*}
   \int_{-5}^{\infty} e^{-s(\tau+5)} \delta(\tau)\, d\tau .
 \end{dmath*}
-Then we apply equation (\ref{deltaprop}) to see that this is just $e^{-5s}$.
+Then we apply equation \eqref{deltaprop} to see that this is just $e^{-5s}$.
 
-Going back to equation (\ref{exeq1}), solving for $Y$ and completing the
+Going back to equation \eqref{exeq1}, solving for $Y$ and completing the
 square yields
 \begin{dmath*}
   Y = \frac{e^{-5s}}{2} \( \frac{1}{\(s+\frac{1}{4}\)^2 + \frac{15}{16}} \).
@@ -2145,7 +2146,7 @@ Solving for $Y$ yields
 \label{syseg1}
 sY -1 = \frac{-Y}{s} \quad \implies \quad Y = \frac{s}{s^2+1}.
 \ee
-Taking the inverse Laplace transform of equation (\ref{syseg1}) gives us
+Taking the inverse Laplace transform of equation \eqref{syseg1} gives us
 \begin{dmath*}
 y(t) = \cos t.
 \end{dmath*}
@@ -2246,7 +2247,7 @@ which is easily solved for $X$ and $Y$ to give
     s^2 -3s -4
   \end{array} \),
 \end{dmath*}
-which brings us to equations (\ref{sysY}) and (\ref{sysX}) with a lot less
+which brings us to equations \eqref{sysY} and \eqref{sysX} with a lot less
 work. \qed
 
 \section{Problems}
@@ -3710,7 +3711,7 @@ matches both the initial and boundary conditions.
 \newpage
 \section{Table of Laplace Transforms}
 
-\label{tableolap}
+\label{sec:tableolap}
 %\begin{center}
 $$
 \begin{tabular}{ l |  l }
