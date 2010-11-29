@@ -2871,10 +2871,10 @@ Differential equations of the form
   y'' + p(t)y' + q(t)y=0
 \end{dmath}
 can behave poorly at $t=0$, and may not admit solutions of the form
-$y(t) =\sum_{n=0}^\infty a_n t^n$. However, we can still solve these problem
-by modifying the series expansion. The easiest case is when the singular
-point is a regular singular point, for which we use \emph{the method of
-Froebenius}.
+$y(t) =\sum_{n=0}^\infty a_n t^n$. However, we can still solve these
+problem by modifying the series expansion. The easiest case is when
+the singular point is a regular singular point, for which we use
+\emph{the method of Froebenius}.
 
 The point $t=0$ is a \emph{singular point} if either
 $\lim_{t \rightarrow 0}p(t)=\infty$ or  $lim_{t \rightarrow 0}q(t)=\infty$.
@@ -3293,37 +3293,40 @@ function.
          \\Actually Solving Them}
 
 Let us now return to the heat equation,
-\be
-\label{heateq}
-\pp{y}{t} = \beta \frac{\partial^2y}{\partial x^2},
-\ee
+\begin{eqnarray}
+  \label{heateq}
+  \pp{u}{t} = \beta \frac{\partial^2u}{\partial x^2},
+\end{eqnarray}
 and add some \emph{initial conditions}
 \begin{dmath*}
-y(x,0)=f(x),
+  u(x,0)=f(x),
 \end{dmath*}
 and \emph{boundary conditions}
-\be
-\label{homdibc}
-y(0,t)=0, \qquad y(\pi,t)=0.
-\ee
-Physically, this corresponds to modelling the temperature on a rod of length
-$2\pi$ in contact at both ends with a heat sink with temperature $0$ (note
-that this is not necessarily absolute zero: if we take $y=y+C$, the equation
-remains the same, so our base temperature is arbitrary.) The
-rod starts with the temperature at position $x$ given by $f(x)$.
+\begin{eqnarray}
+  \label{homdibc}
+  u(0,t)=0, \qquad u(\pi,t)=0.
+\end{eqnarray}
+Physically, this corresponds to modelling the temperature on a rod of
+length $\pi$ in contact at both ends with a heat sink with temperature
+$0$ (note that this is not necessarily absolute zero: if we take
+$u=u+C$, the equation remains the same, so our base temperature is
+arbitrary.) The rod starts with the temperature at position $x$ given
+by $f(x)$.
 
 We'll solve this using separation of variables:
-\be\label{heatF}
-y = \sum_{n=0}^\infty T_n(t) X_n(x),
-\ee
-where we have taken $X_n(x)$ to be orthogonal\footnote{That is, if $i\neq j$,
-then $\int_0^\pi X_i(x) X_j(x) dx =0.$ This is the case with elements of
-$\{1,\cos(nx),\sin(nx),n=1,2,\dots \}$.}.
-Putting equation \eqref{heatF} into equation \eqref{heateq}, we get
-\be\label{heats}
-\sum_{n=0}^\infty \ddt{T_n(t)}X_n(x)
-=\beta\sum_{n=0}^\infty T_n(t)\ddtwo{X_n(x)}{x}
-\ee
+\begin{eqnarray}
+  \label{heatF}
+  u = \sum_{n=0}^\infty T_n(t) X_n(x),
+\end{eqnarray}
+where we have taken $X_n(x)$ to be orthogonal\footnote{That is, if
+  $i\neq j$, then $\int_0^\pi X_i(x) X_j(x) dx =0.$ This is the case
+  with elements of $\{1,\cos(nx),\sin(nx),n=1,2,\dots \}$.}.  Putting
+equation \eqref{heatF} into equation \eqref{heateq}, we get
+\begin{eqnarray}
+  \label{heats}
+  \sum_{n=0}^\infty \ddt{T_n(t)}X_n(x)
+  =\beta\sum_{n=0}^\infty T_n(t)\ddtwo{X_n(x)}{x}
+\end{eqnarray}
 Now, since the $X_n$'s are orthogonal, this actually holds term-by-term. That
 is, for each $n$, we have
 \begin{dmath*}[compact]
@@ -3341,27 +3344,28 @@ Since the RHS is also clearly independent of $t$, it must be constant. That is,
 where $K_n$ can only depend on $n$.
 
 This gives us an ODE for $X_n$,
-\be
-\label{Eigenfunction}
-X_n'' = K_n X_n.
-\ee
+\begin{eqnarray}
+  \label{Eigenfunction}
+  X_n'' = K_n X_n.
+\end{eqnarray}
 Now, depending on the sign of $K_n$, we have three possibilities, which we will
 deal with by enforcing the boundary conditions. Since the $X_n$ are orthogonal,
 the boundary conditions must be satisfied for each $n$. The cases are:
 \begin{enumerate}
-  \item $K_n=k_n^2 > 0$. In this case, $X_n(x)= C_1 e^{k_n x} +C_2 e^{-k_n x}$.
-    But then, $X_n(0)=0$ and $X_n(\pi)=0$ imply that $C_1=C_2=0$, so $X_n=0$ in
-    this case.
-  \item $K_n = 0$. In this case, we get $X_n(x)=Ax +B$. Again, the boundary
-    conditions imply that $A=B=0$, so $X_n=0$ in this case.
+  \item $K_n=k_n^2 > 0$. In this case, $X_n(x)= C_1 \cosh(k_n x) +C_2
+    \sinh(k_n x)$.  But then, $X_n(0)=0$ implies that $C_1=0$, and
+    $X_n(\pi)=0$ implies that $C_2=0$, so this eigenfunction is zero.
+  \item $K_n = 0$. In this case, we get $X_n(x)=C_1 +C_2 x$. Again,
+    the boundary conditions imply that $C_1=C_2=0$, so this
+    eigenfunction is again zero.
   \item $K_n =-k_n^2 < 0$. This gives us periodic behaviour,
     \begin{dmath*}
-    X_n(x)=C_1\cos(k_nx) + C_2\sin(k_nx).
+      X_n(x)=C_1\cos(k_nx) + C_2\sin(k_nx).
     \end{dmath*}
     We require that $X_n(0)=C_1=0$, so we can remove all the cosines. The
     other boundary condition gives us
-    \begin{dmath*}
-    X_n(\pi)=C_2\sin(k_n\pi)=0,
+    \begin{dmath*}[compact]
+      X_n(\pi)=C_2\sin(k_n\pi)=0,
     \end{dmath*}
     which implies that either $C_2=0$ or $k_n$ is an integer. Since this is
     our last chance to have $X_n$ not be zero everywhere, we can't have $C_2=0$,
@@ -3379,13 +3383,13 @@ $K_n=-n^2$, so $T_n$ obeys the equation
 
 Putting this together, our solution (so far) is
 \begin{dmath*}
-  y(x,t) = \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx).
+  u(x,t) = \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx).
 \end{dmath*}
 To get this, we have used the original equation and the boundary conditions.
 We still have to determine the values of $T_n(0)$, for which we will use the
-initial conditions, $y(x,0)=f(x)$. That is,
+initial conditions, $u(x,0)=f(x)$. That is,
 \begin{dmath*}
-  y(x,0)=f(x) 
+  u(x,0)=f(x) 
   =  \sum_{n=0}^\infty T_n(0) e^{-\beta n^2 t} \sin(nx)
   = \sum_{n=0}^\infty T_n(0) \sin(nx).
 \end{dmath*}
@@ -3400,23 +3404,24 @@ T_n(0)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)dx
 since the integrand is even.
 
 The solution to the heat equation is then
-\be
-\boxed{
-y(x,t)=\frac{2}{\pi}
-\sum_{n=1}^\infty \[\int_0^\pi f(x)\sin(nx)\,dx\]
-e^{-kn^2t}
-\sin(nx)}.
-\ee
+\begin{eqnarray}
+  \boxed{
+    u(x,t)=\frac{2}{\pi}
+    \sum_{n=1}^\infty \[\int_0^\pi f(x)\sin(nx)\,dx\]
+    e^{-kn^2t}
+    \sin(nx)
+  }.
+\end{eqnarray}
 
 \workedexample{
   The initial temperature in a rod of length $\pi$ is given by
-  \be
-  \label{heat1ic}
-  y(x,0)=2\sin(x)+\sin(5x),
-  \ee
+  \begin{eqnarray}
+    \label{heat1ic}
+    u(x,0)=2\sin(x)+\sin(5x),
+  \end{eqnarray}
   and the temperature at the ends of the rod is kept at zero. Assuming that
   \begin{dmath*}
-  \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
+    \pp{u}{t} = \beta \frac{\partial^2 u}{\partial x^2},
   \end{dmath*}
   find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
   }\\
@@ -3425,12 +3430,12 @@ e^{-kn^2t}
   the above analysis shows that we can express $y$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
   \begin{dmath*}
-  y(x,t)=\sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
+    u(x,t)=\sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
   \end{dmath*}
   The initial conditions are that $y(x,0)=2\sin(x)+\sin(5x)$, so $T_1(0)=2$,
   $T_5(0)=1$, and all others are zero. We can then write the solution as
   \begin{dmath*}
-  y(x,t) = 2 e^{-\b t} \sin(x) + e^{-25 \b t} \sin(5x).
+    u(x,t) = 2 e^{-\b t} \sin(x) + e^{-25 \b t} \sin(5x).
   \end{dmath*}
 %FIXME: Is this enough explanation?
  This result is shown for various times in figure \ref{heat1} for $\b=1$.
@@ -3450,11 +3455,11 @@ e^{-kn^2t}
 
 Suppose that the boundary conditions were instead
 \begin{dmath*}[compact]
-  y(0,t)=A, \qquad y(\pi,t)=B.
+  u(0,t)=A, \qquad u(\pi,t)=B.
 \end{dmath*}
 Notice that these conditions match the case $K_n=0$ with
 \begin{dmath*}
-  y(x,t)=\frac{B-A}{\pi}x+A.
+  u(x,t)=\frac{B-A}{\pi}x+A.
 \end{dmath*}
 This obeys the heat equation, since
 \begin{dmath*}[compact]
@@ -3466,7 +3471,7 @@ and is independent of $t$, i.e.\ it is a steady state solution. Then, setting
 \end{dmath*}
 \begin{dmath}
   \label{diribc}
-  y(x,t)=A + \frac{B-A}{\pi}x +
+  u(x,t)=A + \frac{B-A}{\pi}x +
   \frac{2}{\pi}
   \sum_{n=1}^\infty\(\int_{0}^\pi g(x)\sin(nx)dx\) e^{-\b n^2t} \sin(nx)
 \end{dmath}
@@ -3474,12 +3479,12 @@ matches both the initial and boundary conditions.
 
 \workedexample{
   Solve the initial boundary problem
-  \be
-  \label{heat3ic}
-  \pp{y}{t} = \b \pptwo{y}{x}, \qquad y(0)=1, \quad y(\pi)=1+\pi,
-  \quad y(x,0)=f(x)=x^2 +x +1
-  \ee
-  for $y(x,t)$.
+  \begin{eqnarray}
+    \label{heat3ic}
+    \pp{u}{t} = \b \pptwo{u}{x}, \qquad u(0)=1, \quad u(\pi)=1+\pi,
+    \quad u(x,0)=f(x)=x^2 +x +1
+  \end{eqnarray}
+  for $u(x,t)$.
 
 }{
   The steady-state solution is $x+1$. Let
@@ -3488,7 +3493,7 @@ matches both the initial and boundary conditions.
   \end{dmath*}
   Then,
   \begin{dmath*}
-    y(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
+    u(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
   \end{dmath*}
   And in order to satisfy $y(x,0)=1+x+x^2$, we have
   \begin{dmath*}
@@ -3508,7 +3513,7 @@ matches both the initial and boundary conditions.
   \end{dmath*}
   The solution is therefore
   \begin{dmath*}
-    y(x,t) = 1+x+
+    u(x,t) = 1+x+
     \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\]
     e^{-\b n^2 t}\sin(nx).
   \end{dmath*}
@@ -3615,7 +3620,7 @@ matches both the initial and boundary conditions.
   \label{fig:heatsepflow}
 \end{figure}
 
-
+\newpage
 \section{Problems}
 
 \begin{enumerate}
@@ -3623,23 +3628,29 @@ matches both the initial and boundary conditions.
     Show that equation \eqref{diribc} does indeed solve the heat equation
     with the given boundary and initial conditions.
   \item
+    Solve the heat equation 
+    \begin{dmath*}
+      \pp{u}{t} = \beta \frac{\partial^2u}{\partial x^2}
+    \end{dmath*}
+    with boundary conditions $u(0,t)=u(\pi,t)=0$ and initial condition
+    $u(x,0)=2\sin(x) - \sin(3x)$.
+  \item
     An inanimate carbon rod of length $\pi$ is hit with a ``laser'',
     transferring an amount of heat $H$ to a point at its centre. That is, the
     initial temperature distribution along its length is given by
     \begin{dmath*}
-    y(x,0)=H\delta\(x-\frac{\pi}{2}\).
+      u(x,0)=H\delta\(x-\frac{\pi}{2}\).
     \end{dmath*}
     If the ends of the rod are kept at constant temperature $0$, and the
     temperature in the rod obeys the relationship
     \begin{dmath*}
-      \pp{y}{t} = \beta \frac{\partial^2 y}{\partial x^2},
+      \pp{u}{t} = \beta \frac{\partial^2 u}{\partial x^2},
     \end{dmath*}
-    find $y(x,t)$ for all $t\geq 0$.
+    find $u(x,t)$ for all $t\geq 0$.
     \hidesolution{
       Following the above procedure,
       \begin{dmath*}
-        y(x,t)
-        =\frac{2}{\pi}\sum_{n=1}^\infty T_n(0) e^{-kn^2t} \sin(nx)
+        u(x,t)=\frac{2}{\pi}\sum_{n=1}^\infty T_n(0) e^{-kn^2t} \sin(nx)
       \end{dmath*}
       with
       \begin{dmath*}
@@ -3659,20 +3670,20 @@ matches both the initial and boundary conditions.
       \end{dmath*}
       The solution is then given by
       \begin{dmath*}
-        y(x,t) 
+        u(x,t) 
         = \frac{2H}{\pi} \sum_{m=0}^\infty (-1)^m e^{-4\beta m^2 t} \sin(2mx)
       \end{dmath*}
     }
   \item
     \emph{Neumann boundary conditions} specify the value of the function at
-    the boundary, e.g. $y(0,t)=A$, $y(\pi,t)=B$ with $A$ and $B$ constant.
+    the boundary, e.g. $u(0,t)=A$, $u(\pi,t)=B$ with $A$ and $B$ constant.
     We showed that the set of Eigenfunctions given by equation
     \eqref{Eigenfunction} must be $\{\sin(nx),n=1,2,\dots\}$ in this case.
     If the boundary conditions were instead \emph{Dirichlet boundary conditions}
     such as
     \begin{dmath*}[compact]
-    \left.\pp{y(x,t)}{x}\right|_{x=0}=0, \qquad
-        \left.\pp{y(x,t)}{x}\right|_{x=\pi}=0,
+    \left.\pp{u(x,t)}{x}\right|_{x=0}=0, \qquad
+        \left.\pp{u(x,t)}{x}\right|_{x=\pi}=0,
     \end{dmath*}
     what are the Eigenfunctions?
 
@@ -3686,26 +3697,26 @@ matches both the initial and boundary conditions.
 
 \section{Table of Taylor Series}
 \begin{align*}
-& f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
-+ \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
-%&
-%&
-\\
-& e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
-\qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
-\qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
-\\
-&\tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \frac{17}{315}x^7
-+ \frac{62}{2835}x^9 + \dots
-\\
-&\arcsin x = x + \frac{1}{2}\frac{x^3}{3}
-+ \frac{1\cdot 3}{2\cdot 4}\frac{x^5}{5}
-+ \frac{1\cdot3\cdot5}{2\cdot4\cdot6}\frac{x^7}{7} + \dots
-\\
-&\arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}
-\\
-&\frac{1}{1-x} = \sum_{n=0}^\infty x^n
-\qquad \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
+  & f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
+  + \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
+  %&
+  %&
+  \\
+  & e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+  \qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+  \qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+  \\
+  &\tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \frac{17}{315}x^7
+  + \frac{62}{2835}x^9 + \dots
+  \\
+  &\arcsin x = x + \frac{1}{2}\frac{x^3}{3}
+  + \frac{1\cdot 3}{2\cdot 4}\frac{x^5}{5}
+  + \frac{1\cdot3\cdot5}{2\cdot4\cdot6}\frac{x^7}{7} + \dots
+  \\
+  &\arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}
+  \\
+  &\frac{1}{1-x} = \sum_{n=0}^\infty x^n
+  \qquad \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
 \end{align*}
 
 \newpage
@@ -3767,63 +3778,63 @@ $$
 
 \section{Table of Integrals}
 \begin{align*}
-&\int u dv = uv - \int v du
-&
-\\
-& \int \cos x dx = -\sin x
-& \int \sin x dx = \cos x
-\\
-& \int \tan x dx  = -\ln\abs{\cos x}
-&
-\\
-& \int \sin^2 x dx = \frac{1}{2}x - \frac{1}{4}\sin 2x
-& \int \cos^2 x dx = \frac{1}{2}x + \frac{1}{4}\sin 2x
-\\
-& \int \tan^2 x dx  = \tan x - x
-&
-\\
-& \int \sin^n x dx = -\frac{\sin^{n-1}x\cos{x}}{n}
-+ \frac{n-1}{n}\int\sin^{n-2}xdx
-&
-\\
-& \int \cos^n x dx = \frac{\cos^{n-1}x\sin x}{n}
-+ \frac{n-1}{n}\int \cos^{n-2}x dx
-&
-\\
-& \int \sin ax \sin bx dx = - \frac{\sin(a+b)x}{2(a+b)}
+  &\int u dv = uv - \int v du
+  &
+  \\
+  & \int \cos x dx = -\sin x
+  & \int \sin x dx = \cos x
+  \\
+  & \int \tan x dx  = -\ln\abs{\cos x}
+  &
+  \\
+  & \int \sin^2 x dx = \frac{1}{2}x - \frac{1}{4}\sin 2x
+  & \int \cos^2 x dx = \frac{1}{2}x + \frac{1}{4}\sin 2x
+  \\
+  & \int \tan^2 x dx  = \tan x - x
+  &
+  \\
+  & \int \sin^n x dx = -\frac{\sin^{n-1}x\cos{x}}{n}
+  + \frac{n-1}{n}\int\sin^{n-2}xdx
+  &
+  \\
+  & \int \cos^n x dx = \frac{\cos^{n-1}x\sin x}{n}
+  + \frac{n-1}{n}\int \cos^{n-2}x dx
+  &
+  \\
+  & \int \sin ax \sin bx dx = - \frac{\sin(a+b)x}{2(a+b)}
   + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
-&
-\\
-& \int \cos ax \cos bx dx = \frac{\sin(a+b)x}{2(a+b)}
-+ \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
-&
-\\
-& \int \sin ax \cos bx dx = -\frac{\cos(a+b)x}{2(a+b)}
-- \frac{\cos(a-b)x}{2(a-b)},\quad a^2\neq b^2
-&
-\\
-& \int \sec^2 x dx = \tan x
-& \int \csc^2 x dx = -\cot x
-\\
-& \int \sec x \tan x  dx = \sec x
-&
-\\
-& \int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin\frac{x}{a}
-& \int \frac{dx}{x\sqrt{x^2-a^2}}= \frac{1}{a}\arccos\frac{a}{x}
-\\
-&\int \frac{dx}{a^2+x^2} = \frac{1}{a}\arctan\frac{x}{a},
-&
-\\
-& \int \frac{dx}{a^2-x^2} = \frac{1}{2a}\ln\abs{\frac{x+a}{x-a}},
-& \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\abs{x+\sqrt{x^2+a^2}}
-\\
-& \int \sinh x dx = \cosh x
-& \int \cosh x dx = \sinh x
-\\
-& \int e^{ax}\sin nx dx = \frac{e^{ax}\(a \sin nx - n \cos nx \) }{a^2+n^2 }&
-\\
-& \int e^{ax}\cos nx dx = \frac{e^{ax}\(a \cos nx + n \sin nx \) }{a^2+n^2 }
-&
+  &
+  \\
+  & \int \cos ax \cos bx dx = \frac{\sin(a+b)x}{2(a+b)}
+  + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
+  &
+  \\
+  & \int \sin ax \cos bx dx = -\frac{\cos(a+b)x}{2(a+b)}
+  - \frac{\cos(a-b)x}{2(a-b)},\quad a^2\neq b^2
+  &
+  \\
+  & \int \sec^2 x dx = \tan x
+  & \int \csc^2 x dx = -\cot x
+  \\
+  & \int \sec x \tan x  dx = \sec x
+  &
+  \\
+  & \int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin\frac{x}{a}
+  & \int \frac{dx}{x\sqrt{x^2-a^2}}= \frac{1}{a}\arccos\frac{a}{x}
+  \\
+  &\int \frac{dx}{a^2+x^2} = \frac{1}{a}\arctan\frac{x}{a},
+  &
+  \\
+  & \int \frac{dx}{a^2-x^2} = \frac{1}{2a}\ln\abs{\frac{x+a}{x-a}},
+  & \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\abs{x+\sqrt{x^2+a^2}}
+  \\
+  & \int \sinh x dx = \cosh x
+  & \int \cosh x dx = \sinh x
+  \\
+  & \int e^{ax}\sin nx dx = \frac{e^{ax}\(a \sin nx - n \cos nx \) }{a^2+n^2 }&
+  \\
+  & \int e^{ax}\cos nx dx = \frac{e^{ax}\(a \cos nx + n \sin nx \) }{a^2+n^2 }
+  &
 \end{align*}
 
 
