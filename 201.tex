@@ -3676,17 +3676,102 @@ matches both the initial and boundary conditions.
       \end{dmath*}
     }
   \item
-    \emph{Neumann boundary conditions} specify the value of the function at
-    the boundary, e.g. $u(0,t)=A$, $u(\pi,t)=B$ with $A$ and $B$ constant.
-    We showed that the set of Eigenfunctions given by equation
-    \eqref{Eigenfunction} must be $\{\sin(nx),n=1,2,\dots\}$ in this case.
-    If the boundary conditions were instead \emph{Dirichlet boundary conditions}
-    such as
+    \emph{Neumann boundary conditions} specify the value of the
+    function at the boundary, e.g. $u(0,t)=A$, $u(\pi,t)=B$ with $A$
+    and $B$ constant.  We showed that the set of Eigenfunctions given
+    by equation \eqref{Eigenfunction} must be
+    $\{\sin(nx),n=1,2,\dots\}$ in this case.  If the boundary
+    conditions were instead \emph{Dirichlet boundary conditions} such
+    as
     \begin{dmath*}[compact]
     \left.\pp{u(x,t)}{x}\right|_{x=0}=0, \qquad
         \left.\pp{u(x,t)}{x}\right|_{x=\pi}=0,
     \end{dmath*}
-    what are the Eigenfunctions?
+    and the initial condition
+    $u(x,0)=\cos(x)$, what is the solution to the heat equation?
+    \hidesolution{ 
+      The first step is separation of variables: let $u(x,t)=\sum_\a
+      T_\a(t) X_\a(x)$. We take a single mode, $T_\a X_\a$, and put it 
+      into the PDE,
+      $$
+      \ppt{T_\a X_\a} = \b \pptwo{T_\a X_\a}{x}
+      \quad \implies \quad
+      \frac{1}{\b} \frac{T'_\a}{T_\a} = \frac{X^{''}_\a}{X_\a} =\a
+      $$
+      Solving for $T_\a$ we get $T_\a(t)=T_\a(0)e^{\a\b t}$. Solving
+      for $X_\a$ is more complicated, as there are three cases:
+      \begin{enumerate}
+        \item $\a = \l^2 > 0$:
+          In this case we get $X_\a = C_1 \cosh (\l x) + C_2 \sinh(\l x)$.
+          To match the boundary conditions, we need
+          $X^'_\a=C_1 \sinh(\l x) + C_2 \cosh(\l x)$.
+          Applying the first boundary condition,
+          $$
+          X^'_\a(0)=C_2 =0  \quad \implies \quad C_2 =0,
+          $$
+          so $X_\a = C_1 \cosh(\l x)$.
+          Applying the second boundary condition gives 
+          $$
+          X^'_\a(\pi) = C_1 \sinh(\l \pi)=0.
+          $$
+          Since $\sinh(\l \pi)$ is never zero, we conclude that $C_1=0$, 
+          and that this mode is trivial.
+
+        \item $\a=0$:
+          In this case $X_\a = C_1 + C_2 x$, and $X^'_\a=C_2$. Then 
+          the left boundary condition gives
+          $$
+          X^'_\a(0)=C_2=0
+          $$
+          and the right boundary condition gives us the same thing:
+          $$
+          X^'_\a(\pi)=C_2=0.
+          $$ 
+          Let's use $a_0/2$ instead of $C_1$, and we're left with
+          $X_\a=a_0/2$, a constant.
+
+        \item $\a=-\l^2 < 0$:
+          In this case $X_\a=C_1 \cos(\l x) + C_2 \sin(\l x)$, and
+          $X^'_\a=-C_1 \l \sin(\l x) + C_2 \l \cos(\l x)$.
+          The left boundary condition implies that
+          $$
+          X^'_\a(0)=C_2 \l =0
+          $$
+          and, since $\l\neq 0$ in this case, we get $C_2=0$, so that
+          $X_\a = C_1 \cos(\l x)$. the right boundary condition implies that
+          $$
+          X^'_\a(\pi)=-C_1 \l \sin(\l \pi) =0
+          $$
+          which implies that either $C_1=0$ or $\sin(\l \pi)=0$. This second 
+          case happen when $\l \pi = n \pi$, i.e.\ $\l=n$. Thus, the
+          non-trivial modes for this case are 
+          $$
+          X_\a = C_2 \cos(n x).
+          $$
+
+      \end{enumerate}
+      Having determined all the modes $T_\a X_\a$, we can put them into
+      the series solution for $u$, which is
+      $$
+      u(x,t) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n e^{-\b n^2 t} \cos(n x) .
+      $$
+      The initial conditions are $u(x,0)=\cos(x)$, so
+      $$
+      u(0,t) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n  \cos(n x) = \cos(x),
+      $$
+      which is a Fourier cosine series for $\cos(x)$.  We could
+      use the formula for cosine series to calculate $a_n$, but, since
+      $\cos(x)$ is already a Fourier cosine series, we can just match
+      term-by-term, getting $a_1=1$, and $a_n=0$ if $n\neq 1$. The 
+      solution is then
+      \begin{dmath*}
+        u(x,t) 
+        = e^{-\b 1^2 t} \cos(1 x) 
+        = e^{-\b  t} \cos(x).
+      \end{dmath*}
+      \qed
+      
+    }
 
 
 \end{enumerate}
