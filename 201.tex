@@ -8,7 +8,7 @@
 \usepackage{ode}
 
 \newcounter{showsolutions}
-\setcounter{showsolutions}{0}
+\setcounter{showsolutions}{1}
 
 \begin{document}
 
@@ -3676,19 +3676,21 @@ matches both the initial and boundary conditions.
       \end{dmath*}
     }
   \item
-    \emph{Neumann boundary conditions} specify the value of the
-    function at the boundary, e.g. $u(0,t)=A$, $u(\pi,t)=B$ with $A$
-    and $B$ constant.  We showed that the set of Eigenfunctions given
-    by equation \eqref{Eigenfunction} must be
-    $\{\sin(nx),n=1,2,\dots\}$ in this case.  If the boundary
-    conditions were instead \emph{Dirichlet boundary conditions} such
-    as
+    %\emph{Dirichlet boundary conditions} specify the value of the
+    %function at the boundary, e.g.\ $u(0,t)=A$, $u(\pi,t)=B$ with $A$
+    %and $B$ constant.  We showed that the set of Eigenfunctions given
+    %by equation \eqref{Eigenfunction} must be
+    %$\{\sin(nx),n=1,2,\dots\}$ in this case.
+    % 
+    If the boundary conditions were instead 
+    \emph{homogeneous Neumann boundary conditions} at $x=0$ and $x=\pi$,
     \begin{dmath*}[compact]
     \left.\pp{u(x,t)}{x}\right|_{x=0}=0, \qquad
         \left.\pp{u(x,t)}{x}\right|_{x=\pi}=0,
     \end{dmath*}
     and the initial condition
-    $u(x,0)=\cos(x)$, what is the solution to the heat equation?
+    $u(x,0)=\cos(x)$, what is the solution to the heat equation,
+    $\ppt{u}=\b \pptwo{u}{x}$?
     \hidesolution{ 
       The first step is separation of variables: let $u(x,t)=\sum_\a
       T_\a(t) X_\a(x)$. We take a single mode, $T_\a X_\a$, and put it 
@@ -3704,17 +3706,17 @@ matches both the initial and boundary conditions.
         \item $\a = \l^2 > 0$:
           In this case we get $X_\a = C_1 \cosh (\l x) + C_2 \sinh(\l x)$.
           To match the boundary conditions, we need
-          $X^'_\a=C_1 \sinh(\l x) + C_2 \cosh(\l x)$.
+          $X^'_\a=\l C_1 \sinh(\l x) + \l C_2 \cosh(\l x)$.
           Applying the first boundary condition,
           $$
-          X^'_\a(0)=C_2 =0  \quad \implies \quad C_2 =0,
+          X^'_\a(0)=\l C_2 =0  \quad \implies \quad C_2 =0,
           $$
-          so $X_\a = C_1 \cosh(\l x)$.
+          so $X_\a = \l C_1 \cosh(\l x)$.
           Applying the second boundary condition gives 
           $$
-          X^'_\a(\pi) = C_1 \sinh(\l \pi)=0.
+          X^'_\a(\pi) = \l C_1 \sinh(\l \pi)=0.
           $$
-          Since $\sinh(\l \pi)$ is never zero, we conclude that $C_1=0$, 
+          Since $ \l \sinh(\l \pi)\neq 0$, we conclude that $C_1=0$, 
           and that this mode is trivial.
 
         \item $\a=0$:
@@ -3769,8 +3771,6 @@ matches both the initial and boundary conditions.
         = e^{-\b 1^2 t} \cos(1 x) 
         = e^{-\b  t} \cos(x).
       \end{dmath*}
-      \qed
-      
     }
 
 
