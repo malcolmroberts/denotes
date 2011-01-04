@@ -59,7 +59,7 @@ y-=dy;
 block undet2=roundrectangle(Label("Is any term in $y_p$ also in $y_h$?"),(-dx,y));
 pair undet2topright=undet2.topright();
 
-block undet2a=roundrectangle(Label("multiply by $t$!"),(0,y));
+block undet2a=roundrectangle(Label("multiply by $t$"),(0,y));
 
 
 block vop2=roundrectangle(Label("$y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt$"),(dx,y));

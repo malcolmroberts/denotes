@@ -3,8 +3,8 @@ import flowchart;
 
 real dx=3,y=0, dy=-1.5, dys=-1, dyss=-0.8;
 
-block title=roundrectangle(pack(Label("Heat Equation Flowchart",blue) ,"","Malcolm Roberts, 2010-05-04"),(-dx,y));
-draw(title);
+//block title=roundrectangle(pack(Label("Heat Equation Flowchart",blue) ,"","Malcolm Roberts, 2010-05-04"),(-dx,y));
+//draw(title);
 
 block pde=roundrectangle(pack(Label("The Heat Equation",blue),"",
 				    "$\frac{\partial u}{\partial t} = \beta\frac{\partial^2 u}{\partial x^2}$"),
