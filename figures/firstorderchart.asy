@@ -19,7 +19,7 @@ block linear_coeffs=roundrectangle(pack(Label("DEs with Linear Coefficients"),
 					"$(a_1 x +b_1 y + c_1 )dx +
                                           (a_2 x + b_2 y + c_2 ) dy =0$"),
 				   (0,dy));
-block hom=roundrectangle(pack(Label("Homogeneouse"),"",
+block hom=roundrectangle(pack(Label("Homogeneous"),"",
 			      "$\frac{dy}{dx}=f\left(\frac{y}{x}\right)$"),
 			 (0,0));
 block Gaxby=roundrectangle("$\frac{dy}{dx}=G(ax+by)$",(dx,0));
