@@ -5,10 +5,19 @@
 \usepackage{math}
 \usepackage{multirow} 
 \usepackage{ode}
+
+\newcounter{showsolutions}
+\setcounter{showsolutions}{0}
+\newcounter{small}
+\setcounter{small}{1}
+
+
 %\usepackage[pdftitle={Lab Manual for Math 201 DEs for Geers}]{hyperref}
 %\usepackage[driverfallback=hypertex,pdftitle={Lab Manual for Math 201 DEs for Geers},pdfauthor={Malcolm Roberts and Samantha Marion}]{hyperref}
 
+\ifthenelse{\value{small}=1}{
 \usepackage[paperwidth=9cm, paperheight=12cm, hmargin={0.17in, 0.17in}, vmargin={0.50in, 0.17in}]{geometry}
+}{}
 %\usepackage[paper size={90mm, 120mm},left=2mm,right=2mm,top=2mm,bottom=2mm,nohead]{geometry}
 %\usepackage[letterpaper,textheight=8.5in,textwidth=6in,dvips]{geometry}
 
@@ -17,11 +26,6 @@
 \begin{document}
 \sloppy
 
-
-\newcounter{showsolutions}
-\setcounter{showsolutions}{0}
-\newcounter{small}
-\setcounter{small}{1}
 
 
 %%
@@ -3930,6 +3934,7 @@ $$
   & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 + \b^2} $} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle \sin(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\ \hline
+\ifthenelse{\value{small}=1}{
 \end{tabular} 
 $$
 
@@ -3937,8 +3942,8 @@ $$
 \begin{tabular}{ l |  l }
   $f(t)$ & $\Laplace(f) = F(s)$  \\
   \hline
-  \hline
-  \hline
+  \hline 
+  \hline }{}
   \multirow{2}{*}{$\displaystyle \cosh(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 - \b^2}$} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle \sinh(\b t)$ }
@@ -3965,7 +3970,7 @@ $$
 
 
 
-
+\newpage
 \section{Table of Integrals}
 \begin{dmath*}
   \int u dv = uv - \int v du
