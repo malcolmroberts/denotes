@@ -1,16 +1,28 @@
-\documentclass[12pt]{book}
+\documentclass[10pt,driverfallback=hypertex]{report}
 \usepackage{amsmath}
-\usepackage[letterpaper,textheight=8.5in,textwidth=6in,dvips]{geometry}
 \usepackage{graphicx}
 \usepackage{ifthen}
 \usepackage{math}
 \usepackage{multirow} 
 \usepackage{ode}
+%\usepackage[pdftitle={Lab Manual for Math 201 DEs for Geers}]{hyperref}
+%\usepackage[driverfallback=hypertex,pdftitle={Lab Manual for Math 201 DEs for Geers},pdfauthor={Malcolm Roberts and Samantha Marion}]{hyperref}
+
+\usepackage[paperwidth=9cm, paperheight=12cm, hmargin={0.17in, 0.17in}, vmargin={0.50in, 0.17in}]{geometry}
+%\usepackage[paper size={90mm, 120mm},left=2mm,right=2mm,top=2mm,bottom=2mm,nohead]{geometry}
+%\usepackage[letterpaper,textheight=8.5in,textwidth=6in,dvips]{geometry}
+
+
+
+\begin{document}
+\sloppy
+
 
 \newcounter{showsolutions}
 \setcounter{showsolutions}{0}
+\newcounter{small}
+\setcounter{small}{1}
 
-\begin{document}
 
 %%
 %% title page
@@ -86,7 +98,9 @@ equation is
 \begin{dmath*}
   y = Ce^x,
 \end{dmath*}
-with $C$ an arbitrary constant, since $y'=\dd{}{x}Ce^x=Ce^x=y$. That is, if we
+with $C$ an arbitrary constant, since 
+\begin{dmath*}\dd{y}{x}=\dd{}{x}Ce^x=Ce^x=y.\end{dmath*} 
+That is, if we
 plug $y=Ce^x$ into equation \eqref{eg1}, both sides match. If we modify this
 a little bit, say letting $y=Ce^x +x$, then the left hand side doesn't
 match the right:
@@ -104,9 +118,17 @@ combined with one or more initial conditions. For example,
 \end{dmath*}
 is an initial value problem.
 The differential equation is solved by $y=Ce^x$, for any value of $C$. However,
-the only way to satisfy $y(0)=Ce^0=1$ is to set $C=1$. That is, the solution
-to the initial value problem is $y=e^x$, since it satisfies both the
-differential equation and the initial conditions.
+the only way to satisfy 
+\begin{dmath*}
+  y(0)=1
+\end{dmath*}
+with the solution $y=Ce^x$ is to set $C=1$. That is, the solution to
+the initial value problem is 
+\begin{dmath*}
+  y=e^x,
+\end{dmath*}
+since it satisfies both the differential equation and the initial
+conditions.
 
 Differential equations are extremely useful for modelling complex behaviour in
 most sciences. Unfortunately, we do not know how to solve most
@@ -118,7 +140,7 @@ help to understand the properties of solutions of more complicated problems.
 
 
 \chapter{Separable and Exact DEs}
-
+\newpage
 
 \section{Separable equations}
 
@@ -311,7 +333,8 @@ down to a value until the very last moment.)
 
 
 
-\chapter{Linear Equations and Transformations}
+\chapter{Linear Equations \& Transformations}
+\newpage
 
 \section{Linear Equations}
 
@@ -532,7 +555,7 @@ in the flow chart below, or exact.
 \vspace{0.5in}
 \begin{figure}[htbp]
   \centering
-  \includegraphics{figures/firstorderchart}
+  \includegraphics[width=\textwidth]{figures/firstorderchart}
   \caption{Flow chart for solving first-order DEs}
   \label{fig:first_order_flow_shar}
 \end{figure}
@@ -718,6 +741,8 @@ Solve the differential equation
 
 
 \chapter{Second-order Linear Equations}
+\newpage
+
 % Text chapter 4.2
 Let $a,b,c$ be real numbers. Second order equations of the form
 \begin{dmath} 
@@ -829,9 +854,9 @@ and
 e^{(4-2i)t}=e^{4t}e^{-i2t}=e^{4t} \(\cos(2t) - i \sin(2t)\).
 \end{dmath*}
 An easy way to get all linear combinations is to just set
-\begin{dmath*}[compact]
+$$
   y_1(t) = e^{4t} \cos(2t), \qquad y_2(t) = e^{4t} \sin(2t).
-\end{dmath*}
+$$
 
 \noindent\emph{Example}: Give the general solution to
 \begin{dmath*}
@@ -920,7 +945,7 @@ types of equations:
 \vspace{0.5in}
 \begin{figure}[h]
   \centering
-  \includegraphics{figures/linhomflow}
+  \includegraphics[width=\textwidth]{figures/linhomflow}
   \caption{Flow chart for solving second-order homogeneous DEs}
   \label{fig:linhomflow}
 \end{figure}
@@ -993,7 +1018,8 @@ types of equations:
 \end{enumerate}
 
 
-\chapter{Non-homogeneous Second-Order Linear Equations}
+\chapter{Non-homogeneous $2^{\text{nd}}$ Order Linear DEs}
+\newpage
 
 \section{Method of Undetermined Coefficients}
 % Text section  4.4
@@ -1023,7 +1049,10 @@ the trick. We can just substitute $y_p = A \sin(t) + B \cos(t)$ into equation
 \eqref{yp} in order to find the values of $A$ and $B$ that work.
 
 Here is a table that will guide you, young jedi:
-\bee
+%FIXME: table is too wide
+
+\ifthenelse{\value{small}=0}{
+$$
 \begin{tabular}{ l |  l }
   $f(t)$ & $y_p$  \\
   \hline
@@ -1037,9 +1066,41 @@ Here is a table that will guide you, young jedi:
   $e^{at}\(K \cos(at) + M\sin(at)\)$ \\
   $k t^n e^{at }\cos(bt)$ or $k t^n e^{at} \sin(bt)$ &
   $\(C_nt^n + \dots +C_0 \)e^{at}\cos(bt)
-  + \(D_nt^n + \dots + D_0 \)e^{bt}\sin(bt)$ \\
+  + \(D_nt^n \no{+} \dots + D_0 \)e^{bt}\sin(bt)$ \\
 \end{tabular}
-\eee Finally, if your guess ends up being a polynomial times a linear
+$$
+}{
+\begin{center}
+  $f(t) \rightarrow y_p$:\\
+  \vspace{0.3cm}
+  $ke^{at} \rightarrow Ce^{at}$  \\
+  \vspace{0.1cm}
+  $kt^n \rightarrow  \sum_{i=0}^n C_i t^i $  \\
+  \vspace{0.1cm}
+  $k \sin \(at\) \rightarrow  K \cos(at) + M\sin(at)$ \\
+  \vspace{0.1cm}
+  $k \cos \(at\) \rightarrow  K \cos(at) + M\sin(at)$ \\
+  \vspace{0.1cm}
+  $kt^n e^{at} \rightarrow  e^{at}  \sum_{i=0}^n C_i t^i $ \\
+  \vspace{0.1cm}
+  $k t^n \cos(at) \rightarrow   \cos(at)\sum_{i=0}^n C_i t^i  +  \sin(at)\sum_{i=0}^n D_i t^i$ \\  
+  \vspace{0.1cm}
+  $k t^n \sin(at) \rightarrow   \cos(at)\sum_{i=0}^n C_i t^i  +  \sin(at)\sum_{i=0}^n D_i t^i$ \\
+  \vspace{0.1cm}
+  $ke^{at} \cos(bt) \rightarrow e^{at}\[K \cos(at) + M\sin(at)\]$ \\
+  \vspace{0.1cm}
+  $ke^{at} \sin(bt) \rightarrow e^{at}\[K \cos(at) + M\sin(at)\]$ \\
+  \vspace{0.1cm}
+  $k t^n e^{at }\cos(bt) \rightarrow
+  e^{at}\cos(bt) \sum_{i=0}^n C_i t^i 
+  + e^{bt}\sin(bt) \sum_{i=0}^n D_i t^i $ \\
+  \vspace{0.1cm}
+  $k t^n e^{at }\sin(bt) \rightarrow
+  e^{at}\cos(bt) \sum_{i=0}^n C_i t^i 
+  + e^{bt}\sin(bt)\sum_{i=0}^n D_i t^i $ \\
+\end{center}
+}
+Finally, if your guess ends up being a polynomial times a linear
 combination of the solutions to the corresponding homogeneous equation
 (known as $y_1$ and $y_2$ in previous lab), then multiply your guess
 by $t$ until it isn't. For example, if $y_1=e^t$, $y_2=e^{2t}$, and
@@ -1260,8 +1321,8 @@ y = \alpha y_1 + \beta y_2 + y_p
 \end{enumerate}
 
 
-\chapter{Non-Homogeneous Second-Order Linear Equations:
-  \\Variation of Parameters}
+\chapter{Variation of Parameters}
+\newpage
 %TODO: maybe add a footnote giving the theory why this works?
 The method of undetermined coefficients is pretty easy, but it only works
 when we have certain functions on the right-hand side. The method of
@@ -1354,7 +1415,7 @@ so we got the correct $y_p$. \qed
 \vspace{0.5in}
 \begin{figure}[h]
   \centering
-  \includegraphics{figures/linhetflow}
+  \includegraphics[width=\textwidth]{figures/linhetflow}
   \caption{Flow chart for solving second-order non-homogeneous DEs}
   \label{fig:linhetflow}
 \end{figure}
@@ -1416,6 +1477,7 @@ so we got the correct $y_p$. \qed
 
 
 \chapter{Laplace Transforms}
+\newpage
 
 Transformations are a very interesting part of mathematics because they give us
 another perspective from which to look at a problem. If we're lucky with
@@ -1597,6 +1659,7 @@ Of course, you should know how to use both techniques.
 
 
 \chapter{Solving DEs with Laplace Transforms}
+\newpage
 
 Consider a first-order IVP of the form
 \begin{dmath*}[compact]
@@ -1642,13 +1705,15 @@ Rearranging for $\Laplace(y)$ yields
 \begin{eqnarray*}
   \Laplace(y) = \frac{8 - 4s +10 s^2 + 3s^3}{s^{3}(s^{2}+4)}
 \end{eqnarray*}
-and we need to use partial fractions to deal with this.
-\begin{eqnarray*}
+and we need to use partial fractions to deal with this:
+\begin{dmath*}
 \frac{8 - 4s +10 s^2 + 3s^3}{s^{3}(s^{2}+4)}
-&=& \frac{As^2 + Bs + C}{s^3} + \frac{Ds +E}{s^2 + 4} \\
-\implies
-8 -4s +10s^2 +3s^3 &=& (A+D)s^4 + (B+E)s^3 +(C+4A)s^2 + 4Bs +4C
-\end{eqnarray*}
+= \frac{As^2 + Bs + C}{s^3} + \frac{Ds +E}{s^2 + 4} \\
+\end{dmath*}
+implies that
+\begin{dmath*}
+  8 -4s +10s^2 +3s^3 = (A+D)s^4 + (B+E)s^3 +(C+4A)s^2 + 4Bs +4C.
+\end{dmath*}
 We can match the coefficients of each power of $s$ to get
 \begin{eqnarray*}
 4C=8 &\implies& C=2\\
@@ -1683,11 +1748,11 @@ The Laplace transform of $f$ is
   \int_{nT}^{(n+1)T} f(t) e^{-st} dt + \dots
 \end{dmath*}
 Then we perform the change of variables $\tau = t-nT$ to see that this is just
-\begin{dmath*}[compact]
+\begin{dmath*}
   \int_0^T f(\t) e^{-s\t} d\t + e^{-sT}\int_0^{T} f(\t) e^{-s\t} d\t + \dots +
   e^{-nsT}\int_0^T f(\t) e^{-s\t} d\t + \dots
   \\
-  = \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\int_0^T f(\t) e^{-s\t}d\t.
+  = \(1+e^{-sT} + e^{-2sT} + \dots + e^{-nsT} +\dots\)\times\int_0^T f(\t) e^{-s\t}d\t.
 \end{dmath*}
 Now, the first factor is just the geometric series
 $\sum_{n=0}^\infty r^n = 1/(1-r)$ with $r=e^{-sT}$, so
@@ -1815,6 +1880,7 @@ From equation \eqref{lapper}, we have
 
 
 \chapter{Laplace Transforms: Convolutions, Impulses and Delta functions}
+\newpage
 
 \section{Convolutions}
 The Laplace transform is linear, so it deals with linear DEs very well. But not
@@ -2118,6 +2184,7 @@ transform table to see that $Y$ is the Laplace transform of
 
 
 \chapter{Solving Systems of Differential Equations}
+\newpage
 
 Up to now, we could have solved every problem with the method of variation
 of parameters. You've probably noticed that some questions are easier to
@@ -2385,6 +2452,7 @@ work. \qed
 
 
 \chapter{Series Solutions to DEs}
+\newpage
 
 An appropriately smooth function $f(t)$ may be represented as a 
 \emph{Taylor series},
@@ -2616,11 +2684,13 @@ polynomial). It's easy to deal with both analytically and numerically,
 and it can be used to get at least a basic understanding of just about
 any initial value problem. The $n$th degree Taylor polynomial is
 \begin{dmath*}
-  \boxed{
+%FIXME: the boxed command doesn't wrap lines, so it's removed for the ebook
+%  \boxed{
     f_n(t) 
     = f(a) + f'(a)(t-a) + \dots + \frac{f^{(n)}(a)}{n!} (t-a)^n
     = \sum_{i=0}^n \frac{f^{(i)}(a)}{i!}(t-a)^i
-  },
+%  }
+,
 \end{dmath*}
 and it exists for any function $f$ whose first $n$ derivatives are
 smooth for $t\in [a,t]$.  Let $R_n(t) = f(t) -f_n(t)$ denote the error
@@ -2863,6 +2933,8 @@ better approximation as $n$ increases.
 
 
 \chapter{Series Solutions to DEs at Regular Singular Points}
+\newpage
+
 %Let $p(t), q(t)$ be analytic functions (ie, they admit power series
 %representations).
 Differential equations of the form
@@ -3114,6 +3186,8 @@ only interested in determining $y_1$.
 
 
 \chapter{Partial Differential Equations}
+\newpage
+
 Let $u(x,t)$ be the temperature of a one-dimensional rod with thermal
 conductivity $k$. The equation that describes the evolution of $y$ is
 called the heat equation:
@@ -3161,9 +3235,11 @@ The coefficients $a_n$ and $b_n$ are determined by integration, with
 \begin{dmath}
   \label{fouriercoeff}
   \boxed{a_n = \frac{1}{T} \int_{-T}^T f(x) \cos\(\frac{n \pi x}{T}\) \, dx},
-  \quad \text{and} \quad
-  \boxed{b_n = \frac{1}{T} \int_{-T}^T f(x) \sin\(\frac{n \pi x}{T}\) \, dx}.
 \end{dmath}
+and
+\begin{dmath*}
+  \boxed{b_n = \frac{1}{T} \int_{-T}^T f(x) \sin\(\frac{n \pi x}{T}\) \, dx}.
+\end{dmath*}
 More generally, the \emph{Fourier series} for $f(x)$ is the sum of these, i.e.\
 \begin{dmath*}
   \boxed{\frac{a_0}{2} + \sum_{n=1}^\infty \[ a_n \cos\(\frac{n \pi x}{T}\)
@@ -3253,7 +3329,8 @@ function.
   figure~\ref{fourierx}.
   \begin{figure}[htbp]
     \begin{center}
-      \includegraphics{figures/fourierx}
+      \includegraphics[width=\textwidth]{figures/fourierx}
+      %FIXME: is this the correct width for the normal figure?
       \caption{Fourier series approximations to $f(x)=x$.}
       \label{fourierx}
     \end{center}
@@ -3292,6 +3369,7 @@ function.
 
 \chapter{Partial Differential Equations:
          \\Actually Solving Them}
+\newpage
 
 Let us now return to the heat equation,
 \begin{eqnarray}
@@ -3405,14 +3483,16 @@ T_n(0)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin(nx)dx
 since the integrand is even.
 
 The solution to the heat equation is then
-\begin{eqnarray}
-  \boxed{
+\begin{dmath}
+%FIXME: boxed breaks line-wrapping
+%  \boxed{
     u(x,t)=\frac{2}{\pi}
     \sum_{n=1}^\infty \[\int_0^\pi f(x)\sin(nx)\,dx\]
     e^{-kn^2t}
     \sin(nx)
-  }.
-\end{eqnarray}
+%  }
+    .
+\end{dmath}
 
 \workedexample{
   The initial temperature in a rod of length $\pi$ is given by
@@ -3442,7 +3522,8 @@ The solution to the heat equation is then
  This result is shown for various times in figure \ref{heat1} for $\b=1$.
   \begin{figure}[htbp]
     \begin{center}
-      \includegraphics{figures/heat1}
+      \includegraphics[width=\textwidth]{figures/heat1}
+      %FIXME: is this figure too wide for letter-size pages?
       \caption{The temperature at different times with initial conditions
         given in \eqref{heat1ic}. Notice that the $\sin(5x)$ term, which
         decays like $e^{-25 \b t}$, is relevant only for small $t$. }
@@ -3480,11 +3561,16 @@ matches both the initial and boundary conditions.
 
 \workedexample{
   Solve the initial boundary problem
-  \begin{eqnarray}
+  \begin{dmath}
     \label{heat3ic}
-    \pp{u}{t} = \b \pptwo{u}{x}, \qquad u(0)=1, \quad u(\pi)=1+\pi,
-    \quad u(x,0)=f(x)=x^2 +x +1
-  \end{eqnarray}
+    \pp{u}{t} \no{=} \b \pptwo{u}{x},
+  \end{dmath}
+  \begin{dmath*}
+    \qquad u(0)\no{=}1, \quad u(\pi)\no{=}1\no{+}\pi,
+  \end{dmath*}
+  \begin{dmath*}
+    \quad u(x,0)\no{=}f(x)\no{=}x^2 +x +1
+  \end{dmath*}
   for $u(x,t)$.
 
 }{
@@ -3609,7 +3695,7 @@ matches both the initial and boundary conditions.
 
 
 \newpage
-\subsection{Flow chart for solving the heat equation in 1D}
+\subsection{Flow chart for solving the heat equation}
 %FIXME: text
 
 %FIXME: refer to this somewhere
@@ -3617,7 +3703,7 @@ matches both the initial and boundary conditions.
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{figures/heatsepflow}
-  \caption{Flow chart for solving the heat equation in 1D}
+  \caption{Flow chart for solving the heat equation.}
   \label{fig:heatsepflow}
 \end{figure}
 
@@ -3779,37 +3865,46 @@ matches both the initial and boundary conditions.
 
 \appendix{}
 \chapter{Tables}
-
+\newpage
 
 \section{Table of Taylor Series}
-\begin{align*}
-  & f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
+\begin{dmath*}
+  f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
   + \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
-  %&
-  %&
-  \\
-  & e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
-  \qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
-  \qquad \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
-  \\
-  &\tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \frac{17}{315}x^7
+\end{dmath*}
+\begin{dmath*}
+  e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+\end{dmath*}
+\begin{dmath*}
+  \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+\end{dmath*}
+\begin{dmath*}
+  \sin x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+\end{dmath*}
+\begin{dmath*}
+  \tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \frac{17}{315}x^7
   + \frac{62}{2835}x^9 + \dots
-  \\
-  &\arcsin x = x + \frac{1}{2}\frac{x^3}{3}
+\end{dmath*}
+\begin{dmath*}
+  \arcsin x = x + \frac{1}{2}\frac{x^3}{3}
   + \frac{1\cdot 3}{2\cdot 4}\frac{x^5}{5}
   + \frac{1\cdot3\cdot5}{2\cdot4\cdot6}\frac{x^7}{7} + \dots
-  \\
-  &\arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}
-  \\
-  &\frac{1}{1-x} = \sum_{n=0}^\infty x^n
-  \qquad \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
-\end{align*}
+\end{dmath*}
+\begin{dmath*}
+  \arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}
+\end{dmath*}
+\begin{dmath*}
+  \frac{1}{1-x} = \sum_{n=0}^\infty x^n
+\end{dmath*}
+\begin{dmath*}
+  \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
+\end{dmath*}
 
 \newpage
 \section{Table of Laplace Transforms}
 
+%FIXME: this isn't formatting right
 \label{sec:tableolap}
-%\begin{center}
 $$
 \begin{tabular}{ l |  l }
   $f(t)$ & $\Laplace(f) = F(s)$  \\
@@ -3835,6 +3930,15 @@ $$
   & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 + \b^2} $} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle \sin(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\ \hline
+\end{tabular} 
+$$
+
+$$
+\begin{tabular}{ l |  l }
+  $f(t)$ & $\Laplace(f) = F(s)$  \\
+  \hline
+  \hline
+  \hline
   \multirow{2}{*}{$\displaystyle \cosh(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 - \b^2}$} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle \sinh(\b t)$ }
@@ -3858,70 +3962,88 @@ $$
   & \multirow{2}{*}{$\displaystyle (-1)^n \frac{d^n}{ds^n} F(s)$} \\ \\ \hline
 \end{tabular}\\
 $$
-%\end{center}
+
 
 
 
 \section{Table of Integrals}
-\begin{align*}
-  &\int u dv = uv - \int v du
-  &
-  \\
-  & \int \cos x dx = -\sin x
-  & \int \sin x dx = \cos x
-  \\
-  & \int \tan x dx  = -\ln\abs{\cos x}
-  &
-  \\
-  & \int \sin^2 x dx = \frac{1}{2}x - \frac{1}{4}\sin 2x
-  & \int \cos^2 x dx = \frac{1}{2}x + \frac{1}{4}\sin 2x
-  \\
-  & \int \tan^2 x dx  = \tan x - x
-  &
-  \\
-  & \int \sin^n x dx = -\frac{\sin^{n-1}x\cos{x}}{n}
+\begin{dmath*}
+  \int u dv = uv - \int v du
+\end{dmath*}  
+\begin{dmath*}
+   \int \cos x dx = -\sin x
+\end{dmath*}  
+\begin{dmath*}
+   \int \sin x dx = \cos x
+\end{dmath*}  
+\begin{dmath*}
+   \int \tan x dx  = -\ln\abs{\cos x}
+\end{dmath*}  
+\begin{dmath*}
+   \int \sin^2 x dx = \frac{1}{2}x - \frac{1}{4}\sin 2x
+\end{dmath*}  
+\begin{dmath*}
+   \int \cos^2 x dx = \frac{1}{2}x + \frac{1}{4}\sin 2x
+\end{dmath*}  
+\begin{dmath*}  
+   \int \tan^2 x dx  = \tan x - x
+\end{dmath*}  
+\begin{dmath*}
+    \int \sin^n x dx = -\frac{\sin^{n-1}x\cos{x}}{n}
   + \frac{n-1}{n}\int\sin^{n-2}xdx
-  &
-  \\
-  & \int \cos^n x dx = \frac{\cos^{n-1}x\sin x}{n}
+\end{dmath*}  
+\begin{dmath*}  
+   \int \cos^n x dx = \frac{\cos^{n-1}x\sin x}{n}
   + \frac{n-1}{n}\int \cos^{n-2}x dx
-  &
-  \\
-  & \int \sin ax \sin bx dx = - \frac{\sin(a+b)x}{2(a+b)}
-  + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
-  &
-  \\
-  & \int \cos ax \cos bx dx = \frac{\sin(a+b)x}{2(a+b)}
-  + \frac{\sin(a-b)x}{2(a-b)},\quad a^2\neq b^2
-  &
-  \\
-  & \int \sin ax \cos bx dx = -\frac{\cos(a+b)x}{2(a+b)}
-  - \frac{\cos(a-b)x}{2(a-b)},\quad a^2\neq b^2
-  &
-  \\
-  & \int \sec^2 x dx = \tan x
-  & \int \csc^2 x dx = -\cot x
-  \\
-  & \int \sec x \tan x  dx = \sec x
-  &
-  \\
-  & \int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin\frac{x}{a}
-  & \int \frac{dx}{x\sqrt{x^2-a^2}}= \frac{1}{a}\arccos\frac{a}{x}
-  \\
-  &\int \frac{dx}{a^2+x^2} = \frac{1}{a}\arctan\frac{x}{a},
-  &
-  \\
-  & \int \frac{dx}{a^2-x^2} = \frac{1}{2a}\ln\abs{\frac{x+a}{x-a}},
-  & \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\abs{x+\sqrt{x^2+a^2}}
-  \\
-  & \int \sinh x dx = \cosh x
-  & \int \cosh x dx = \sinh x
-  \\
-  & \int e^{ax}\sin nx dx = \frac{e^{ax}\(a \sin nx - n \cos nx \) }{a^2+n^2 }&
-  \\
-  & \int e^{ax}\cos nx dx = \frac{e^{ax}\(a \cos nx + n \sin nx \) }{a^2+n^2 }
-  &
-\end{align*}
+\end{dmath*}  
+\begin{dmath*}
+   \int \sin ax \sin bx dx = - \frac{\sin(a+b)x}{2(a+b)}
+  + \frac{\sin(a-b)x}{2(a-b)},\\a^2\no\neq b^2
+\end{dmath*}  
+\begin{dmath*}
+   \int \cos ax \cos bx dx = \frac{\sin(a+b)x}{2(a+b)}
+  + \frac{\sin(a-b)x}{2(a-b)},\\ a^2\no\neq b^2
+\end{dmath*}  
+\begin{dmath*}
+   \int \sin ax \cos bx dx = -\frac{\cos(a+b)x}{2(a+b)}
+  - \frac{\cos(a-b)x}{2(a-b)},\\ a^2\no\neq b^2
+\end{dmath*}  
+\begin{dmath*}
+   \int \sec^2 x dx = \tan x
+\end{dmath*}  
+\begin{dmath*}
+   \int \csc^2 x dx = -\cot x
+\end{dmath*}  
+\begin{dmath*}
+   \int \sec x \tan x  dx = \sec x
+\end{dmath*}  
+\begin{dmath*}
+   \int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin\frac{x}{a}
+\end{dmath*}  
+\begin{dmath*}
+  \int \frac{dx}{x\sqrt{x^2-a^2}}= \frac{1}{a}\arccos\frac{a}{x}
+\end{dmath*}  
+\begin{dmath*}
+  \int \frac{dx}{a^2+x^2} = \frac{1}{a}\arctan\frac{x}{a},
+\end{dmath*}  
+\begin{dmath*}
+   \int \frac{dx}{a^2-x^2} = \frac{1}{2a}\ln\abs{\frac{x+a}{x-a}},
+\end{dmath*}  
+\begin{dmath*}
+   \int \frac{dx}{\sqrt{a^2+x^2}} = \ln\abs{x+\sqrt{x^2+a^2}}
+\end{dmath*}  
+\begin{dmath*}
+   \int \sinh x dx = \cosh x
+\end{dmath*}  
+\begin{dmath*}
+   \int \cosh x dx = \sinh x
+\end{dmath*}  
+\begin{dmath*}
+  \int e^{ax}\sin nx dx = \frac{e^{ax}\(a \sin nx - n \cos nx \) }{a^2+n^2 }
+\end{dmath*}  
+\begin{dmath*}  
+   \int e^{ax}\cos nx dx = \frac{e^{ax}\(a \cos nx + n \sin nx \) }{a^2+n^2 }
+\end{dmath*}  
 
 
 \end{document}
