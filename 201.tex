@@ -61,9 +61,6 @@ by Malcolm Roberts and Samantha Marion
 \noindent
 This (unofficial) manual was prepared for \emph{Graduates at Alberta
   Mathematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion.
-Later additions were made by Matthew Emmett and Remkes Kooistra, with
-funding provided by the Department of Mathematical and Statistical
-Sciences at the University of Alberta.
 \vspace{0.5in}
 
 \noindent
@@ -187,8 +184,10 @@ Thus,
 \begin{dmath*}[compact]
   \(C-1\)^2 =1/2
   \quad \implies \quad
-  C=3/2
-  \quad \implies \quad
+  C=3/2,
+\end{dmath*}
+so the solution is
+\begin{dmath*}
   y(x) = \sqrt{3 - 2\cos(x)}.
 \end{dmath*}
 
@@ -360,7 +359,7 @@ then notice that
 \end{dmath*}
 So if we multiply equation \eqref{linear} by $\mu$, we get
 \begin{dmath*}
-  \boxed{  \dd{}{x}\(\mu y \) = \mu Q},
+  \dd{}{x}\(\mu y \) = \mu Q,
 \end{dmath*}
 which we can now solve by taking the integral of both sides with respect to
 $x$. Doing this, we get
@@ -487,7 +486,7 @@ so the solution is correct. \qed
 \subsubsection{Bernoulli Equations}
 Bernoulli equations are differential equations of the form
 \begin{dmath*}
-  \dd{y}{x} + P(x) y = Q(x)y^n
+  \boxed{  \dd{y}{x} + P(x) y = Q(x)y^n}
 \end{dmath*}
 where $n$ can be an integer or a rational number. Note that if
 $n=0$ or $n=1$, then this is just a linear equation.
@@ -559,7 +558,11 @@ in the flow chart below, or exact.
 \vspace{0.5in}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/firstorderchart}
+  \ifthenelse{\value{small}=0}{
+    \includegraphics{figures/firstorderchart}
+  }{
+    \includegraphics[width=\textwidth]{figures/firstorderchart}
+  }
   \caption{Flow chart for solving first-order DEs}
   \label{fig:first_order_flow_shar}
 \end{figure}
@@ -939,21 +942,30 @@ Thus, $\alpha=1$ and $\beta =-1$, so the solution is
 \newpage
 \subsection{Flow chart for $2^{\text{nd}}$-order linear homogeneous DEs}
 
-Second-order linear differential equations with real-valued
-coefficients will produce two (possibly equal) real roots or a pair of
-complex roots.  In this case, you will never encounter repeated
-complex roots, and you can use the following flow-chart to solve these
-types of equations:
+\ifthenelse{\value{small}=0}{ 
+  Second-order linear differential equations with real-valued
+  coefficients will produce two (possibly equal) real roots or a pair
+  of complex roots.  In this case, you will never encounter repeated
+  complex roots, and you can use the following flow-chart to solve
+  these types of equations:
 
-%FIXME: refer to this somewhere
-\vspace{0.5in}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\textwidth]{figures/linhomflow}
-  \caption{Flow chart for solving second-order homogeneous DEs}
-  \label{fig:linhomflow}
-\end{figure}
-
+  %FIXME: refer to this somewhere
+  \vspace{0.5in}
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/linhomflow}
+    \caption{Flow chart for solving second-order homogeneous DEs}
+    \label{fig:linhomflow}
+  \end{figure}
+}{ %smaller formatting:
+  \vspace{0.5in}
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/linhomflow}
+    \caption{Flow chart for solving second-order homogeneous DEs}
+    \label{fig:linhomflow}
+  \end{figure}
+}
 
 
 \section{Problems}
@@ -1074,6 +1086,7 @@ $$
 \end{tabular}
 $$
 }{
+  % small-format
 \begin{center}
   $f(t) \rightarrow y_p$:\\
   \vspace{0.3cm}
@@ -1411,15 +1424,23 @@ get
 \end{dmath*}
 so we got the correct $y_p$. \qed
 
-\newpage
-\subsection{Flow chart for $2^{\text{nd}}$-order linear nonhomogeneous DEs}
+\newpage 
+\ifthenelse{\value{small}=0}{
+  \subsection{Flow chart for $2^{\text{nd}}$-order linear nonhomogeneous DEs}
+}{
+ \subsection{Nonhomogeneous flow chart}
+}
 %FIXME: text
 
 %FIXME: refer to this somewhere
 \vspace{0.5in}
-\begin{figure}[h]
+\begin{figure}[!h]
   \centering
-  \includegraphics[width=\textwidth]{figures/linhetflow}
+  \ifthenelse{\value{small}=0}{
+    \includegraphics[width=\textwidth]{figures/linhetflow}
+    }{
+    \includegraphics[width=0.8\textwidth]{figures/linhetflow}
+  }
   \caption{Flow chart for solving second-order non-homogeneous DEs}
   \label{fig:linhetflow}
 \end{figure}
@@ -1930,12 +1951,10 @@ This technique can be extended to the full harmonic oscillator,
 \end{dmath*}
 which then has solution
 \begin{dmath*}[compact]
-  \boxed{
-    y  
-    %=\Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \)
-    =g(t)*\Laplace^{-1}\(\frac{1}{s^2+bs+c} \)
-    + \Laplace^{-1}\(\frac{sc_0 +b c_0+ c_1 }{s^2+bs+c} \).
-  }
+  y  
+  %=\Laplace^{-1}\(\frac{G + sc_0 + c_1 +b c_0}{s^2+bs+c} \)
+  =g(t)*\Laplace^{-1}\(\frac{1}{s^2+bs+c} \)
+  + \Laplace^{-1}\(\frac{sc_0 +b c_0+ c_1 }{s^2+bs+c} \).
 \end{dmath*}
 
 
@@ -2659,16 +2678,15 @@ conditions.
   which yields $a_2=-\half$.
 
   If we have $n$ even, then $n=2p$, and
-  \begin{dmath*}[compact]
+  \begin{dmath*}
     a_{2p} 
     = -\frac{a_{2p-2}}{2p(2p-1)} 
     = \frac{a_{2p-4}}{2p(2p-1)(2p-3)(2p-4)}
-    = \dots
     = \frac{(-1)^p a_0}{(2p)!} =\frac{(-1)^p}{(2p)!}
   \end{dmath*}
   It's easy to see that $a_3=0$, and, in fact, $a_n=0$ if $n$ is odd. Since
   we now know the values for all the $a_n$, we can write the solution:
-  \begin{dmath*}[compact]
+  \begin{dmath*}
     y(t) = \sum_{n=0}^\infty t^n
     \left\{\begin{array}{ll}
     \frac{(-1)^{n/2}}{n!} & \mbox{if $n$ is even};\\
@@ -2952,13 +2970,17 @@ problem by modifying the series expansion. The easiest case is when
 the singular point is a regular singular point, for which we use
 \emph{the method of Froebenius}.
 
-The point $t=0$ is a \emph{singular point} if either
-$\lim_{t \rightarrow 0}p(t)=\infty$ or  $lim_{t \rightarrow 0}q(t)=\infty$.
+\begin{definition}\emph{Singular points.}
+  The point $t=0$ is a \emph{singular point} if either $\lim_{t
+    \rightarrow 0}p(t)=\infty$ or $\lim_{t \rightarrow 0}q(t)=\infty$.
+\end{definition}
 
-The point $t=0$ is a \emph{regular singular point} of \eqref{singode} if
-the two limits $\lim_{t\rightarrow 0} t p(t) =p_0$
-and $\lim_{t\rightarrow 0} t^2 q(t) =q_0$
-exist and are finite. 
+\begin{definition}\emph{Regular singular points.}
+  The point $t=0$ is a \emph{regular singular point} of
+  \eqref{singode} if the two limits $\lim_{t\rightarrow 0} t p(t)
+  =p_0$ and $\lim_{t\rightarrow 0} t^2 q(t) =q_0$ exist and are
+  finite.
+\end{definition}
 
 Series solutions at regular singular points have one solution of the form
 \begin{dmath*}
@@ -2986,35 +3008,15 @@ solutions, $r=r_1,r_2$.
 Second-order differential equations always have two independent
 solutions.  For regular singular points, there are three cases which
 determine the form of $y_2$:
-\begin{center}
-  \begin{tabular}{l |p{0.28\textwidth} | p{0.28\textwidth} | p{0.3\textwidth} |}
-    \hline
-    &
-    $r_1\neq r_2$, and
-    &
-    $r_1=r_2$
-    &
-    $r_1\neq r_2$, and
-    \\
-    &
-    $r_1-r_2$ is not an integer
-    &
-    &
-    $r_1-r_2$ is an integer
-    \\
-    \hline
-    $y_2$
-    &
-    $\displaystyle \sum_{n=0}^\infty b_n t^{n+r_2}$
-    & 
-    $\displaystyle \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}$
-    &
-    $\displaystyle C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_2}$
-    \\
-    \hline
-  \end{tabular}
-\end{center}
-where $C$ is a constant in $\mathbb{C}$.
+\begin{enumerate}
+  \item{If $r_1\neq r_2$, and $r_1-r_2$ is \emph{not} an integer}: \\
+    then $\displaystyle y_2=\sum_{n=0}^\infty b_n t^{n+r_2}$.
+  \item{If $r_1 = r_2$}: \\
+    then $\displaystyle y_2 = \ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_1}$.
+  \item{If $r_1\neq r_2$, and $r_1-r_2$ \emph{is} an integer}: \\
+    then $\displaystyle y_2=C\ln(t) y_1(t) + \sum_{n=0}^\infty b_n t^{n+r_2}$,
+    for some $C\in\mathbb{C}$.
+\end{enumerate}
 Once one has determined $r_1$ and $r_2$, the constants $a_n$ and $b_n$ can
 be determined by matching powers as per the previous section.  We're often
 only interested in determining $y_1$.
@@ -3196,7 +3198,7 @@ Let $u(x,t)$ be the temperature of a one-dimensional rod with thermal
 conductivity $k$. The equation that describes the evolution of $y$ is
 called the heat equation:
 \begin{dmath*}
-  \pp{u}{t} =  k\pptwo{u}{x}.
+  \boxed{  \pp{u}{t} =  k\pptwo{u}{x}. }
 \end{dmath*}
 This is an important example of a partial differential equation (PDE),
 in which the derivatives with respect to one variable are related to
@@ -3228,12 +3230,12 @@ Consider functions that are periodic with period $2T$.  If we set $X_n
 =\cos(n \pi x/T)$, we have the \emph{Fourier cosine series} for
 $f(x)$,
 \begin{dmath*}
-  \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\(\frac{n \pi x}{T}\)
+  \boxed{\frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\(\frac{n \pi x}{T}\)}
 \end{dmath*}
 (note the annoying $1/2$ on the first term). Setting $X_n=\sin(n \pi x/T)$,
 we get the \emph{Fourier sine series} for $f(x)$,
 \begin{dmath*}
-  \sum_{n=1}^\infty b_n \sin\(\frac{n \pi x}{T}\)
+  \boxed{\sum_{n=1}^\infty b_n \sin\(\frac{n \pi x}{T}\).}
 \end{dmath*}
 The coefficients $a_n$ and $b_n$ are determined by integration, with
 \begin{dmath}
@@ -3333,7 +3335,11 @@ function.
   figure~\ref{fourierx}.
   \begin{figure}[htbp]
     \begin{center}
-      \includegraphics[width=\textwidth]{figures/fourierx}
+      \ifthenelse{\value{small}=0}{
+        \includegraphics{figures/fourierx}
+      }{
+        \includegraphics[width=\textwidth]{figures/fourierx}
+      }
       %FIXME: is this the correct width for the normal figure?
       \caption{Fourier series approximations to $f(x)=x$.}
       \label{fourierx}
@@ -3526,7 +3532,11 @@ The solution to the heat equation is then
  This result is shown for various times in figure \ref{heat1} for $\b=1$.
   \begin{figure}[htbp]
     \begin{center}
-      \includegraphics[width=\textwidth]{figures/heat1}
+      \ifthenelse{\value{small}=0}{
+        \includegraphics{figures/heat1}
+      }{
+        \includegraphics[width=\textwidth]{figures/heat1}
+      }
       %FIXME: is this figure too wide for letter-size pages?
       \caption{The temperature at different times with initial conditions
         given in \eqref{heat1ic}. Notice that the $\sin(5x)$ term, which
@@ -3699,14 +3709,22 @@ matches both the initial and boundary conditions.
 
 
 \newpage
-\subsection{Flow chart for solving the heat equation}
+\ifthenelse{\value{small}=1}{
+  \subsection{Flow chart for the heat eqn.}
+}{
+  \subsection{Flow chart for solving the heat equation}
+}
 %FIXME: text
 
 %FIXME: refer to this somewhere
 \vspace{0.5in}
-\begin{figure}[h]
+\begin{figure}[!h]
   \centering
+\ifthenelse{\value{small}=1}{
+  \includegraphics[width=0.9\textwidth]{figures/heatsepflow}
+}{
   \includegraphics[width=\textwidth]{figures/heatsepflow}
+}
   \caption{Flow chart for solving the heat equation.}
   \label{fig:heatsepflow}
 \end{figure}
@@ -3871,7 +3889,61 @@ matches both the initial and boundary conditions.
 \chapter{Tables}
 \newpage
 
+
+
 \section{Table of Taylor Series}
+
+\ifthenelse{\value{small}=0}{
+
+$$
+\begin{tabular}{ l |  l }
+  $f(t)$ & $\Laplace(f) = F(s)$  \\
+  \hline
+  \hline
+  \multirow{2}{*}{$ f'(t)$}
+  & \multirow{2}{*}{$sF(s) -f(0)$} \\ \\ \hline
+  \multirow{2}{*}{$f''(t)$}
+  & \multirow{2}{*}{$s^2F(s) -sf(0) - f'(0)$} \\ \\ \hline
+  \multirow{2}{*}{$ f^{(n)}(t)$}
+  & \multirow{2}{*}{$ s^nF(s) -s^{n-1}f(0)-\dots - f^{(n-1)}(0)$}\\ \\ \hline
+%  \multirow{2}{*}{$\displaystyle t$}                                           
+%  & \multirow{2}{*}{$\displaystyle\frac{1}{s^2}$} \\ \\ \hline                 
+  \multirow{2}{*}{$\displaystyle t^n$}
+  & \multirow{2}{*}{$\displaystyle\frac{n!}{s^{n+1}}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle e^{\a t}$ }
+  & \multirow{2}{*}{$\displaystyle\frac{1}{s-\a} $} \\ \\ \hline
+  \multirow{2}{*}{$e^{\a t}f(t) $}
+  & \multirow{2}{*}{$ F(s-\a) $} \\  \\ \hline
+  \multirow{2}{*}{$\displaystyle f(ct) $ }
+  & \multirow{2}{*}{$\displaystyle \frac{1}{c}F\(\frac{s}{c}\) $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \cos(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 + \b^2} $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \sin(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \cosh(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 - \b^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle \sinh(\b t)$ }
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 - \b^2} $} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle e^{\a t}\cos(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{s-\a}{(s-\a)^2 + \b^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle e^{\a t}\sin(\b t)$}
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{(s-\a)^2 + \b^2}$} \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle u_c(t)$, $c > 0$}
+  & \multirow{2}{*}{$\displaystyle {e^{-cs}}/{s}$} \\ \\ \hline
+  \multirow{2}{*}{$u_c(t)f(t-c)$, $c > 0$}
+  & \multirow{2}{*}{$e^{-cs}F(s)$} \\  \\ \hline
+  \multirow{2}{*}{$\delta(t-c)$, $c > 0$}
+  & \multirow{2}{*}{$e^{-cs}$} \\  \\ \hline
+  \multirow{2}{*}{$\displaystyle \int_0^t f(t-\t)g(\t) \,d\t \doteq f*g$}
+  & \multirow{2}{*}{$\displaystyle F(s)G(s)$} \\ \\ \hline
+  \multirow{3}{*}{$\displaystyle f(t)$ with $\displaystyle f(t+T)=f(t)$}
+  & \multirow{3}{*}{$\displaystyle \frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}$}
+  \\ \\ \\ \hline
+  \multirow{2}{*}{$\displaystyle t^n f(t)$}
+  & \multirow{2}{*}{$\displaystyle (-1)^n \frac{d^n}{ds^n} F(s)$} \\ \\ \hline
+\end{tabular}\\
+$$
+}{ % the table doesn't work very well here; just list the Taylor series.
 \begin{dmath*}
   f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
   + \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
@@ -3903,7 +3975,7 @@ matches both the initial and boundary conditions.
 \begin{dmath*}
   \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
 \end{dmath*}
-
+}
 \newpage
 \section{Table of Laplace Transforms}
 
@@ -3933,8 +4005,8 @@ $$
   \multirow{2}{*}{$\displaystyle \cos(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 + \b^2} $} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle \sin(\b t)$}
-  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\ \hline
-\ifthenelse{\value{small}=1}{
+  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\  \hline
+\ifthenelse{\value{small}=1}{ % end table here for small page-size 
 \end{tabular} 
 $$
 
@@ -3943,7 +4015,7 @@ $$
   $f(t)$ & $\Laplace(f) = F(s)$  \\
   \hline
   \hline 
-  \hline }{}
+}{}
   \multirow{2}{*}{$\displaystyle \cosh(\b t)$}
   & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 - \b^2}$} \\ \\ \hline
   \multirow{2}{*}{$\displaystyle \sinh(\b t)$ }
