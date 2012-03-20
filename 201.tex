@@ -3995,57 +3995,6 @@ matches both the initial and boundary conditions.
 
 \section{Table of Taylor Series}
 
-\ifthenelse{\value{small}=0}{
-
-$$
-\begin{tabular}{ l |  l }
-  $f(t)$ & $\Laplace(f) = F(s)$  \\
-  \hline
-  \hline
-  \multirow{2}{*}{$ f'(t)$}
-  & \multirow{2}{*}{$sF(s) -f(0)$} \\ \\ \hline
-  \multirow{2}{*}{$f''(t)$}
-  & \multirow{2}{*}{$s^2F(s) -sf(0) - f'(0)$} \\ \\ \hline
-  \multirow{2}{*}{$ f^{(n)}(t)$}
-  & \multirow{2}{*}{$ s^nF(s) -s^{n-1}f(0)-\dots - f^{(n-1)}(0)$}\\ \\ \hline
-%  \multirow{2}{*}{$\displaystyle t$}                                           
-%  & \multirow{2}{*}{$\displaystyle\frac{1}{s^2}$} \\ \\ \hline                 
-  \multirow{2}{*}{$\displaystyle t^n$}
-  & \multirow{2}{*}{$\displaystyle\frac{n!}{s^{n+1}}$} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle e^{\a t}$ }
-  & \multirow{2}{*}{$\displaystyle\frac{1}{s-\a} $} \\ \\ \hline
-  \multirow{2}{*}{$e^{\a t}f(t) $}
-  & \multirow{2}{*}{$ F(s-\a) $} \\  \\ \hline
-  \multirow{2}{*}{$\displaystyle f(ct) $ }
-  & \multirow{2}{*}{$\displaystyle \frac{1}{c}F\(\frac{s}{c}\) $} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle \cos(\b t)$}
-  & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 + \b^2} $} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle \sin(\b t)$}
-  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 + \b^2} $} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle \cosh(\b t)$}
-  & \multirow{2}{*}{$\displaystyle \frac{s}{s^2 - \b^2}$} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle \sinh(\b t)$ }
-  & \multirow{2}{*}{$\displaystyle \frac{\b}{s^2 - \b^2} $} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle e^{\a t}\cos(\b t)$}
-  & \multirow{2}{*}{$\displaystyle \frac{s-\a}{(s-\a)^2 + \b^2}$} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle e^{\a t}\sin(\b t)$}
-  & \multirow{2}{*}{$\displaystyle \frac{\b}{(s-\a)^2 + \b^2}$} \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle u_c(t)$, $c > 0$}
-  & \multirow{2}{*}{$\displaystyle {e^{-cs}}/{s}$} \\ \\ \hline
-  \multirow{2}{*}{$u_c(t)f(t-c)$, $c > 0$}
-  & \multirow{2}{*}{$e^{-cs}F(s)$} \\  \\ \hline
-  \multirow{2}{*}{$\delta(t-c)$, $c > 0$}
-  & \multirow{2}{*}{$e^{-cs}$} \\  \\ \hline
-  \multirow{2}{*}{$\displaystyle \int_0^t f(t-\t)g(\t) \,d\t \doteq f*g$}
-  & \multirow{2}{*}{$\displaystyle F(s)G(s)$} \\ \\ \hline
-  \multirow{3}{*}{$\displaystyle f(t)$ with $\displaystyle f(t+T)=f(t)$}
-  & \multirow{3}{*}{$\displaystyle \frac{\int_0^Tf(t) e^{-st}dt}{1-e^{-sT}}$}
-  \\ \\ \\ \hline
-  \multirow{2}{*}{$\displaystyle t^n f(t)$}
-  & \multirow{2}{*}{$\displaystyle (-1)^n \frac{d^n}{ds^n} F(s)$} \\ \\ \hline
-\end{tabular}\\
-$$
-}{ % the table doesn't work very well here; just list the Taylor series.
 \begin{dmath*}
   f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \dots
   + \frac{f^{(n)}(a)}{n!}(x-a)^n + \dots
@@ -4077,7 +4026,7 @@ $$
 \begin{dmath*}
   \ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}
 \end{dmath*}
-}
+
 \newpage
 \section{Table of Laplace Transforms}
 
