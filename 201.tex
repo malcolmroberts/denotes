@@ -206,7 +206,7 @@ Let us now solve for $y$:
 \begin{dmath*}
   y(x) = \pm \sqrt{2 C -2 \cos(x)}.
 \end{dmath*}
-Notice that we have two different solutions a positive one and a negative on.
+Notice that we have two different solutions a positive one and a negative one.
  We can use the initial condition $y(0)=1$ to eliminate one. Since
 \begin{dmath*}
   y(0) = \pm  \sqrt{2 C - 2 \cos(0) } = \pm \sqrt{2C-2} =1,
@@ -443,12 +443,12 @@ $\int u \, dv = uv - \int v\,  du$. We choose $u=x$ and $dv = e^x \, dx$, so
 $du = dx$, and $v=e^x$. Thus,
 \begin{dmath*}
   \int x e^x \,dx 
-  = x e^x + \int e^x \,dx 
-  = x e^x + e^x.
+  = x e^x - \int e^x \,dx 
+  = x e^x - e^x.
 \end{dmath*}
 Putting this into equation~\eqref{linearexx} yields
 \begin{dmath*}
-  y = 2 e^x \(1 + \frac{1}{x}\) + \frac{C}{x}. \qed
+  y = 2 e^x \(1 - \frac{1}{x}\) + \frac{C}{x}. \qed
 \end{dmath*}
 If we had been provided with initial conditions, we would now use them
 to determine the value of $C$.
@@ -721,7 +721,28 @@ Solve the differential equation
 \begin{dmath*}
   \dd{y}{x} = \frac{y}{x} + x^2y^2.
 \end{dmath*}
-\hidesolution{TODO: write solution. Bernoulli equation.}
+    \hidesolution{
+      This is a Bernoulli equation with $n=2$, so set $v=y^{1-n}=y^{-1}$. Then,
+      \begin{dmath*}
+      \dd{y}{x} = \frac{-1}{x^2}\dd{v}{x}.
+      \end{dmath*}
+      Then,
+      \begin{dmath*}[compact]
+      \frac{-1}{v^2}v' - \frac{1}{xv} = \frac{x^2}{v^2}
+      \implies
+      v' = \frac{v}{x} - x^2
+      \end{dmath*}
+      Now, let $w=v/x$, which implies that
+      \begin{dmath*}
+        w + x \dd{w}{x} = w -x^2 \implies \dd{w}{x} = -x^2
+      \end{dmath*}
+      Thus, $w = - \half x^2 + C$, so
+      \begin{dmath*}[compact]
+        w=\frac{v}{x} 
+        = \frac{1}{xy} \implies \frac{1}{y} = \frac{-x^3}{2} + Cx
+        \implies y = \frac{1}{-x^3/2 + Cx}.
+      \end{dmath*}
+    }
 
 \item
   Equations of the form $\dd{y}{x} = f(ax+by)$ may be transformed into a
@@ -772,36 +793,6 @@ Solve the differential equation
     \(2y + 2\) dx + \(x +y+2\) dy=0
   \end{dmath*}
   using this technique.
-
-
-
-  \item
-    Solve the following differential equation:
-    \begin{dmath*}
-    \dd{y}{x} = \frac{y}{x} + x^2 y^2
-    \end{dmath*}
-    \hidesolution{
-      This is a Bernoulli equation with $n=2$, so set $v=y^{1-n}=y^{-1}$. Then,
-      \begin{dmath*}
-      \dd{y}{x} = \frac{-1}{x^2}\dd{v}{x}.
-      \end{dmath*}
-      Then,
-      \begin{dmath*}[compact]
-      \frac{-1}{v^2}v' - \frac{1}{xv} = \frac{x^2}{v^2}
-      \implies
-      v' = \frac{v}{x} - x^2
-      \end{dmath*}
-      Now, let $w=v/x$, which implies that
-      \begin{dmath*}
-        w + x \dd{w}{x} = w -x^2 \implies \dd{w}{x} = -x^2
-      \end{dmath*}
-      Thus, $w = - \half x^2 + C$, so
-      \begin{dmath*}[compact]
-        w=\frac{v}{x} 
-        = \frac{1}{xy} \implies \frac{1}{y} = \frac{-x^3}{2} + Cx
-        \implies y = \frac{1}{-x^3/2 + Cx}.
-      \end{dmath*}
-    }
 
 \end{enumerate}
 
@@ -1530,7 +1521,7 @@ so we got the correct $y_p$. \qed
 \item Use the method of variation of parameters to find the general solution of
   % Mazowita's question. Solution is tex'd.
   \begin{dmath*}
-  y'' - 2 y'' + y = t^{-1} e^t.
+  y'' - 2 y' + y = t^{-1} e^t.
   \end{dmath*}
 
 \item Use the method of variation of parameters to find the general solution of
@@ -3173,7 +3164,7 @@ only interested in determining $y_1$.
   We can simplify this a little by setting $a_0=1/(2^\a\G(\a+1))$. Then we would
   get the standard form of Bessel's function of the first kind of order $\a$,
   \begin{dmath*}
-    J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1-\a+n)}
+    J_\alpha(t) = \sum_{n=0}^\infty \frac{(-1)^n}{n!\G(1+\a+n)}
     \(\frac{t}{2}\)^{2n-\a}.
   \end{dmath*}
   Here $\G(x)$ is called the Gamma function and it is an extension of the
@@ -3454,7 +3445,7 @@ function.
   \item
     What is the Fourier series for $ f(x) = \d(x-1)$, $x \in (-\pi,\pi)$?
   \item
-    What is the Fourier series for $ f(x) = 2 u_0(t)-1 $, $x \in (-\pi,\pi)$?
+    What is the Fourier series for $ f(x) = 2 u_0(x)-1 $, $x \in (-\pi,\pi)$?
 
   \item What is the Fourier series in $x$ for $f(x,t)$, $x \in (-\pi,\pi)$, if
     \begin{dmath*}[compact]
@@ -3599,7 +3590,7 @@ boundary conditions given above, is
 \boxed{
     u(x,t)=\frac{2}{\pi}
     \sum_{n=1}^\infty \[\int_0^\pi f(x)\sin(nx)\,dx\]
-    e^{-kn^2t}
+    e^{-\beta{}n^2t}
     \sin(nx) 
   .}
 \end{dmath*}
@@ -3614,16 +3605,16 @@ boundary conditions given above, is
   \begin{dmath*}
     \pp{u}{t} = \beta\pptwo{u}{x},
   \end{dmath*}
-  find $y(x,t)$ for $x\in(0,\pi)$, $t>0$.
+  find $u(x,t)$ for $x\in(0,\pi)$, $t>0$.
   }\\
 {
   The boundary conditions match those given in equation~\eqref{homdibc}, so
-  the above analysis shows that we can express $y$ as a linear combination
+  the above analysis shows that we can express $u$ as a linear combination
   of $\{\sin(nx),n=1,2,\dots\}$. That is,
   \begin{dmath*}
     u(x,t)=\sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
   \end{dmath*}
-  The initial conditions are that $y(x,0)=2\sin(x)+\sin(5x)$, so $T_1(0)=2$,
+  The initial conditions are that $u(x,0)=2\sin(x)+\sin(5x)$, so $T_1(0)=2$,
   $T_5(0)=1$, and all others are zero. We can then write the solution as
   \begin{dmath*}
     u(x,t) = 2 e^{-\b t} \sin(x) + e^{-25 \b t} \sin(5x).
@@ -3697,7 +3688,7 @@ matches both the initial and boundary conditions.
   \begin{dmath*}
     u(x,t) = 1 + x + \sum_{n=1}^\infty T_n(0) e^{-\b n^2 t} \sin(nx).
   \end{dmath*}
-  And in order to satisfy $y(x,0)=1+x+x^2$, we have
+  And in order to satisfy $u(x,0)=1+x+x^2$, we have
   \begin{dmath*}
     x^2 = \sum_{n=1}^\infty T_n(0) \sin(nx).
   \end{dmath*}
@@ -3705,18 +3696,17 @@ matches both the initial and boundary conditions.
   \begin{dmath*}
     T_n(0) 
     = \frac{2}{\pi} \int_0^\pi x^2 \sin(nx) \, dx
-    = \frac{2}{\pi}\[\left.x^2 \frac{-\cos(nx)}{n} \right|_0^\pi
-    + \frac{2}{n}\int_0^\pi x \cos(nx)dx\]
-    = \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)+2(\left.\frac{x \sin(nx)}{n}
-    \right|_0^\pi
-    - \frac{1}{n}\int_0^\pi\sin(nx)dx)  \]
-    = \frac{-2\pi}{n}\cos(n\pi)-\frac{4}{n^3\pi} \left.-\cos(nx) \right|_0^\pi
-    = \frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}
+    = \frac{2}{\pi}\(\left.x^2 \frac{-\cos(nx)}{n} \right|_0^\pi
+    + \frac{2}{n}\int_0^\pi x \cos(nx)dx\)
+    = \frac{2}{n\pi}\[ -\pi^2\cos(n\pi)
+    +\frac{2}{n}\(\left.x \sin(nx)\right|_0^\pi- \int_0^\pi\sin(nx)dx\)  \]
+    = \frac{-2\pi}{n}\cos(n\pi)-\frac{4}{n^3\pi} \left[-\cos(nx) \right]_0^\pi
+    = \frac{-2\pi}{n}(-1)^n + 4\frac{(-1)^n-1}{n^3\pi}
   \end{dmath*}
   The solution is therefore
   \begin{dmath*}
     u(x,t) = 1+x+
-    \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + \frac{4(\(-1)^n-1\)}{n^3\pi}\]
+    \sum_{n=1}^\infty \[\frac{-2\pi}{n}(-1)^n + 4\frac{(-1)^n-1}{n^3\pi}\]
     e^{-\b n^2 t}\sin(nx).
   \end{dmath*}
 % Useless figure
