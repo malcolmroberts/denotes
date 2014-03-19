@@ -1,0 +1,129 @@
+\textheight 8.5in
+\textwidth 6in
+
+\topmargin 0in
+\oddsidemargin 0in
+\evensidemargin 0in
+
+\usepackage{amsthm}
+
+\def\th@plain{%
+  \thm@headpunct{\rm :}
+  \itshape % body font
+  \hangindent=12pt
+}
+
+\def\th@definition{%
+  \thm@headpunct{\rm :}
+  \normalfont % body font
+  \hangindent=12pt
+  \parskip=5pt
+}
+
+\def\th@example{%
+  \thm@headpunct{}
+  \normalfont % body font
+  \hangindent=12pt
+}
+
+\def\th@remark{%
+  \thm@headfont{\itshape}%
+  \thm@headpunct{\rm :}
+  \normalfont % body font
+  \thm@preskip\topsep \divide\thm@preskip\tw@
+  \thm@postskip\thm@preskip
+  \hangindent=12pt
+}
+
+\let\ocases\cases
+\let\matrixo\matrix
+\let\dotover\dot
+\usepackage{amsmath}
+\usepackage{asymptote}
+\usepackage{hyperref}
+\hypersetup{pdfborder=0 0 0}
+
+\def\It#1{{\it #1}}
+\def\abs#1{\left|#1\right|}
+
+\def\fr#1#2{\frac{#1}{#2}}
+
+\usepackage{mathdef}
+
+\let\cases\ocases
+\let\matrix\matrixo
+
+\let\orightarrow\rightarrow
+\let\omapsto\mapsto
+\usepackage{breqn}
+\let\rightarrow\orightarrow
+\def\longrightarrow{\relbar\joinrel\joinrel\joinrel\orightarrow}
+\let\mapsto\omapsto
+\usepackage{hyperbreqn}
+
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+\def\Q{{\mathbb Q}}
+\def\disc{{\mathbb D}}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\let\divsign\div
+\def\div{\grad\dot}
+
+\ifx\chapter\undefined
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[section]
+%\newtheorem{case}{Case}
+\else
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[chapter]
+\fi
+
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{example}
+\newtheorem*{example}{$\bullet$}
+
+\def\eq@resume@parshape{\leavevmode\hskip-\parindent\hskip\hangindent}
+
+\def\be{\begin{dmath*}}
+\def\ee{\end{dmath*}}
+\def\bel{\begin{dmath}}
+\def\eel{\end{dmath}}
+\def\bec{\begin{dmath*}[compact]}
+\let\eec\ee
+\def\belc{\begin{equation}}
+\def\eelc{\end{equation}}
+
+\def\bg{\begin{dgroup*}}
+\def\eg{\end{dgroup*}}
+\def\bgl{\begin{dgroup}}
+\def\egl{\end{dgroup}}
+\def\bs{\begin{dsuspend}}
+\def\es{\end{dsuspend}}
+\def\no{\hiderel}
+
+\def\hyperindex#1{\index{#1}\hypertarget{#1}}
+\def\In#1{\hyperindex{#1}{\It{#1}}}
+\def\Inp#1{\hyperindex{#1}{#1}}
+\def\Inm#1{\It{#1}\index{$#1$}}
+\def\eqindex#1{\eqno\hbox{\It{(\In{#1})}}}
+\def\hlink#1{\hbox{\hyperlink{#1}{#1}}}
+
+\DeclareMathAlphabet{\mathssbf}{OT1}{cmss}{bx}{n}
+\def\matrixfont{\mathssbf}
+\def\Matrixnucl#1#2{\hbox{$#1\matrixfont #2$}}
+\def\Matrix#1{\mathpalette\Matrixnucl{#1}}
+\let\tensor\Matrix
+\let\M\Matrix

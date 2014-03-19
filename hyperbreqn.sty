@@ -1,0 +1,14 @@
+\let\H@dmath\dmath
+\let\H@enddmath\enddmath
+  \def\dmath{%                                                                  
+    \let\refstepcounter\H@refstepcounter
+    \H@dmath
+    \@ifundefined{theHequation}{%                                               
+      \make@stripped@name{\theequation}%                                        
+      \let\theHequation\newname
+    }{}%                                                                        
+    \hyper@makecurrent{equation}%                                               
+    \Hy@raisedlink{\hyper@anchorstart{\@currentHref}}%                          
+    \let\refstepcounter\new@refstepcounter
+  }%                                                                            
+  \def\enddmath{\Hy@raisedlink{\hyper@anchorend}\H@enddmath}%
