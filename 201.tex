@@ -951,12 +951,31 @@ y'(0) &=& -\alpha\sin(0) + \beta\cos(0) =\beta =0.
 The solution to the IVP is then $y(t) = \cos(t)$. \qed
 
 \section{Dealing with repeated roots}
-In the above section, we were lucky, since we had two independent roots.
-Two independent roots gave two independent solutions $y_1$ and $y_2$, which
-we used to solve the two initial values for the problem. When we have
-repeated roots, we still need to make sure that we have two independent
-solutions. How do we get this? Well, just multiply one solution by $t$.
-% TODO: add a footnote as to why this makes sense.
+In the above section, we were lucky, since we had two independent
+roots.  Two independent roots gave two independent solutions $y_1$ and
+$y_2$, which we used to solve the two initial values for the
+problem. When we have repeated roots, we still need to make sure that
+we have two independent solutions. How do we get this? Well, just
+multiply one solution by $t$\footnote{Note that if $y=e^{rt}$ is a
+  solution, with $r$ a double-root.  To simplify matters, let $a=1$.
+  Then,
+  \begin{dmath*}
+    \frac{d^2 y}{dt^2} + b\ddt{y} +c y
+    =
+    \(\ddt{} -r \) \(\ddt{} -r \)y.
+  \end{dmath*}
+  Now, $\(\ddt{}-r\)e^{rt}=0$, so it's easy to see that
+  $\(\ddt{}-r\)\[te^{rt}\]=e^{rt}$. Then,
+  \begin{dmath*}
+    \frac{d^2 \(te^{rt}\)}{dt^2} + b\ddt{\(te^{rt}\)} +c \(te^{rt}\)
+    \no=
+    \(\ddt{} -r \) \(\ddt{} -r \)\(te^{rt}\)
+    \no=
+    \(\ddt{} -r \) e^{rt}
+    \no=0,
+  \end{dmath*}
+  so $te^{rt}$ is indeed another solution. Moreover, it is clear that
+  $e^{rt}$ and  $te^{rt}$ are linearly independent.}.
 
 For example, suppose that we solved the characteristic equation and got
 $r_1=r_2=r$. We still get one solution out of this, namely
