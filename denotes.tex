@@ -5,17 +5,27 @@
 \usepackage{math}
 \usepackage{multirow} 
 \usepackage{ode}
+\usepackage[
+    type={CC},
+    modifier={by-sa},
+    version={4.0},
+]{doclicense}
+
+\usepackage{fancyhdr}
 
 \definecolor{heavyblue}{cmyk}{1,1,0,0.25}
 
+\def\thetitle{Notes for Differential Equations}
+\def\theauthor{Malcolm Roberts and Samantha Marion}
+
 \hypersetup{
-  pdftitle=Lab Notes for Math 201: DEs for Engineers,
+  pdftitle=\thetitle{},
   pdfpagemode=UseOutlines,
   citebordercolor=0 0 1,
   colorlinks=true,
   allcolors=heavyblue,
   breaklinks=true,
-  pdfauthor={Malcolm Roberts and Samantha Marion},
+  pdfauthor={\theauthor{}},
   pdfpagetransition=Dissolve,
   bookmarks=true
 }
@@ -25,155 +35,118 @@
 \newcounter{small}
 \setcounter{small}{0}
 
-
-%\usepackage[pdftitle={Lab Manual for Math 201 DEs for Geers}]{hyperref}
-%\usepackage[driverfallback=hypertex,pdftitle={Lab Manual for Math 201 DEs for Geers},pdfauthor={Malcolm Roberts and Samantha Marion}]{hyperref}
-
 \ifthenelse{\value{small}=1}{
   \usepackage[paperwidth=9.1cm, paperheight=11cm, hmargin={0.17in, 0.17in}, vmargin={0.50in, 0.17in}]{geometry}
-}{}
-%\usepackage[paper size={90mm, 120mm},left=2mm,right=2mm,top=2mm,bottom=2mm,nohead]{geometry}
-%\usepackage[letterpaper,textheight=8.5in,textwidth=6in,dvips]{geometry}
+}{
+  \usepackage{geometry}
+}
+
 
 
 
 \begin{document}
 \sloppy
 
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{1pt}
+\cfoot{
+  \begin{center}
+    Copyright 2009-2015, Graduates at Alberta Mathematics Etc.
+  \end{center}
+  \doclicenseThis{}
+}
 
-
-%%
-%% title page
-%%
-
-\pagestyle{empty}
 \ifthenelse{\value{small}=0}{
   \begin{center}
     \ \vspace{2in}
     
-    \textsf{\Huge Lab Notes:} \\
-    \vspace{0.5in}
-    \textsf{\Huge Differential Equations for Engineers}
-    \vspace{2in}
+    \textsf{\Huge \thetitle{}}
+    \vspace{2cm}
     
-%    \textsf{\Huge Lab notes}
-
     \ifthenelse{\value{showsolutions}=1}{\vspace{0.5in}{\Huge Instructor's Copy}}
-    
-
-    \vspace{2.5in}
-    
-    by Malcolm Roberts and Samantha Marion
-
-    \vspace{0.5in}
-    Last edited \today
+   
+   \vspace{2.cm}
+   
+   {\Large by \theauthor{}}
+     
     \vspace{0.5in}
 }{ % small-format title page:
   \begin{center}
     \ \vspace{0.5cm}
     
-    \textsf{\LARGE Math 201:} \\
-    \vspace{1cm}
-    \textsf{\LARGE Differential Equations for Engineers}
+    \textsf{\LARGE \thetitle{}}
     \vspace{2cm}
     
-    \textsf{\Large an \emph{unofficial} lab manual}
-    \vspace{2cm}
-    
-    by Malcolm Roberts and Samantha Marion
-
-    \vspace{0.2cm}
-    Last edited \today
-    \vspace{0.2cm}
+    by \theauthor{}
 }
 
-
-%  \textsf{\Large by GAME (Graduates at Alberta Mathematics Etc.)}
 \end{center}
-
-%%
-%% disclaimer and copyright page
-%%
-\newpage
-
-\ \vspace{5in}
-
-\noindent
-This (unofficial) manual was prepared for \emph{Graduates at Alberta
-  Mathematics Etc.} (GAME) by Malcolm Roberts and Samantha Marion.
-\vspace{0.5in}
-
-\noindent
-This manual is not officially endorsed by the University of
-Alberta or the Department of Mathematical and Statistical Sciences at
-the University of Alberta.
-\vspace{0.5in}
-
-\noindent
-Copyright 2009, Graduates at Alberta Mathematics Etc.  All rights
-reserved.
-
-%%
-%% the rest of the manual...
-%%
 
 \newpage
 \pagestyle{plain}
 \pagenumbering{arabic}
 
-\section*{Introduction}
+\chapter{Introduction}
 
-Differential equations (abbreviated DEs) are equations involving functions and
-their derivatives. For example,
+Differential equations (abbreviated DEs) are equations involving
+functions and their derivatives. For example,
 \begin{dmath}
   \label{eg1}
-  \dd{y}{x} =y
+  \dd{y}{x} = y
 \end{dmath}
-is a differential equation. In this case, $y$ is a function of the independent
-variable $x$, and we would like to determine $y$. The solution to this
-equation is
+is a differential equation: $y$ is a function of the independent
+variable $x$, and the rate of change of $y$ with respect to $x$ (ie
+$\dd{y}{x}$) is equal to the value of $y$.  We would like to determine
+$y$.
+
+The solution to this equation is
 \begin{dmath*}
   y = Ce^x,
 \end{dmath*}
-with $C$ an arbitrary constant, since 
-\begin{dmath*}\dd{y}{x}=\dd{}{x}Ce^x=Ce^x=y.\end{dmath*} 
-That is, if we
-plug $y=Ce^x$ into equation~\eqref{eg1}, both sides match. If we modify this
-a little bit, say letting $y=Ce^x +x$, then the left hand side doesn't
-match the right:
+with $C$ an arbitrary constant.  We can check that it is a solution:
 \begin{dmath*}
-  \dd{y}{x} = \dd{}{x}(Ce^x +x) 
-  = Ce^x + 1 = y +1 
+  \dd{y}{x}
+  = \dd{}{x}Ce^x
+  = Ce^x
+  = y.
+\end{dmath*} 
+That is, if we plug $y=Ce^x$ into equation~\eqref{eg1}, both sides
+match. If we modify this a little bit, say letting $y=Ce^x +x$, then
+the left hand side doesn't match the right:
+\begin{dmath*}
+  \dd{y}{x}
+  = \dd{}{x}(Ce^x +x) 
+  = Ce^x + 1
+  = y + 1 
   \neq y,
 \end{dmath*}
 so it isn't a solution to equation~\eqref{eg1}.
 
-An initial value problem (abbreviated as IVP) is a differential equation
-combined with one or more initial conditions. For example,
+An initial value problem (abbreviated as IVP) is a differential
+equation combined with one or more initial conditions. For example,
 \begin{dmath*}[compact]
   \dd{y}{x}=y, \qquad y(0)=1
 \end{dmath*}
-is an initial value problem.
-The differential equation is solved by $y=Ce^x$, for any value of $C$. However,
-the only way to satisfy 
+is an initial value problem.  The differential equation is solved by
+$y=Ce^x$, for any value of $C$. However, the only way to satisfy
 \begin{dmath*}
   y(0)=1
 \end{dmath*}
 with the solution $y=Ce^x$ is to set $C=1$. That is, the solution to
-the initial value problem is 
+the initial value problem is
 \begin{dmath*}
   y=e^x,
 \end{dmath*}
 since it satisfies both the differential equation and the initial
 conditions.
 
-Differential equations are extremely useful for modelling complex behaviour in
-most sciences. Unfortunately, we do not know how to solve most
-differential equations analytically, and in practice we often have to
-make approximations when dealing with real systems. However, when we can solve
-DEs analytically, we should, and understanding how to solve simple DEs will
-help to understand the properties of solutions of more complicated problems.
-
+In these brief notes we will describe techniques that can solve a
+small variety of different types of differential equations.  In
+practice, some DEs can be solved analytically, and some can't; when we
+can't solve them analytically, we can sometimes find a numerical
+solution that gives us an answer that we can use.  But the first step
+is always to try and find an exact, analytic solution, and it is these
+techniques which we will demonstrate in these notes.
 
 
 \chapter{Separable and Exact DEs}
@@ -3557,10 +3530,10 @@ the boundary conditions must be satisfied for each $n$. The cases are:
 \begin{enumerate}
   \item $K_n=k_n^2 > 0$. In this case, $X_n(x)= C_1 \cosh(k_n x) +C_2
     \sinh(k_n x)$.  But then, $X_n(0)=0$ implies that $C_1=0$, and
-    $X_n(\pi)=0$ implies that $C_2=0$, so this eigenfunction is zero.
+    $X_n(\pi)=0$ implies that $C_2=0$, so this Eigenfunction is zero.
   \item $K_n = 0$. In this case, we get $X_n(x)=C_1 +C_2 x$. Again,
     the boundary conditions imply that $C_1=C_2=0$, so this
-    eigenfunction is again zero.
+    Eigenfunction is again zero.
   \item $K_n =-k_n^2 < 0$. This gives us periodic behaviour,
     \begin{dmath*}
       X_n(x)=C_1\cos(k_nx) + C_2\sin(k_nx).
@@ -4193,3 +4166,17 @@ $$
 
 
 \end{document}
+
+%%  LocalWords:  DEs ie eg IVP dy dx separableexample dF exactsol xy
+%%  LocalWords:  exactimpl exactC dt linearf dv uv du linearexx IVPs
+%%  LocalWords:  Thinsulate Joe's env Thinsulate's TODO Cx ax cy hom
+%%  LocalWords:  ce ar br Euler's te nd exponentials yp ke nt bt ay
+%%  LocalWords:  undetceg supereg Cramer's voprandom Wronskian th ne
+%%  LocalWords:  varpareg nonhomogeneous sy Bs Ds nT sT nsT Tf lapper
+%%  LocalWords:  se lcccl sY sc bs integrable deltaprop exeq integro
+%%  LocalWords:  integrations tu VoP sX syseg sysY sysX sZ pseries ty
+%%  LocalWords:  tseries LHS serieseg seriesrec Chebyshev FIXME nx mx
+%%  LocalWords:  Froebenius singode indicial Bessel's bessel PDE izx
+%%  LocalWords:  equidimensional Ogg Vorbis PDEs Eigenfunction heatF
+%%  LocalWords:  nicefourier heateq RHS integrand homdibc ic eqn sF
+%%  LocalWords:  diribc Neumann nF ds xdx

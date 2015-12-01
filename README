@@ -1,31 +1,22 @@
-201 lab manual
+Notes for Differential Equations
 ==============
 
-During the 2008-2009 academic year, GAME hired Malcolm Roberts and
-Samantha Marion to create a 201 lab manual.  The version of the manual
-that they produced is stored in the 201.v01 directory.
+These are the LaTeX and Asymptote (asy.sf.net) source files for lab
+notes for the math 201 course (Differential Equations for Engineers)
+at the University of Alberta.  They are released under the Creative
+Commons “Attribution-ShareAlike 4.0 International” license.
 
-During the 2009-2010 academic year, XXX
 
-Selling the thing as an ebook
------------------------------
+The main notes are denotes.tex, available at
+https://github.com/malcolmroberts/denotes .  There are also handouts
+available in the handouts directory in the form of TeX files.
 
-This is being handled by Malcolm Roberts, squidgyhead@gmail.com;
-please contact him for details.  Google Books identifier:
-
-GGKEY:0PCWBDKLXUY
-
-which can be found at the URL
-
-http://books.google.com/books?id=-e6FRsqIfEIC
-
-Updating the ebook is an overly difficult process, which required
-something like 20 emails back-and-forth with Google.  The new file to
-upload needs to be named based on the GGKEY; details are on the Google
-Books website.
 
 Typesetting conventions
 -----------------------
+
+Most of the figures are made with Asymptote (asy.sf.net) and must be
+compiled into PDFs before compiling the latex.
 
 We are using the breqn package to automatically break long equations.
 use 
@@ -45,7 +36,7 @@ For writing multiple equations with, eg, the equals sign aligned vertically
 for both a LHS and a RHS, dmath doesn't seem to work, and align puts things
 on opposite sides of the page.  Use 
   \begin{align} ... \end{align}
-for now, I guess?
+
 
 XXX or FIXME: add descriptions of easyexample, example, solution, solstep,
 enumerate*, etc here.
