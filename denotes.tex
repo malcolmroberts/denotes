@@ -86,6 +86,9 @@
 \pagestyle{plain}
 \pagenumbering{arabic}
 
+\tableofcontents
+\newpage
+
 \chapter{Introduction}
 
 Differential equations (abbreviated DEs) are equations involving
@@ -353,7 +356,6 @@ much point nailing it down to a value until the very last moment.)
 
 
 \chapter{Linear Equations \& Transformations}
-\newpage
 
 \section{Linear Equations}
 
@@ -2093,11 +2095,12 @@ $\Laplace{}\(f(t-c)u_c(t)\)=e^{-cs}F(s)$, so
 
 
 
-\section{The Impulse Function}
-While the step function describes functions which start suddenly (like turning
-on a switch), the delta function, $\d(t)$, is slightly more complicated. It
-describes processes that happen in an instant, like the impact from a hammer.
-It is (loosely) defined as having the following properties:
+\section{The Impulse and delta Functions}
+While the step function describes functions which start suddenly (like
+turning on a switch), the delta function, $\d(t)$, is slightly more
+complicated. It describes processes that happen in an instant, like
+the impact from a hammer.  It is (loosely) defined as having the
+following properties:
 \be
 \boxed{
 \delta(t) = \left\{ \begin{array}{ll}
@@ -3457,8 +3460,7 @@ function.
 \end{enumerate}
 
 
-\chapter{Partial Differential Equations:
-         \\Actually Solving Them}
+\chapter{Partial Differential Equations: Actually Solving Them}
 \ifthenelse{\value{small}=1}{\newpage}
 
 Let us now return to the heat equation,

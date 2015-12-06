@@ -24,7 +24,7 @@ block homeqn=roundrectangle(pack(Label("Solve homogeneous equation"),"",
 
 y-=dy;
 
-block peqn=roundrectangle(pack(Label("Find particular soltion"),"",
+block peqn=roundrectangle(pack(Label("Find particular soltion $y_p$ with"),"",
 			      "$a_2 y_p^{''}+ a_1 y_p^{'} + a_0 y_p =f(t)$"),
 
 			  (0,y));
@@ -55,11 +55,11 @@ block vop1=roundrectangle(pack(Label("Calculate Wronskians"),"",
 
 y-=dy;
 
-
-block undet2=roundrectangle(Label("Is any term in $y_p$ also in $y_h$?"),(-dx,y));
+block undet2=roundrectangle(Label("Is any term in $y_p$ also in $y_h$?"),
+			    (-dx,y));
 pair undet2topright=undet2.topright();
 
-block undet2a=roundrectangle(Label("multiply by $t$"),(0,y));
+block undet2a=roundrectangle(Label("multiply $y_p$ by $t$"),(0,y));
 
 
 block vop2=roundrectangle(Label("$y_p= y_1 \int \frac{-f y_2}{w } \, dt + y_2 \int \frac{f y_1}{w} \, dt$"),(dx,y));
