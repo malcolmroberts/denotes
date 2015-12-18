@@ -1,10 +1,10 @@
 Notes for Differential Equations
 ==============
 
-These are the LaTeX and Asymptote (asy.sf.net) source files for lab
-notes for the math 201 course (Differential Equations for Engineers)
-at the University of Alberta.  They are released under the Creative
-Commons “Attribution-ShareAlike 4.0 International” license.
+These are the LaTeX and Asymptote (asymptote.sf.net) source files for
+lab notes for the math 201 course (Differential Equations for
+Engineers) at the University of Alberta.  They are released under the
+Creative Commons “Attribution-ShareAlike 4.0 International” license.
 
 
 The main notes are denotes.tex, available at
@@ -16,8 +16,8 @@ form of TeX files.
 Typesetting conventions
 -----------------------
 
-Most of the figures are made with Asymptote (asy.sf.net) and must be
-compiled into PDFs before compiling the latex.
+Most of the figures are made with Asymptote and must be compiled into
+PDFs before compiling the latex.
 
 We are using the breqn package to automatically break long equations.
 use 
