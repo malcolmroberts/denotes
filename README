@@ -7,8 +7,14 @@ Engineers) at the University of Alberta.  They are released under the
 Creative Commons “Attribution-ShareAlike 4.0 International” license.
 
 
-The main notes are denotes.tex, available at
-http://malcolmroberts.github.io/publications/denotes.pdf .
+The main notes are denotes.tex, available as a PDF at:
+
+https://github.com/malcolmroberts/denotes/blob/master/pdfs/denotes.pdf
+
+If you have trouble with that link, please try:
+
+https://rawgit.com/malcolmroberts/denotes/master/pdfs/denotes.pdf
+
 There are also handouts available in the handouts directory in the
 form of TeX files.
 
@@ -37,7 +43,3 @@ For writing multiple equations with, eg, the equals sign aligned vertically
 for both a LHS and a RHS, dmath doesn't seem to work, and align puts things
 on opposite sides of the page.  Use 
   \begin{align} ... \end{align}
-
-
-XXX or FIXME: add descriptions of easyexample, example, solution, solstep,
-enumerate*, etc here.
